@@ -45,6 +45,11 @@ a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 p,
 h1,
 h2,
@@ -305,8 +310,10 @@ h3 {
 }
 
 .focus-card,
+.flow-card,
 .timeline-item,
-.publication-list article {
+.publication-list article,
+.figure-gallery figure {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: rgba(255, 250, 243, 0.82);
@@ -339,11 +346,76 @@ h3 {
 }
 
 .focus-card p,
+.flow-card p:not(.meta),
 .timeline-item p:not(.meta),
 .publication-list p:not(.meta) {
   margin-top: 0.75rem;
   color: var(--muted);
   line-height: 1.7;
+}
+
+.workspace-section {
+  background:
+    linear-gradient(180deg, rgba(251, 247, 239, 0.98), rgba(255, 250, 243, 0.96)),
+    radial-gradient(circle at 82% 18%, rgba(244, 215, 204, 0.75), transparent 30%),
+    radial-gradient(circle at 18% 78%, rgba(220, 234, 223, 0.8), transparent 34%);
+}
+
+.workspace-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.flow-card {
+  min-height: 230px;
+  padding: 1.2rem;
+  background: rgba(255, 250, 243, 0.76);
+  box-shadow: 0 16px 42px rgba(30, 42, 49, 0.06);
+}
+
+.flow-card h3 {
+  margin-top: 0.8rem;
+  color: var(--ink);
+  font-size: 1.12rem;
+  line-height: 1.28;
+}
+
+.workspace-note {
+  margin: 1.1rem 0 1.4rem;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid var(--copper);
+  background: rgba(244, 215, 204, 0.35);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.figure-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.figure-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.figure-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  padding: 0.7rem;
+  background: #ffffff;
+}
+
+.figure-gallery figcaption {
+  padding: 0.85rem 0.95rem 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
 .split {
@@ -503,11 +575,14 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .focus-grid {
+  .focus-grid,
+  .workspace-flow,
+  .figure-gallery {
     grid-template-columns: 1fr;
   }
 
-  .focus-card {
+  .focus-card,
+  .flow-card {
     min-height: 0;
   }
 }

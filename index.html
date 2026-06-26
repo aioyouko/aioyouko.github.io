@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Heyang Chen's personal homepage for research, projects, publications, and contact information."
+      content="Heyang Chen's personal homepage for thermoelectric research, materials data workflows, and research software."
     />
     <meta name="theme-color" content="#f8f3ea" />
     <title>Heyang Chen</title>
@@ -25,6 +25,7 @@
       </a>
       <nav class="site-nav" aria-label="Primary navigation" data-nav>
         <a href="#research">Research</a>
+        <a href="#workspace">Workspace</a>
         <a href="#projects">Projects</a>
         <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
@@ -42,11 +43,11 @@
           <p class="eyebrow">Materials science | Thermoelectrics | Data workflows</p>
           <h1 id="hero-title">Heyang Chen</h1>
           <p class="hero-copy">
-            I study transport in complex materials and build tidy, reproducible tools for turning lab data into
-            publication-ready figures.
+            I study thermoelectric transport in complex materials and build reproducible tools that turn measurements,
+            metadata, and reference data into publication-ready analysis.
           </p>
           <div class="hero-actions" aria-label="Primary links">
-            <a class="button primary" href="#research">View Research</a>
+            <a class="button primary" href="#workspace">Explore Workspace</a>
             <a class="button secondary" href="https://github.com/aioyouko">GitHub</a>
           </div>
         </div>
@@ -75,9 +76,78 @@
             </article>
             <article class="focus-card">
               <span class="focus-index">03</span>
-              <h3>Reproducible Analysis</h3>
+              <h3>Research Software</h3>
               <p>Python pipelines for cleaning measurements, comparing samples, and producing consistent figures.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section workspace-section" id="workspace" aria-labelledby="workspace-title">
+        <div class="section-inner">
+          <div class="section-kicker">TE Agent Workspace</div>
+          <div class="section-heading">
+            <h2 id="workspace-title">A local research stack for thermoelectric analysis</h2>
+            <p>
+              My workspace connects raw instrument exports, sample metadata, processed transport-property tables,
+              reference literature, plotting recipes, and assessment scripts into one reproducible command-line flow.
+            </p>
+          </div>
+
+          <div class="workspace-flow" aria-label="Thermoelectric analysis workflow highlights">
+            <article class="flow-card">
+              <p class="meta">01 | Data</p>
+              <h3>Raw-to-processed lab flow</h3>
+              <p>ZEM, LFA, XRD, metadata ledgers, and cleaned sample tables are organized into traceable folders.</p>
+            </article>
+            <article class="flow-card">
+              <p class="meta">02 | Physics</p>
+              <h3>Transport feature extraction</h3>
+              <p>Conductivity, Seebeck coefficient, thermal conductivity, power factor, ZT, and lattice terms are derived consistently.</p>
+            </article>
+            <article class="flow-card">
+              <p class="meta">03 | Modeling</p>
+              <h3>SPB fitting toolkit</h3>
+              <p>Pisarenko, power-factor, conductivity-axis, and zT views help compare measured behavior against transport models.</p>
+            </article>
+            <article class="flow-card">
+              <p class="meta">04 | Figures</p>
+              <h3>Publication-style plotting</h3>
+              <p>Reusable recipes render TE, XRD, flexible CSV/XLSX plots, and demo figures with a consistent visual style.</p>
+            </article>
+            <article class="flow-card">
+              <p class="meta">05 | References</p>
+              <h3>Literature-aware context</h3>
+              <p>Reference PDFs, extracted tables, and processed features can be compared with local experimental results.</p>
+            </article>
+            <article class="flow-card">
+              <p class="meta">06 | Assessment</p>
+              <h3>Evidence-grounded summaries</h3>
+              <p>Deterministic ranking and trend scripts produce JSON, Markdown, and AI-ready prompts for research decisions.</p>
+            </article>
+          </div>
+
+          <div class="workspace-note">
+            <p>Public summary only: raw experiment files, private keys, and unpublished sample details stay out of the homepage.</p>
+          </div>
+
+          <div class="figure-gallery" aria-label="Selected workspace demo figures">
+            <figure>
+              <img src="assets/workspace/pisarenko_fit.png" alt="SPB Pisarenko fit demo figure" />
+              <figcaption>SPB Pisarenko fitting</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/workspace/pf_fit.png" alt="SPB power factor fit demo figure" />
+              <figcaption>Power-factor view</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/workspace/conductivity_zt_fit.png" alt="SPB conductivity-axis ZT demo figure" />
+              <figcaption>Conductivity-axis ZT view</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/workspace/demo_dual_axis.png" alt="Flexible dual-axis thermoelectric plot demo" />
+              <figcaption>Flexible plotting recipe</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -86,30 +156,31 @@
         <div class="section-inner split">
           <div>
             <div class="section-kicker">Projects</div>
-            <h2 id="projects-title">Selected work</h2>
+            <h2 id="projects-title">Selected tools</h2>
           </div>
           <div class="timeline" aria-label="Selected project list">
             <article class="timeline-item">
-              <p class="meta">Lab data</p>
-              <h3>Transport figure toolkit</h3>
+              <p class="meta">Command line</p>
+              <h3>Unified TE launcher</h3>
               <p>
-                A plotting workflow for Seebeck coefficient, electrical conductivity, thermal conductivity, power
-                factor, and ZT comparisons.
+                One `main.py` entry point launches analysis, TE plotting, XRD plotting, flexible recipes, SPB fitting,
+                metadata sync, assessment, and agent workflows.
               </p>
             </article>
             <article class="timeline-item">
-              <p class="meta">Materials</p>
-              <h3>Diamond-like thermoelectrics</h3>
+              <p class="meta">Plotting</p>
+              <h3>Flexible figure recipes</h3>
               <p>
-                Sample tracking and analysis around chalcopyrite-like systems, local distortion, and low lattice
-                thermal conductivity.
+                A CSV/TXT/XLSX plotting layer handles messy column names, multiple files, dual-axis figures,
+                grouped bars, multi-panel views, and normalized export tables.
               </p>
             </article>
             <article class="timeline-item">
-              <p class="meta">Automation</p>
-              <h3>Clean research records</h3>
+              <p class="meta">Decision support</p>
+              <h3>Assessment and recommendation layer</h3>
               <p>
-                Small scripts and templates that keep experiments, figures, and manuscript assets easier to audit.
+                Local scripts combine processed lab features with reference data to rank samples, detect trends,
+                and prepare evidence-grounded research summaries.
               </p>
             </article>
           </div>

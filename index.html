@@ -12,23 +12,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Heyang Chen homepage">
+      <a class="brand" href="#home" aria-label="Heyang Chen homepage" data-view-link="home">
         <span class="brand-mark" aria-hidden="true">HC</span>
         <span>Heyang Chen</span>
       </a>
       <nav class="site-nav" aria-label="Primary navigation" data-nav>
-        <a href="#research">Research</a>
-        <a href="#workspace">Workspace</a>
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" data-view-link="home">Home</a>
+        <a href="#current-work" data-view-link="current-work">Current Work</a>
+        <a href="#te-materials" data-view-link="te-materials">TE Materials</a>
+        <a href="#mechanics" data-view-link="mechanics">Mechanics</a>
+        <a href="#about" data-view-link="about">About</a>
+        <a href="#contact" data-view-link="contact">Contact</a>
       </nav>
       <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
         <span></span>
@@ -37,191 +38,1112 @@
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <canvas id="lattice-canvas" aria-hidden="true"></canvas>
-        <div class="hero-inner">
-          <p class="eyebrow">Materials science | Thermoelectrics | Data workflows</p>
-          <h1 id="hero-title">Heyang Chen</h1>
-          <p class="hero-copy">
-            I study thermoelectric transport in complex materials and build reproducible tools that turn measurements,
-            metadata, and reference data into publication-ready analysis.
-          </p>
-          <div class="hero-actions" aria-label="Primary links">
-            <a class="button primary" href="#workspace">Explore Workspace</a>
-            <a class="button secondary" href="https://github.com/aioyouko">GitHub</a>
+      <section class="page-view home-view is-active" id="home" data-view="home" aria-labelledby="hero-title">
+        <section class="hero">
+          <canvas id="lattice-canvas" aria-hidden="true"></canvas>
+          <div class="hero-grid">
+            <div class="hero-inner">
+              <p class="eyebrow">Materials science | Thermoelectrics | Research software</p>
+              <img
+                class="hero-mobile-portrait"
+                src="assets/profile/heyang-chen-portrait.jpg"
+                alt=""
+                aria-hidden="true"
+                decoding="async"
+              />
+              <h1 id="hero-title">Heyang Chen</h1>
+              <p class="hero-copy">
+                I study how structure, transport, and mechanics shape functional semiconductors, while building local
+                tools that make materials data easier to trust, compare, and reuse.
+              </p>
+              <div class="hero-actions" aria-label="Primary links">
+                <a class="button primary" href="#current-work" data-view-link="current-work">
+                  <span>Current work</span>
+                  <span aria-hidden="true">-&gt;</span>
+                </a>
+                <a class="button secondary" href="#contact" data-view-link="contact">Contact</a>
+              </div>
+            </div>
+
+            <aside class="hero-showcase hero-portrait" aria-label="Portrait of Heyang Chen">
+              <img
+                src="assets/profile/heyang-chen-portrait.jpg"
+                alt="Heyang Chen standing in front of an ornate campus building"
+                decoding="async"
+              />
+              <div class="portrait-caption">
+                <span>Visiting Scholar at Northwestern</span>
+                <strong>Research Fellow at Nanyang Technological University</strong>
+              </div>
+            </aside>
           </div>
-        </div>
+        </section>
+
+        <section class="portal-section" aria-labelledby="portal-title">
+          <div class="section-inner">
+            <div class="home-signal-row" aria-label="Homepage research snapshot">
+              <article>
+                <span>Now building</span>
+                <strong>Traceable thermoelectric data workflows</strong>
+              </article>
+              <article>
+                <span>Research center</span>
+                <strong>Transport, structure, and mechanical reliability</strong>
+              </article>
+              <article>
+                <span>Visual layer</span>
+                <strong>Publication-style plotting from messy lab data</strong>
+              </article>
+            </div>
+
+            <div class="section-heading compact">
+              <div>
+                <p class="section-kicker">Explore</p>
+                <h2 id="portal-title">Research and personal notes</h2>
+              </div>
+              <p>
+                A card-based map of my current work, research themes, previous projects, and personal interests.
+              </p>
+            </div>
+
+            <div class="portal-grid" aria-label="Homepage topic cards">
+              <a class="portal-card featured" href="#current-work" data-view-link="current-work">
+                <p class="meta">Current work</p>
+                <h3>TE Agent Workspace</h3>
+                <p>
+                  A local-to-public thermoelectric research stack behind TEDEX: data cleaning, metadata, TE/XRD
+                  plotting, flexible figures, SPB fitting, reference context, and report generation.
+                </p>
+                <span class="card-link" aria-hidden="true">Open -&gt;</span>
+              </a>
+              <a class="portal-card" href="#te-materials" data-view-link="te-materials">
+                <p class="meta">Research theme</p>
+                <h3>Thermoelectric materials and devices</h3>
+                <p>
+                  Materials design, transport coupling, and device-level thinking for heat-to-electricity conversion
+                  and solid-state cooling.
+                </p>
+                <span class="card-link" aria-hidden="true">Open -&gt;</span>
+              </a>
+              <a class="portal-card" href="#mechanics" data-view-link="mechanics">
+                <p class="meta">Research theme</p>
+                <h3>Mechanical properties of semiconductors</h3>
+                <p>
+                  Elasticity, fracture, plasticity, and reliability in semiconductors and thermoelectric materials.
+                </p>
+                <span class="card-link" aria-hidden="true">Open -&gt;</span>
+              </a>
+              <a class="portal-card" href="#mechanics" data-view-link="mechanics">
+                <p class="meta">Previous work</p>
+                <h3>Mechanical and plastic thermoelectrics</h3>
+                <p>
+                  A home for earlier work on thermoelectric mechanical response, deformation, and flexible or
+                  plastic TE concepts.
+                </p>
+                <span class="card-link" aria-hidden="true">Open -&gt;</span>
+              </a>
+              <a class="portal-card" href="#about" data-view-link="about">
+                <p class="meta">Personal</p>
+                <h3>About me and astrophotography</h3>
+                <p>
+                  A personal section for background, field notes, night-sky images, and the non-lab parts of the story.
+                </p>
+                <span class="card-link" aria-hidden="true">Open -&gt;</span>
+              </a>
+              <a class="portal-card quiet" href="#contact" data-view-link="contact">
+                <p class="meta">Connect</p>
+                <h3>Contact and links</h3>
+                <p>Email, GitHub, and research-home links collected in one place.</p>
+                <span class="card-link" aria-hidden="true">Open -&gt;</span>
+              </a>
+            </div>
+          </div>
+        </section>
       </section>
 
-      <section class="section band" id="research" aria-labelledby="research-title">
-        <div class="section-inner">
-          <div class="section-kicker">Research</div>
-          <div class="section-heading">
-            <h2 id="research-title">What I am working on</h2>
-            <p>
-              My interests sit at the boundary of crystal chemistry, transport measurements, and careful scientific
-              computing.
-            </p>
+      <section class="page-view" id="current-work" data-view="current-work" hidden aria-labelledby="workspace-title">
+        <div class="page-shell">
+          <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
+          <div class="view-hero workspace-hero">
+            <div>
+              <p class="section-kicker">Current work</p>
+              <h2 id="workspace-title">TE Agent Workspace</h2>
+              <p>
+                My current focus is a local-to-public research workspace for thermoelectric materials: instrument
+                exports, editable lab metadata, transport-property processing, XRD routines, SPB models, flexible
+                plotting, literature context, and Markdown/JSON assessment reports in one command-line flow.
+              </p>
+              <div class="project-actions" aria-label="TE Agent Workspace project links">
+                <a class="button primary" href="https://github.com/aioyouko/TEDEX" target="_blank" rel="noopener">
+                  <span>TEDEX on GitHub</span>
+                  <span aria-hidden="true">-&gt;</span>
+                </a>
+                <a class="button secondary" href="#te-materials" data-view-link="te-materials">Research context</a>
+              </div>
+            </div>
+            <aside class="repo-card" aria-label="TEDEX repository summary">
+              <p class="meta">Public project</p>
+              <h3>aioyouko/TEDEX</h3>
+              <p>
+                TEDEX is the public-facing version of the workflow: a thermoelectric data and experiment workspace
+                that turns messy measurements into traceable figures, features, and research summaries.
+              </p>
+              <dl class="repo-facts">
+                <div>
+                  <dt>Core launcher</dt>
+                  <dd>python main.py</dd>
+                </div>
+                <div>
+                  <dt>Outputs</dt>
+                  <dd>CSV, PNG, SVG, PDF, JSON, Markdown</dd>
+                </div>
+                <div>
+                  <dt>Focus</dt>
+                  <dd>TE materials, XRD, SPB, plotting, assessment</dd>
+                </div>
+              </dl>
+            </aside>
           </div>
-          <div class="focus-grid">
-            <article class="focus-card">
-              <span class="focus-index">01</span>
-              <h3>Thermoelectric Transport</h3>
-              <p>Structure-property relationships, carrier transport, thermal conductivity, and ZT optimization.</p>
-            </article>
-            <article class="focus-card">
-              <span class="focus-index">02</span>
-              <h3>Diamond-like Materials</h3>
-              <p>Composition, defect chemistry, and phonon scattering in tetrahedrally bonded compounds.</p>
-            </article>
-            <article class="focus-card">
-              <span class="focus-index">03</span>
-              <h3>Research Software</h3>
-              <p>Python pipelines for cleaning measurements, comparing samples, and producing consistent figures.</p>
-            </article>
-          </div>
-        </div>
-      </section>
 
-      <section class="section workspace-section" id="workspace" aria-labelledby="workspace-title">
-        <div class="section-inner">
-          <div class="section-kicker">TE Agent Workspace</div>
-          <div class="section-heading">
-            <h2 id="workspace-title">A local research stack for thermoelectric analysis</h2>
+          <div class="workspace-note">
             <p>
-              My workspace connects raw instrument exports, sample metadata, processed transport-property tables,
-              reference literature, plotting recipes, and assessment scripts into one reproducible command-line flow.
+              Public summary only: raw experiment files, private keys, unpublished sample details, and local lab
+              records stay out of the homepage.
             </p>
           </div>
 
           <div class="workspace-flow" aria-label="Thermoelectric analysis workflow highlights">
             <article class="flow-card">
-              <p class="meta">01 | Data</p>
+              <p class="meta">01 | Launcher</p>
+              <h3>One command surface</h3>
+              <p>
+                A root-level launcher keeps routine work discoverable instead of scattering scripts across folders.
+              </p>
+              <ul class="mini-list">
+                <li><code>analyze</code>, <code>plot-te</code>, <code>plot-xrd</code></li>
+                <li><code>flexible</code>, <code>spb</code>, <code>assess</code></li>
+              </ul>
+            </article>
+            <article class="flow-card">
+              <p class="meta">02 | Data</p>
               <h3>Raw-to-processed lab flow</h3>
-              <p>ZEM, LFA, XRD, metadata ledgers, and cleaned sample tables are organized into traceable folders.</p>
+              <p>
+                ZEM, LFA, XRD, sample ledgers, and processed CSV tables stay in a traceable folder structure.
+              </p>
+              <ul class="mini-list">
+                <li>Raw folders by batch and sample</li>
+                <li>Cleaned property tables and extracted features</li>
+              </ul>
             </article>
             <article class="flow-card">
-              <p class="meta">02 | Physics</p>
+              <p class="meta">03 | Metadata</p>
+              <h3>Editable lab memory</h3>
+              <p>
+                Markdown ledgers sync with machine-readable JSON, so chemistry notes are readable and scriptable.
+              </p>
+              <ul class="mini-list">
+                <li>Batch/sample records</li>
+                <li>Composition, density, heat capacity, notes</li>
+              </ul>
+            </article>
+            <article class="flow-card">
+              <p class="meta">04 | Physics</p>
               <h3>Transport feature extraction</h3>
-              <p>Conductivity, Seebeck coefficient, thermal conductivity, power factor, ZT, and lattice terms are derived consistently.</p>
+              <p>
+                ZEM/LFA data are aligned and converted into consistent thermoelectric properties.
+              </p>
+              <ul class="mini-list">
+                <li>Seebeck, conductivity, thermal conductivity</li>
+                <li>Power factor, ZT, Lorenz, lattice terms</li>
+              </ul>
             </article>
             <article class="flow-card">
-              <p class="meta">03 | Modeling</p>
+              <p class="meta">05 | XRD</p>
+              <h3>Phase and lattice routines</h3>
+              <p>
+                XRD tools generate stacked raw or normalized patterns and connect peaks to reference standards.
+              </p>
+              <ul class="mini-list">
+                <li>Batch plotting and style checks</li>
+                <li>PDF-card overlay and lattice fitting outputs</li>
+              </ul>
+            </article>
+            <article class="flow-card">
+              <p class="meta">06 | Plotting</p>
+              <h3>Publication-style figure system</h3>
+              <p>
+                Plotting is a first-class feature: TE curves, XRD, mixed-unit room-temperature snapshots, grouped
+                bars, multi-panel layouts, and CSV/TXT/XLSX recipes.
+              </p>
+              <ul class="mini-list">
+                <li>Single-property and combined TE figures</li>
+                <li>Flexible recipes for messy external tables</li>
+              </ul>
+            </article>
+            <article class="flow-card">
+              <p class="meta">07 | Modeling</p>
               <h3>SPB fitting toolkit</h3>
-              <p>Pisarenko, power-factor, conductivity-axis, and zT views help compare measured behavior against transport models.</p>
+              <p>
+                SPB views help compare measurements with simple transport models and performance estimates.
+              </p>
+              <ul class="mini-list">
+                <li>Effective mass and Pisarenko fits</li>
+                <li>Power-factor, conductivity-axis, and zT views</li>
+              </ul>
             </article>
             <article class="flow-card">
-              <p class="meta">04 | Figures</p>
-              <h3>Publication-style plotting</h3>
-              <p>Reusable recipes render TE, XRD, flexible CSV/XLSX plots, and demo figures with a consistent visual style.</p>
-            </article>
-            <article class="flow-card">
-              <p class="meta">05 | References</p>
-              <h3>Literature-aware context</h3>
-              <p>Reference PDFs, extracted tables, and processed features can be compared with local experimental results.</p>
-            </article>
-            <article class="flow-card">
-              <p class="meta">06 | Assessment</p>
-              <h3>Evidence-grounded summaries</h3>
-              <p>Deterministic ranking and trend scripts produce JSON, Markdown, and AI-ready prompts for research decisions.</p>
-            </article>
-          </div>
-
-          <div class="workspace-note">
-            <p>Public summary only: raw experiment files, private keys, and unpublished sample details stay out of the homepage.</p>
-          </div>
-
-          <div class="figure-gallery" aria-label="Selected workspace demo figures">
-            <figure>
-              <img src="assets/workspace/pisarenko_fit.png" alt="SPB Pisarenko fit demo figure" />
-              <figcaption>SPB Pisarenko fitting</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/workspace/pf_fit.png" alt="SPB power factor fit demo figure" />
-              <figcaption>Power-factor view</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/workspace/conductivity_zt_fit.png" alt="SPB conductivity-axis ZT demo figure" />
-              <figcaption>Conductivity-axis ZT view</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/workspace/demo_dual_axis.png" alt="Flexible dual-axis thermoelectric plot demo" />
-              <figcaption>Flexible plotting recipe</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="projects" aria-labelledby="projects-title">
-        <div class="section-inner split">
-          <div>
-            <div class="section-kicker">Projects</div>
-            <h2 id="projects-title">Selected tools</h2>
-          </div>
-          <div class="timeline" aria-label="Selected project list">
-            <article class="timeline-item">
-              <p class="meta">Command line</p>
-              <h3>Unified TE launcher</h3>
+              <p class="meta">08 | Assessment</p>
+              <h3>Evidence-grounded reports</h3>
               <p>
-                One `main.py` entry point launches analysis, TE plotting, XRD plotting, flexible recipes, SPB fitting,
-                metadata sync, assessment, and agent workflows.
+                Deterministic scripts rank samples, detect trends, retrieve local reference context, and write
+                Markdown/JSON/prompt outputs for research decisions.
               </p>
-            </article>
-            <article class="timeline-item">
-              <p class="meta">Plotting</p>
-              <h3>Flexible figure recipes</h3>
-              <p>
-                A CSV/TXT/XLSX plotting layer handles messy column names, multiple files, dual-axis figures,
-                grouped bars, multi-panel views, and normalized export tables.
-              </p>
-            </article>
-            <article class="timeline-item">
-              <p class="meta">Decision support</p>
-              <h3>Assessment and recommendation layer</h3>
-              <p>
-                Local scripts combine processed lab features with reference data to rank samples, detect trends,
-                and prepare evidence-grounded research summaries.
-              </p>
+              <ul class="mini-list">
+                <li>Sample ranking and trend summaries</li>
+                <li>AI-ready prompts separated from calculations</li>
+              </ul>
             </article>
           </div>
-        </div>
-      </section>
 
-      <section class="section band warm" id="writing" aria-labelledby="writing-title">
-        <div class="section-inner">
-          <div class="section-kicker">Writing</div>
-          <div class="writing-layout">
-            <h2 id="writing-title">Notes, publications, and updates</h2>
-            <div class="publication-list">
-              <article>
-                <p class="meta">Publication</p>
-                <h3>Add your latest paper title here</h3>
-                <p>Journal, year. Replace this entry with your publication details and DOI link.</p>
-              </article>
-              <article>
-                <p class="meta">Note</p>
-                <h3>Research note or project memo</h3>
-                <p>Use this space for short technical notes, datasets, code releases, or talk slides.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-        <div class="section-inner contact-panel">
-          <div>
-            <div class="section-kicker">Contact</div>
-            <h2 id="contact-title">Let's connect</h2>
+          <div class="showcase-heading">
+            <p class="section-kicker">Plotting demos</p>
+            <h3>Rendered figures with their reproducible Python commands</h3>
             <p>
-              The fastest way to reach me is by email. You can also find code, notes, and project updates on GitHub.
+              These examples come from the local plotting demo folder. Each card pairs the rendered figure with a
+              short description and the command used to generate that view.
             </p>
           </div>
-          <div class="contact-links" aria-label="Contact links">
-            <a href="mailto:aioyouko@gmail.com">aioyouko@gmail.com</a>
-            <a href="https://github.com/aioyouko">github.com/aioyouko</a>
-            <a href="https://www.northwestern.edu/">Northwestern University</a>
+
+          <div class="plotting-gallery" aria-label="Selected TEDEX plotting demos with commands">
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/sound-velocity.png" alt="Grouped bar chart of sound velocities" />
+              <figcaption>
+                <span class="plot-card-kicker">Flexible grouped bar</span>
+                <h4>Sound velocity comparison</h4>
+                <p>
+                  A grouped-bar recipe comparing longitudinal, shear, and average sound velocities across materials.
+                </p>
+                <pre><code>python main.py flexible --recipe configs/plot_recipes/bar/grouped_bar.json data/demo/sound\ velocity/sound\ vvelocity.csv --x x --y vl --y vs --y va --ylim 0 5000 --label '$v_l$' --label '$v_s$' --label '$v_a$' --xlabel '$Materials$' --ylabel '$v$ (m s$^{-1}$)'</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/concentration-mobility.png" alt="Dual-axis carrier concentration and mobility plot" />
+              <figcaption>
+                <span class="plot-card-kicker">Flexible dual axis</span>
+                <h4>Carrier concentration and mobility</h4>
+                <p>
+                  A composition sweep shown with carrier concentration and Hall mobility on separate log-scaled axes.
+                </p>
+                <pre><code>python main.py flexible --recipe configs/plot_recipes/dual_axis/composition_vs_carrier_mobility_dual.json data/demo/composition_Hall/nu_muh.csv --x x --y concentration --y mobility --yscale log --right-yscale log --ylim 0.1 100 --right-ylim 100 10000 --xlabel '$x$ (10$^\mathrm{-3}$)' --xlim -0.5 7.5</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/seebeck.svg" alt="Seebeck coefficient versus temperature curves" />
+              <figcaption>
+                <span class="plot-card-kicker">plot-te</span>
+                <h4>Seebeck coefficient</h4>
+                <p>
+                  A single-property thermoelectric plot with consistent temperature limits, legend handling, and units.
+                </p>
+                <pre><code>python main.py plot-te data/demo/thermoelectric_property/{1,2,3,4,5}.csv --seebeck --legend --ylim -400 400 --xlim 280 600</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/conductivity.svg" alt="Electrical conductivity versus temperature curves" />
+              <figcaption>
+                <span class="plot-card-kicker">plot-te</span>
+                <h4>Electrical conductivity</h4>
+                <p>
+                  A conductivity view from the same processed TE property files, using the sigma property selector.
+                </p>
+                <pre><code>python main.py plot-te data/demo/thermoelectric_property/{1,2,3,4,5}.csv --sigma --ylim 0 1600 --xlim 280 600</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/zt.svg" alt="zT versus temperature curves" />
+              <figcaption>
+                <span class="plot-card-kicker">plot-te</span>
+                <h4>zT temperature curves</h4>
+                <p>
+                  A zT plot for quickly comparing peak performance and temperature-dependent trends across samples.
+                </p>
+                <pre><code>python main.py plot-te data/demo/thermoelectric_property/{1,2,3,4,5}.csv --zt --ylim 0 1.2 --xlim 280 600</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/xrd.svg" alt="XRD patterns plotted with a PDF card reference" />
+              <figcaption>
+                <span class="plot-card-kicker">plot-xrd</span>
+                <h4>XRD with PDF-card overlay</h4>
+                <p>
+                  Stacked XRD patterns plotted with right-side labels and reference peaks from a local PDF-card file.
+                </p>
+                <pre><code>python main.py plot-xrd data/demo/xrd --pdf-card data/pdf_card/CuInTe2\ PDF\#97-023-8958.txt --right-labels --legend-font-size 7</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/effective-mass-1.png" alt="SPB effective mass fit at 300 K" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB effective mass</span>
+                <h4>Effective mass at 300 K</h4>
+                <p>
+                  A density-of-states effective-mass fit using default column detection for Hall concentration and Seebeck data.
+                </p>
+                <pre><code>python main.py spb effective-mass data/demo/spb_fitting/Cu2Se/Cu2Se-300K.csv</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/effective-mass-2.png" alt="SPB effective mass fit at 750 K" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB effective mass</span>
+                <h4>Effective mass at 750 K</h4>
+                <p>
+                  The same effective-mass workflow with an explicit temperature argument for a higher-temperature dataset.
+                </p>
+                <pre><code>python main.py spb effective-mass data/demo/spb_fitting/Cu2Se/Cu2Se-750K.csv --T 750</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/effective-mass-series.png" alt="Multi-curve SPB effective mass fit" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB effective mass</span>
+                <h4>Grouped effective-mass fit</h4>
+                <p>
+                  Multi-curve fitting driven by a grouping column and parameter table, with the legend kept inside the plot.
+                </p>
+                <pre><code>python main.py spb effective-mass data/demo/spb_fitting/Cu2Se/Cu2Se-series.csv --group-by curve_id --params data/demo/spb_fitting/Cu2Se/Cu2Se_params.csv --legend inside --ylim 0 400</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/pf-fit-single.png" alt="Single-dataset SPB power factor fit" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB performance</span>
+                <h4>Power-factor fit</h4>
+                <p>
+                  A single-performance fit that combines weighted mobility with a specified lattice thermal conductivity.
+                </p>
+                <pre><code>python main.py spb performance data/demo/spb_fitting/Cu2Se/Cu2Se-300K.csv --kL 0.3 --xlim 5e19 5e21</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/zt-fit-single.png" alt="Single-dataset SPB zT performance fit" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB performance</span>
+                <h4>zT performance fit</h4>
+                <p>
+                  The corresponding zT estimate from the same performance run, shown across the carrier-concentration window.
+                </p>
+                <pre><code>python main.py spb performance data/demo/spb_fitting/Cu2Se/Cu2Se-300K.csv --kL 0.3 --xlim 5e19 5e21</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/pf-fit-series.png" alt="Grouped SPB power factor fit" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB performance</span>
+                <h4>Grouped power-factor fit</h4>
+                <p>
+                  A grouped performance run that compares multiple curves while using a shared parameter table.
+                </p>
+                <pre><code>python main.py spb performance data/demo/spb_fitting/Cu2Se/Cu2Se-series.csv --group-by curve_id --params data/demo/spb_fitting/Cu2Se/Cu2Se_params.csv --xlim 5e19 5e21 --legend none</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/zt-fit-series.png" alt="Grouped SPB zT fit" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB performance</span>
+                <h4>Grouped zT fit</h4>
+                <p>
+                  The grouped zT companion plot for comparing predicted performance across fitted datasets.
+                </p>
+                <pre><code>python main.py spb performance data/demo/spb_fitting/Cu2Se/Cu2Se-series.csv --group-by curve_id --params data/demo/spb_fitting/Cu2Se/Cu2Se_params.csv --xlim 5e19 5e21 --legend none</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/conductivity-seebeck-fit.png" alt="SPB Seebeck fit against conductivity" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB conductivity axis</span>
+                <h4>Seebeck fit vs conductivity</h4>
+                <p>
+                  A conductivity-axis SPB view for datasets where conductivity is the more convenient independent variable.
+                </p>
+                <pre><code>python main.py spb conductivity data/demo/spb_fitting/Cu2SSeTe/900K.csv --T 900 --kL 0.3 --ylim pf 0 15</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/conductivity-pf-fit.png" alt="SPB power factor fit against conductivity" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB conductivity axis</span>
+                <h4>Power factor vs conductivity</h4>
+                <p>
+                  A power-factor fit from the conductivity-axis workflow with the PF axis limited for presentation.
+                </p>
+                <pre><code>python main.py spb conductivity data/demo/spb_fitting/Cu2SSeTe/900K.csv --T 900 --kL 0.3 --ylim pf 0 15</code></pre>
+              </figcaption>
+            </figure>
+
+            <figure class="plot-card">
+              <img src="assets/workspace/plotting/conductivity-zt-fit.png" alt="SPB zT fit against conductivity" />
+              <figcaption>
+                <span class="plot-card-kicker">SPB conductivity axis</span>
+                <h4>zT vs conductivity</h4>
+                <p>
+                  The conductivity-axis zT panel, paired with the same weighted-mobility and lattice-thermal-conductivity model.
+                </p>
+                <pre><code>python main.py spb conductivity data/demo/spb_fitting/Cu2SSeTe/900K.csv --T 900 --kL 0.3 --ylim pf 0 15</code></pre>
+              </figcaption>
+            </figure>
           </div>
+
+          <section class="reference-panel" aria-labelledby="workspace-references-title">
+            <h3 id="workspace-references-title">References</h3>
+            <ol class="reference-list">
+              <li>
+                Liu, Shibo, et al.
+                <cite>"Ultralow Chromium Doping Enables All-PbSe Thermoelectric Cooling."</cite>
+                <span>Science 392.6802 (2026): 1056-1060.</span>
+              </li>
+              <li>
+                Jiang, Binbin, et al.
+                <cite>"High-Entropy-Stabilized Chalcogenides with High Thermoelectric Performance."</cite>
+                <span>Science 371.6531 (2021): 830-834.</span>
+              </li>
+              <li>
+                Sun, Chuanyao, et al.
+                <cite>"Flexible Thermoelectric Device with Blade-Like Structure for Ultrahigh Output Performance."</cite>
+                <span>Watt 1.1 (2026): 3.</span>
+              </li>
+              <li>
+                Zhao, Kunpeng, et al.
+                <cite>
+                  "Enhanced Thermoelectric Performance through Tuning Bonding Energy in Cu<sub>2</sub>Se<sub>1-x</sub>S<sub>x</sub>
+                  Liquid-Like Materials."
+                </cite>
+                <span>Chemistry of Materials 29.15 (2017): 6367-6377.</span>
+              </li>
+              <li>
+                Zhao, Kunpeng, et al.
+                <cite>"Are Cu<sub>2</sub>Te-Based Compounds Excellent Thermoelectric Materials?"</cite>
+                <span>Advanced Materials 31.49 (2019): 1903480.</span>
+              </li>
+            </ol>
+          </section>
+        </div>
+      </section>
+
+      <section class="page-view" id="te-materials" data-view="te-materials" hidden aria-labelledby="te-title">
+        <div class="page-shell">
+          <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
+          <div class="view-hero split-hero">
+            <div>
+              <p class="section-kicker">Research theme</p>
+              <h2 id="te-title">Thermoelectric materials and devices</h2>
+            </div>
+            <p>
+              Thermoelectric materials convert heat gradients and electrical voltage into each other. I am interested
+              in the material physics behind high performance and in the device constraints that make a promising
+              transport curve become a useful technology.
+            </p>
+          </div>
+
+          <div class="info-grid three">
+            <article class="info-card">
+              <p class="meta">Transport</p>
+              <h3>Coupled electronic and thermal behavior</h3>
+              <p>
+                Seebeck coefficient, electrical conductivity, carrier mobility, Lorenz number, lattice thermal
+                conductivity, power factor, and ZT must be interpreted together rather than as isolated metrics.
+              </p>
+            </article>
+            <article class="info-card">
+              <p class="meta">Chemistry</p>
+              <h3>Defects, bonding, and microstructure</h3>
+              <p>
+                Composition, dopants, phase purity, grain boundaries, and local bonding distortions control both
+                carrier transport and phonon scattering.
+              </p>
+            </article>
+            <article class="info-card">
+              <p class="meta">Device</p>
+              <h3>From material to module</h3>
+              <p>
+                Contact resistance, geometry, thermal expansion, stability, and manufacturability decide whether a
+                material can survive the jump from pellet to device.
+              </p>
+            </article>
+          </div>
+
+          <div class="research-strip" aria-label="Thermoelectric research directions">
+            <article>
+              <span>Power generation</span>
+              <p>Recovering waste heat requires materials that keep performance under large temperature gradients.</p>
+            </article>
+            <article>
+              <span>Solid-state cooling</span>
+              <p>Peltier devices need high transport performance plus mechanical and interfacial reliability.</p>
+            </article>
+            <article>
+              <span>Data-driven iteration</span>
+              <p>Local datasets and reference curves help connect synthesis, measurement, and next-batch decisions.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-view" id="mechanics" data-view="mechanics" hidden aria-labelledby="mechanics-title">
+        <div class="page-shell">
+          <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
+          <div class="view-hero split-hero">
+            <div>
+              <p class="section-kicker">Research theme and previous work</p>
+              <h2 id="mechanics-title">Mechanical properties of semiconductors</h2>
+            </div>
+            <p>
+              Functional semiconductors have to carry current, block or conduct heat, and survive processing,
+              handling, thermal cycling, and contact formation. That makes mechanical behavior part of the materials
+              design problem, not a separate afterthought.
+            </p>
+          </div>
+
+          <div class="timeline" aria-label="Mechanics research areas">
+            <article class="timeline-item">
+              <p class="meta">Semiconductors</p>
+              <h3>Mechanical reliability in functional crystals</h3>
+              <p>
+                Elastic response, hardness, fracture, defect motion, and bonding anisotropy help explain why some
+                semiconductors tolerate processing while others crack or degrade.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <p class="meta">Thermoelectric materials</p>
+              <h3>Mechanical properties as a performance constraint</h3>
+              <p>
+                Thermoelectric modules experience thermal stress, contact pressure, and repeated temperature swings,
+                so fracture resistance and compatibility matter alongside ZT.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <p class="meta">Plastic TE materials</p>
+              <h3>Deformable inorganic thermoelectrics</h3>
+              <p>
+                Earlier work on plastic thermoelectric materials connects bonding character, defect-mediated
+                deformation, and mechanically tolerant device concepts.
+              </p>
+            </article>
+          </div>
+
+          <div class="info-grid two">
+            <article class="info-card accent">
+              <p class="meta">Question</p>
+              <h3>Can a high-ZT material also be mechanically useful?</h3>
+              <p>
+                This theme links transport optimization with reliability: a useful material must be electrically,
+                thermally, chemically, and mechanically coherent.
+              </p>
+            </article>
+            <article class="info-card accent copper">
+              <p class="meta">Direction</p>
+              <h3>Bridge measurements and mechanism</h3>
+              <p>
+                Combining mechanical testing with microstructure and transport analysis can clarify which deformation
+                mechanisms are compatible with real thermoelectric use.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-view" id="about" data-view="about" hidden aria-labelledby="about-title">
+        <div class="page-shell">
+          <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
+          <div class="profile-layout about-intro">
+            <div class="profile-copy">
+              <p class="section-kicker">About</p>
+              <h2 id="about-title">Research, tools, and the sky after dark</h2>
+              <p>
+                I like problems where careful experiments, good data structure, and physical intuition all have to
+                meet. Outside the lab, this page holds a more personal layer too: deep-sky imaging, travel notes,
+                and small visual records from the places around the work.
+              </p>
+              <div class="personal-tags" aria-label="Personal interests">
+                <span>Astrophotography</span>
+                <span>Scientific plotting</span>
+                <span>Materials stories</span>
+                <span>Open notes</span>
+              </div>
+            </div>
+          </div>
+
+          <section class="personal-pages" aria-labelledby="personal-pages-title">
+            <div class="personal-pages-heading">
+              <div>
+                <p class="section-kicker">Personal pages</p>
+                <h3 id="personal-pages-title">Small records outside the lab</h3>
+              </div>
+              <p>
+                A growing row for the personal side of this page. The sky gallery is live now; pet, bird, and running
+                notes can drop into the same structure later.
+              </p>
+            </div>
+
+            <div class="personal-topic-row" role="tablist" aria-label="Personal content sections">
+              <button
+                class="personal-topic is-active"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="astro-gallery-panel"
+                data-personal-tab="astro-gallery-panel"
+              >
+                <span>Astro</span>
+                <small>Deep-sky frames</small>
+              </button>
+              <button
+                class="personal-topic"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="pet-notes"
+                data-personal-tab="pet-notes"
+              >
+                <span>Pet</span>
+                <small>Quiet moments</small>
+              </button>
+              <button
+                class="personal-topic"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="bird-notes"
+                data-personal-tab="bird-notes"
+              >
+                <span>Bird</span>
+                <small>Field sightings</small>
+              </button>
+              <button
+                class="personal-topic"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="running-notes"
+                data-personal-tab="running-notes"
+              >
+                <span>Running</span>
+                <small>Routes and races</small>
+              </button>
+            </div>
+
+            <section
+              class="personal-page is-active"
+              id="astro-gallery-panel"
+              role="tabpanel"
+              aria-labelledby="gallery-title"
+              data-personal-panel
+            >
+              <div class="personal-page-header">
+                <div>
+                  <p class="section-kicker">Astrophotography</p>
+                  <h3 id="gallery-title">Deep-sky gallery</h3>
+                </div>
+                <p>
+                  My own nebula and Milky Way frames, paired with a few object facts. Distances are approximate, and
+                  wide-field images can include structures at many depths along the same line of sight.
+                </p>
+              </div>
+
+              <div class="astro-gallery" aria-label="Astrophotography deep-sky gallery">
+              <figure>
+                <a class="astro-image-link" href="assets/astro/andromeda-m31.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-center"
+                    src="assets/astro/andromeda-m31.jpg"
+                    alt="Astrophotograph of Messier 31, the Andromeda Galaxy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>M31 | Andromeda Galaxy</h4>
+                  <p>
+                    The nearest major spiral galaxy to the Milky Way, bright enough to see from a dark site.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>Spiral galaxy</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Andromeda</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>About 2.5 million ly</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a class="astro-image-link" href="assets/astro/veil-nebula-east-west.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-center"
+                    src="assets/astro/veil-nebula-east-west.jpg"
+                    alt="Astrophotograph of the eastern and western Veil Nebula"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>Veil Nebula | Cygnus Loop</h4>
+                  <p>
+                    Lace-like shock fronts from an ancient stellar explosion, spread across a huge patch of Cygnus.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>Supernova remnant</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Cygnus</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>About 2,100 ly</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a class="astro-image-link" href="assets/astro/eagle-nebula-m16.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-center"
+                    src="assets/astro/eagle-nebula-m16.jpg"
+                    alt="Astrophotograph of Messier 16, the Eagle Nebula"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>M16 | Eagle Nebula</h4>
+                  <p>
+                    A star-forming emission nebula that contains the famous Pillars of Creation region.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>Emission nebula</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Serpens</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>About 7,000 ly</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a class="astro-image-link" href="assets/astro/jellyfish-nebula-ic443.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-center"
+                    src="assets/astro/jellyfish-nebula-ic443.jpg"
+                    alt="Astrophotograph of IC 443, the Jellyfish Nebula"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>IC 443 | Jellyfish Nebula</h4>
+                  <p>
+                    A turbulent supernova remnant where the blast wave is interacting with surrounding gas clouds.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>Supernova remnant</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Gemini</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>About 5,000 ly</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a class="astro-image-link" href="assets/astro/north-america-nebula-ngc7000.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-center"
+                    src="assets/astro/north-america-nebula-ngc7000.jpg"
+                    alt="Astrophotograph of NGC 7000, the North America Nebula"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>NGC 7000 | North America Nebula</h4>
+                  <p>
+                    A broad H II region shaped by glowing hydrogen gas and dark dust lanes near Deneb.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>Emission nebula</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Cygnus</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>About 2,000 ly</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a class="astro-image-link" href="assets/astro/rosette-nebula-ngc2237.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-center"
+                    src="assets/astro/rosette-nebula-ngc2237.jpg"
+                    alt="Astrophotograph of the Rosette Nebula"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>Rosette Nebula | NGC 2237</h4>
+                  <p>
+                    A circular stellar nursery whose central young cluster has carved a cavity in the gas.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>H II region</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Monoceros</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>About 5,000 ly</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a class="astro-image-link" href="assets/astro/california-nebula-ngc1499.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-center"
+                    src="assets/astro/california-nebula-ngc1499.jpg"
+                    alt="Astrophotograph of NGC 1499, the California Nebula"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>NGC 1499 | California Nebula</h4>
+                  <p>
+                    A long, faint emission nebula ionized by nearby hot stars in the Perseus region.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>Emission nebula</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Perseus</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>About 1,800 ly</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a class="astro-image-link" href="assets/astro/cygnus-milky-way-widefield.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-center"
+                    src="assets/astro/cygnus-milky-way-widefield.jpg"
+                    alt="Wide-field astrophotograph of the Milky Way in Cygnus"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>Cygnus Milky Way Wide Field</h4>
+                  <p>
+                    A dense summer Milky Way field with dark dust, bright stars, and layered hydrogen emission.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>Milky Way star field</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Cygnus</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>Many depths</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+
+              <figure>
+                <a class="astro-image-link" href="assets/astro/lagoon-trifid-nebulae.jpg" target="_blank" rel="noopener">
+                  <img
+                    class="astro-crop-lower"
+                    src="assets/astro/lagoon-trifid-nebulae.jpg"
+                    alt="Astrophotograph of the Lagoon Nebula and Trifid Nebula"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <figcaption>
+                  <h4>M8 + M20 | Lagoon and Trifid</h4>
+                  <p>
+                    Two Sagittarius nebulae in one frame: glowing star formation, blue reflection, and dark lanes.
+                  </p>
+                  <dl class="astro-facts">
+                    <div>
+                      <dt>Type</dt>
+                      <dd>Emission and reflection nebulae</dd>
+                    </div>
+                    <div>
+                      <dt>Constellation</dt>
+                      <dd>Sagittarius</dd>
+                    </div>
+                    <div>
+                      <dt>Distance</dt>
+                      <dd>About 5,000 ly</dd>
+                    </div>
+                  </dl>
+                </figcaption>
+              </figure>
+              </div>
+            </section>
+
+            <section class="personal-page personal-note-page" id="pet-notes" role="tabpanel" hidden data-personal-panel>
+              <div class="personal-page-header">
+                <div>
+                  <p class="section-kicker">Pet</p>
+                  <h3>Pet notes</h3>
+                </div>
+                <p>Photos and small records can live here later.</p>
+              </div>
+            </section>
+
+            <section class="personal-page personal-note-page" id="bird-notes" role="tabpanel" hidden data-personal-panel>
+              <div class="personal-page-header">
+                <div>
+                  <p class="section-kicker">Bird</p>
+                  <h3>Bird notes</h3>
+                </div>
+                <p>Field sightings, photos, and short notes can live here later.</p>
+              </div>
+            </section>
+
+            <section class="personal-page personal-note-page" id="running-notes" role="tabpanel" hidden data-personal-panel>
+              <div class="personal-page-header">
+                <div>
+                  <p class="section-kicker">Running</p>
+                  <h3>Running notes</h3>
+                </div>
+                <p>Routes, races, and training snapshots can live here later.</p>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <section class="page-view" id="contact" data-view="contact" hidden aria-labelledby="contact-title">
+        <div class="page-shell contact-shell">
+          <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
+          <div class="contact-panel">
+            <div>
+              <p class="section-kicker">Contact</p>
+              <h2 id="contact-title">Get in Touch</h2>
+              <p>
+                Email is the best way to reach me. You can also find code, notes, and project updates on GitHub.
+              </p>
+            </div>
+            <div class="contact-links" aria-label="Contact links">
+              <a href="mailto:heyang.chen@northwestern.edu">heyang.chen@northwestern.edu</a>
+              <a href="mailto:heyang.chen@ntu.edu.sg">heyang.chen@ntu.edu.sg</a>
+              <a href="mailto:aioyouko@gmail.com">aioyouko@gmail.com</a>
+              <a href="https://github.com/aioyouko">github.com/aioyouko</a>
+            </div>
+          </div>
+
+          <section class="affiliation-section" aria-labelledby="research-homes-title">
+            <div class="affiliation-heading">
+              <p class="section-kicker">Research homes</p>
+              <h3 id="research-homes-title">Groups connected to my current work</h3>
+            </div>
+            <div class="affiliation-grid">
+              <a
+                class="affiliation-card"
+                href="https://chemgroups.northwestern.edu/kanatzidis/index.html"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="affiliation-logo-wrap">
+                  <img src="assets/contact/kanatzidis-logo.png" alt="Kanatzidis Research Group logo" />
+                </span>
+                <span class="affiliation-copy">
+                  <span class="meta">Northwestern University</span>
+                  <strong>Kanatzidis Research Group</strong>
+                  <span>Solid-state chemistry, chalcogenides, and thermoelectric materials.</span>
+                </span>
+              </a>
+              <a
+                class="affiliation-card"
+                href="https://personal.ntu.edu.sg/alexyan/"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="affiliation-logo-wrap">
+                  <img src="assets/contact/ntu-logo.svg" alt="Nanyang Technological University logo" />
+                </span>
+                <span class="affiliation-copy">
+                  <span class="meta">Nanyang Technological University</span>
+                  <strong>Alex Yan Group</strong>
+                  <span>Functional materials for energy technologies, including thermoelectrics.</span>
+                </span>
+              </a>
+            </div>
+          </section>
         </div>
       </section>
     </main>

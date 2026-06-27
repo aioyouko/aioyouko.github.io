@@ -1,5 +1,9 @@
 const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
+const views = Array.from(document.querySelectorAll("[data-view]"));
+const viewLinks = Array.from(document.querySelectorAll("[data-view-link]"));
+const personalTabs = Array.from(document.querySelectorAll("[data-personal-tab]"));
+const personalPanels = Array.from(document.querySelectorAll("[data-personal-panel]"));
 
 if (navToggle && nav) {
   navToggle.addEventListener("click", () => {
@@ -9,14 +13,106 @@ if (navToggle && nav) {
 
   nav.addEventListener("click", (event) => {
     if (event.target instanceof HTMLAnchorElement) {
-      document.body.classList.remove("nav-open");
-      navToggle.setAttribute("aria-expanded", "false");
+      closeNavigation();
     }
   });
 }
 
+function closeNavigation() {
+  document.body.classList.remove("nav-open");
+  if (navToggle) {
+    navToggle.setAttribute("aria-expanded", "false");
+  }
+}
+
+function setPersonalPanel(panelId) {
+  personalTabs.forEach((tab) => {
+    const isActive = tab.dataset.personalTab === panelId;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
+  });
+
+  personalPanels.forEach((panel) => {
+    const isActive = panel.id === panelId;
+    panel.hidden = !isActive;
+    panel.classList.toggle("is-active", isActive);
+  });
+}
+
+personalTabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => {
+    if (tab.dataset.personalTab) {
+      setPersonalPanel(tab.dataset.personalTab);
+    }
+  });
+
+  tab.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") {
+      return;
+    }
+
+    event.preventDefault();
+    const direction = event.key === "ArrowRight" ? 1 : -1;
+    const nextTab = personalTabs[(index + direction + personalTabs.length) % personalTabs.length];
+    nextTab.focus();
+    if (nextTab.dataset.personalTab) {
+      setPersonalPanel(nextTab.dataset.personalTab);
+    }
+  });
+});
+
+function viewFromHash() {
+  const candidate = window.location.hash.replace("#", "");
+  return views.some((view) => view.id === candidate) ? candidate : "home";
+}
+
+function setActiveView(viewId, options = {}) {
+  const targetId = views.some((view) => view.id === viewId) ? viewId : "home";
+  const shouldPush = options.push ?? true;
+
+  views.forEach((view) => {
+    const isActive = view.id === targetId;
+    view.hidden = !isActive;
+    view.classList.toggle("is-active", isActive);
+  });
+
+  viewLinks.forEach((link) => {
+    link.classList.toggle("is-active", link.dataset.viewLink === targetId);
+  });
+
+  closeNavigation();
+
+  if (shouldPush) {
+    history.pushState({ view: targetId }, "", `#${targetId}`);
+  }
+
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+}
+
+viewLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const targetId = link.dataset.viewLink;
+    if (!targetId) {
+      return;
+    }
+
+    event.preventDefault();
+    setActiveView(targetId);
+  });
+});
+
+window.addEventListener("popstate", () => {
+  setActiveView(viewFromHash(), { push: false });
+});
+
+window.addEventListener("hashchange", () => {
+  setActiveView(viewFromHash(), { push: false });
+});
+
 const canvas = document.querySelector("#lattice-canvas");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+setActiveView(viewFromHash(), { push: false });
 
 if (canvas instanceof HTMLCanvasElement) {
   const context = canvas.getContext("2d");

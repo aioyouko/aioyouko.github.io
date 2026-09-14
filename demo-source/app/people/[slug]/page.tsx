@@ -1,9 +1,37 @@
 import { notFound } from "next/navigation";
 import people from "../../data/people.json";
+import backgroundData from "../../data/profile-backgrounds.json";
 import { profileSummaries } from "../../data/content";
-import { Page, ImageBlock } from "../../components/Content";
-type Props={params:Promise<{slug:string}>};
-export async function generateMetadata({params}:Props){const {slug}=await params;return {title:`${people.find(p=>p.slug===slug)?.name??"Member"} | Kanatzidis Research Group`};}
-export default async function Profile({params}:Props){const {slug}=await params;const p=people.find(p=>p.slug===slug);if(!p)notFound();return <Page active="people" eyebrow="People" title={p.name} description={p.category}><section className="section"><div className="shell profile-grid"><aside><ImageBlock label={`${p.name} portrait`} className="portrait-block"/>{p.email&&<a className="profile-email" href={`mailto:${p.email}`}>{p.email}</a>}{p.office&&<p>Office: {p.office}</p>}<a className="source-link" href={p.source}>{p.profileAvailable?"Original profile":"Original group directory"} ↗</a></aside><div><p className="eyebrow dark">Research & background</p><h2>{p.area||p.category}</h2>{profileSummaries[p.slug]&&<p className="body-copy">{profileSummaries[p.slug]}</p>}{!p.profileAvailable&&<p className="source-note">{p.slug==='xiuquan-zhou'?"Listed at Argonne National Laboratory in the original group directory.":"The original directory lists this member, but the linked biography is unavailable."}</p>}{p.education&&<><h3 className="subheading">Education & appointments</h3><p className="education-text">{p.education}</p></>}{p.note&&<p className="source-note">{p.note}</p>}<div className="profile-actions"><a className="text-link dark-link" href="/kanatzidis-demo/people">← Group directory</a><a className="text-link dark-link" href="/kanatzidis-demo/research">Explore our research →</a></div></div></div></section></Page>}
+import { Page } from "../../components/Content";
+import { MemberProfile, type ProfileBackground } from "../../components/MemberProfile";
 
-export function generateStaticParams(){return people.map(p=>({slug:p.slug}));}
+type Props = { params: Promise<{ slug: string }> };
+const backgrounds: Record<string, ProfileBackground> = backgroundData;
+const roles: Record<string, string> = {
+  "Undergraduate students": "Undergraduate student",
+  "Graduate students": "Graduate student",
+  "Visiting scholars": "Visiting scholar",
+  "Postdoctoral researchers": "Postdoctoral researcher",
+  "Other facilities": "Affiliated member",
+};
+const affiliations: Record<string, string> = {
+  "duck-young-chung": "Argonne National Laboratory",
+  "xiuquan-zhou": "Argonne National Laboratory",
+  "christos-malliakas": "IMSERC, Northwestern University",
+  "heyang-chen": "Northwestern University · Visiting from Nanyang Technological University",
+};
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  return { title: `${people.find(person => person.slug === slug)?.name ?? "Member"} | Kanatzidis Research Group` };
+}
+export default async function Profile({ params }: Props) {
+  const { slug } = await params;
+  const person = people.find(member => member.slug === slug);
+  if (!person) notFound();
+  return <Page active="people" eyebrow="People" title={person.name} description={person.category}>
+    <MemberProfile name={person.name} role={person.slug === "duck-young-chung" ? "Principal Materials Engineer" : roles[person.category] ?? person.category} affiliation={affiliations[person.slug] ?? "Northwestern University"}
+      area={person.slug === "xiuquan-zhou" ? undefined : person.area} summary={profileSummaries[person.slug]} background={backgrounds[person.slug] ?? { education: [], experience: [], notes: [] }}
+      email={person.email} office={person.office} source={person.source} note={person.note} profileAvailable={person.profileAvailable}/>
+  </Page>;
+}
+export function generateStaticParams() { return people.map(person => ({ slug: person.slug })); }

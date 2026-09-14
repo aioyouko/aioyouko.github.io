@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { ImageBlock } from "./Content";
 
 type Member = { name: string; slug: string; area: string; category: string };
 const categories = ["Postdoctoral researchers", "Graduate students", "Visiting scholars", "Undergraduate students", "Other facilities"];
@@ -29,12 +28,11 @@ export function PeopleDirectory({ people }: { people: Member[] }) {
     {categories.map(group => {
       const members = filtered.filter(person => person.category === group);
       if (!members.length) return null;
-      return <section className="directory-section" key={group}>
-        <div className="directory-heading"><h2>{group}</h2><span>{members.length} {members.length === 1 ? "person" : "people"}</span></div>
-        <div className="member-grid">{members.map(person => <a className="member-card" key={person.slug} href={`/kanatzidis-demo/people/${person.slug}`}>
-          <ImageBlock label={`${person.name} portrait`}/>
-          <div><h3>{person.name}</h3><p>{person.area || group}</p><span className="member-link">View profile →</span></div>
-        </a>)}</div>
+      return <section className="directory-section member-name-section" key={group}>
+        <div className="member-name-heading"><h2>{group}</h2><span>{members.length} {members.length === 1 ? "person" : "people"}</span></div>
+        <ul className="member-name-list">{members.map(person => <li key={person.slug}>
+          <a href={`/kanatzidis-demo/people/${person.slug}`}>{person.name}</a>
+        </li>)}</ul>
       </section>;
     })}
   </div>;

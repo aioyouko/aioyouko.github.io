@@ -1,5 +1,5 @@
-:HL["/kanatzidis-demo/_next/static/css/e1c35361da36cfb1.css","style"]
+:HL["/kanatzidis-demo/_next/static/css/2f0210f6dd825b4b.css","style"]
 :HL["/kanatzidis-demo/images/northwestern-wordmark.svg","image"]
 :HL["/kanatzidis-demo/images/kanatzidis-logo.webp","image"]
 :HL["/kanatzidis-demo/images/group/2026.webp","image",{"fetchPriority":"high"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"bW9AcODtluHBo0tl2-SaT"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"J9kLEWFCdxBs0kcRyX30z"}

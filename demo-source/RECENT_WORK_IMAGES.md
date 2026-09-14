@@ -1,0 +1,8 @@
+## Homepage Recent Work thumbnails — 2026-09-14
+
+- Replaced all three placeholder images with figures matched by the cards' exact DOIs. Full-size local image links, descriptive alt text, lazy loading, intrinsic dimensions and visible source attribution are included. Existing paper links and copy are retained.
+- Liu et al., JACS (2026), 10.1021/jacs.5c17198: reused the original 1277 × 687 graphical abstract from the OSTI manuscript, page 41, https://www.osti.gov/servlets/purl/3364121.
+- Imam et al., Advanced Materials (2026), 10.1002/adma.202518137: extracted the original embedded 1073 × 978 JPEG of complete Figure 1 unchanged from page 5 of the Cambridge author manuscript, https://www.repository.cam.ac.uk/bitstreams/c953e88b-6004-488e-b7bc-c6e43b95b26c/download. Visually inspected all panels. Only the figure is published; the PDF remains outside public assets.
+- Shukla et al., Nature Materials (2026), 10.1038/s41563-025-02433-1: reused the existing complete Figure 1 from the OSTI proof, https://www.osti.gov/servlets/purl/3372079.
+- White frames use object-fit: contain to preserve full scientific artwork. Desktop cards keep three columns; tablet cards retain the existing side-by-side layout; mobile cards stack. No images were generated or scientifically relabeled. Repository availability is not a claim of blanket reuse permission.
+- Validation: static production build and TypeScript checks passed. Exported HTML has all three figures and the expected local image and DOI links. Browser visual QA was blocked because the browser security service could not verify the admin-enforced policy; no alternate browser route was used.

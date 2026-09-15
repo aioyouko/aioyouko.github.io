@@ -2,4 +2,4 @@
 :HL["/kanatzidis-demo/images/northwestern-wordmark.svg","image"]
 :HL["/kanatzidis-demo/images/kanatzidis-logo.webp","image"]
 :HL["/kanatzidis-demo/images/research/perovskites-paper.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"research","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"perovskites","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"8FSDc-B_hQl5xWWew3BeY"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"research","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"perovskites","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"Tkw46TxuId0qxMOgh8iMX"}

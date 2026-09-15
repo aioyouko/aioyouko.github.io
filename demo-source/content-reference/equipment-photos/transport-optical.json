@@ -1,0 +1,143 @@
+{
+  "purpose": "Verified same-model reference equipment photos; no claim these depict Kanatzidis Group equipment.",
+  "retrieved_date": "2026-09-15",
+  "assets": [
+    {
+      "id": "zem-3",
+      "category": "transport",
+      "model": "ULVAC ZEM-3",
+      "source_name": "TU Darmstadt",
+      "source_page": "https://www.mawi.tu-darmstadt.de/mr/science/geraeteliste/mr_artikel_details_9216.en.jsp",
+      "image_url": "https://www.mawi.tu-darmstadt.de/media/mr/geraete_1/ZEM_KLW.jpg",
+      "recommended": true,
+      "verification": "Page explicitly names ZEM-3; photograph visibly reads ZEM-3 and ULVAC.",
+      "caption": "Reference photo: ULVAC ZEM-3 at TU Darmstadt.",
+      "notes": "Preferred for direct brand/model agreement. Original is 640 x 480.",
+      "local_path": "/private/tmp/resource-assets/transport-optical/zem-3-darmstadt.jpg",
+      "width": 640,
+      "height": 480,
+      "bytes": 79695,
+      "sha256": "67a84f923c300171337d70f8ab855e8b99597916a69f5c575db81b587c90f39d",
+      "is_group_instrument_photo": false,
+      "visually_inspected": true,
+      "license": "No reuse license asserted; retain source attribution and reference-photo labeling."
+    },
+    {
+      "id": "lfa-457",
+      "category": "transport",
+      "model": "NETZSCH LFA 457 MicroFlash",
+      "source_name": "University of Bremen",
+      "source_page": "https://www.uni-bremen.de/en/mapex-cf/instrument-database/show/40?cHash=eb261e0ed968f8f07cdd0bd65077c023",
+      "image_url": "https://www.uni-bremen.de/fileadmin/user_upload/sites/mapex-cf/Instrument_Database/Images/041_Netzsch_LFA457MicroFlash.jpg",
+      "recommended": true,
+      "verification": "Instrument database explicitly names LFA 457 MicroFlash and manufacturer Netzsch; photograph label also shows LFA 457.",
+      "caption": "Reference photo: NETZSCH LFA 457 MicroFlash, University of Bremen.",
+      "notes": "Portrait photograph, dimly lit but clearly depicts whole unit. File is 556 x 741 despite stale 2880 x 2160 lightbox metadata. Source credits copyright University of Bremen.",
+      "local_path": "/private/tmp/resource-assets/transport-optical/lfa-457-bremen.jpg",
+      "width": 556,
+      "height": 741,
+      "bytes": 120653,
+      "sha256": "ff3d33564cd7938aabf246b52cadb09ef53aaf72d93b1963aa83a8c15d9eb7f9",
+      "is_group_instrument_photo": false,
+      "visually_inspected": true,
+      "license": "No reuse license asserted; retain source attribution and reference-photo labeling."
+    },
+    {
+      "id": "nicolet-6700",
+      "category": "optical",
+      "model": "Thermo Nicolet 6700 FTIR",
+      "source_name": "Yale University Chemical and Biophysical Instrumentation Center",
+      "source_page": "https://cbic.yale.edu/instruments-view/ftir",
+      "image_url": "https://cbic.yale.edu/sites/default/files/ftir.jpg",
+      "recommended": true,
+      "verification": "Page title is FTIR/Raman Thermo Nicolet 6700; image on that instrument page, original resolved from Drupal styled URL; Nicolet 6700 marking visible.",
+      "caption": "Reference photo: Thermo Nicolet 6700, Yale University.",
+      "notes": "Includes attached FT-Raman accessory. Main spectrometer left/center; visually verified.",
+      "local_path": "/private/tmp/resource-assets/transport-optical/nicolet-6700-yale.jpg",
+      "width": 1599,
+      "height": 1200,
+      "bytes": 366654,
+      "sha256": "78d164b574b1de76b5ab0e08e61ba7d2dfe2a796bf8e329604cfa105659c1284",
+      "is_group_instrument_photo": false,
+      "visually_inspected": true,
+      "license": "No reuse license asserted; retain source attribution and reference-photo labeling."
+    },
+    {
+      "id": "ac-2",
+      "category": "optical",
+      "model": "Riken AC-2",
+      "source_name": "Stanford Nano Shared Facilities",
+      "source_page": "https://snsf.stanford.edu/facilities/xsa/pesa",
+      "image_url": "https://snsf.stanford.edu/sites/g/files/sbiybj18236/files/media/image/pesa_01_0.jpg",
+      "recommended": true,
+      "verification": "Page explicitly titled PESA: Riken AC-2 Photoelectron Spectrometer. Overview image matches manufacturer AC-2 product photograph.",
+      "caption": "Reference photo: Riken AC-2, Stanford Nano Shared Facilities.",
+      "notes": "Small 485 x 345 original. Two instrument units and separate computer on white background. Best used modestly sized, not fullscreen.",
+      "local_path": "/private/tmp/resource-assets/transport-optical/riken-ac-2-stanford.jpg",
+      "width": 485,
+      "height": 345,
+      "bytes": 13975,
+      "sha256": "8a61638720c7cc5b9404122e1efb13c20f0851c5b8e26905736c7456b218fe82",
+      "is_group_instrument_photo": false,
+      "visually_inspected": true,
+      "license": "No reuse license asserted; retain source attribution and reference-photo labeling."
+    },
+    {
+      "id": "zem-3-high-resolution-alternative",
+      "category": "transport",
+      "model": "ZEM-3 (ADVANCE RIKO branding)",
+      "source_name": "TU Bergakademie Freiberg",
+      "source_page": "https://tu-freiberg.de/fakultaet2/exphys/kristallphysik/methoden/zem-3",
+      "image_url": "https://tu-freiberg.de/sites/default/files/2024-05/ULVACZEM3_k.jpg",
+      "recommended": false,
+      "verification": "University page names ZEM-3 from ULVAC, and photo visibly reads ZEM-3. Unit branding in photo says ADVANCE RIKO.",
+      "caption": "Reference photo: ZEM-3 at TU Bergakademie Freiberg. Photo: Hartmut Stöcker.",
+      "notes": "Excellent high-resolution alternative but visible branding differs from group inventory ULVAC. Prefer Darmstadt asset unless this distinction is acceptable.",
+      "local_path": "/private/tmp/resource-assets/transport-optical/zem-3-freiberg.jpg",
+      "width": 4307,
+      "height": 2448,
+      "bytes": 1337540,
+      "sha256": "0be212054484533f0f288c2e1573deaae530e5c81a762bcd09e231fc5e0f96c2",
+      "is_group_instrument_photo": false,
+      "visually_inspected": true,
+      "license": "No reuse license asserted; retain source attribution and reference-photo labeling."
+    },
+    {
+      "id": "ac-2-manufacturer-alternative",
+      "category": "optical",
+      "model": "RIKEN KEIKI AC-2",
+      "source_name": "RIKEN KEIKI",
+      "source_page": "https://product.rikenkeiki.co.jp/english/ac/ac-2/",
+      "image_url": "https://product.rikenkeiki.co.jp/assets/img/ac-series/circle4.png",
+      "recommended": false,
+      "verification": "Official manufacturer AC-2 product page directly embeds this image.",
+      "caption": "Manufacturer reference photo: RIKEN KEIKI AC-2.",
+      "notes": "359 x 359 transparent PNG; much of canvas is empty; instrument itself is small.",
+      "local_path": "/private/tmp/resource-assets/transport-optical/riken-ac-2.png",
+      "width": 359,
+      "height": 359,
+      "bytes": 33639,
+      "sha256": "0039eb949ff852c2d2856ecde2893153c79d2bebbf12b9197282b0c14e977154",
+      "is_group_instrument_photo": false,
+      "visually_inspected": true,
+      "license": "No reuse license asserted; retain source attribution and reference-photo labeling."
+    }
+  ],
+  "omitted": [
+    {
+      "item": "KP Technology APS",
+      "reason": "Exact variant unspecified in group inventory. APS04 image found but excluded at parent direction."
+    },
+    {
+      "item": "MMR resistivity / home-built Hall / home-built four-probe / Shimadzu UV-Vis-NIR / BioRad Digilab FT-Raman / Hamamatsu xenon lamp",
+      "reason": "Unspecified model or home-built equipment; no substitute model chosen."
+    },
+    {
+      "item": "Nicolet 740",
+      "reason": "Bounded primary-source search did not locate a useful verified photograph."
+    }
+  ],
+  "failed_high_resolution_sources": [
+    "NETZSCH LFA 457 official page and brochure were identified but direct downloads returned HTTP 403. University original provided."
+  ]
+}

@@ -1,11 +1,24 @@
-import { VideoCard } from "../components/VideoCard";
-import { Page, ImageBlock, SourceLink } from "../components/Content";
-import links from "../data/links.json";
-export const metadata={title:"Laboratory Resources | Kanatzidis Research Group"};
-const equipment=[
- {title:"Synthesis & crystal growth",image:"Synthesis and crystal-growth laboratory",items:["Nitrogen-atmosphere gloveboxes; Schlenk and high-vacuum lines","Computer-controlled high-temperature furnaces","Three-zone Bridgman and rocking furnaces","RF induction furnace; arc-welding station","Glovebox melt-spinning apparatus","Dr. Sinter-Lab SPS-515 S spark plasma sintering","Struers Accutom-50 precision crystal saw"]},
- {title:"Structure & thermal analysis",image:"Diffraction and thermal-analysis instruments",items:["STOE IPDS 2 / 2T single-crystal diffractometers","Rigaku MiniFlex600 powder X-ray diffractometer","INEL position-sensitive X-ray detector","Shimadzu TGA-50, DSC-50 and DTA-50","Micromeritics ASAP 2020 gas-sorption analyzer"]},
- {title:"Electrical & thermal transport",image:"Thermoelectric transport measurements",items:["ULVAC ZEM-3 Seebeck / electrical-resistance system","Netzsch LFA-457 laser-flash diffusivity instruments","MMR electrical-resistivity equipment","Room-temperature Hall-effect system","High-temperature four-probe conductivity apparatus"]},
- {title:"Optical characterization",image:"Optical spectroscopy laboratory",items:["Shimadzu UV–visible–near-IR spectrophotometer","Biorad-Digilab FT-Raman spectrometer","Nicolet 740 and 6700 FT-IR spectrometers","Riken-Keiki AC-2 photoemission yield spectroscopy","KP Technology ambient-pressure photoemission","Hamamatsu xenon lamp and photochemical setups"]},
-];
-export default function Resources(){return <Page active="resources" eyebrow="Laboratory resources" title="Tools for materials discovery." description="Synthesis, crystal growth, structural characterization and physical-property measurements."><section className="section"><div className="shell"><div className="equipment-grid">{equipment.map(e=><article className="equipment-card" key={e.title}><ImageBlock label={e.image}/><div><h2>{e.title}</h2><ul>{e.items.map(t=><li key={t}>{t}</li>)}</ul></div></article>)}</div><p className="source-note">Equipment names follow the original laboratory inventory. Contact the group about current availability and access. <SourceLink path="resources.html">Original equipment specifications</SourceLink></p><section className="directory-section"><h2>Northwestern shared facilities</h2><div className="resource-link-grid">{links.facilities.map(l=><a key={l.href} href={l.href}>{l.text.replace('Northwesten','Northwestern')} ↗</a>)}</div></section><section className="directory-section"><h2>Laboratory videos</h2><div className="video-grid">{links.videos.map(v=><VideoCard key={v.href} title={v.text} href={v.href}/>)}</div></section><div className="profile-actions"><a className="text-link dark-link" href="/kanatzidis-demo/meetings">Group meetings →</a><a className="text-link dark-link" href="/kanatzidis-demo/contact">Contact the laboratory →</a></div></div></section></Page>}
+import { VideoCard } from '../components/VideoCard';
+import { Page, SourceLink } from '../components/Content';
+import links from '../data/links.json';
+import { equipmentCategories, resourcePath } from '../data/equipment';
+import './resources.css';
+
+export const metadata = { title: 'Laboratory Resources | Kanatzidis Research Group' };
+
+export default function Resources() {
+  return <Page active="resources" eyebrow="Laboratory resources" title="Tools for materials discovery." description="Synthesis, crystal growth, structural characterization and physical-property measurements.">
+    <section className="section resource-section"><div className="shell">
+      <div className="resource-categories">{equipmentCategories.map((category, index) => <article className="resource-category" key={category.slug}>
+        <a href={resourcePath(`/resources/${category.slug}`)}>
+          <span className="resource-category-number" aria-hidden="true">0{index + 1}</span>
+          <div className="resource-category-copy"><h2>{category.title}</h2><p>{category.summary}</p><span className="resource-category-link">View equipment <span aria-hidden="true">→</span></span></div>
+        </a>
+      </article>)}</div>
+      <p className="source-note">Equipment listings follow the original laboratory inventory. Contact the group about current availability and access. <SourceLink path="resources.html">Original equipment specifications</SourceLink></p>
+      <section className="directory-section"><h2>Northwestern shared facilities</h2><div className="resource-link-grid">{links.facilities.map(link => <a key={link.href} href={link.href}>{link.text.replace('Northwesten', 'Northwestern')} ↗</a>)}</div></section>
+      <section className="directory-section"><h2>Laboratory videos</h2><div className="video-grid">{links.videos.map(video => <VideoCard key={video.href} title={video.text} href={video.href}/>)}</div></section>
+      <div className="profile-actions"><a className="text-link dark-link" href={resourcePath('/meetings')}>Group meetings →</a><a className="text-link dark-link" href={resourcePath('/contact')}>Contact the laboratory →</a></div>
+    </div></section>
+  </Page>;
+}

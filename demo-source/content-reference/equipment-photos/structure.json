@@ -1,0 +1,97 @@
+{
+  "category": "Structure & thermal analysis",
+  "assets": [
+    {
+      "file": "/private/tmp/resource-assets/structure/stoe-ipds2t.png",
+      "equipment_title": "STOE IPDS 2T single-crystal diffractometer",
+      "source_page_url": "https://www.stoe.com/products/ipdsii2t/",
+      "original_image_url": "https://www.stoe.com/wp-content/uploads/Stoe_IPDS_2T_freigestellt_300dpi.png",
+      "source_name": "STOE manufacturer",
+      "source_type": "manufacturer",
+      "exact_model_match": true,
+      "match_evidence": "Manufacturer IPDS II/2T product page; image filename explicitly identifies IPDS 2T. Visually inspected product photograph.",
+      "suggested_caption": "STOE IPDS 2T — model reference photo (STOE)",
+      "suggested_object_position": "center",
+      "width": 2048,
+      "height": 1365,
+      "dimensions": [
+        2048,
+        1365
+      ],
+      "role": "model reference, not actual Kanatzidis lab equipment",
+      "visually_inspected": true
+    },
+    {
+      "file": "/private/tmp/resource-assets/structure/rigaku-miniflex600-yale.png",
+      "equipment_title": "Rigaku MiniFlex600 powder X-ray diffractometer",
+      "source_page_url": "https://cbic.yale.edu/instruments-view/pxrd",
+      "original_image_url": "https://cbic.yale.edu/sites/default/files/miniflex.png",
+      "source_name": "Yale University Chemical and Biophysical Instrumentation Center",
+      "source_type": "university",
+      "exact_model_match": true,
+      "match_evidence": "University instrument page explicitly titled Rigaku MiniFlex600 Powder X-ray Diffractometer; photo is original of embedded image. Visually inspected.",
+      "suggested_caption": "Rigaku MiniFlex600 — model reference photo (Yale CBIC)",
+      "suggested_object_position": "40% center",
+      "width": 4032,
+      "height": 3024,
+      "dimensions": [
+        4032,
+        3024
+      ],
+      "role": "model reference, not actual Kanatzidis lab equipment",
+      "visually_inspected": true
+    },
+    {
+      "file": "/private/tmp/resource-assets/structure/asap2020-iowa.jpg",
+      "equipment_title": "Micromeritics ASAP 2020 surface area and porosity analyzer",
+      "source_page_url": "https://www.cif.iastate.edu/other-insts/asap2020",
+      "original_image_url": "https://www.cif.iastate.edu/files/inline-images/ASAP2020BET.jpg",
+      "source_name": "Iowa State University Chemical Instrumentation Facility",
+      "source_type": "university",
+      "exact_model_match": true,
+      "match_evidence": "University page names ASAP 2020 and the actual photo visibly reads ASAP 2020; not ASAP 2020 Plus. Visually inspected.",
+      "suggested_caption": "Micromeritics ASAP 2020 — model reference photo (Iowa State CIF)",
+      "suggested_object_position": "50% 28%",
+      "width": 1852,
+      "height": 2000,
+      "dimensions": [
+        1852,
+        2000
+      ],
+      "role": "model reference, not actual Kanatzidis lab equipment",
+      "visually_inspected": true
+    },
+    {
+      "file": "/private/tmp/resource-assets/structure/shimadzu-tga50-jujuy.jpg",
+      "equipment_title": "Shimadzu TGA-50 thermogravimetric analyzer",
+      "source_page_url": "https://cidmeju.unju.edu.ar/equipo-termogravimetrico.php",
+      "original_image_url": "https://cidmeju.unju.edu.ar/assets/img/equipos/termogravimetrico.jpg",
+      "source_name": "CIDMEJu / Universidad Nacional de Jujuy",
+      "source_type": "university_research_center",
+      "exact_model_match": true,
+      "match_evidence": "Research-center page names the Shimadzu TGA-50, and TGA-50 is plainly visible on the front panel. Visually inspected.",
+      "suggested_caption": "Shimadzu TGA-50 — model reference photo (CIDMEJu)",
+      "suggested_object_position": "75% 55%",
+      "width": 4080,
+      "height": 2296,
+      "dimensions": [
+        4080,
+        2296
+      ],
+      "role": "model reference, not actual Kanatzidis lab equipment",
+      "visually_inspected": true
+    }
+  ],
+  "unfilled_models": [
+    "INEL position-sensitive detector (no photo selected)",
+    "Shimadzu DSC-50 (no photo selected)",
+    "Shimadzu DTA-50 (no photo selected)",
+    "STOE IPDS II (IPDS 2T selected as a distinct named model)"
+  ],
+  "notes": [
+    "No reseller images used.",
+    "Primary manufacturer TGA-50 series image located but only 162×268; university photo selected for resolution and readable exact-model label.",
+    "All files are unmodified originals. Cropping may be done by site CSS.",
+    "Other downloaded reference candidates: shimadzu-tga50-series.jpg (162×268 manufacturer), shimadzu-tga50-furg.jpeg (470×626 FURG university)."
+  ]
+}

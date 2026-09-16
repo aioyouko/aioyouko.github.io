@@ -1,2 +1,2 @@
-:HL["/kanatzidis-demo/_next/static/css/feaa86a59efda43f.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"publications","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"RG2OXkOpCNbS1aarJ5_yX"}
+:HL["/kanatzidis-demo/_next/static/css/4a59e971867fa41e.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"publications","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"OWrZ6uh5QF49rhai3TTko"}

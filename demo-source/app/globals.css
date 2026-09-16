@@ -1003,17 +1003,6 @@ a.research-card:focus-visible .card-arrow {
   position: relative;
 }
 
-.contact-panel::after {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 50%;
-  content: "";
-  height: 300px;
-  position: absolute;
-  right: 28%;
-  top: -210px;
-  width: 300px;
-}
-
 .contact-copy {
   position: relative;
   z-index: 1;

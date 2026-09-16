@@ -2,4 +2,4 @@
 :HL["/kanatzidis-demo/images/northwestern-wordmark.svg","image"]
 :HL["/kanatzidis-demo/images/kanatzidis-logo.webp","image"]
 :HL["/kanatzidis-demo/images/research/ion-exchange-paper.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"research","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"ion-exchange","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"2nIeL3DMPGj9Y-KICBOZg"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"research","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"ion-exchange","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"q5QyyIj_orZZnY8KcVt8C"}

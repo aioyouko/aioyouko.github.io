@@ -13,6 +13,14 @@ export const researchImages: Record<string, ResearchArtwork> = {
     figure: "Graphical abstract · repository manuscript",
     doi: "10.1021/jacs.5c15180", source: "https://www.osti.gov/servlets/purl/3372186",
   },
+  // The homepage uses the 2014 SnSe single-crystal study as its thermoelectric cover.
+  "thermoelectrics-snse-2014": {
+    file: "studies/snse-crystals-2014.jpg", width: 260, height: 312,
+    alt: "SnSe single-crystal structure, bonding, crystal photograph and zT along the a, b and c axes, from Zhao et al., Nature (2014).",
+    caption: "Layered SnSe single crystals connect crystal structure and bonding with direction-dependent thermoelectric performance.",
+    citation: "Zhao et al. · Nature 508, 373–377 (2014)", figure: "Figure 1 · publisher preview",
+    doi: "10.1038/nature13184", source: "https://www.nature.com/articles/nature13184/figures/1",
+  },
   "thermoelectrics": {
     file: "thermoelectrics-paper.png", width: 685, height: 586,
     alt: "Van der Waals-like gaps in LiMnSbTe₃ and plots of thermal conductivity, carrier mobility, zT and single-leg device efficiency",

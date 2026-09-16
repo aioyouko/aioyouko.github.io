@@ -7,30 +7,30 @@ import { Page } from "../../components/Content";
 export const metadata: Metadata = {
   title: "Thermoelectric Materials | Kanatzidis Research Group",
   description:
-    "Explore the Kanatzidis Group's research in thermoelectric materials, from hierarchical PbTe architectures to ultralow-thermal-conductivity SnSe.",
+    "Electronic transport and phonon engineering in SnSe, Bi₂Te₃, PbTe and diamond-like compounds, with exploration of new structures, transport mechanisms and high-entropy thermoelectrics.",
 };
 
 const strategies = [
   {
     number: "01",
-    title: "Engineer electronic structure",
+    title: "Discover new crystal structures",
     description:
-      "Tune carrier concentration and band structure to strengthen the power factor without sacrificing electrical transport.",
-    signal: "Raise S²σ",
+      "Use exploratory synthesis to discover new compounds and connect their bonding and local structure with electronic and thermal transport.",
+    signal: "New materials",
   },
   {
     number: "02",
-    title: "Scatter heat-carrying phonons",
+    title: "Uncover new transport mechanisms",
     description:
-      "Build atomic-, nano-, and mesoscale features that impede lattice vibrations across a broad range of length scales.",
-    signal: "Lower κlat",
+      "Connect electronic structure and lattice dynamics with charge and heat flow to identify new routes to high thermoelectric performance.",
+    signal: "New mechanisms",
   },
   {
     number: "03",
-    title: "Discover low-κ crystals",
+    title: "Explore high-entropy design",
     description:
-      "Search for crystal structures whose bonding and anharmonicity naturally suppress lattice thermal conductivity.",
-    signal: "Decouple transport",
+      "Investigate multicomponent compositions and chemical disorder as tools for controlling crystal structure and balancing electronic and phonon transport.",
+    signal: "Compositional complexity",
   },
 ];
 
@@ -158,8 +158,8 @@ export default function ThermoelectricsPage() {
         <div className="research-feature-heading">
           <div>
             <p className="eyebrow dark">Materials design</p>
-            <h2 id="thermo-feature-title">Move charge efficiently. Slow the flow of heat.</h2>
-            <p className="body-copy">A useful thermoelectric combines a large Seebeck coefficient, strong electrical conductivity and low thermal conductivity. Our research uses chemistry to balance these coupled properties through composition, bonding and structure.</p>
+            <h2 id="thermo-feature-title">New structures and mechanisms for high-performance thermoelectrics.</h2>
+            <p className="body-copy">Our search for high-performance thermoelectrics combines materials discovery with studies of electronic and phonon transport. We explore how new crystal structures, bonding environments and high-entropy compositions can balance a large Seebeck coefficient, strong electrical conductivity and low thermal conductivity.</p>
             <p className="research-formula">zT = S<sup>2</sup>σT / κ</p>
             <p className="feature-context">S is the Seebeck coefficient, σ the electrical conductivity, T the absolute temperature and κ the total thermal conductivity.</p>
           </div>
@@ -181,7 +181,7 @@ export default function ThermoelectricsPage() {
       <div className="shell">
         <p className="eyebrow dark">Selected publications · 2011–2026</p>
         <h2>Representative studies</h2>
-        <p className="body-copy">Selected work from the group and its collaborators, from established PbTe and SnSe platforms to new complex tellurides.</p>
+        <p className="body-copy">Selected work from the group and its collaborators spans established PbTe and SnSe systems and emerging complex tellurides, highlighting crystal-structure discovery, local structural control and entropy-based design.</p>
         <div className="thermo-reading-grid">
           {publications.map(publication => <article className="thermo-reading-card" key={publication.doi}>
             <p className="thermo-reading-year">{publication.year} <span>Research highlight</span></p>

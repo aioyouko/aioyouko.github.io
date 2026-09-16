@@ -3,4 +3,4 @@
 :HL["/kanatzidis-demo/images/northwestern-wordmark.svg","image"]
 :HL["/kanatzidis-demo/images/kanatzidis-logo.webp","image"]
 :HL["/kanatzidis-demo/images/group/2026.webp","image",{"fetchPriority":"high"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"OWrZ6uh5QF49rhai3TTko"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"2nIeL3DMPGj9Y-KICBOZg"}

@@ -61,13 +61,22 @@ personalTabs.forEach((tab, index) => {
   });
 });
 
+const viewAliases = {
+  "te-materials": "plastic-te",
+  mechanics: "plastic-te-mechanics",
+  "plastic-te-flexibility": "plastic-te-mechanics",
+};
+
 function viewFromHash() {
-  const candidate = window.location.hash.replace("#", "");
+  const hash = window.location.hash.replace("#", "");
+  const candidate = viewAliases[hash] || hash;
   return views.some((view) => view.id === candidate) ? candidate : "home";
 }
 
 function setActiveView(viewId, options = {}) {
-  const targetId = views.some((view) => view.id === viewId) ? viewId : "home";
+  const resolvedId = viewAliases[viewId] || viewId;
+  const targetId = views.some((view) => view.id === resolvedId) ? resolvedId : "home";
+  const targetView = views.find((view) => view.id === targetId);
   const shouldPush = options.push ?? true;
 
   views.forEach((view) => {
@@ -77,20 +86,35 @@ function setActiveView(viewId, options = {}) {
   });
 
   viewLinks.forEach((link) => {
-    link.classList.toggle("is-active", link.dataset.viewLink === targetId);
+    const active = link.dataset.viewLink === targetId ||
+      (link.closest("[data-nav]") && link.dataset.viewLink === targetView?.dataset.viewParent);
+    link.classList.toggle("is-active", Boolean(active));
+    if (active && link.closest("[data-nav]")) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
   });
 
   closeNavigation();
+  document.body.classList.toggle("plastic-te-active", Boolean(targetView?.classList.contains("pt-page")));
 
   if (shouldPush) {
     history.pushState({ view: targetId }, "", `#${targetId}`);
+  } else if (viewAliases[window.location.hash.slice(1)]) {
+    history.replaceState({ view: targetId }, "", `#${targetId}`);
   }
 
-  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  document.title = targetView?.dataset.pageTitle ? `${targetView.dataset.pageTitle} | Heyang Chen` : "Heyang Chen";
+  window.dispatchEvent(new CustomEvent("pageviewchange", { detail: { viewId: targetId } }));
+  window.scrollTo({ top: 0, behavior: "instant" });
+  if (shouldPush) {
+    const heading = targetView?.querySelector("h1, h2");
+    heading?.setAttribute("tabindex", "-1");
+    heading?.focus({ preventScroll: true });
+  }
 }
 
 viewLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const targetId = link.dataset.viewLink;
     if (!targetId) {
       return;

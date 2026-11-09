@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><title>Two uses of thermoelectric conversion</title><desc>Conceptual thermoelectric cooler with electrical input and heat-pumping output; a separate flexible generator uses a temperature difference to supply power-management electronics and a sensor.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#52756c"/></marker><linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9d1c7"/><stop offset=".45" stop-color="#4e8a78"/><stop offset="1" stop-color="#174f44"/></linearGradient></defs><style>text{font-family:Arial,sans-serif;fill:#23493f} .label{font-size:12px;letter-spacing:1.3px;font-weight:700}.small{font-size:13px;fill:#5d736b}.title{font-size:20px;font-weight:600}.arrow{fill:none;stroke:#52756c;stroke-width:2;marker-end:url(#arrow)}</style>
+<path d="M320 38V320" stroke="#cad8d1"/>
+<text x="32" y="40" class="label">SOLID-STATE COOLING</text><text x="350" y="40" class="label">HEAT-POWERED ELECTRONICS</text>
+<text x="149" y="81" text-anchor="middle" class="small">Heat absorbed</text><path d="M149 88V108" class="arrow"/>
+<rect x="48" y="114" width="200" height="15" rx="4" fill="#bed6e2"/><rect x="63" y="132" width="29" height="76" rx="3" fill="#286e62"/><rect x="111" y="132" width="29" height="76" rx="3" fill="#7893a5"/><rect x="159" y="132" width="29" height="76" rx="3" fill="#286e62"/><rect x="207" y="132" width="29" height="76" rx="3" fill="#7893a5"/>
+<text x="77" y="177" fill="white" style="fill:white;font-size:19px">p</text><text x="122" y="177" style="fill:white;font-size:19px">n</text>
+<text x="173" y="177" style="fill:white;font-size:19px">p</text><text x="217" y="177" style="fill:white;font-size:19px">n</text>
+<path d="M76 129H124M172 129H220M124 212H172" stroke="#b67c54" stroke-width="5"/>
+<rect x="48" y="216" width="200" height="15" rx="4" fill="#d8ad8c"/>
+<path d="M76 212V263H220V212" fill="none" stroke="#52756c" stroke-width="2"/><rect x="112" y="249" width="73" height="28" rx="14" fill="#f7faf7" stroke="#52756c"/><text x="149" y="267" text-anchor="middle" class="small">DC input</text>
+<path d="M267 166V245" class="arrow"/><text x="275" y="207" class="small" transform="rotate(90 275 207)">Heat rejected</text>
+<text x="149" y="312" text-anchor="middle" class="small">Electricity → heat pumping</text>
+<path d="M359 222Q473 158 598 221" fill="none" stroke="#ddb99c" stroke-width="35"/>
+<path d="M362 197Q473 136 594 195" fill="none" stroke="#a7bfb4" stroke-width="9"/>
+<g fill="#337867"><rect x="390" y="168" width="22" height="27" rx="3" transform="rotate(-19 401 182)"/><rect x="431" y="153" width="22" height="27" rx="3" transform="rotate(-9 442 167)"/><rect x="473" y="151" width="22" height="27" rx="3"/><rect x="515" y="158" width="22" height="27" rx="3" transform="rotate(12 526 170)"/><rect x="557" y="174" width="22" height="27" rx="3" transform="rotate(24 568 188)"/></g>
+<path d="M366 165Q475 107 595 164" fill="none" stroke="#7994a4" stroke-width="6"/>
+<text x="477" y="107" text-anchor="middle" class="small">Cooler environment</text><text x="477" y="252" text-anchor="middle" class="small">Body / ambient heat</text>
+<path d="M479 211V179" class="arrow"/><text x="496" y="211" class="small">ΔT</text>
+<path d="M584 177L614 177V278H558" class="arrow"/>
+<rect x="367" y="264" width="190" height="30" rx="5" fill="#f7faf7" stroke="#9db8ab"/><text x="462" y="284" text-anchor="middle" class="small">Power management → sensor</text>
+<text x="477" y="326" text-anchor="middle" class="small">Heat flow → electricity</text></svg>

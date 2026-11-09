@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><title>Compression plasticity in Ag2Se-based materials</title><desc>Conceptual compression test: a specimen between platens becomes shorter and wider while accommodating plastic deformation; not a measured deformation shape.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#52756c"/></marker><linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9d1c7"/><stop offset=".45" stop-color="#4e8a78"/><stop offset="1" stop-color="#174f44"/></linearGradient></defs><style>text{font-family:Arial,sans-serif;fill:#23493f} .label{font-size:12px;letter-spacing:1.3px;font-weight:700}.small{font-size:13px;fill:#5d736b}.title{font-size:20px;font-weight:600}.arrow{fill:none;stroke:#52756c;stroke-width:2;marker-end:url(#arrow)}</style>
+<text x="35" y="42" class="label">Ag₂Se-BASED MATERIALS</text>
+<rect x="60" y="80" width="175" height="15" rx="2" fill="#bccbc2"/><rect x="60" y="240" width="175" height="15" rx="2" fill="#bccbc2"/>
+<rect x="110" y="117" width="75" height="100" rx="2" fill="#7b9eaa" stroke="#477683"/>
+<path d="M147 97V114M147 238V221" class="arrow"/>
+<path d="M240 168H292" class="arrow"/>
+<rect x="314" y="115" width="175" height="15" rx="2" fill="#bccbc2"/><rect x="314" y="209" width="175" height="15" rx="2" fill="#bccbc2"/>
+<path d="M360 133Q342 170 360 205H440Q458 170 440 133Z" fill="#7b9eaa" stroke="#477683"/>
+<path d="M361 170L375 160M384 184L398 174M411 166L425 156" stroke="#dae8e7" stroke-width="3"/>
+<text x="147" y="286" text-anchor="middle" class="small">Before loading</text><text x="402" y="286" text-anchor="middle" class="small">Compressive deformation</text>
+<text x="320" y="329" text-anchor="middle" class="small">Compression plasticity + resistance to crack propagation</text></svg>

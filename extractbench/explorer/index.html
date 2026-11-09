@@ -3,155 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>TE Bench Performance Explorer · 2026-11-09</title>
-  <style>
-    :root {
-      --purple: #4e2a84;
-      --ink: #17151b;
-      --muted: #67616d;
-      --line: #d8d4dc;
-      --soft: #f5f2f8;
-      --bad: #c43c39;
-      --good: #176439;
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: #eeeaf2; color: var(--ink); font-family: Arial, sans-serif; }
-    button, input, select { font: inherit; }
-    .layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); min-height: 100vh; }
-    .sidebar { background: #fff; border-right: 1px solid var(--line); padding: 24px 18px; position: sticky; top: 0; height: 100vh; overflow: auto; }
-    .sidebar h1 { font-size: 23px; color: var(--purple); margin: 0 0 8px; }
-    .sidebar .intro { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 0 0 20px; }
-    .family { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 20px 6px 8px; }
-    .model-button { display: block; width: 100%; border: 1px solid transparent; background: #fff; border-radius: 7px; text-align: left; padding: 9px 10px; margin: 3px 0; cursor: pointer; color: var(--ink); }
-    .model-button.new-result { background: #e5f1fa; border-color: #bdd7ee; }
-    .new-badge { display: inline-block; margin-left: 6px; padding: 1px 5px; border-radius: 8px; background: #2b6f9f; color: #fff; font-size: 9px; vertical-align: 1px; }
-    .model-button:hover { background: var(--soft); }
-    .model-button.active { border-color: var(--purple); background: var(--soft); box-shadow: inset 4px 0 var(--model-color); }
-    .model-name { display: block; font-size: 13px; font-weight: 700; }
-    .model-mini { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; }
-    .main { padding: 28px 34px 70px; min-width: 0; }
-    .topbar { display: flex; justify-content: space-between; gap: 20px; align-items: flex-end; margin-bottom: 18px; }
-    .topbar h2 { font-size: 27px; margin: 0; color: var(--purple); }
-    .topbar p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
-    .links { white-space: nowrap; }
-    .links a { color: var(--purple); font-size: 12px; margin-left: 10px; }
-    .controls { display: grid; grid-template-columns: .55fr 1.15fr 1.35fr 1.1fr 1fr 1.1fr auto; gap: 10px; background: #fff; border: 1px solid var(--line); padding: 15px; border-radius: 9px; align-items: end; }
-    .control label, .field-label { display: block; font-size: 11px; font-weight: 700; color: var(--muted); margin: 0 0 5px; }
-    .control { min-width: 0; }
-    .control select { min-width: 0; max-width: 100%; }
-    .control select, .control button, .compare-toolbar input, .compare-toolbar select, .compare-toolbar button { width: 100%; height: 38px; border: 1px solid #aaa4b0; border-radius: 5px; background: #fff; padding: 0 9px; color: var(--ink); }
-    .control button, .compare-toolbar button { cursor: pointer; }
-    .question-nav { display: flex; gap: 5px; }
-    .question-nav button { width: 40px; font-size: 18px; }
-    .cards { display: grid; grid-template-columns: repeat(7, minmax(110px, 1fr)); gap: 9px; margin: 14px 0; }
-    .metric-card { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--purple); border-radius: 7px; padding: 10px 12px; min-height: 82px; }
-    .metric-card.bad { border-top-color: var(--bad); }
-    .metric-card .value { font-size: 21px; font-weight: 700; }
-    .metric-card .label { font-size: 11px; color: var(--muted); line-height: 1.25; margin-top: 5px; }
-    .figure-card { background: #fff; border: 1px solid var(--line); border-radius: 9px; margin: 14px 0; padding: 14px 15px 8px; overflow: hidden; }
-    .figure-card h3 { font-size: 17px; margin: 2px 5px 0; }
-    .figure-card .note { font-size: 12px; color: var(--muted); margin: 5px; line-height: 1.45; }
-    .plot { width: 100%; overflow-x: auto; }
-    .plot svg { display: block; width: 100%; min-width: 900px; height: auto; }
-    .compare-toolbar { display: grid; grid-template-columns: minmax(210px, 1fr) minmax(190px, .65fr) auto auto auto; gap: 8px; align-items: end; margin: 14px 5px 10px; }
-    .compare-toolbar .search-field { min-width: 0; }
-    .compare-toolbar button { width: auto; white-space: nowrap; }
-    .compare-toolbar button.primary { background: var(--purple); border-color: var(--purple); color: #fff; }
-    .picker-groups { display: grid; grid-template-columns: repeat(4, minmax(170px, 1fr)); gap: 14px 18px; margin: 10px 5px 6px; max-height: 320px; overflow: auto; padding: 4px; }
-    .picker-family { min-width: 0; }
-    .picker-family h4 { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; margin: 0 0 5px; }
-    .model-option { display: flex; align-items: flex-start; gap: 7px; padding: 4px 2px; font-size: 12px; line-height: 1.25; cursor: pointer; }
-    .model-option.hidden { display: none; }
-    .model-option input { margin: 1px 0 0; accent-color: var(--purple); }
-    .model-option .color-key { width: 13px; height: 3px; margin-top: 6px; flex: 0 0 auto; background: var(--model-color); }
-    .selection-summary { color: var(--muted); font-size: 12px; margin: 10px 5px 5px; }
-    .multi-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 10px 5px 2px; }
-    .legend-item { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; white-space: nowrap; }
-    .legend-item svg { width: 38px; height: 14px; flex: 0 0 auto; }
-    .table-card { background: #fff; border: 1px solid var(--line); border-radius: 9px; margin-top: 14px; overflow: hidden; }
-    .table-card h3 { margin: 0; padding: 14px 16px; border-bottom: 1px solid var(--line); font-size: 16px; }
-    .table-wrap { max-height: 520px; overflow: auto; }
-    .statistics-header { padding: 14px 16px 11px; border-bottom: 1px solid var(--line); }
-    .statistics-header h3 { padding: 0; border: 0; }
-    .statistics-header .note { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
-    .statistics-summary { padding: 10px 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.45; }
-    .statistics-summary strong { color: var(--ink); }
-    .value-summary-wrap { max-height: 440px; }
-    .value-summary-table th, .value-summary-table td { text-align: right; font-variant-numeric: tabular-nums; }
-    .value-summary-table th:first-child, .value-summary-table td:first-child { text-align: left; }
-    .value-summary-table th:nth-child(2), .value-summary-table td:nth-child(2) { text-align: right; }
-    .value-summary-table tbody tr, .value-detail-table tbody tr { cursor: default; }
-    .value-summary-table tbody td:nth-child(4),
-    .value-summary-table tbody td:nth-child(6),
-    .value-summary-table tbody td:nth-child(8) { font-weight: 700; }
-    .statistics-detail { border-top: 1px solid var(--line); }
-    .statistics-detail summary { cursor: pointer; padding: 12px 16px; color: var(--purple); font-size: 12px; font-weight: 700; }
-    .statistics-detail[open] summary { border-bottom: 1px solid var(--line); }
-    .statistics-detail .table-wrap { max-height: 480px; }
-    .status-pill.unit-task { background: #fff0d2; color: #754b00; }
-    .status-pill.warning { background: #ffe5df; color: #8a2f22; }
-    .compare-table-wrap { max-height: 330px; overflow: auto; margin: 8px 5px 4px; border-top: 1px solid var(--line); }
-    table { width: 100%; border-collapse: collapse; font-size: 12px; white-space: nowrap; }
-    th { position: sticky; top: 0; background: var(--purple); color: #fff; z-index: 1; }
-    th, td { padding: 7px 9px; border-bottom: 1px solid #e5e2e8; text-align: right; }
-    th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
-    tbody tr { cursor: pointer; }
-    tbody tr:nth-child(even) { background: #faf9fb; }
-    tbody tr:hover { background: #eee8f5; }
-    tbody tr.selected { background: #e4d9f0; font-weight: 700; }
-    tbody tr.bad td:first-child { border-left: 4px solid var(--bad); }
-    .compare-table tbody tr { cursor: default; }
-    .compare-table tbody tr.primary-model { background: #f0e9f7; }
-    .status-pill { display: inline-block; padding: 2px 6px; border-radius: 8px; background: #eee; font-size: 10px; }
-    .status-pill.ok { background: #e5f3ea; color: var(--good); }
-    .footnote { font-size: 12px; color: var(--muted); line-height: 1.55; margin: 16px 4px; }
-    .snapshot { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--purple); border-radius: 7px; padding: 14px 16px; margin: 0 0 16px; font-size: 13px; line-height: 1.5; }
-    .snapshot p { margin: 0 0 7px; }
-    .snapshot label { cursor: pointer; }
-    .snapshot input { accent-color: var(--purple); }
-    .snapshot details { margin-top: 8px; }
-    .snapshot summary { cursor: pointer; color: var(--purple); }
-    #coverageCounts { color: var(--muted); font-size: 12px; margin-top: 8px; }
-    #sidebarSearch { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 9px; margin-bottom: 8px; }
-    .model-button[hidden] { display: none; }
-    .status-pill.warning { margin-left: 5px; }
-    #sourceNote { margin: 12px 3px; color: var(--muted); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
-    .links { white-space: normal; text-align: right; line-height: 1.8; max-width: 460px; }
-    @media (max-width: 1350px) {
-      .layout { grid-template-columns: 240px minmax(0, 1fr); }
-      .cards { grid-template-columns: repeat(4, 1fr); }
-      .controls { grid-template-columns: repeat(2, 1fr); }
-      .picker-groups { grid-template-columns: repeat(2, minmax(170px, 1fr)); }
-    }
-    @media (max-width: 760px) {
-      .layout { display: block; }
-      .sidebar { position: relative; height: auto; border-right: 0; }
-      #modelList { max-height: 250px; overflow: auto; }
-      .main { padding: 18px 12px 50px; }
-      .topbar { display: block; }
-      .links { margin-top: 10px; white-space: normal; }
-      .links a { display: inline-block; margin: 4px 10px 0 0; }
-      .controls, .compare-toolbar { grid-template-columns: 1fr; }
-      .compare-toolbar button { width: 100%; }
-      .cards, .picker-groups { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 430px) {
-      .cards, .picker-groups { grid-template-columns: 1fr; }
-    }
-  #datasetLoading{position:fixed;inset:0;z-index:100;background:rgba(246,244,249,.96);display:flex;align-items:center;justify-content:center;gap:18px;font:600 18px Arial,sans-serif;color:#4e2a84}#datasetLoading[hidden]{display:none}
-</style>
+  <title>Curve Explorer · ExtractBench · Heyang Chen</title>
+  <meta name="theme-color" content="#f6f7f5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css?v=20261109">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../../#home"><span class="brand-mark" aria-hidden="true">HC</span><span>Heyang Chen</span><span class="brand-divider">/</span><span class="brand-project">ExtractBench</span></a>
+    <nav class="site-nav" aria-label="Page navigation">
+      <a href="../">Overview</a>
+      <a href="index.html" aria-current="page">Curve Explorer</a>
+      <a href="methods.html">Methods</a>
+      <a href="../#data">Data</a>
+    </nav>
+  </header>
   <div id="datasetLoading" role="status" aria-live="polite"><span>Loading curve data…</span><button type="button" id="retryDataset" hidden>Retry</button></div>
   <div class="layout">
     <aside class="sidebar">
-      <h1>Performance Explorer</h1>
+      <p class="eyebrow">Scientific figure extraction</p>
+      <h1>Curve Explorer</h1>
       <p class="intro" id="browserIntro">Updated 9 Nov 2026. Loading the selected D1/D2 responses…</p>
       <label class="field-label" for="sidebarSearch">Find a primary model</label>
       <input id="sidebarSearch" type="search" placeholder="Model or effort">
       <div id="modelList"></div>
     </aside>
-    <main class="main">
+    <main class="main" id="main">
       <header class="topbar">
         <div>
           <h2 id="pageTitle">ExtractBench · Curve Explorer</h2>
@@ -272,9 +152,10 @@
       </section>
 
       <p class="footnote" id="browserFootnote">Every point-level fraction uses all Gold points in the current question as its denominator; “Lost” means uncovered Gold points. Cross-question slot coverage, median-scale-normalized robust spread, and normalized shape bias use the same definitions as Fig. 10 of the main report. Here, robustness measures whether the same curve is extracted consistently from different questions and contexts; it is not the random variance of repeated calls to one identical prompt.</p>
+      <footer class="explorer-footer"><a href="../../#home">← Heyang Chen</a><span>ExtractBench · Thermoelectric figure extraction</span><a href="../#findings">Explore the findings ↗</a></footer>
     </main>
   </div>
   <script src="data/audit.js"></script>
-  <script src="browser.js?v=20261109"></script>
+  <script src="browser.js?v=20261109-home-theme"></script>
 </body>
 </html>

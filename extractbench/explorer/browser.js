@@ -246,7 +246,7 @@
     const [yLow, yHigh] = yBounds;
     const mapX = (value) => left + (value - xLow) / (xHigh - xLow) * (right - left);
     const mapY = (value) => bottom - (value - yLow) / (yHigh - yLow) * (bottom - top);
-    let svg = `<text class="pt" x="${(left + right) / 2}" y="${y0 + 22}" text-anchor="middle">${esc(title)}</text><rect x="${left}" y="${top}" width="${right - left}" height="${bottom - top}" fill="#fff" stroke="#111" stroke-width="1.4"/><clipPath id="${id}"><rect x="${left}" y="${top}" width="${right - left}" height="${bottom - top}"/></clipPath>`;
+    let svg = `<text class="pt" x="${(left + right) / 2}" y="${y0 + 22}" text-anchor="middle">${esc(title)}</text><rect x="${left}" y="${top}" width="${right - left}" height="${bottom - top}" fill="#fff" stroke="#172026" stroke-width="1.4"/><clipPath id="${id}"><rect x="${left}" y="${top}" width="${right - left}" height="${bottom - top}"/></clipPath>`;
     for (const tick of niceTicks(xLow, xHigh)) {
       const x = mapX(tick);
       svg += `<line class="tick" x1="${x}" y1="${bottom}" x2="${x}" y2="${bottom - 8}"/><text class="tl" x="${x}" y="${bottom + 25}" text-anchor="middle">${fmt(tick)}</text>`;
@@ -276,11 +276,11 @@
   }
 
   function svgShell(body, title, legend = "") {
-    return `<svg viewBox="0 0 1200 610" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(title)}"><style>text{font-family:Arial,Helvetica,sans-serif;fill:#111;text-rendering:geometricPrecision}.title{font-size:20px;font-weight:700}.sub{font-size:13px;fill:#555}.pt{font-size:16px;font-weight:700}.al{font-size:15px}.tl{font-size:12px}.tick{stroke:#111;stroke-width:1.2}.note{font-size:11px;fill:#c43c39;font-weight:700}</style><rect width="100%" height="100%" fill="#fff"/><text class="title" x="600" y="30" text-anchor="middle">${esc(title)}</text>${legend}${body}</svg>`;
+    return `<svg viewBox="0 0 1200 610" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(title)}"><style>text{font-family:Inter,system-ui,sans-serif;fill:#172026;text-rendering:geometricPrecision}.title{font-size:20px;font-weight:700}.sub{font-size:13px;fill:#5b6670}.pt{font-size:16px;font-weight:700}.al{font-size:15px}.tl{font-size:12px}.tick{stroke:#172026;stroke-width:1.2}.note{font-size:11px;fill:#a94c4c;font-weight:700}</style><rect width="100%" height="100%" fill="#fff"/><text class="title" x="600" y="30" text-anchor="middle">${esc(title)}</text>${legend}${body}</svg>`;
   }
 
   function legend(model) {
-    return `<line x1="435" y1="58" x2="475" y2="58" stroke="#222" stroke-width="2"/>${marker(455, 58, "circle", "#222", true, 4)}<text class="sub" x="485" y="63">Gold reference</text><line x1="620" y1="58" x2="660" y2="58" stroke="${model.color}" stroke-width="2.2" stroke-dasharray="7 4"/>${marker(640, 58, model.marker, model.color, false, 4)}<text class="sub" x="670" y="63">${esc(model.short)}</text>`;
+    return `<line x1="435" y1="58" x2="475" y2="58" stroke="#b65f24" stroke-width="2"/>${marker(455, 58, "circle", "#b65f24", true, 4)}<text class="sub" x="485" y="63">Gold reference</text><line x1="620" y1="58" x2="660" y2="58" stroke="${model.color}" stroke-width="2.2" stroke-dasharray="7 4"/>${marker(640, 58, model.marker, model.color, false, 4)}<text class="sub" x="670" y="63">${esc(model.short)}</text>`;
   }
 
   function renderComparison() {
@@ -292,14 +292,14 @@
     const fullBounds = bounds(allPoints.map((point) => point[1]), .1);
     const zoomBounds = bounds(currentEntry.g.map((point) => point[1]), .15);
     const traces = [
-      { points: currentEntry.g, color: "#222", width: 2, marker: "circle", open: true },
+      { points: currentEntry.g, color: "#b65f24", width: 2, marker: "circle", open: true },
       { points: prediction.p, color: model.color, width: 2.2, dash: "7 4", marker: model.marker },
     ];
     const outside = prediction.p.filter((point) => point[1] < zoomBounds[0] || point[1] > zoomBounds[1]).length;
     const title = `${state.question} — ${currentProp().title} — ${state.sample} — ${model.label}`;
     let body = panel({ id: "full", x0: 20, y0: 82, w: 570, h: 500, title: "Shared full scale", xBounds, yBounds: fullBounds, yLabel: currentProp().axis_label, traces });
     body += panel({ id: "zoom", x0: 610, y0: 82, w: 570, h: 500, title: "Gold-range zoom", xBounds, yBounds: zoomBounds, yLabel: currentProp().axis_label, traces, note: outside ? `${outside} predicted point(s) outside zoom` : "" });
-    if (!prediction.p.length) body += `<text x="600" y="350" text-anchor="middle" style="font:700 20px Arial;fill:#c43c39">No comparable prediction curve (${esc(prediction.cv)})</text>`;
+    if (!prediction.p.length) body += `<text x="600" y="350" text-anchor="middle" style="font:600 20px Inter,system-ui,sans-serif;fill:#a94c4c">No comparable prediction curve (${esc(prediction.cv)})</text>`;
     $("comparisonPlot").innerHTML = svgShell(body, title, legend(model));
   }
 
@@ -557,7 +557,7 @@
         if (normalizedPrediction.length) normalized.push({ points: normalizedPrediction, color: model.color, width: isSelected ? 2.8 : 1.25, opacity: isSelected ? 1 : .2, marker: isSelected ? model.marker : null });
       }
     }
-    const gold = { points: selectedEntry.g, color: "#222", width: 2.2, marker: "circle", open: true };
+    const gold = { points: selectedEntry.g, color: "#b65f24", width: 2.2, marker: "circle", open: true };
     const rawTraces = [...raw, gold];
     const normalizedTraces = [...normalized, gold];
     const xBounds = bounds([...selectedEntry.g, ...raw.flatMap((trace) => trace.points)].map((point) => point[0]), .04);
@@ -610,7 +610,7 @@
   function renderMultiComparison() {
     const selectedModels = state.compare.map((key) => modelBy[key]).filter(Boolean);
     const currentEntry = entry();
-    const gold = { points: currentEntry.g, color: "#222", width: 2.4, marker: "circle", open: true, size: 4 };
+    const gold = { points: currentEntry.g, color: "#b65f24", width: 2.4, marker: "circle", open: true, size: 4 };
     const showQuestionCurves = selectedModels.length > 0 && selectedModels.length <= 4;
     const bandOpacity = selectedModels.length <= 6 ? .12 : .06;
     const rawAggregates = selectedModels.map((model) => {
@@ -636,7 +636,7 @@
     body += panel({ id: "mnormalized", x0: 610, y0: 62, w: 570, h: 520, title: `${methodLabel} median-scale-normalized shape + IQR`, xBounds, yBounds: normalizedBounds, yLabel: currentProp().axis_label, traces: normalizedTraces });
     $("multiModelPlot").innerHTML = svgShell(body, `${state.sample} — ${currentProp().title} across repeated questions — ${countLabel}`);
     $("selectionSummary").textContent = selectedModels.length ? `${selectedModels.length} of ${D.models.length} model settings selected. Each model has a unique comparison color. ${showQuestionCurves ? "Faint lines are individual questions; heavy lines are the central curves." : "Individual question curves are hidden above four selected models; heavy curves and IQR bands remain."}` : `No model selected. Gold is shown by itself.`;
-    $("multiLegend").innerHTML = `<span class="legend-item"><svg viewBox="0 0 40 14" aria-hidden="true"><line x1="2" y1="7" x2="38" y2="7" stroke="#222" stroke-width="2.2"/>${marker(20, 7, "circle", "#222", true, 3)}</svg><span>Gold reference</span></span>${selectedModels.map(legendSwatch).join("")}`;
+    $("multiLegend").innerHTML = `<span class="legend-item"><svg viewBox="0 0 40 14" aria-hidden="true"><line x1="2" y1="7" x2="38" y2="7" stroke="#b65f24" stroke-width="2.2"/>${marker(20, 7, "circle", "#b65f24", true, 3)}</svg><span>Gold reference</span></span>${selectedModels.map(legendSwatch).join("")}`;
 
     $("multiModelTable").innerHTML = selectedModels.length ? selectedModels.map((model) => {
       const summary = repeatedQuestionSummary(model.key);
@@ -645,7 +645,7 @@
       const bad = summary.scaleWarnings > 0;
       const questionCount = currentQuestions().length;
       return `<tr class="${model.key === state.model ? "primary-model " : ""}${bad ? "bad" : ""}"><td>${esc(model.label)}</td><td>${summary.curves}/${questionCount}</td><td>${pct(summary.coveredPoints / goldPoints)}</td><td>${pct(summary.within20 / goldPoints)}</td><td>${pct(stability.cov)}</td><td>${pct(stability.spread)}</td><td>${pct(stability.bias)}</td><td>${summary.scaleWarnings}/${questionCount}</td></tr>`;
-    }).join("") : `<tr><td colspan="8" style="text-align:left;color:#67616d">Select one or more models above to compare their repeated-question central curves.</td></tr>`;
+    }).join("") : `<tr><td colspan="8" style="text-align:left;color:#5b6670">Select one or more models above to compare their repeated-question central curves.</td></tr>`;
   }
 
   function renderTable() {

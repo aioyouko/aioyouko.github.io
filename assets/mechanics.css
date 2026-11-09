@@ -1,0 +1,143 @@
+/* Mechanics research: geometry, elastic flexibility, and intrinsic plasticity. */
+#mechanics .page-shell { width: min(1240px, 100%); }
+.mechanics-hero { grid-template-columns: 1.2fr 0.85fr; gap: 4rem; }
+.mechanics-hero h2 { font-size: clamp(2.55rem, 4.5vw, 3.85rem); line-height: 1.06; }
+.mechanics-hero strong { color: var(--teal-deep); font-weight: 600; }
+.mechanics-context { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 1.3rem 0; margin: 2.2rem 0 3.4rem; border-block: 1px solid var(--line); }
+.mechanics-context p { max-width: 470px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.mechanics-context-label { display: block; margin-bottom: 0.35rem; color: var(--ink); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.07em; text-transform: uppercase; }
+.mechanics-section-heading { margin-bottom: 1.5rem; }
+.mechanics-section-heading .section-kicker, .mechanics-intrinsic .section-kicker { font-size: 0.72rem; letter-spacing: 0.08em; margin-bottom: 0.7rem; }
+.mechanics-section-heading .section-kicker span, .mechanics-intrinsic .section-kicker span { margin-right: 0.7rem; color: var(--copper); }
+.mechanics-section-heading h3, .mechanics-intrinsic h3 { font-family: "Source Serif 4", Georgia, serif; font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.15; font-weight: 600; }
+.mechanics-section-heading > p:last-child { max-width: 710px; margin-top: 0.7rem; color: var(--muted); line-height: 1.7; font-size: 0.94rem; }
+.flex-demo { --flex-accent: #0b766b; --flex-critical: 16.667%; display: grid; grid-template-columns: minmax(0, 1fr) 318px; overflow: hidden; border: 1px solid #d4dedb; border-radius: 10px; background: #fff; box-shadow: 0 12px 36px #243b5510; }
+.flex-demo[data-state="fracture"], .flex-demo[data-state="limit"] { --flex-accent: #a34630; }
+.flex-stage { display: flex; flex-direction: column; min-width: 0; padding: 1.5rem 1.6rem 1rem; background: radial-gradient(ellipse at 55% 48%, #fff 0, #f0f5f4 70%, #eaf0ef 100%); }
+.flex-stage-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
+.flex-specimen { display: flex; align-items: center; gap: 0.65rem; color: #40565b; font-size: 0.73rem; font-weight: 600; }
+.flex-si { display: grid; place-items: center; width: 33px; height: 36px; border: 1px solid #b2c1c7; border-radius: 3px; color: #2a455a; font-size: 1.1rem; font-family: Georgia, serif; }
+.flex-state { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--flex-accent); font-size: 0.65rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; }
+.flex-state::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.flex-wafer { display: block; width: 100%; height: auto; min-height: 300px; flex: 1; overflow: visible; }
+.flex-wafer text { font-family: Inter, system-ui, sans-serif; font-size: 14px; fill: #496369; }
+.flex-wafer .flex-svg-label { font-size: 12px; fill: #62777c; }
+.flex-stage-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.flex-stage-bottom p { max-width: 300px; font-size: 0.82rem; color: #40575c; line-height: 1.65; }
+.flex-demo button { font: inherit; cursor: pointer; }
+.flex-load-button { display: flex; flex-shrink: 0; align-items: center; gap: 0.6rem; min-height: 41px; padding: 0.6rem 0.85rem; border: 1px solid #bacac5; border-radius: 5px; background: #ffffffad; color: var(--teal-deep); font-size: 0.76rem !important; font-weight: 650 !important; }
+.flex-load-button span { font-size: 1.15rem; }
+.flex-load-button:hover { background: #fff; border-color: var(--teal); }
+.flex-scale-note { margin-top: 1.2rem; color: #647579; font-size: 0.66rem; }
+.flex-controls { padding: 1.6rem 1.5rem; border-left: 1px solid #d4dedb; }
+.flex-control-heading { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 1.7rem; }
+.flex-control-heading .meta { color: #697570; font-size: 0.65rem; font-weight: 650; letter-spacing: 0.07em; }
+.flex-reset { padding: 0.35rem 0; border: 0; background: transparent; color: #58685f; font-size: 0.7rem !important; text-decoration: underline; text-underline-offset: 3px; }
+.flex-thickness-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+.flex-thickness-heading label { color: #37484d; font-size: 0.8rem; font-weight: 600; }
+.flex-thickness-heading i, .flex-radius i { font-family: Georgia, serif; }
+.flex-thickness-heading output { color: var(--ink); font-size: 2rem; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: -0.06em; }
+.flex-thickness-heading output span { font-size: 0.9rem; letter-spacing: 0; color: var(--muted); }
+.flex-range-wrap { position: relative; margin-top: 0.6rem; padding: 0 10px; }
+#flex-thickness { position: relative; z-index: 1; display: block; width: calc(100% + 20px); height: 32px; margin: 0 -10px; appearance: none; -webkit-appearance: none; background: transparent; cursor: ew-resize; }
+#flex-thickness::-webkit-slider-runnable-track { height: 5px; border-radius: 8px; background: linear-gradient(to right, #7ab8a9 0%, #7ab8a9 var(--flex-critical), #ded4c9 var(--flex-critical), #ded4c9 100%); }
+#flex-thickness::-moz-range-track { height: 5px; border-radius: 8px; background: linear-gradient(to right, #7ab8a9 0%, #7ab8a9 var(--flex-critical), #ded4c9 var(--flex-critical), #ded4c9 100%); }
+#flex-thickness::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 21px; height: 21px; margin-top: -8px; border: 3px solid #fff; border-radius: 50%; background: var(--teal-deep); box-shadow: 0 0 0 1px #a5bcb4, 0 2px 5px #243b5525; }
+#flex-thickness::-moz-range-thumb { width: 15px; height: 15px; border: 3px solid #fff; border-radius: 50%; background: var(--teal-deep); box-shadow: 0 0 0 1px #a5bcb4; }
+.flex-critical-tick { position: absolute; top: 25px; left: calc(10px + (100% - 20px) * var(--flex-critical-fraction, 0.16667)); width: 1px; height: 7px; background: #a58263; }
+.flex-range-labels { display: flex; justify-content: space-between; margin-top: 0.35rem; color: #697570; font-size: 0.67rem; }
+.flex-presets { display: flex; gap: 0.4rem; margin-top: 1rem; }
+.flex-presets button { flex: 1; padding: 0.4rem 0.15rem; border: 1px solid #dfe4df; border-radius: 4px; background: #fff; color: #5b6b67; font-size: 0.7rem; }
+.flex-presets button[aria-pressed="true"] { border-color: #8cb5a9; background: #edf5f1; color: var(--teal-deep); }
+.flex-radius { min-width: 0; margin: 1.5rem 0 0; padding: 0; border: 0; }
+.flex-radius legend { margin-bottom: 0.6rem; padding: 0; color: #37484d; font-size: 0.76rem; font-weight: 600; }
+.flex-radius-options { display: grid; grid-template-columns: repeat(3, 1fr); padding: 3px; border: 1px solid #e3e8e3; border-radius: 5px; background: #f3f5f1; }
+.flex-radius label { position: relative; cursor: pointer; }
+.flex-radius input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.flex-radius span { display: block; padding: 0.45rem 0; border-radius: 3px; color: #63726c; font-size: 0.73rem; text-align: center; }
+.flex-radius input:checked + span { background: #fff; color: var(--teal-deep); box-shadow: 0 1px 4px #17202616; font-weight: 650; }
+.flex-demo :is(button, input):focus-visible, .flex-radius input:focus-visible + span, .flex-model-notes summary:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+.flex-strain { margin-top: 1.5rem; padding-top: 1.1rem; border-top: 1px solid #e6eae5; }
+.flex-strain > div:first-child { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; font-size: 0.7rem; color: #53645e; }
+.flex-strain strong { font-weight: 650; }
+.flex-strain > div > strong { color: var(--flex-accent); font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.flex-strain-track { position: relative; height: 5px; margin: 0.65rem 0 0.6rem; border-radius: 4px; background: #e9eeea; }
+.flex-strain-track > span { display: block; height: 100%; max-width: 100%; border-radius: 4px; background: var(--flex-accent); }
+.flex-strain-track i { position: absolute; top: -3px; left: 50%; width: 1px; height: 11px; background: #8d7356; }
+.flex-strain p { color: #738078; font-size: 0.65rem; }
+.flex-strain p strong { color: #635b50; }
+.flex-threshold { margin-top: 1rem; color: #596b62; font-size: 0.73rem; line-height: 1.5; }
+.flex-threshold strong { color: #3c5045; font-weight: 600; }
+.flex-assumption { margin-top: 0.5rem; color: #738078; font-size: 0.65rem; line-height: 1.6; }
+.flex-metrics { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #d4dedb; background: #fdfefa; }
+.flex-metrics > div { padding: 1.2rem 1.5rem; }
+.flex-metrics > div + div { border-left: 1px solid #dfe6df; }
+.flex-metrics span { display: block; color: #68766f; font-size: 0.68rem; }
+.flex-metrics strong { display: block; margin: 0.5rem 0 0.35rem; color: #294d43; font-family: Georgia, serif; font-size: 1.5rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+.flex-metrics small { font-family: Inter, sans-serif; font-size: 0.85rem; color: #61786d; }
+.flex-metrics p { color: #758278; font-size: 0.66rem; line-height: 1.5; }
+.flex-reading { display: grid; grid-template-columns: 1fr 0.85fr; gap: 3rem; align-items: start; padding-top: 1.6rem; }
+.flex-takeaway .meta { font-size: 0.67rem; letter-spacing: 0.05em; }
+.flex-takeaway p { margin-top: 0.5rem; color: var(--muted); font-size: 0.85rem; line-height: 1.8; }
+.flex-takeaway strong { color: #314b41; font-weight: 600; }
+.flex-model-notes { border-block: 1px solid #d8dfd9; }
+.flex-model-notes summary { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; color: #3f594b; list-style: none; cursor: pointer; font-size: 0.78rem; font-weight: 600; }
+.flex-model-notes summary::-webkit-details-marker { display: none; }
+.flex-model-notes summary span { font-size: 1.1rem; font-weight: 400; transition: transform 160ms; }
+.flex-model-notes[open] summary span { transform: rotate(45deg); }
+.flex-model-notes > div { padding-bottom: 0.8rem; color: var(--muted); font-size: 0.76rem; line-height: 1.8; }
+.flex-model-notes p + p { margin-top: 0.7rem; }
+.mechanics-literature { display: grid; grid-template-columns: 0.65fr 1fr; gap: 2rem; padding: 1.6rem 1.8rem; margin-top: 2rem; border-left: 3px solid #b48863; background: #eceee6; }
+.mechanics-literature .meta { color: #856442; font-size: 0.65rem; letter-spacing: 0.05em; }
+.mechanics-literature h3 { margin-top: 0.6rem; font-size: 1.1rem; line-height: 1.4; font-weight: 600; }
+.mechanics-literature p { color: #536056; font-size: 0.81rem; line-height: 1.8; }
+.mechanics-literature a { display: inline-block; margin-top: 0.75rem; color: #6b5239; font-size: 0.72rem; border-bottom: 1px solid #b5a891; padding-bottom: 0.15rem; }
+.mechanics-literature a span { margin-left: 0.4rem; }
+.mechanics-intrinsic { display: grid; grid-template-columns: 0.85fr 1fr; gap: 3rem; margin-top: 3.4rem; padding-top: 2.4rem; border-top: 1px solid var(--line); }
+.mechanics-intrinsic > div:last-child > p { color: var(--muted); font-size: 0.88rem; line-height: 1.8; }
+.mechanics-intrinsic .mechanics-research-question { margin-top: 1rem; color: var(--teal-deep) !important; font-weight: 600; }
+.mechanics-reference { display: grid; grid-template-columns: 130px 1fr; gap: 1rem; margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); color: #7a827c; font-size: 0.7rem; line-height: 1.8; }
+.mechanics-reference > span { color: #59695f; font-weight: 600; }
+.mechanics-reference a { text-decoration: underline; text-underline-offset: 2px; }
+.flex-no-script { margin-top: 1rem; color: var(--muted); line-height: 1.6; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 1050px) {
+  .mechanics-hero { gap: 2rem; }
+  .flex-demo { grid-template-columns: minmax(0, 1fr) 292px; }
+  .flex-controls { padding: 1.4rem 1.2rem; }
+  .flex-stage { padding: 1.4rem 1.2rem 1rem; }
+  .flex-stage-bottom { align-items: start; flex-direction: column; gap: 0.7rem; }
+  .flex-wafer { min-height: 260px; }
+}
+@media (max-width: 800px) {
+  .mechanics-hero { grid-template-columns: 1fr; gap: 1.3rem; }
+  .mechanics-context { margin-bottom: 2.4rem; gap: 1.5rem; }
+  .flex-demo { grid-template-columns: 1fr; }
+  .flex-controls { border-left: 0; border-top: 1px solid #d4dedb; padding: 1.4rem 1.5rem; }
+  .flex-stage { padding: 1.4rem 1.5rem 1rem; }
+  .flex-wafer { flex: none; min-height: 0; max-height: 370px; }
+  .flex-stage-bottom { flex-direction: row; align-items: center; }
+  .flex-control-heading { margin-bottom: 0.8rem; }
+  .flex-metrics > div { padding: 1.1rem; }
+  .flex-reading { grid-template-columns: 1fr; gap: 1.2rem; }
+  .mechanics-literature { grid-template-columns: 1fr; gap: 0.8rem; }
+  .mechanics-intrinsic { grid-template-columns: 1fr; gap: 1.2rem; }
+}
+@media (max-width: 480px) {
+  #mechanics .page-shell { padding-top: 2rem; }
+  .mechanics-context { grid-template-columns: 1fr; gap: 1rem; margin-top: 1.6rem; }
+  .flex-stage { padding: 1.1rem 0.9rem 0.8rem; }
+  .flex-stage-top { gap: 0.6rem; }
+  .flex-specimen { font-size: 0.66rem; }
+  .flex-state { font-size: 0.58rem; }
+  .flex-stage-bottom { align-items: start; flex-direction: column; }
+  .flex-stage-bottom p { max-width: none; font-size: 0.77rem; }
+  .flex-controls { padding: 1.2rem; }
+  .flex-metrics { grid-template-columns: 1fr; }
+  .flex-metrics > div { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 0.6rem; padding: 0.9rem 1.2rem; align-items: center; }
+  .flex-metrics > div + div { border-left: 0; border-top: 1px solid #e3e8e1; }
+  .flex-metrics strong { grid-column: 2; grid-row: 1 / 3; text-align: right; font-size: 1.3rem; margin: 0; }
+  .flex-metrics p { grid-column: 1; font-size: 0.61rem; }
+  .mechanics-literature { padding: 1.25rem; }
+  .mechanics-reference { grid-template-columns: 1fr; gap: 0.4rem; }
+}

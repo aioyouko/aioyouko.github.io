@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><title>Elastic, plastic and brittle response</title><desc>Conceptual stress-strain curves compare early brittle fracture with yielding and permanent plastic strain after unloading. These curves do not represent measured data or a comparison between specific compositions.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#52756c"/></marker><linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9d1c7"/><stop offset=".45" stop-color="#4e8a78"/><stop offset="1" stop-color="#174f44"/></linearGradient></defs><style>text{font-family:Arial,sans-serif;fill:#23493f} .label{font-size:12px;letter-spacing:1.3px;font-weight:700}.small{font-size:13px;fill:#5d736b}.title{font-size:20px;font-weight:600}.arrow{fill:none;stroke:#52756c;stroke-width:2;marker-end:url(#arrow)}</style>
+<text x="35" y="38" class="label">DISTINGUISH THE MECHANICAL RESPONSE</text>
+<path d="M80 289V75M80 289H565" class="arrow"/>
+<text x="52" y="185" transform="rotate(-90 52 185)" class="small">Stress</text><text x="322" y="323" text-anchor="middle" class="small">Strain</text>
+<path d="M80 289L160 117" stroke="#b46a45" stroke-width="3" fill="none"/><path d="M153 110L167 124M167 110L153 124" stroke="#b46a45" stroke-width="3"/>
+<text x="177" y="108" class="small">Brittle fracture</text>
+<path d="M80 289L145 171Q163 151 185 160Q290 132 385 120Q451 110 511 144" stroke="#23735e" stroke-width="4" fill="none"/>
+<path d="M315 132L229 289" stroke="#23735e" stroke-width="2" fill="none" stroke-dasharray="5 5"/>
+<text x="356" y="89" class="small">Plastic deformation</text><text x="270" y="232" class="small">Unloading</text>
+<path d="M83 279H226" stroke="#52756c" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/><text x="163" y="309" text-anchor="middle" class="small">Residual strain</text>
+<text x="555" y="343" text-anchor="end" style="font-size:11px;fill:#7b8c84">Conceptual curves · no numerical scale</text></svg>

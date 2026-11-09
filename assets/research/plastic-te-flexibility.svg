@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><title>Two routes to deformable electronics</title><desc>Flexible architecture with rigid semiconductor islands on a compliant substrate, compared with permanent deformation inside a continuous plastic semiconductor. The slip lines are symbolic, not a crystal structure.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#52756c"/></marker><linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9d1c7"/><stop offset=".45" stop-color="#4e8a78"/><stop offset="1" stop-color="#174f44"/></linearGradient></defs><style>text{font-family:Arial,sans-serif;fill:#23493f} .label{font-size:12px;letter-spacing:1.3px;font-weight:700}.small{font-size:13px;fill:#5d736b}.title{font-size:20px;font-weight:600}.arrow{fill:none;stroke:#52756c;stroke-width:2;marker-end:url(#arrow)}</style>
+<path d="M320 40V313" stroke="#cad8d1"/>
+<text x="32" y="43" class="label">EXTRINSIC FLEXIBILITY</text><text x="350" y="43" class="label">INTRINSIC PLASTICITY</text>
+<path d="M42 207Q148 109 280 207" fill="none" stroke="#b8cabe" stroke-width="17"/>
+<g fill="#658698" stroke="#45697b" stroke-width="1"><rect x="56" y="163" width="32" height="27" rx="2" transform="rotate(-28 72 177)"/><rect x="104" y="142" width="32" height="27" rx="2" transform="rotate(-12 120 156)"/><rect x="154" y="137" width="32" height="27" rx="2"/><rect x="204" y="151" width="32" height="27" rx="2" transform="rotate(19 220 165)"/><rect x="248" y="175" width="24" height="27" rx="2" transform="rotate(32 260 189)"/></g>
+<path d="M84 157Q98 148 106 150M138 141Q149 137 157 142M186 144Q202 143 211 155M236 165Q245 164 254 178" stroke="#ba8156" stroke-width="3" fill="none"/>
+<text x="160" y="90" text-anchor="middle" class="small">Let the architecture bend</text>
+<text x="160" y="257" text-anchor="middle" class="small">Thin sheets · compliant connections</text><text x="160" y="279" text-anchor="middle" class="small">Plastic flow is not required</text>
+<path d="M360 179Q402 104 452 151T583 177L583 207Q513 218 457 181T360 209Z" fill="url(#ribbon)"/>
+<path d="M360 180Q402 105 452 151T583 177" fill="none" stroke="#dae8e0" stroke-width="3"/>
+<text x="475" y="90" text-anchor="middle" class="small">Let the semiconductor deform</text>
+<path d="M380 223H413M452 223H485M524 223H557" stroke="#51816c" stroke-width="3"/>
+<path d="M391 232H424M463 232H496M535 232H568" stroke="#51816c" stroke-width="3"/>
+<path d="M407 214H430" class="arrow"/><path d="M478 214H501" class="arrow"/>
+<text x="475" y="275" text-anchor="middle" class="small">Slip &amp; permanent shape change</text>
+<text x="320" y="332" text-anchor="middle" class="small">Device-level flexibility and material-level plasticity are distinct.</text></svg>

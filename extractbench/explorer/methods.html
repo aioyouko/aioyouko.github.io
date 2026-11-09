@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methods · TE Bench Performance Explorer</title>
+<style>body{font:16px/1.65 Arial,sans-serif;color:#17151b;background:#eeeaf2;margin:0}main{max-width:950px;margin:36px auto;padding:28px;background:white;border:1px solid #d8d4dc;border-radius:9px}h1,h2,a{color:#4e2a84}h1{line-height:1.2}table{border-collapse:collapse;width:100%;font-size:14px}td,th{text-align:left;padding:9px;border-bottom:1px solid #d8d4dc}code{overflow-wrap:anywhere}@media(max-width:700px){main{margin:0;padding:20px}}</style></head>
+<body><main>
+<p><a href="index.html">← Performance Explorer</a></p>
+<h1>Selected responses, curve values, and provenance</h1>
+<p>Explorer generated on <strong>9 November 2026</strong> from the project's selected <strong>4 November 2026</strong> Origin snapshot. It includes the imported Qwen experiment named <code>qwen37_completion_20261105</code>. This is an offline rebuild of archived responses. No new model requests were made.</p>
+<h2>Four datasets, 114 question slots</h2>
+<table><thead><tr><th>Dataset</th><th>Questions</th><th>Properties</th></tr></thead><tbody>
+<tr><td>D1 · Different source</td><td>24</td><td>6</td></tr>
+<tr><td>D1 · Same source as D2</td><td>12</td><td>6</td></tr>
+<tr><td>D2 · Normal / without instructions</td><td>39 (22 clean + 17 error)</td><td>7</td></tr>
+<tr><td>D2 · Detail / with instructions</td><td>39 (22 clean + 17 error)</td><td>7</td></tr>
+</tbody></table>
+<p>In D2, “error” means an injected fault in the benchmark image. It is independent of API failure or response validity. Different-source D1 set 1 retains the existing provisional Gold/image binding; no binding or score was changed for this explorer. D1 sample identities are kept separate across source sets.</p>
+<h2>Configuration selection and completion</h2>
+<p>The default explorer contains the 64 configurations that returned all 114 requested slots. The optional incomplete view exposes the other 12 configurations with their actual response states. Returned parse, schema, or truncation anomalies count as completed tests and retain their original scored outcome. API failures, empty responses, unrequested slots, and other untested slots are reported separately. Low numerical accuracy is not a failed API test.</p>
+<p>Models and reasoning efforts follow the project's 4 November display policy. Each track uses its recorded primary variant, including 32k throughout for GPT-5.6 Terra medium. The explicitly requested Qwen Plus 32k and 64k configurations remain separately labeled. Alternative budgets and provider records remain in the <a href="data/Target_Budget_Variants.csv">budget audit</a>. Selection is inherited from the benchmark snapshot, never chosen by the largest score.</p>
+<p><a href="data/Target_Coverage.csv">Coverage CSV</a> · <a href="data/Target_Track_Audit.csv">Track audit CSV</a></p>
+<h2>Curves and statistics</h2>
+<p>The original purple sidebar, SVG plots, Gold-range zoom, model comparison, repeated-question overlay, and numeric Mean / sample-SD tables are retained. Display units follow the original explorer. Temperature and value conversions use the archived benchmark scorer. Parse failures expose no repaired or fabricated curves; usable schema-anomalous records remain visible.</p>
+<p>The current-question metrics use all Gold points for that sample and property. The historic explorer's ≤5%, 5–10%, 10–20%, &gt;20%, and missing bins are retained, with ≤15% additionally exported in the metrics CSV. D1 retains its zero-reference convention and D2 retains its own convention. These local, point-weighted curve diagnostics are different from the benchmark's performance-macro Y5/Y10/Y15 summaries, which are available in the <a href="data/Plot_Condition_Reliability.csv">unchanged Origin summary export</a>.</p>
+<p>Each nonempty question contributes its returned curve to the repeated-question overlays. Mean, median, IQR, and sample SD describe the available aligned values; missing values are not filled with zero. Slot coverage keeps the planned relevant-question denominator. Normalized robust spread is median 1.4826 × MAD / |median| after removing each curve's median scale relative to Gold. Shape bias is the normalized center's absolute deviation from Gold. These describe consistency across presentations, not repeated-call sampling variance or a controlled causal comparison.</p>
+<p>Each question/property's reconstructed Gold count, prediction count, covered count, missing count, and ≤5/10/15% counts are checked against the existing Origin source scores before the dataset is emitted. Scientific scores, raw responses, the original explorer, and the seven existing workbooks are not rewritten.</p>
+<h2>Files and reproducibility</h2>
+<p>Curve datasets load on demand. The dataset ZIP download contains prediction curves, Gold reference values, question metrics, and sample stability as four CSV files. Unzip before opening in a spreadsheet application. Missing values remain distinct from zero.</p>
+<p>The public export contains scored curve data and configuration-level audits. Original model responses and operational source paths remain in the research archive. File checksums and the exact source-bundle checksum identify this release.</p>
+<p><a href="data/release.json">Release manifest and SHA-256 checksums</a> · <a href="data/build_validation.json">Build validation</a> · <a href="../#methods">Overview and metric definitions</a></p>
+</main></body></html>

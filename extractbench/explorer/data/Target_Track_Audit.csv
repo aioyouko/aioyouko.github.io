@@ -1,0 +1,305 @@
+﻿model_order,model,effort,canonical_key,track,expected,schema_ok,not_tested,unrequested,api_failed,output_error,output_error_pct,high_output_error,source_keys
+1,GPT-6.1 Sol,max,gpt6_1_sol_max,D1_different_new,24,24,0,0,0,0,0,0,gpt6_1_sol_max
+1,GPT-6.1 Sol,max,gpt6_1_sol_max,D1_same_new,12,12,0,0,0,0,0,0,gpt6_1_sol_max
+1,GPT-6.1 Sol,max,gpt6_1_sol_max,D2_with,39,39,0,0,0,0,0,0,gpt6_1_sol_max
+1,GPT-6.1 Sol,max,gpt6_1_sol_max,D2_without,39,39,0,0,0,0,0,0,gpt6_1_sol_max
+2,GPT-6.1 Sol,xhigh,gpt6_1_sol_xhigh,D1_different_new,24,24,0,0,0,0,0,0,gpt6_1_sol_xhigh
+2,GPT-6.1 Sol,xhigh,gpt6_1_sol_xhigh,D1_same_new,12,12,0,0,0,0,0,0,gpt6_1_sol_xhigh
+2,GPT-6.1 Sol,xhigh,gpt6_1_sol_xhigh,D2_with,39,39,0,0,0,0,0,0,gpt6_1_sol_xhigh
+2,GPT-6.1 Sol,xhigh,gpt6_1_sol_xhigh,D2_without,39,39,0,0,0,0,0,0,gpt6_1_sol_xhigh
+3,GPT-6.1 Sol,high,gpt6_1_sol_high,D1_different_new,24,24,0,0,0,0,0,0,gpt6_1_sol_high
+3,GPT-6.1 Sol,high,gpt6_1_sol_high,D1_same_new,12,12,0,0,0,0,0,0,gpt6_1_sol_high
+3,GPT-6.1 Sol,high,gpt6_1_sol_high,D2_with,39,39,0,0,0,0,0,0,gpt6_1_sol_high
+3,GPT-6.1 Sol,high,gpt6_1_sol_high,D2_without,39,39,0,0,0,0,0,0,gpt6_1_sol_high
+4,GPT-6.1 Sol,medium,gpt6_1_sol_medium,D1_different_new,24,24,0,0,0,0,0,0,gpt6_1_sol_medium
+4,GPT-6.1 Sol,medium,gpt6_1_sol_medium,D1_same_new,12,12,0,0,0,0,0,0,gpt6_1_sol_medium
+4,GPT-6.1 Sol,medium,gpt6_1_sol_medium,D2_with,39,39,0,0,0,0,0,0,gpt6_1_sol_medium
+4,GPT-6.1 Sol,medium,gpt6_1_sol_medium,D2_without,39,39,0,0,0,0,0,0,gpt6_1_sol_medium
+5,GPT-6.1 Sol,low,gpt6_1_sol_low,D1_different_new,24,24,0,0,0,0,0,0,gpt6_1_sol_low
+5,GPT-6.1 Sol,low,gpt6_1_sol_low,D1_same_new,12,12,0,0,0,0,0,0,gpt6_1_sol_low
+5,GPT-6.1 Sol,low,gpt6_1_sol_low,D2_with,39,39,0,0,0,0,0,0,gpt6_1_sol_low
+5,GPT-6.1 Sol,low,gpt6_1_sol_low,D2_without,39,36,0,0,0,3,7.6923076923076925,0,gpt6_1_sol_low
+6,GPT-6 Astra,max,gpt6_astra_max,D1_different_new,24,24,0,0,0,0,0,0,gpt6_astra_max
+6,GPT-6 Astra,max,gpt6_astra_max,D1_same_new,12,12,0,0,0,0,0,0,gpt6_astra_max
+6,GPT-6 Astra,max,gpt6_astra_max,D2_with,39,39,0,0,0,0,0,0,gpt6_astra_max
+6,GPT-6 Astra,max,gpt6_astra_max,D2_without,39,39,0,0,0,0,0,0,gpt6_astra_max
+7,GPT-6 Astra,xhigh,gpt6_astra_xhigh,D1_different_new,24,24,0,0,0,0,0,0,gpt6_astra_xhigh
+7,GPT-6 Astra,xhigh,gpt6_astra_xhigh,D1_same_new,12,12,0,0,0,0,0,0,gpt6_astra_xhigh
+7,GPT-6 Astra,xhigh,gpt6_astra_xhigh,D2_with,39,39,0,0,0,0,0,0,gpt6_astra_xhigh
+7,GPT-6 Astra,xhigh,gpt6_astra_xhigh,D2_without,39,39,0,0,0,0,0,0,gpt6_astra_xhigh
+8,GPT-6 Astra,high,gpt6_astra_high,D1_different_new,24,24,0,0,0,0,0,0,gpt6_astra_high
+8,GPT-6 Astra,high,gpt6_astra_high,D1_same_new,12,12,0,0,0,0,0,0,gpt6_astra_high
+8,GPT-6 Astra,high,gpt6_astra_high,D2_with,39,39,0,0,0,0,0,0,gpt6_astra_high
+8,GPT-6 Astra,high,gpt6_astra_high,D2_without,39,39,0,0,0,0,0,0,gpt6_astra_high
+9,GPT-6 Astra,medium,gpt6_astra_medium,D1_different_new,24,24,0,0,0,0,0,0,gpt6_astra_medium
+9,GPT-6 Astra,medium,gpt6_astra_medium,D1_same_new,12,12,0,0,0,0,0,0,gpt6_astra_medium
+9,GPT-6 Astra,medium,gpt6_astra_medium,D2_with,39,39,0,0,0,0,0,0,gpt6_astra_medium
+9,GPT-6 Astra,medium,gpt6_astra_medium,D2_without,39,38,0,0,0,1,2.5641025641025643,0,gpt6_astra_medium
+10,GPT-6 Astra,low,gpt6_astra_low,D1_different_new,24,24,0,0,0,0,0,0,gpt6_astra_low
+10,GPT-6 Astra,low,gpt6_astra_low,D1_same_new,12,12,0,0,0,0,0,0,gpt6_astra_low
+10,GPT-6 Astra,low,gpt6_astra_low,D2_with,39,38,0,0,0,1,2.5641025641025643,0,gpt6_astra_low
+10,GPT-6 Astra,low,gpt6_astra_low,D2_without,39,39,0,0,0,0,0,0,gpt6_astra_low
+11,GPT-6 Sol,max,gpt6_sol_max,D1_different_new,24,24,0,0,0,0,0,0,gpt6_sol_max
+11,GPT-6 Sol,max,gpt6_sol_max,D1_same_new,12,12,0,0,0,0,0,0,gpt6_sol_max
+11,GPT-6 Sol,max,gpt6_sol_max,D2_with,39,39,0,0,0,0,0,0,gpt6_sol_max
+11,GPT-6 Sol,max,gpt6_sol_max,D2_without,39,39,0,0,0,0,0,0,gpt6_sol_max
+12,GPT-6 Sol,xhigh,gpt6_sol_xhigh,D1_different_new,24,24,0,0,0,0,0,0,gpt6_sol_xhigh
+12,GPT-6 Sol,xhigh,gpt6_sol_xhigh,D1_same_new,12,12,0,0,0,0,0,0,gpt6_sol_xhigh
+12,GPT-6 Sol,xhigh,gpt6_sol_xhigh,D2_with,39,38,0,0,0,1,2.5641025641025643,0,gpt6_sol_xhigh
+12,GPT-6 Sol,xhigh,gpt6_sol_xhigh,D2_without,39,37,0,0,0,2,5.128205128205129,0,gpt6_sol_xhigh
+13,GPT-6 Sol,high,gpt6_sol_high,D1_different_new,24,24,0,0,0,0,0,0,gpt6_sol_high
+13,GPT-6 Sol,high,gpt6_sol_high,D1_same_new,12,12,0,0,0,0,0,0,gpt6_sol_high
+13,GPT-6 Sol,high,gpt6_sol_high,D2_with,39,35,0,0,0,4,10.256410256410257,0,gpt6_sol_high
+13,GPT-6 Sol,high,gpt6_sol_high,D2_without,39,38,0,0,0,1,2.5641025641025643,0,gpt6_sol_high
+14,GPT-6 Sol,medium,gpt6_sol_medium,D1_different_new,24,24,0,0,0,0,0,0,gpt6_sol_medium
+14,GPT-6 Sol,medium,gpt6_sol_medium,D1_same_new,12,12,0,0,0,0,0,0,gpt6_sol_medium
+14,GPT-6 Sol,medium,gpt6_sol_medium,D2_with,39,34,0,0,0,5,12.820512820512821,0,gpt6_sol_medium
+14,GPT-6 Sol,medium,gpt6_sol_medium,D2_without,39,36,0,0,0,3,7.6923076923076925,0,gpt6_sol_medium
+15,GPT-6 Sol,low,gpt6_sol_low,D1_different_new,24,23,0,0,0,1,4.166666666666667,0,gpt6_sol_low
+15,GPT-6 Sol,low,gpt6_sol_low,D1_same_new,12,12,0,0,0,0,0,0,gpt6_sol_low
+15,GPT-6 Sol,low,gpt6_sol_low,D2_with,39,32,0,0,0,7,17.94871794871795,0,gpt6_sol_low
+15,GPT-6 Sol,low,gpt6_sol_low,D2_without,39,32,0,0,0,7,17.94871794871795,0,gpt6_sol_low
+16,GPT-6 Luna,max,gpt6_luna_max,D1_different_new,24,24,0,0,0,0,0,0,gpt6_luna_max
+16,GPT-6 Luna,max,gpt6_luna_max,D1_same_new,12,12,0,0,0,0,0,0,gpt6_luna_max
+16,GPT-6 Luna,max,gpt6_luna_max,D2_with,39,38,0,0,0,1,2.5641025641025643,0,gpt6_luna_max
+16,GPT-6 Luna,max,gpt6_luna_max,D2_without,39,37,0,0,0,2,5.128205128205129,0,gpt6_luna_max
+17,GPT-6 Luna,xhigh,gpt6_luna_xhigh,D1_different_new,24,24,0,0,0,0,0,0,gpt6_luna_xhigh
+17,GPT-6 Luna,xhigh,gpt6_luna_xhigh,D1_same_new,12,12,0,0,0,0,0,0,gpt6_luna_xhigh
+17,GPT-6 Luna,xhigh,gpt6_luna_xhigh,D2_with,39,34,0,0,0,5,12.820512820512821,0,gpt6_luna_xhigh
+17,GPT-6 Luna,xhigh,gpt6_luna_xhigh,D2_without,39,31,0,0,0,8,20.512820512820515,1,gpt6_luna_xhigh
+18,GPT-6 Luna,high,gpt6_luna_high,D1_different_new,24,24,0,0,0,0,0,0,gpt6_luna_high
+18,GPT-6 Luna,high,gpt6_luna_high,D1_same_new,12,12,0,0,0,0,0,0,gpt6_luna_high
+18,GPT-6 Luna,high,gpt6_luna_high,D2_with,39,34,0,0,0,5,12.820512820512821,0,gpt6_luna_high
+18,GPT-6 Luna,high,gpt6_luna_high,D2_without,39,37,0,0,0,2,5.128205128205129,0,gpt6_luna_high
+19,GPT-6 Luna,medium,gpt6_luna_medium,D1_different_new,24,24,0,0,0,0,0,0,gpt6_luna_medium
+19,GPT-6 Luna,medium,gpt6_luna_medium,D1_same_new,12,12,0,0,0,0,0,0,gpt6_luna_medium
+19,GPT-6 Luna,medium,gpt6_luna_medium,D2_with,39,28,0,0,0,11,28.205128205128204,1,gpt6_luna_medium
+19,GPT-6 Luna,medium,gpt6_luna_medium,D2_without,39,18,0,0,0,21,53.84615384615385,1,gpt6_luna_medium
+20,GPT-6 Luna,low,gpt6_luna_low,D1_different_new,24,22,0,0,0,2,8.333333333333334,0,gpt6_luna_low
+20,GPT-6 Luna,low,gpt6_luna_low,D1_same_new,12,12,0,0,0,0,0,0,gpt6_luna_low
+20,GPT-6 Luna,low,gpt6_luna_low,D2_with,39,6,0,0,0,33,84.61538461538461,1,gpt6_luna_low
+20,GPT-6 Luna,low,gpt6_luna_low,D2_without,39,5,0,0,0,34,87.17948717948718,1,gpt6_luna_low
+21,Claude Opus 5.5,max,claude_opus55_max,D1_different_new,24,24,0,0,0,0,0,0,claude_opus55_max_official_20261102
+21,Claude Opus 5.5,max,claude_opus55_max,D1_same_new,12,12,0,0,0,0,0,0,claude_opus55_max_official_20261102
+21,Claude Opus 5.5,max,claude_opus55_max,D2_with,39,1,0,0,0,38,97.43589743589743,1,claude_opus55_max_official_20261102
+21,Claude Opus 5.5,max,claude_opus55_max,D2_without,39,0,0,0,0,39,100,1,claude_opus55_max_official_20261102
+22,Claude Opus 5.5,high,claude_opus55_high,D1_different_new,24,24,0,0,0,0,0,0,claude_opus55_high_official_20261102
+22,Claude Opus 5.5,high,claude_opus55_high,D1_same_new,12,12,0,0,0,0,0,0,claude_opus55_high_official_20261102
+22,Claude Opus 5.5,high,claude_opus55_high,D2_with,39,39,0,0,0,0,0,0,claude_opus55_high_official_20261102
+22,Claude Opus 5.5,high,claude_opus55_high,D2_without,39,39,0,0,0,0,0,0,claude_opus55_high_official_20261102
+23,Claude Opus 5.5,low,claude_opus55_low,D1_different_new,24,17,0,0,0,7,29.166666666666668,1,claude_opus55_low_official_20261102
+23,Claude Opus 5.5,low,claude_opus55_low,D1_same_new,12,8,0,0,0,4,33.333333333333336,1,claude_opus55_low_official_20261102
+23,Claude Opus 5.5,low,claude_opus55_low,D2_with,39,35,0,0,0,4,10.256410256410257,0,claude_opus55_low_official_20261102
+23,Claude Opus 5.5,low,claude_opus55_low,D2_without,39,34,0,0,0,5,12.820512820512821,0,claude_opus55_low_official_20261102
+24,Claude Sonnet 5.5,max,claude_sonnet55_max,D1_different_new,24,24,0,0,0,0,0,0,claude_sonnet55_max_official_20261102
+24,Claude Sonnet 5.5,max,claude_sonnet55_max,D1_same_new,12,12,0,0,0,0,0,0,claude_sonnet55_max_official_20261102
+24,Claude Sonnet 5.5,max,claude_sonnet55_max,D2_with,39,0,0,0,0,39,100,1,claude_sonnet55_max_official_20261102
+24,Claude Sonnet 5.5,max,claude_sonnet55_max,D2_without,39,0,0,0,0,39,100,1,claude_sonnet55_max_official_20261102
+25,Claude Sonnet 5.5,high,claude_sonnet55_high,D1_different_new,24,16,0,0,0,8,33.333333333333336,1,claude_sonnet55_high_official_20261102
+25,Claude Sonnet 5.5,high,claude_sonnet55_high,D1_same_new,12,10,0,0,0,2,16.666666666666668,0,claude_sonnet55_high_official_20261102
+25,Claude Sonnet 5.5,high,claude_sonnet55_high,D2_with,39,39,0,0,0,0,0,0,claude_sonnet55_high_official_20261102
+25,Claude Sonnet 5.5,high,claude_sonnet55_high,D2_without,39,33,0,0,0,6,15.384615384615385,0,claude_sonnet55_high_official_20261102
+26,Claude Sonnet 5.5,low,claude_sonnet55_low,D1_different_new,24,13,0,0,0,11,45.833333333333336,1,claude_sonnet55_low_official_20261102
+26,Claude Sonnet 5.5,low,claude_sonnet55_low,D1_same_new,12,10,0,0,0,2,16.666666666666668,0,claude_sonnet55_low_official_20261102
+26,Claude Sonnet 5.5,low,claude_sonnet55_low,D2_with,39,2,0,0,0,37,94.87179487179488,1,claude_sonnet55_low_official_20261102
+26,Claude Sonnet 5.5,low,claude_sonnet55_low,D2_without,39,2,0,0,0,37,94.87179487179488,1,claude_sonnet55_low_official_20261102
+27,Claude Haiku 5.5,max,claude_haiku55_max,D1_different_new,24,22,0,0,0,2,8.333333333333334,0,claude_haiku55_max_official_20261102
+27,Claude Haiku 5.5,max,claude_haiku55_max,D1_same_new,12,6,0,0,0,6,50,1,claude_haiku55_max_official_20261102
+27,Claude Haiku 5.5,max,claude_haiku55_max,D2_with,39,0,0,0,0,39,100,1,claude_haiku55_max_official_20261102
+27,Claude Haiku 5.5,max,claude_haiku55_max,D2_without,39,0,0,0,0,39,100,1,claude_haiku55_max_official_20261102
+28,Claude Haiku 5.5,high,claude_haiku55_high,D1_different_new,24,24,0,0,0,0,0,0,claude_haiku55_high_official_20261102
+28,Claude Haiku 5.5,high,claude_haiku55_high,D1_same_new,12,12,0,0,0,0,0,0,claude_haiku55_high_official_20261102
+28,Claude Haiku 5.5,high,claude_haiku55_high,D2_with,39,39,0,0,0,0,0,0,claude_haiku55_high_official_20261102
+28,Claude Haiku 5.5,high,claude_haiku55_high,D2_without,39,30,0,0,0,9,23.076923076923077,1,claude_haiku55_high_official_20261102
+29,Claude Haiku 5.5,low,claude_haiku55_low,D1_different_new,24,20,0,0,0,4,16.666666666666668,0,claude_haiku55_low_official_20261102
+29,Claude Haiku 5.5,low,claude_haiku55_low,D1_same_new,12,10,0,0,0,2,16.666666666666668,0,claude_haiku55_low_official_20261102
+29,Claude Haiku 5.5,low,claude_haiku55_low,D2_with,39,27,0,0,0,12,30.76923076923077,1,claude_haiku55_low_official_20261102
+29,Claude Haiku 5.5,low,claude_haiku55_low,D2_without,39,16,0,0,0,23,58.97435897435897,1,claude_haiku55_low_official_20261102
+30,Claude Fable 5.1,high,claude_fable51_high,D1_different_new,24,24,0,0,0,0,0,0,claude_fable51_high_official_20261102
+30,Claude Fable 5.1,high,claude_fable51_high,D1_same_new,12,12,0,0,0,0,0,0,claude_fable51_high_official_20261102
+30,Claude Fable 5.1,high,claude_fable51_high,D2_with,39,38,0,0,0,1,2.5641025641025643,0,claude_fable51_high_official_20261102
+30,Claude Fable 5.1,high,claude_fable51_high,D2_without,39,38,0,0,0,1,2.5641025641025643,0,claude_fable51_high_official_20261102
+31,Claude Fable 5.1,low,claude_fable51_low,D1_different_new,24,14,0,0,0,10,41.666666666666664,1,claude_fable51_low_official_20261102
+31,Claude Fable 5.1,low,claude_fable51_low,D1_same_new,12,9,0,0,0,3,25,1,claude_fable51_low_official_20261102
+31,Claude Fable 5.1,low,claude_fable51_low,D2_with,39,39,0,0,0,0,0,0,claude_fable51_low_official_20261102
+31,Claude Fable 5.1,low,claude_fable51_low,D2_without,39,39,0,0,0,0,0,0,claude_fable51_low_official_20261102
+32,Gemini 3.1 Pro,thinking,gemini31pro_thinking,D1_different_new,24,24,0,0,0,0,0,0,gemini31pro_thinking_64k
+32,Gemini 3.1 Pro,thinking,gemini31pro_thinking,D1_same_new,12,12,0,0,0,0,0,0,gemini31pro_thinking_64k
+32,Gemini 3.1 Pro,thinking,gemini31pro_thinking,D2_with,39,39,0,0,0,0,0,0,gemini31_pro_thinking
+32,Gemini 3.1 Pro,thinking,gemini31pro_thinking,D2_without,39,37,0,0,0,2,5.128205128205129,0,gemini31pro_thinking
+33,Gemini 3.1 Pro,nonthinking,gemini31pro_nonthinking,D1_different_new,24,18,0,0,0,6,25,1,gemini31pro_nonthinking_64k
+33,Gemini 3.1 Pro,nonthinking,gemini31pro_nonthinking,D1_same_new,12,10,0,0,0,2,16.666666666666668,0,gemini31pro_nonthinking_64k
+33,Gemini 3.1 Pro,nonthinking,gemini31pro_nonthinking,D2_with,39,39,0,0,0,0,0,0,gemini31_pro
+33,Gemini 3.1 Pro,nonthinking,gemini31pro_nonthinking,D2_without,39,38,0,0,0,1,2.5641025641025643,0,gemini31pro_nonthinking
+34,GPT-5.6 Sol,max,gpt56_sol_max,D1_different_new,24,24,0,0,0,0,0,0,gpt56_sol_max_128k
+34,GPT-5.6 Sol,max,gpt56_sol_max,D1_same_new,12,12,0,0,0,0,0,0,gpt56_sol_max_128k
+34,GPT-5.6 Sol,max,gpt56_sol_max,D2_with,39,39,0,0,0,0,0,0,gpt56_sol_max
+34,GPT-5.6 Sol,max,gpt56_sol_max,D2_without,39,37,0,0,0,2,5.128205128205129,0,gpt56_sol_max
+35,GPT-5.6 Sol,xhigh,gpt56_sol_xhigh,D1_different_new,24,24,0,0,0,0,0,0,gpt56_sol_xhigh_64k
+35,GPT-5.6 Sol,xhigh,gpt56_sol_xhigh,D1_same_new,12,12,0,0,0,0,0,0,gpt56_sol_xhigh_64k
+35,GPT-5.6 Sol,xhigh,gpt56_sol_xhigh,D2_with,39,39,0,0,0,0,0,0,gpt56_sol_xhigh
+35,GPT-5.6 Sol,xhigh,gpt56_sol_xhigh,D2_without,39,38,0,0,0,1,2.5641025641025643,0,gpt56_sol_xhigh
+36,GPT-5.6 Sol,high,gpt56_sol_high,D1_different_new,24,24,0,0,0,0,0,0,gpt56_sol_high_64k
+36,GPT-5.6 Sol,high,gpt56_sol_high,D1_same_new,12,12,0,0,0,0,0,0,gpt56_sol_high_64k
+36,GPT-5.6 Sol,high,gpt56_sol_high,D2_with,39,38,0,0,0,1,2.5641025641025643,0,gpt56_sol_high
+36,GPT-5.6 Sol,high,gpt56_sol_high,D2_without,39,39,0,0,0,0,0,0,gpt56_sol_high
+37,GPT-5.6 Sol,medium,gpt56_sol_medium,D1_different_new,24,24,0,0,0,0,0,0,gpt56_sol_medium_32k
+37,GPT-5.6 Sol,medium,gpt56_sol_medium,D1_same_new,12,12,0,0,0,0,0,0,gpt56_sol_medium_32k
+37,GPT-5.6 Sol,medium,gpt56_sol_medium,D2_with,39,37,0,0,0,2,5.128205128205129,0,gpt56_sol_medium
+37,GPT-5.6 Sol,medium,gpt56_sol_medium,D2_without,39,39,0,0,0,0,0,0,gpt56_sol_medium
+38,GPT-5.6 Sol,low,gpt56_sol_low,D1_different_new,24,24,0,0,0,0,0,0,gpt56_sol_low_16k
+38,GPT-5.6 Sol,low,gpt56_sol_low,D1_same_new,12,11,0,0,0,1,8.333333333333334,0,gpt56_sol_low_16k
+38,GPT-5.6 Sol,low,gpt56_sol_low,D2_with,39,39,0,0,0,0,0,0,gpt56_sol_low
+38,GPT-5.6 Sol,low,gpt56_sol_low,D2_without,39,35,0,0,0,4,10.256410256410257,0,gpt56_sol_low
+39,GPT-5.6 Terra,max,gpt56_terra_max,D1_different_new,24,24,0,0,0,0,0,0,gpt56_terra_max_128k
+39,GPT-5.6 Terra,max,gpt56_terra_max,D1_same_new,12,12,0,0,0,0,0,0,gpt56_terra_max_128k
+39,GPT-5.6 Terra,max,gpt56_terra_max,D2_with,39,39,0,0,0,0,0,0,gpt56_terra_max
+39,GPT-5.6 Terra,max,gpt56_terra_max,D2_without,39,39,0,0,0,0,0,0,gpt56_terra_max
+40,GPT-5.6 Terra,xhigh,gpt56_terra_xhigh,D1_different_new,24,24,0,0,0,0,0,0,gpt56_terra_xhigh_64k
+40,GPT-5.6 Terra,xhigh,gpt56_terra_xhigh,D1_same_new,12,12,0,0,0,0,0,0,gpt56_terra_xhigh_64k
+40,GPT-5.6 Terra,xhigh,gpt56_terra_xhigh,D2_with,39,39,0,0,0,0,0,0,gpt56_terra_xhigh
+40,GPT-5.6 Terra,xhigh,gpt56_terra_xhigh,D2_without,39,39,0,0,0,0,0,0,gpt56_terra_xhigh
+41,GPT-5.6 Terra,high,gpt56_terra_high,D1_different_new,24,24,0,0,0,0,0,0,gpt56_terra_high_64k
+41,GPT-5.6 Terra,high,gpt56_terra_high,D1_same_new,12,12,0,0,0,0,0,0,gpt56_terra_high_64k
+41,GPT-5.6 Terra,high,gpt56_terra_high,D2_with,39,39,0,0,0,0,0,0,gpt56_terra_high
+41,GPT-5.6 Terra,high,gpt56_terra_high,D2_without,39,39,0,0,0,0,0,0,gpt56_terra_high
+42,GPT-5.6 Terra,medium,gpt56_terra_medium,D1_different_new,24,24,0,0,0,0,0,0,gpt56_terra_medium_32k
+42,GPT-5.6 Terra,medium,gpt56_terra_medium,D1_same_new,12,12,0,0,0,0,0,0,gpt56_terra_medium_32k
+42,GPT-5.6 Terra,medium,gpt56_terra_medium,D2_with,39,35,0,0,0,4,10.256410256410257,0,gpt56_terra_medium_32k
+42,GPT-5.6 Terra,medium,gpt56_terra_medium,D2_without,39,38,0,0,0,1,2.5641025641025643,0,gpt56_terra_medium
+43,GPT-5.6 Terra,low,gpt56_terra_low,D1_different_new,24,24,0,0,0,0,0,0,gpt56_terra_low_16k
+43,GPT-5.6 Terra,low,gpt56_terra_low,D1_same_new,12,12,0,0,0,0,0,0,gpt56_terra_low_16k
+43,GPT-5.6 Terra,low,gpt56_terra_low,D2_with,39,35,0,0,0,4,10.256410256410257,0,gpt56_terra_low
+43,GPT-5.6 Terra,low,gpt56_terra_low,D2_without,39,30,0,0,0,9,23.076923076923077,1,gpt56_terra_low
+44,GPT-5.6 Luna,max,gpt56_luna_max,D1_different_new,24,22,0,0,0,2,8.333333333333334,0,gpt56_luna_max_128k
+44,GPT-5.6 Luna,max,gpt56_luna_max,D1_same_new,12,12,0,0,0,0,0,0,gpt56_luna_max_128k
+44,GPT-5.6 Luna,max,gpt56_luna_max,D2_with,39,38,0,0,0,1,2.5641025641025643,0,gpt56_luna_max
+44,GPT-5.6 Luna,max,gpt56_luna_max,D2_without,39,39,0,0,0,0,0,0,gpt56_luna_max_128000_official_20261103
+45,GPT-5.6 Luna,xhigh,gpt56_luna_xhigh,D1_different_new,24,24,0,0,0,0,0,0,gpt56_luna_xhigh_64k
+45,GPT-5.6 Luna,xhigh,gpt56_luna_xhigh,D1_same_new,12,12,0,0,0,0,0,0,gpt56_luna_xhigh_64k
+45,GPT-5.6 Luna,xhigh,gpt56_luna_xhigh,D2_with,39,39,0,0,0,0,0,0,gpt56_luna_xhigh
+45,GPT-5.6 Luna,xhigh,gpt56_luna_xhigh,D2_without,39,39,0,0,0,0,0,0,gpt56_luna_xhigh
+46,GPT-5.6 Luna,high,gpt56_luna_high,D1_different_new,24,24,0,0,0,0,0,0,gpt56_luna_high_64k
+46,GPT-5.6 Luna,high,gpt56_luna_high,D1_same_new,12,12,0,0,0,0,0,0,gpt56_luna_high_64k
+46,GPT-5.6 Luna,high,gpt56_luna_high,D2_with,39,38,0,0,0,1,2.5641025641025643,0,gpt56_luna_high
+46,GPT-5.6 Luna,high,gpt56_luna_high,D2_without,39,39,0,0,0,0,0,0,gpt56_luna_high
+47,GPT-5.6 Luna,medium,gpt56_luna_medium,D1_different_new,24,24,0,0,0,0,0,0,gpt56_luna_medium_32k
+47,GPT-5.6 Luna,medium,gpt56_luna_medium,D1_same_new,12,12,0,0,0,0,0,0,gpt56_luna_medium_32k
+47,GPT-5.6 Luna,medium,gpt56_luna_medium,D2_with,39,36,0,0,0,3,7.6923076923076925,0,gpt56_luna_medium
+47,GPT-5.6 Luna,medium,gpt56_luna_medium,D2_without,39,38,0,0,0,1,2.5641025641025643,0,gpt56_luna_medium
+48,GPT-5.6 Luna,low,gpt56_luna_low,D1_different_new,24,23,0,0,0,1,4.166666666666667,0,gpt56_luna_low_16k
+48,GPT-5.6 Luna,low,gpt56_luna_low,D1_same_new,12,12,0,0,0,0,0,0,gpt56_luna_low_16k
+48,GPT-5.6 Luna,low,gpt56_luna_low,D2_with,39,36,0,0,0,3,7.6923076923076925,0,gpt56_luna_low
+48,GPT-5.6 Luna,low,gpt56_luna_low,D2_without,39,29,0,0,0,10,25.641025641025642,1,gpt56_luna_low
+49,GPT-5.5,xhigh,gpt55_xhigh,D1_different_new,24,24,0,0,0,0,0,0,gpt55_xhigh_64k
+49,GPT-5.5,xhigh,gpt55_xhigh,D1_same_new,12,12,0,0,0,0,0,0,gpt55_xhigh_64k
+49,GPT-5.5,xhigh,gpt55_xhigh,D2_with,39,37,0,0,0,2,5.128205128205129,0,gpt55_xhigh
+49,GPT-5.5,xhigh,gpt55_xhigh,D2_without,39,39,0,0,0,0,0,0,gpt55_xhigh
+50,GPT-5.5,high,gpt55_high,D1_different_new,24,24,0,0,0,0,0,0,gpt55_high_64k
+50,GPT-5.5,high,gpt55_high,D1_same_new,12,12,0,0,0,0,0,0,gpt55_high_64k
+50,GPT-5.5,high,gpt55_high,D2_with,39,32,0,0,0,7,17.94871794871795,0,gpt55_high
+50,GPT-5.5,high,gpt55_high,D2_without,39,39,0,0,0,0,0,0,gpt55_high
+51,GPT-5.5,medium,gpt55_medium,D1_different_new,24,24,0,0,0,0,0,0,gpt55_medium_32k
+51,GPT-5.5,medium,gpt55_medium,D1_same_new,12,12,0,0,0,0,0,0,gpt55_medium_32k
+51,GPT-5.5,medium,gpt55_medium,D2_with,39,33,0,0,0,6,15.384615384615385,0,gpt55_medium
+51,GPT-5.5,medium,gpt55_medium,D2_without,39,39,0,0,0,0,0,0,gpt55_medium
+52,GPT-5.5,low,gpt55_low,D1_different_new,24,24,0,0,0,0,0,0,gpt55_low_16k
+52,GPT-5.5,low,gpt55_low,D1_same_new,12,12,0,0,0,0,0,0,gpt55_low_16k
+52,GPT-5.5,low,gpt55_low,D2_with,39,33,0,0,0,6,15.384615384615385,0,gpt55_low
+52,GPT-5.5,low,gpt55_low,D2_without,39,22,0,0,0,17,43.58974358974359,1,gpt55_low
+53,Kimi K3.1 Pro,max,kimi_k31_pro_max,D1_different_new,24,2,0,21,0,1,4.166666666666667,0,kimi_k31_pro_max_official_20261102
+53,Kimi K3.1 Pro,max,kimi_k31_pro_max,D1_same_new,12,1,0,11,0,0,0,0,kimi_k31_pro_max_official_20261102
+53,Kimi K3.1 Pro,max,kimi_k31_pro_max,D2_with,39,0,0,38,1,0,0,0,kimi_k31_pro_max_official_20261102
+53,Kimi K3.1 Pro,max,kimi_k31_pro_max,D2_without,39,1,0,38,0,0,0,0,kimi_k31_pro_max_official_20261102
+54,Kimi K3.1 Pro,high,kimi_k31_pro_high,D1_different_new,24,3,0,21,0,0,0,0,kimi_k31_pro_high_official_20261102
+54,Kimi K3.1 Pro,high,kimi_k31_pro_high,D1_same_new,12,1,0,11,0,0,0,0,kimi_k31_pro_high_official_20261102
+54,Kimi K3.1 Pro,high,kimi_k31_pro_high,D2_with,39,0,0,38,1,0,0,0,kimi_k31_pro_high_official_20261102
+54,Kimi K3.1 Pro,high,kimi_k31_pro_high,D2_without,39,1,0,38,0,0,0,0,kimi_k31_pro_high_official_20261102
+55,Kimi K3.1 Pro,low,kimi_k31_pro_low,D1_different_new,24,3,0,21,0,0,0,0,kimi_k31_pro_low_official_20261102
+55,Kimi K3.1 Pro,low,kimi_k31_pro_low,D1_same_new,12,1,0,11,0,0,0,0,kimi_k31_pro_low_official_20261102
+55,Kimi K3.1 Pro,low,kimi_k31_pro_low,D2_with,39,0,0,39,0,0,0,0,kimi_k31_pro_low_official_20261102
+55,Kimi K3.1 Pro,low,kimi_k31_pro_low,D2_without,39,1,0,38,0,0,0,0,kimi_k31_pro_low_official_20261102
+56,Kimi K3.1 Pro Highspeed,max,kimi_k31_pro_highspeed_max,D1_different_new,24,2,0,21,0,1,4.166666666666667,0,kimi_k31_pro_highspeed_max_official_20261102
+56,Kimi K3.1 Pro Highspeed,max,kimi_k31_pro_highspeed_max,D1_same_new,12,1,0,11,0,0,0,0,kimi_k31_pro_highspeed_max_official_20261102
+56,Kimi K3.1 Pro Highspeed,max,kimi_k31_pro_highspeed_max,D2_with,39,0,0,39,0,0,0,0,kimi_k31_pro_highspeed_max_official_20261102
+56,Kimi K3.1 Pro Highspeed,max,kimi_k31_pro_highspeed_max,D2_without,39,1,0,38,0,0,0,0,kimi_k31_pro_highspeed_max_official_20261102
+57,Kimi K3.1 Pro Highspeed,high,kimi_k31_pro_highspeed_high,D1_different_new,24,3,0,21,0,0,0,0,kimi_k31_pro_highspeed_high_official_20261102
+57,Kimi K3.1 Pro Highspeed,high,kimi_k31_pro_highspeed_high,D1_same_new,12,1,0,11,0,0,0,0,kimi_k31_pro_highspeed_high_official_20261102
+57,Kimi K3.1 Pro Highspeed,high,kimi_k31_pro_highspeed_high,D2_with,39,0,0,39,0,0,0,0,kimi_k31_pro_highspeed_high_official_20261102
+57,Kimi K3.1 Pro Highspeed,high,kimi_k31_pro_highspeed_high,D2_without,39,1,0,38,0,0,0,0,kimi_k31_pro_highspeed_high_official_20261102
+58,Kimi K3.1 Pro Highspeed,low,kimi_k31_pro_highspeed_low,D1_different_new,24,3,0,21,0,0,0,0,kimi_k31_pro_highspeed_low_official_20261102
+58,Kimi K3.1 Pro Highspeed,low,kimi_k31_pro_highspeed_low,D1_same_new,12,0,0,11,0,1,8.333333333333334,0,kimi_k31_pro_highspeed_low_official_20261102
+58,Kimi K3.1 Pro Highspeed,low,kimi_k31_pro_highspeed_low,D2_with,39,0,0,39,0,0,0,0,kimi_k31_pro_highspeed_low_official_20261102
+58,Kimi K3.1 Pro Highspeed,low,kimi_k31_pro_highspeed_low,D2_without,39,1,0,38,0,0,0,0,kimi_k31_pro_highspeed_low_official_20261102
+59,Kimi K3,max,kimi_k3_max,D1_different_new,24,20,0,0,0,4,16.666666666666668,0,kimi_k3_max_official_20261101
+59,Kimi K3,max,kimi_k3_max,D1_same_new,12,8,0,0,0,4,33.333333333333336,1,kimi_k3_max_official_20261101
+59,Kimi K3,max,kimi_k3_max,D2_with,39,39,0,0,0,0,0,0,kimi_k3_max_official_20261101
+59,Kimi K3,max,kimi_k3_max,D2_without,39,32,0,0,0,7,17.94871794871795,0,kimi_k3_max_official_20261101
+60,Kimi K3,high,kimi_k3_high,D1_different_new,24,13,0,0,8,3,12.5,0,kimi_k3_high_official_20261101
+60,Kimi K3,high,kimi_k3_high,D1_same_new,12,9,0,0,0,3,25,1,kimi_k3_high_official_20261101
+60,Kimi K3,high,kimi_k3_high,D2_with,39,38,0,0,1,0,0,0,kimi_k3_high_official_20261101
+60,Kimi K3,high,kimi_k3_high,D2_without,39,28,0,0,7,4,10.256410256410257,0,kimi_k3_high_official_20261101
+61,Kimi K3,low,kimi_k3_low,D1_different_new,24,10,0,0,12,2,8.333333333333334,0,kimi_k3_low_official_20261101
+61,Kimi K3,low,kimi_k3_low,D1_same_new,12,6,0,0,3,3,25,1,kimi_k3_low_official_20261101
+61,Kimi K3,low,kimi_k3_low,D2_with,39,37,0,0,0,2,5.128205128205129,0,kimi_k3_low_official_20261101
+61,Kimi K3,low,kimi_k3_low,D2_without,39,27,0,0,6,6,15.384615384615385,0,kimi_k3_low_official_20261101
+62,Kimi K2.7 Code,thinking,kimi_k27_code_thinking,D1_different_new,24,3,0,21,0,0,0,0,kimi_k27_code_thinking_official_20261102
+62,Kimi K2.7 Code,thinking,kimi_k27_code_thinking,D1_same_new,12,1,0,11,0,0,0,0,kimi_k27_code_thinking_official_20261102
+62,Kimi K2.7 Code,thinking,kimi_k27_code_thinking,D2_with,39,0,0,39,0,0,0,0,kimi_k27_code_thinking_official_20261102
+62,Kimi K2.7 Code,thinking,kimi_k27_code_thinking,D2_without,39,0,0,38,0,1,2.5641025641025643,0,kimi_k27_code_thinking_official_20261102
+63,Kimi K2.7 Code Highspeed,thinking,kimi_k27_code_highspeed_thinking,D1_different_new,24,3,0,21,0,0,0,0,kimi_k27_code_highspeed_thinking_official_20261102
+63,Kimi K2.7 Code Highspeed,thinking,kimi_k27_code_highspeed_thinking,D1_same_new,12,1,0,11,0,0,0,0,kimi_k27_code_highspeed_thinking_official_20261102
+63,Kimi K2.7 Code Highspeed,thinking,kimi_k27_code_highspeed_thinking,D2_with,39,0,0,39,0,0,0,0,kimi_k27_code_highspeed_thinking_official_20261102
+63,Kimi K2.7 Code Highspeed,thinking,kimi_k27_code_highspeed_thinking,D2_without,39,1,0,38,0,0,0,0,kimi_k27_code_highspeed_thinking_official_20261102
+64,Kimi K2.6,thinking,kimi_k26_thinking,D1_different_new,24,3,0,21,0,0,0,0,kimi_k26_thinking_official_20261102
+64,Kimi K2.6,thinking,kimi_k26_thinking,D1_same_new,12,1,0,11,0,0,0,0,kimi_k26_thinking_official_20261102
+64,Kimi K2.6,thinking,kimi_k26_thinking,D2_with,39,0,0,39,0,0,0,0,kimi_k26_thinking_official_20261102
+64,Kimi K2.6,thinking,kimi_k26_thinking,D2_without,39,0,0,38,0,1,2.5641025641025643,0,kimi_k26_thinking_official_20261102
+65,Kimi K2.6,nonthinking,kimi_k26_nonthinking,D1_different_new,24,14,0,0,0,10,41.666666666666664,1,kimi_k26_nonthinking_official_20261101
+65,Kimi K2.6,nonthinking,kimi_k26_nonthinking,D1_same_new,12,3,0,0,0,9,75,1,kimi_k26_nonthinking_official_20261101
+65,Kimi K2.6,nonthinking,kimi_k26_nonthinking,D2_with,39,31,0,0,5,3,7.6923076923076925,0,kimi_k26_nonthinking_official_20261101
+65,Kimi K2.6,nonthinking,kimi_k26_nonthinking,D2_without,39,20,0,0,4,15,38.46153846153846,1,kimi_k26_nonthinking_official_20261101
+66,Qwen 3.8 Max,thinking,qwen38max_thinking,D1_different_new,24,24,0,0,0,0,0,0,qwen38max_thinking_32k
+66,Qwen 3.8 Max,thinking,qwen38max_thinking,D1_same_new,12,12,0,0,0,0,0,0,qwen38max_thinking_32k
+66,Qwen 3.8 Max,thinking,qwen38max_thinking,D2_with,39,37,0,0,0,2,5.128205128205129,0,qwen38_max_thinking_64k
+66,Qwen 3.8 Max,thinking,qwen38max_thinking,D2_without,39,31,0,0,0,8,20.512820512820515,1,qwen38max_thinking
+67,Qwen 3.8 Max,nonthinking,qwen38max_nonthinking,D1_different_new,24,12,0,0,0,12,50,1,qwen38max_nonthinking_32k
+67,Qwen 3.8 Max,nonthinking,qwen38max_nonthinking,D1_same_new,12,7,0,0,0,5,41.666666666666664,1,qwen38max_nonthinking_32k
+67,Qwen 3.8 Max,nonthinking,qwen38max_nonthinking,D2_with,39,30,0,0,0,9,23.076923076923077,1,qwen38_max_nonthinking_64k
+67,Qwen 3.8 Max,nonthinking,qwen38max_nonthinking,D2_without,39,28,0,0,0,11,28.205128205128204,1,qwen38max_nonthinking
+68,qwen3.7-max-2026-06-08,enabled,qwen37max_thinking,D1_different_new,24,9,0,0,0,15,62.5,1,qwen37max_20260608_thinking32k_answer64k
+68,qwen3.7-max-2026-06-08,enabled,qwen37max_thinking,D1_same_new,12,6,0,0,0,6,50,1,qwen37max_20260608_thinking32k_answer64k
+68,qwen3.7-max-2026-06-08,enabled,qwen37max_thinking,D2_with,39,32,0,0,0,7,17.94871794871795,0,qwen37_max_20260608_thinking
+68,qwen3.7-max-2026-06-08,enabled,qwen37max_thinking,D2_without,39,2,0,0,0,37,94.87179487179488,1,qwen37max_thinking
+69,Qwen 3.7 Max,nonthinking,qwen37max_nonthinking,D1_different_new,24,20,0,0,0,4,16.666666666666668,0,qwen37max_20260608_nonthinking_32k
+69,Qwen 3.7 Max,nonthinking,qwen37max_nonthinking,D1_same_new,12,10,0,0,0,2,16.666666666666668,0,qwen37max_20260608_nonthinking_32k
+69,Qwen 3.7 Max,nonthinking,qwen37max_nonthinking,D2_with,39,34,0,0,0,5,12.820512820512821,0,qwen37_max_20260608
+69,Qwen 3.7 Max,nonthinking,qwen37max_nonthinking,D2_without,39,33,0,0,0,6,15.384615384615385,0,qwen37max_nonthinking
+70,qwen3.7-plus,enabled,qwen37_plus_thinking_64k,D1_different_new,24,8,0,0,0,16,66.66666666666667,1,qwen37plus_thinking32k_answer64k
+70,qwen3.7-plus,enabled,qwen37_plus_thinking_64k,D1_same_new,12,5,0,0,0,7,58.333333333333336,1,qwen37plus_thinking32k_answer64k
+70,qwen3.7-plus,enabled,qwen37_plus_thinking_64k,D2_with,39,34,0,0,0,5,12.820512820512821,0,qwen37_plus_thinking_64k
+70,qwen3.7-plus,enabled,qwen37_plus_thinking_64k,D2_without,39,2,0,0,0,37,94.87179487179488,1,qwen37_plus_thinking_64k
+71,qwen3.7-plus,disabled,qwen37_plus_nonthinking_64k,D1_different_new,24,19,0,0,0,5,20.833333333333332,1,qwen37plus_nonthinking_64k
+71,qwen3.7-plus,disabled,qwen37_plus_nonthinking_64k,D1_same_new,12,8,0,0,0,4,33.333333333333336,1,qwen37plus_nonthinking_64k
+71,qwen3.7-plus,disabled,qwen37_plus_nonthinking_64k,D2_with,39,35,0,0,0,4,10.256410256410257,0,qwen37_plus_nonthinking_64k
+71,qwen3.7-plus,disabled,qwen37_plus_nonthinking_64k,D2_without,39,36,0,0,0,3,7.6923076923076925,0,qwen37_plus_nonthinking_64k
+72,qwen3.7-plus,disabled,qwen_plus,D1_different_new,24,19,0,0,0,5,20.833333333333332,1,qwen_plus
+72,qwen3.7-plus,disabled,qwen_plus,D1_same_new,12,9,0,0,0,3,25,1,qwen_plus
+72,qwen3.7-plus,disabled,qwen_plus,D2_with,39,39,0,0,0,0,0,0,qwen_plus
+72,qwen3.7-plus,disabled,qwen_plus,D2_without,39,31,0,0,0,8,20.512820512820515,1,qwen_plus
+73,DeepSeek V4.1 Flash,max,deepseek_v4_1_flash_max,D1_different_new,24,23,0,0,0,1,4.166666666666667,0,deepseek_v4_1_flash_max
+73,DeepSeek V4.1 Flash,max,deepseek_v4_1_flash_max,D1_same_new,12,12,0,0,0,0,0,0,deepseek_v4_1_flash_max
+73,DeepSeek V4.1 Flash,max,deepseek_v4_1_flash_max,D2_with,39,29,0,0,0,10,25.641025641025642,1,deepseek_v4_1_flash_max
+73,DeepSeek V4.1 Flash,max,deepseek_v4_1_flash_max,D2_without,39,32,0,0,0,7,17.94871794871795,0,deepseek_v4_1_flash_max
+74,DeepSeek V4.1 Flash,high,deepseek_v4_1_flash_high,D1_different_new,24,24,0,0,0,0,0,0,deepseek_v4_1_flash_high
+74,DeepSeek V4.1 Flash,high,deepseek_v4_1_flash_high,D1_same_new,12,12,0,0,0,0,0,0,deepseek_v4_1_flash_high
+74,DeepSeek V4.1 Flash,high,deepseek_v4_1_flash_high,D2_with,39,38,0,0,0,1,2.5641025641025643,0,deepseek_v4_1_flash_high
+74,DeepSeek V4.1 Flash,high,deepseek_v4_1_flash_high,D2_without,39,38,0,0,0,1,2.5641025641025643,0,deepseek_v4_1_flash_high
+75,DeepSeek V4.1 Flash,low,deepseek_v4_1_flash_low,D1_different_new,24,24,0,0,0,0,0,0,deepseek_v4_1_flash_low
+75,DeepSeek V4.1 Flash,low,deepseek_v4_1_flash_low,D1_same_new,12,12,0,0,0,0,0,0,deepseek_v4_1_flash_low
+75,DeepSeek V4.1 Flash,low,deepseek_v4_1_flash_low,D2_with,39,38,0,0,0,1,2.5641025641025643,0,deepseek_v4_1_flash_low
+75,DeepSeek V4.1 Flash,low,deepseek_v4_1_flash_low,D2_without,39,38,0,0,0,1,2.5641025641025643,0,deepseek_v4_1_flash_low
+76,DeepSeek V4.1 Flash,nonthinking,deepseek_v4_1_flash_nonthinking,D1_different_new,24,20,0,0,0,4,16.666666666666668,0,deepseek_v4_1_flash_nonthinking
+76,DeepSeek V4.1 Flash,nonthinking,deepseek_v4_1_flash_nonthinking,D1_same_new,12,7,0,0,0,5,41.666666666666664,1,deepseek_v4_1_flash_nonthinking
+76,DeepSeek V4.1 Flash,nonthinking,deepseek_v4_1_flash_nonthinking,D2_with,39,29,0,0,0,10,25.641025641025642,1,deepseek_v4_1_flash_nonthinking
+76,DeepSeek V4.1 Flash,nonthinking,deepseek_v4_1_flash_nonthinking,D2_without,39,28,0,0,0,11,28.205128205128204,1,deepseek_v4_1_flash_nonthinking

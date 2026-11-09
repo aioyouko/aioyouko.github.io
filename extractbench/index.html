@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ExtractBench evaluates how reliably multimodal models recover reusable numerical data from thermoelectric figures. Explore results, curves, and test coverage.">
+  <meta name="theme-color" content="#f6f7f5">
+  <meta property="og:title" content="ExtractBench · From scientific figures to reusable data">
+  <meta property="og:description" content="114 question slots. 64 complete model configurations. Inspect numerical recovery and the curves behind the scores.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://aioyouko.github.io/extractbench/">
+  <title>ExtractBench · Scientific Figure Extraction Benchmark</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="results.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header">
+    <a class="brand" href="../#home"><span class="brand-mark">HC</span><span>Heyang Chen <span class="brand-divider">/</span> <strong>ExtractBench</strong></span></a>
+    <nav aria-label="Page navigation"><a href="#results">Results</a><a href="#benchmark">Benchmark</a><a href="#methods">Methods</a><a class="nav-explorer" href="explorer/">Curve Explorer <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> Scientific figure extraction benchmark</p>
+        <h1 id="hero-title">ExtractBench<span class="title-rule"></span></h1>
+        <p class="hero-line">From scientific figures<br>to <em>reusable data.</em></p>
+        <p class="intro">How reliably can multimodal models recover numerical data from thermoelectric figures? Explore accuracy, coverage, and consistency—from benchmark summaries down to individual curves.</p>
+        <div class="actions"><a class="button primary" href="#results">Explore the results <span aria-hidden="true">↓</span></a><a class="text-link" href="explorer/">Inspect the curves <span aria-hidden="true">↗</span></a></div>
+        <p class="snapshot">Updated 9 Nov 2026 <span>·</span> Selected data: 4 Nov 2026</p>
+      </div>
+      <div class="hero-figure">
+        <div class="figure-top"><span class="eyebrow">A curve, recovered</span><span class="figure-id">D2_A_01 / S01</span></div>
+        <div class="figure-title"><h2>Seebeck coefficient</h2><span class="legend"><i class="gold-key"></i> Gold <i class="prediction-key"></i> Extracted</span></div>
+        <div id="examplePlot" class="example-plot" aria-live="polite"></div>
+        <div class="example-control"><label for="exampleModel">Inspect a configuration</label><select id="exampleModel"></select></div>
+        <p id="exampleCaption" class="caption">An observed curve from D2 normal. One illustration, not an overall model ranking.</p>
+        <a class="figure-link" id="exampleLink" href="explorer/">Open this curve in the Explorer <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <div class="shell stat-strip" aria-label="Benchmark scope">
+      <div><strong>114<span>slots</span></strong><p>per requested configuration</p></div>
+      <div><strong>64<span>complete</span></strong><p>of 76 requested configurations</p></div>
+      <div><strong>7<span>properties</span></strong><p>in the D2 thermoelectric suite</p></div>
+      <div><strong>7,637<span>returned</span></strong><p>of 8,664 planned responses</p></div>
+    </div>
+
+    <section class="section shell" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / Results</p><h2 id="results-title">Look beyond a single score.</h2></div><p>Compare numerical recovery alongside point coverage and response validity. Select a condition to see the same 64 complete configurations.</p></div>
+      <div class="results-panel">
+        <div class="filters">
+          <div class="filter condition-filter"><label for="condition">Benchmark condition</label><select id="condition">
+            <option value="D1_all">D1 · All sources</option><option value="D1_same">D1 · Same source</option><option value="D1_different">D1 · Different source</option>
+            <option value="D2_clean_without" selected>D2 · Clean / normal prompt</option><option value="D2_clean_with">D2 · Clean / detail prompt</option>
+            <option value="D2_error_without">D2 · Image error / normal prompt</option><option value="D2_error_with">D2 · Image error / detail prompt</option>
+          </select></div>
+          <div class="filter"><label for="metric">Numerical recovery</label><select id="metric"><option value="Y5_pct">Y5 · within 5%</option><option value="Y10_pct" selected>Y10 · within 10%</option><option value="Y15_pct">Y15 · within 15%</option></select></div>
+          <div class="filter search-filter"><label for="modelSearch">Find a model or effort</label><input id="modelSearch" type="search" placeholder="e.g. Claude, Qwen, max" autocomplete="off"></div>
+        </div>
+        <div class="table-meta"><p id="resultCount" aria-live="polite"></p><span>Curated model &amp; effort order</span></div>
+        <p class="condition-note" id="conditionNote"></p>
+        <div class="result-scroll" tabindex="0" role="region" aria-label="Model results, scroll for all configurations">
+          <table class="results-table"><thead><tr><th scope="col">Model configuration</th><th scope="col" id="yieldHeading">Y10 <span>↑ better</span></th><th scope="col">Coverage</th><th scope="col">Schema valid</th><th scope="col"><span class="sr-only">Details</span></th></tr></thead><tbody id="resultRows"></tbody></table>
+          <p id="noResults" hidden>No matching configurations. Try another model name or effort.</p>
+        </div>
+        <div class="table-footer"><p>Y5/Y10/Y15 use the benchmark’s property-macro summaries; missing points remain in the denominator. Schema validity has a different denominator.</p><a class="text-link" href="explorer/data/Plot_Condition_Reliability.csv" download>Download all conditions (CSV) ↓</a></div>
+      </div>
+      <div class="scope-note"><span class="note-number">12</span><p><strong>Incomplete configurations remain visible in the audit.</strong> The comparison above requires returned responses for all 114 slots. Returned parse or schema anomalies count as completed tests and retain their scored outcomes. <a href="#coverage">See response coverage →</a></p></div>
+    </section>
+
+    <section class="benchmark-band" id="benchmark" aria-labelledby="benchmark-title"><div class="shell section">
+      <div class="section-heading"><div><p class="eyebrow">02 / Benchmark design</p><h2 id="benchmark-title">One extraction task.<br>Different demands.</h2></div><p>Thermoelectric figures connect temperature, transport properties, units, and sample identities. ExtractBench examines how these relationships survive extraction.</p></div>
+      <div class="benchmark-grid">
+        <article class="track"><div class="track-top"><span>D1</span><p>Single-panel figures</p></div><h3>Presentation &amp; source</h3><p>Canonical single-panel figures are paired with valid unit, temperature-scale, or axis-presentation variants.</p><div class="track-counts"><div><strong>24</strong><span>different-source slots</span></div><div><strong>12</strong><span>same-source slots</span></div></div><p class="fineprint">6 properties · Same-source data connect D1 and D2. Different-source set 1 retains a provisional Gold/image binding.</p><a class="text-link" href="explorer/?difficulty=D1&amp;condition=same">Explore D1 curves ↗</a></article>
+        <article class="track"><div class="track-top"><span>D2</span><p>Multi-panel figures</p></div><h3>Context &amp; instructions</h3><p>Interrelated scientific figures are evaluated with normal and detail prompts, for both clean images and images with injected faults.</p><div class="track-counts"><div><strong>22 + 17</strong><span>clean + image-error questions</span></div><div><strong>× 2</strong><span>prompt conditions</span></div></div><p class="fineprint">7 properties · 39 normal + 39 detail slots. “Image error” describes the input figure, independently of model response failure.</p><a class="text-link" href="explorer/?difficulty=D2&amp;condition=with">Explore D2 curves ↗</a></article>
+      </div>
+      <div class="property-line"><span>Properties in D2</span><p>Seebeck coefficient · Electrical conductivity · Electrical resistivity · Power factor · Total thermal conductivity · Lattice thermal conductivity · zT</p></div>
+    </div></section>
+
+    <section class="section shell" id="coverage" aria-labelledby="coverage-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / Coverage</p><h2 id="coverage-title">Every planned response accounted for.</h2></div><p>Completion, structured output, and numerical accuracy answer different questions. The audit keeps them separate.</p></div>
+      <div class="coverage-bar" role="img" aria-label="Of 8,664 planned slots: 6,590 schema-valid responses, 1,047 returned output anomalies, 48 API failures, and 979 unrequested slots."><span class="valid" style="flex:6590"></span><span class="anomaly" style="flex:1047"></span><span class="failure" style="flex:48"></span><span class="unrequested" style="flex:979"></span></div>
+      <div class="coverage-legend"><div><i class="valid"></i><strong>6,590</strong><span>Schema-valid responses</span></div><div><i class="anomaly"></i><strong>1,047</strong><span>Returned output anomalies</span></div><div><i class="failure"></i><strong>48</strong><span>API failures</span></div><div><i class="unrequested"></i><strong>979</strong><span>Unrequested slots</span></div></div>
+      <p class="fineprint">Output anomalies: 442 parse/JSON + 605 structure/schema. Empty responses: 0. Other untested slots without a source: 0. Low numerical accuracy does not by itself indicate a failed test.</p>
+      <details class="audit"><summary>Inspect all 76 requested configurations <span aria-hidden="true">+</span></summary><div class="audit-scroll" tabindex="0" role="region" aria-label="Response coverage table"><table><thead><tr><th>Configuration</th><th>Returned / 114</th><th>Schema valid</th><th>Output anomaly</th><th>API failure</th><th>Unrequested</th></tr></thead><tbody id="auditRows"></tbody></table></div><a class="text-link" href="explorer/data/Target_Coverage.csv" download>Download coverage (CSV) ↓</a></details>
+    </section>
+
+    <section class="section shell methods-section" id="methods" aria-labelledby="methods-title">
+      <div><p class="eyebrow">04 / Reading the results</p><h2 id="methods-title">Trace a score<br>back to its curve.</h2><p class="methods-intro">The Explorer keeps Gold references, extracted values, model comparisons, and repeated-question statistics together.</p><a class="button primary" href="explorer/">Open the Curve Explorer ↗</a></div>
+      <div class="method-list"><article><span>01</span><div><h3>Numerical recovery</h3><p>Y5, Y10, and Y15 summarize recovered Gold points within the stated relative-error threshold, using the existing benchmark aggregation. Coverage records recovered points regardless of their numerical error. Neither missing data nor unavailable scores are substituted with zero.</p></div></article><article><span>02</span><div><h3>A fixed, traceable selection</h3><p>Each track uses its recorded primary response variant. GPT-5.6 Terra medium uses 32k throughout; requested Qwen 32k and 64k variants stay separate. Model and reasoning-effort order follows the 4 November display policy.</p></div></article><article><span>03</span><div><h3>Interpretation &amp; limits</h3><p>D1 different-source and all-source summaries include a provisional Gold/image binding. Curve-level point statistics differ from the property-macro summaries above. Cross-question consistency describes changes across presentations, not random variation from repeated calls.</p></div></article></div>
+    </section>
+    <section class="download-strip shell" aria-label="Data and documentation"><div><h2>Inspect. Compare. Reuse.</h2><p>Selected snapshot: 4 Nov 2026 · Public export: 9 Nov 2026</p></div><div class="download-links"><a href="explorer/methods.html">Full methodology ↗</a><a href="explorer/data/release.json">Release manifest ↓</a><a href="https://github.com/aioyouko/aioyouko.github.io/tree/demo/extractbench">Website source ↗</a></div></section>
+    <noscript><p class="shell">Enable JavaScript to view interactive results and curves. You can also <a href="explorer/data/Plot_Condition_Reliability.csv">download the complete results CSV</a>.</p></noscript>
+  </main>
+  <footer class="shell footer"><a href="../#home">← Heyang Chen</a><p>ExtractBench · Thermoelectric figure extraction</p><a href="#main">Back to top ↑</a></footer>
+</body>
+</html>

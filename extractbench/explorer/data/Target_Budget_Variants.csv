@@ -1,0 +1,325 @@
+﻿model_order,canonical_key,model_key,track,selected_cases,primary,exclusion,output_caps,thinking_budgets,providers
+1,gpt6_1_sol_max,gpt6_1_sol_max,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+1,gpt6_1_sol_max,gpt6_1_sol_max,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+1,gpt6_1_sol_max,gpt6_1_sol_max,D2_with,39,1,,,,cliproxyapi_codex_subscription
+1,gpt6_1_sol_max,gpt6_1_sol_max,D2_without,39,1,,,,cliproxyapi_codex_subscription
+2,gpt6_1_sol_xhigh,gpt6_1_sol_xhigh,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+2,gpt6_1_sol_xhigh,gpt6_1_sol_xhigh,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+2,gpt6_1_sol_xhigh,gpt6_1_sol_xhigh,D2_with,39,1,,,,cliproxyapi_codex_subscription
+2,gpt6_1_sol_xhigh,gpt6_1_sol_xhigh,D2_without,39,1,,,,cliproxyapi_codex_subscription
+3,gpt6_1_sol_high,gpt6_1_sol_high,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+3,gpt6_1_sol_high,gpt6_1_sol_high,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+3,gpt6_1_sol_high,gpt6_1_sol_high,D2_with,39,1,,,,cliproxyapi_codex_subscription
+3,gpt6_1_sol_high,gpt6_1_sol_high,D2_without,39,1,,,,cliproxyapi_codex_subscription
+4,gpt6_1_sol_medium,gpt6_1_sol_medium,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+4,gpt6_1_sol_medium,gpt6_1_sol_medium,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+4,gpt6_1_sol_medium,gpt6_1_sol_medium,D2_with,39,1,,,,cliproxyapi_codex_subscription
+4,gpt6_1_sol_medium,gpt6_1_sol_medium,D2_without,39,1,,,,cliproxyapi_codex_subscription
+5,gpt6_1_sol_low,gpt6_1_sol_low,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+5,gpt6_1_sol_low,gpt6_1_sol_low,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+5,gpt6_1_sol_low,gpt6_1_sol_low,D2_with,39,1,,,,cliproxyapi_codex_subscription
+5,gpt6_1_sol_low,gpt6_1_sol_low,D2_without,39,1,,,,cliproxyapi_codex_subscription
+6,gpt6_astra_max,gpt6_astra_max,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+6,gpt6_astra_max,gpt6_astra_max,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+6,gpt6_astra_max,gpt6_astra_max,D2_with,39,1,,,,cliproxyapi_codex_subscription
+6,gpt6_astra_max,gpt6_astra_max,D2_without,39,1,,,,cliproxyapi_codex_subscription
+7,gpt6_astra_xhigh,gpt6_astra_xhigh,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+7,gpt6_astra_xhigh,gpt6_astra_xhigh,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+7,gpt6_astra_xhigh,gpt6_astra_xhigh,D2_with,39,1,,,,cliproxyapi_codex_subscription
+7,gpt6_astra_xhigh,gpt6_astra_xhigh,D2_without,39,1,,,,cliproxyapi_codex_subscription
+8,gpt6_astra_high,gpt6_astra_high,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+8,gpt6_astra_high,gpt6_astra_high,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+8,gpt6_astra_high,gpt6_astra_high,D2_with,39,1,,,,cliproxyapi_codex_subscription
+8,gpt6_astra_high,gpt6_astra_high,D2_without,39,1,,,,cliproxyapi_codex_subscription
+9,gpt6_astra_medium,gpt6_astra_medium,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+9,gpt6_astra_medium,gpt6_astra_medium,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+9,gpt6_astra_medium,gpt6_astra_medium,D2_with,39,1,,,,cliproxyapi_codex_subscription
+9,gpt6_astra_medium,gpt6_astra_medium,D2_without,39,1,,,,cliproxyapi_codex_subscription
+10,gpt6_astra_low,gpt6_astra_low,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+10,gpt6_astra_low,gpt6_astra_low,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+10,gpt6_astra_low,gpt6_astra_low,D2_with,39,1,,,,cliproxyapi_codex_subscription
+10,gpt6_astra_low,gpt6_astra_low,D2_without,39,1,,,,cliproxyapi_codex_subscription
+11,gpt6_sol_max,gpt6_sol_max,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+11,gpt6_sol_max,gpt6_sol_max,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+11,gpt6_sol_max,gpt6_sol_max,D2_with,39,1,,,,cliproxyapi_codex_subscription
+11,gpt6_sol_max,gpt6_sol_max,D2_without,39,1,,,,cliproxyapi_codex_subscription
+12,gpt6_sol_xhigh,gpt6_sol_xhigh,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+12,gpt6_sol_xhigh,gpt6_sol_xhigh,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+12,gpt6_sol_xhigh,gpt6_sol_xhigh,D2_with,39,1,,,,cliproxyapi_codex_subscription
+12,gpt6_sol_xhigh,gpt6_sol_xhigh,D2_without,39,1,,,,cliproxyapi_codex_subscription
+13,gpt6_sol_high,gpt6_sol_high,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+13,gpt6_sol_high,gpt6_sol_high,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+13,gpt6_sol_high,gpt6_sol_high,D2_with,39,1,,,,cliproxyapi_codex_subscription
+13,gpt6_sol_high,gpt6_sol_high,D2_without,39,1,,,,cliproxyapi_codex_subscription
+14,gpt6_sol_medium,gpt6_sol_medium,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+14,gpt6_sol_medium,gpt6_sol_medium,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+14,gpt6_sol_medium,gpt6_sol_medium,D2_with,39,1,,,,cliproxyapi_codex_subscription
+14,gpt6_sol_medium,gpt6_sol_medium,D2_without,39,1,,,,cliproxyapi_codex_subscription
+15,gpt6_sol_low,gpt6_sol_low,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+15,gpt6_sol_low,gpt6_sol_low,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+15,gpt6_sol_low,gpt6_sol_low,D2_with,39,1,,128000,,openai_platform
+15,gpt6_sol_low,gpt6_sol_low,D2_without,39,1,,128000,,openai_platform
+16,gpt6_luna_max,gpt6_luna_max,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+16,gpt6_luna_max,gpt6_luna_max,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+16,gpt6_luna_max,gpt6_luna_max,D2_with,39,1,,,,cliproxyapi_codex_subscription
+16,gpt6_luna_max,gpt6_luna_max,D2_without,39,1,,,,cliproxyapi_codex_subscription
+17,gpt6_luna_xhigh,gpt6_luna_xhigh,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+17,gpt6_luna_xhigh,gpt6_luna_xhigh,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+17,gpt6_luna_xhigh,gpt6_luna_xhigh,D2_with,39,1,,,,cliproxyapi_codex_subscription
+17,gpt6_luna_xhigh,gpt6_luna_xhigh,D2_without,39,1,,,,cliproxyapi_codex_subscription
+18,gpt6_luna_high,gpt6_luna_high,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+18,gpt6_luna_high,gpt6_luna_high,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+18,gpt6_luna_high,gpt6_luna_high,D2_with,39,1,,128000,,openai_platform
+18,gpt6_luna_high,gpt6_luna_high,D2_without,39,1,,128000,,openai_platform
+19,gpt6_luna_medium,gpt6_luna_medium,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+19,gpt6_luna_medium,gpt6_luna_medium,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+19,gpt6_luna_medium,gpt6_luna_medium,D2_with,39,1,,128000,,openai_platform
+19,gpt6_luna_medium,gpt6_luna_medium,D2_without,39,1,,128000,,openai_platform
+20,gpt6_luna_low,gpt6_luna_low,D1_different_new,24,1,,,,cliproxyapi_codex_subscription
+20,gpt6_luna_low,gpt6_luna_low,D1_same_new,12,1,,,,cliproxyapi_codex_subscription
+20,gpt6_luna_low,gpt6_luna_low,D2_with,39,1,,128000,,openai_platform
+20,gpt6_luna_low,gpt6_luna_low,D2_without,39,1,,128000,,openai_platform
+21,claude_opus55_max,claude_opus55_max_official_20261102,D1_different_new,24,1,,65536,,anthropic
+21,claude_opus55_max,claude_opus55_max_official_20261102,D1_same_new,12,1,,65536,,anthropic
+21,claude_opus55_max,claude_opus55_max_official_20261102,D2_with,39,1,,65536,,anthropic
+21,claude_opus55_max,claude_opus55_max_official_20261102,D2_without,39,1,,65536,,anthropic
+22,claude_opus55_high,claude_opus55_high_official_20261102,D1_different_new,24,1,,65536,,anthropic
+22,claude_opus55_high,claude_opus55_high_official_20261102,D1_same_new,12,1,,65536,,anthropic
+22,claude_opus55_high,claude_opus55_high_official_20261102,D2_with,39,1,,65536,,anthropic
+22,claude_opus55_high,claude_opus55_high_official_20261102,D2_without,39,1,,65536,,anthropic
+23,claude_opus55_low,claude_opus55_low_official_20261102,D1_different_new,24,1,,65536,,anthropic
+23,claude_opus55_low,claude_opus55_low_official_20261102,D1_same_new,12,1,,65536,,anthropic
+23,claude_opus55_low,claude_opus55_low_official_20261102,D2_with,39,1,,65536,,anthropic
+23,claude_opus55_low,claude_opus55_low_official_20261102,D2_without,39,1,,65536,,anthropic
+24,claude_sonnet55_max,claude_sonnet55_max_official_20261102,D1_different_new,24,1,,65536,,anthropic
+24,claude_sonnet55_max,claude_sonnet55_max_official_20261102,D1_same_new,12,1,,65536,,anthropic
+24,claude_sonnet55_max,claude_sonnet55_max_official_20261102,D2_with,39,1,,65536,,anthropic
+24,claude_sonnet55_max,claude_sonnet55_max_official_20261102,D2_without,39,1,,65536,,anthropic
+25,claude_sonnet55_high,claude_sonnet55_high_official_20261102,D1_different_new,24,1,,65536,,anthropic
+25,claude_sonnet55_high,claude_sonnet55_high_official_20261102,D1_same_new,12,1,,65536,,anthropic
+25,claude_sonnet55_high,claude_sonnet55_high_official_20261102,D2_with,39,1,,65536,,anthropic
+25,claude_sonnet55_high,claude_sonnet55_high_official_20261102,D2_without,39,1,,65536,,anthropic
+26,claude_sonnet55_low,claude_sonnet55_low_official_20261102,D1_different_new,24,1,,65536,,anthropic
+26,claude_sonnet55_low,claude_sonnet55_low_official_20261102,D1_same_new,12,1,,65536,,anthropic
+26,claude_sonnet55_low,claude_sonnet55_low_official_20261102,D2_with,39,1,,65536,,anthropic
+26,claude_sonnet55_low,claude_sonnet55_low_official_20261102,D2_without,39,1,,65536,,anthropic
+27,claude_haiku55_max,claude_haiku55_max_official_20261102,D1_different_new,24,1,,65536,,anthropic
+27,claude_haiku55_max,claude_haiku55_max_official_20261102,D1_same_new,12,1,,65536,,anthropic
+27,claude_haiku55_max,claude_haiku55_max_official_20261102,D2_with,39,1,,65536,,anthropic
+27,claude_haiku55_max,claude_haiku55_max_official_20261102,D2_without,39,1,,65536,,anthropic
+28,claude_haiku55_high,claude_haiku55_high_official_20261102,D1_different_new,24,1,,65536,,anthropic
+28,claude_haiku55_high,claude_haiku55_high_official_20261102,D1_same_new,12,1,,65536,,anthropic
+28,claude_haiku55_high,claude_haiku55_high_official_20261102,D2_with,39,1,,65536,,anthropic
+28,claude_haiku55_high,claude_haiku55_high_official_20261102,D2_without,39,1,,65536,,anthropic
+29,claude_haiku55_low,claude_haiku55_low_official_20261102,D1_different_new,24,1,,65536,,anthropic
+29,claude_haiku55_low,claude_haiku55_low_official_20261102,D1_same_new,12,1,,65536,,anthropic
+29,claude_haiku55_low,claude_haiku55_low_official_20261102,D2_with,39,1,,65536,,anthropic
+29,claude_haiku55_low,claude_haiku55_low_official_20261102,D2_without,39,1,,65536,,anthropic
+30,claude_fable51_high,claude_fable51_high_official_20261102,D1_different_new,24,1,,65536,,anthropic
+30,claude_fable51_high,claude_fable51_high_official_20261102,D1_same_new,12,1,,65536,,anthropic
+30,claude_fable51_high,claude_fable51_high_official_20261102,D2_with,39,1,,65536,,anthropic
+30,claude_fable51_high,claude_fable51_high_official_20261102,D2_without,39,1,,65536,,anthropic
+31,claude_fable51_low,claude_fable51_low_official_20261102,D1_different_new,24,1,,65536,,anthropic
+31,claude_fable51_low,claude_fable51_low_official_20261102,D1_same_new,12,1,,65536,,anthropic
+31,claude_fable51_low,claude_fable51_low_official_20261102,D2_with,39,1,,65536,,anthropic
+31,claude_fable51_low,claude_fable51_low_official_20261102,D2_without,39,1,,65536,,anthropic
+32,gemini31pro_thinking,gemini31pro_thinking_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gemini
+32,gemini31pro_thinking,gemini31pro_thinking_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gemini
+32,gemini31pro_thinking,gemini31_pro_thinking,D2_with,39,1,,65536,,aihub_gemini
+32,gemini31pro_thinking,gemini31pro_thinking,D2_without,39,1,,65536,,aihub_gemini
+33,gemini31pro_nonthinking,gemini31pro_nonthinking_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gemini
+33,gemini31pro_nonthinking,gemini31pro_nonthinking_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gemini
+33,gemini31pro_nonthinking,gemini31_pro,D2_with,39,1,,65536,,aihub_gemini
+33,gemini31pro_nonthinking,gemini31pro_nonthinking,D2_without,39,1,,65536,,aihub_gemini
+34,gpt56_sol_max,gpt56_sol_max_128k,D1_different_new,24,1,,128000,,sub2api_local_proxy
+34,gpt56_sol_max,gpt56_sol_max_128k,D1_same_new,12,1,,128000,,sub2api_local_proxy
+34,gpt56_sol_max,gpt56_sol_max,D2_with,39,1,,128000,,sub2api
+34,gpt56_sol_max,gpt56_sol_max,D2_without,39,1,,1280000,,sub2api
+35,gpt56_sol_xhigh,gpt56_sol_xhigh_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gpt
+35,gpt56_sol_xhigh,gpt56_sol_xhigh_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gpt
+35,gpt56_sol_xhigh,gpt56_sol_xhigh,D2_with,39,1,,65536,,sub2api
+35,gpt56_sol_xhigh,gpt56_sol_xhigh,D2_without,39,1,,65536,,aihub_gpt; sub2api
+36,gpt56_sol_high,gpt56_sol_high_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gpt
+36,gpt56_sol_high,gpt56_sol_high_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gpt
+36,gpt56_sol_high,gpt56_sol_high,D2_with,39,1,,65536,,sub2api
+36,gpt56_sol_high,gpt56_sol_high,D2_without,39,1,,65536,,aihub_gpt
+37,gpt56_sol_medium,gpt56_sol_medium_32k,D1_different_new,24,1,,32768,,xpeng_aihub_gpt
+37,gpt56_sol_medium,gpt56_sol_medium_32k,D1_same_new,12,1,,32768,,xpeng_aihub_gpt
+37,gpt56_sol_medium,gpt56_sol_medium,D2_with,39,1,,32768,,sub2api
+37,gpt56_sol_medium,gpt56_sol_medium,D2_without,39,1,,32768,,aihub_gpt
+38,gpt56_sol_low,gpt56_sol_low_16k,D1_different_new,24,1,,16384,,xpeng_aihub_gpt
+38,gpt56_sol_low,gpt56_sol_low_16k,D1_same_new,12,1,,16384,,xpeng_aihub_gpt
+38,gpt56_sol_low,gpt56_sol_low,D2_with,39,1,,16384,,sub2api
+38,gpt56_sol_low,gpt56_sol_low,D2_without,39,1,,16384,,aihub_gpt
+39,gpt56_terra_max,gpt56_terra_max_128k,D1_different_new,24,1,,128000,,sub2api_local_proxy
+39,gpt56_terra_max,gpt56_terra_max_128k,D1_same_new,12,1,,128000,,sub2api_local_proxy
+39,gpt56_terra_max,gpt56_terra_max,D2_with,39,1,,128000,,sub2api
+39,gpt56_terra_max,gpt56_terra_max,D2_without,39,1,,1280000,,sub2api
+40,gpt56_terra_xhigh,gpt56_terra_xhigh_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gpt
+40,gpt56_terra_xhigh,gpt56_terra_xhigh_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gpt
+40,gpt56_terra_xhigh,gpt56_terra_xhigh,D2_with,39,1,,65536,,sub2api
+40,gpt56_terra_xhigh,gpt56_terra_xhigh,D2_without,39,1,,65536,,aihub_gpt
+41,gpt56_terra_high,gpt56_terra_high_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gpt
+41,gpt56_terra_high,gpt56_terra_high_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gpt
+41,gpt56_terra_high,gpt56_terra_high,D2_with,39,1,,65536,,sub2api
+41,gpt56_terra_high,gpt56_terra_high,D2_without,39,1,,65536,,aihub_gpt
+42,gpt56_terra_medium,gpt56_terra_medium_32k,D1_different_new,24,1,,32768,,xpeng_aihub_gpt
+42,gpt56_terra_medium,gpt56_terra_medium_32k,D1_same_new,12,1,,32768,,xpeng_aihub_gpt
+42,gpt56_terra_medium,gpt56_terra_medium_32k,D2_with,39,1,,32768,,sub2api
+42,gpt56_terra_medium,gpt56_terra_medium_64k,D2_with,39,0,Alternate output cap. The plotting selection matches the 32768-token D1 and D2 normal runs.,65536,,sub2api
+42,gpt56_terra_medium,gpt56_terra_medium,D2_without,39,1,,32768,,aihub_gpt
+43,gpt56_terra_low,gpt56_terra_low_16k,D1_different_new,24,1,,16384,,xpeng_aihub_gpt
+43,gpt56_terra_low,gpt56_terra_low_16k,D1_same_new,12,1,,16384,,xpeng_aihub_gpt
+43,gpt56_terra_low,gpt56_terra_low,D2_with,39,1,,16384,,sub2api
+43,gpt56_terra_low,gpt56_terra_low,D2_without,39,1,,16384,,aihub_gpt
+44,gpt56_luna_max,gpt56_luna_max_128k,D1_different_new,24,1,,128000,,sub2api_local_proxy
+44,gpt56_luna_max,gpt56_luna_max_128k,D1_same_new,12,1,,128000,,sub2api_local_proxy
+44,gpt56_luna_max,gpt56_luna_max,D2_with,39,1,,128000,,openai; sub2api
+44,gpt56_luna_max,gpt56_luna_max,D2_without,39,0,"Historical 1,280,000 output cap; retained separately from the 128,000 matched-budget selection",1280000,,sub2api
+44,gpt56_luna_max,gpt56_luna_max_128000_official_20261103,D2_without,39,1,,128000,,openai
+45,gpt56_luna_xhigh,gpt56_luna_xhigh_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gpt
+45,gpt56_luna_xhigh,gpt56_luna_xhigh_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gpt
+45,gpt56_luna_xhigh,gpt56_luna_xhigh,D2_with,39,1,,65536,,sub2api
+45,gpt56_luna_xhigh,gpt56_luna_xhigh,D2_without,39,1,,65536,,aihub_gpt; sub2api
+46,gpt56_luna_high,gpt56_luna_high_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gpt
+46,gpt56_luna_high,gpt56_luna_high_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gpt
+46,gpt56_luna_high,gpt56_luna_high,D2_with,39,1,,65536,,sub2api
+46,gpt56_luna_high,gpt56_luna_high,D2_without,39,1,,65536,,aihub_gpt
+47,gpt56_luna_medium,gpt56_luna_medium_32k,D1_different_new,24,1,,32768,,xpeng_aihub_gpt
+47,gpt56_luna_medium,gpt56_luna_medium_32k,D1_same_new,12,1,,32768,,xpeng_aihub_gpt
+47,gpt56_luna_medium,gpt56_luna_medium,D2_with,39,1,,32768,,sub2api
+47,gpt56_luna_medium,gpt56_luna_medium,D2_without,39,1,,32768,,aihub_gpt
+48,gpt56_luna_low,gpt56_luna_low_16k,D1_different_new,24,1,,16384,,xpeng_aihub_gpt
+48,gpt56_luna_low,gpt56_luna_low_16k,D1_same_new,12,1,,16384,,xpeng_aihub_gpt
+48,gpt56_luna_low,gpt56_luna_low,D2_with,39,1,,16384,,sub2api
+48,gpt56_luna_low,gpt56_luna_low,D2_without,39,1,,16384,,aihub_gpt
+49,gpt55_xhigh,gpt55_xhigh_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gpt
+49,gpt55_xhigh,gpt55_xhigh_64k,D1_same_new,12,1,,65536,,sub2api_local_proxy; xpeng_aihub_gpt
+49,gpt55_xhigh,gpt55_xhigh,D2_with,39,1,,65536,,sub2api
+49,gpt55_xhigh,gpt55_xhigh,D2_without,39,1,,65536,,aihub_gpt; sub2api
+50,gpt55_high,gpt55_high_64k,D1_different_new,24,1,,65536,,xpeng_aihub_gpt
+50,gpt55_high,gpt55_high_64k,D1_same_new,12,1,,65536,,xpeng_aihub_gpt
+50,gpt55_high,gpt55_high,D2_with,39,1,,65536,,sub2api
+50,gpt55_high,gpt55_high,D2_without,39,1,,65536,,aihub_gpt
+51,gpt55_medium,gpt55_medium_32k,D1_different_new,24,1,,32768,,xpeng_aihub_gpt
+51,gpt55_medium,gpt55_medium_32k,D1_same_new,12,1,,32768,,xpeng_aihub_gpt
+51,gpt55_medium,gpt55_medium,D2_with,39,1,,32768,,sub2api
+51,gpt55_medium,gpt55_medium,D2_without,39,1,,32768,,aihub_gpt
+52,gpt55_low,gpt55_low_16k,D1_different_new,24,1,,16384,,xpeng_aihub_gpt
+52,gpt55_low,gpt55_low_16k,D1_same_new,12,1,,16384,,xpeng_aihub_gpt
+52,gpt55_low,gpt55_low,D2_with,39,1,,16384,,sub2api
+52,gpt55_low,gpt55_low,D2_without,39,1,,16384,,aihub_gpt
+53,kimi_k31_pro_max,kimi_k31_pro_max_official_20261102,D1_different_new,24,1,,131072,,moonshot
+53,kimi_k31_pro_max,kimi_k31_pro_max_official_20261102,D1_same_new,12,1,,131072,,moonshot
+53,kimi_k31_pro_max,kimi_k31_pro_max_official_20261102,D2_with,39,1,,131072,,moonshot
+53,kimi_k31_pro_max,kimi_k31_pro_max_official_20261102,D2_without,39,1,,131072,,moonshot
+54,kimi_k31_pro_high,kimi_k31_pro_high_official_20261102,D1_different_new,24,1,,32768,,moonshot
+54,kimi_k31_pro_high,kimi_k31_pro_high_official_20261102,D1_same_new,12,1,,32768,,moonshot
+54,kimi_k31_pro_high,kimi_k31_pro_high_official_20261102,D2_with,39,1,,32768,,moonshot
+54,kimi_k31_pro_high,kimi_k31_pro_high_official_20261102,D2_without,39,1,,32768,,moonshot
+55,kimi_k31_pro_low,kimi_k31_pro_low_official_20261102,D1_different_new,24,1,,32768,,moonshot
+55,kimi_k31_pro_low,kimi_k31_pro_low_official_20261102,D1_same_new,12,1,,32768,,moonshot
+55,kimi_k31_pro_low,kimi_k31_pro_low_official_20261102,D2_with,39,1,,32768,,moonshot
+55,kimi_k31_pro_low,kimi_k31_pro_low_official_20261102,D2_without,39,1,,32768,,moonshot
+56,kimi_k31_pro_highspeed_max,kimi_k31_pro_highspeed_max_official_20261102,D1_different_new,24,1,,131072,,moonshot
+56,kimi_k31_pro_highspeed_max,kimi_k31_pro_highspeed_max_official_20261102,D1_same_new,12,1,,131072,,moonshot
+56,kimi_k31_pro_highspeed_max,kimi_k31_pro_highspeed_max_official_20261102,D2_with,39,1,,131072,,moonshot
+56,kimi_k31_pro_highspeed_max,kimi_k31_pro_highspeed_max_official_20261102,D2_without,39,1,,131072,,moonshot
+57,kimi_k31_pro_highspeed_high,kimi_k31_pro_highspeed_high_official_20261102,D1_different_new,24,1,,32768,,moonshot
+57,kimi_k31_pro_highspeed_high,kimi_k31_pro_highspeed_high_official_20261102,D1_same_new,12,1,,32768,,moonshot
+57,kimi_k31_pro_highspeed_high,kimi_k31_pro_highspeed_high_official_20261102,D2_with,39,1,,32768,,moonshot
+57,kimi_k31_pro_highspeed_high,kimi_k31_pro_highspeed_high_official_20261102,D2_without,39,1,,32768,,moonshot
+58,kimi_k31_pro_highspeed_low,kimi_k31_pro_highspeed_low_official_20261102,D1_different_new,24,1,,32768,,moonshot
+58,kimi_k31_pro_highspeed_low,kimi_k31_pro_highspeed_low_official_20261102,D1_same_new,12,1,,32768,,moonshot
+58,kimi_k31_pro_highspeed_low,kimi_k31_pro_highspeed_low_official_20261102,D2_with,39,1,,32768,,moonshot
+58,kimi_k31_pro_highspeed_low,kimi_k31_pro_highspeed_low_official_20261102,D2_without,39,1,,32768,,moonshot
+59,kimi_k3_max,kimi_k3_max,D1_different_new,24,0,Historical baseline retained as independent control; primary uses declared official cohort,131072,,xpeng_aihub_gpt
+59,kimi_k3_max,kimi_k3_max_official_20261101,D1_different_new,24,1,,131072,,moonshot
+59,kimi_k3_max,kimi_k3_max,D1_same_new,12,0,Historical baseline retained as independent control; primary uses declared official cohort,131072,,xpeng_aihub_gpt
+59,kimi_k3_max,kimi_k3_max_official_20261101,D1_same_new,12,1,,131072,,moonshot
+59,kimi_k3_max,kimi_k3_max,D2_with,39,0,Historical baseline retained as independent control; primary uses declared official cohort,131072,,moonshot
+59,kimi_k3_max,kimi_k3_max_official_20261101,D2_with,39,1,,131072,,moonshot
+59,kimi_k3_max,kimi_k3_max,D2_without,39,0,Historical baseline retained as independent control; primary uses declared official cohort,131072,,aihub_gpt
+59,kimi_k3_max,kimi_k3_max_official_20261101,D2_without,39,1,,131072,,moonshot
+60,kimi_k3_high,kimi_k3_high_32k,D1_different_new,24,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,xpeng_aihub_gpt
+60,kimi_k3_high,kimi_k3_high_official_20261101,D1_different_new,24,1,,32768,,moonshot
+60,kimi_k3_high,kimi_k3_high_32k,D1_same_new,12,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,xpeng_aihub_gpt
+60,kimi_k3_high,kimi_k3_high_official_20261101,D1_same_new,12,1,,32768,,moonshot
+60,kimi_k3_high,kimi_k3_high,D2_with,39,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,moonshot
+60,kimi_k3_high,kimi_k3_high_official_20261101,D2_with,39,1,,32768,,moonshot
+60,kimi_k3_high,kimi_k3_high,D2_without,39,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,aihub_gpt
+60,kimi_k3_high,kimi_k3_high_official_20261101,D2_without,39,1,,32768,,moonshot
+61,kimi_k3_low,kimi_k3_low_32k,D1_different_new,24,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,xpeng_aihub_gpt
+61,kimi_k3_low,kimi_k3_low_official_20261101,D1_different_new,24,1,,32768,,moonshot
+61,kimi_k3_low,kimi_k3_low_32k,D1_same_new,12,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,xpeng_aihub_gpt
+61,kimi_k3_low,kimi_k3_low_official_20261101,D1_same_new,12,1,,32768,,moonshot
+61,kimi_k3_low,kimi_k3_low,D2_with,39,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,moonshot
+61,kimi_k3_low,kimi_k3_low_official_20261101,D2_with,39,1,,32768,,moonshot
+61,kimi_k3_low,kimi_k3_low,D2_without,39,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,aihub_gpt
+61,kimi_k3_low,kimi_k3_low_official_20261101,D2_without,39,1,,32768,,moonshot
+62,kimi_k27_code_thinking,kimi_k27_code_thinking_official_20261102,D1_different_new,24,1,,32768,,moonshot
+62,kimi_k27_code_thinking,kimi_k27_code_thinking_official_20261102,D1_same_new,12,1,,32768,,moonshot
+62,kimi_k27_code_thinking,kimi_k27_code_thinking_official_20261102,D2_with,39,1,,32768,,moonshot
+62,kimi_k27_code_thinking,kimi_k27_code_thinking_official_20261102,D2_without,39,1,,32768,,moonshot
+63,kimi_k27_code_highspeed_thinking,kimi_k27_code_highspeed_thinking_official_20261102,D1_different_new,24,1,,32768,,moonshot
+63,kimi_k27_code_highspeed_thinking,kimi_k27_code_highspeed_thinking_official_20261102,D1_same_new,12,1,,32768,,moonshot
+63,kimi_k27_code_highspeed_thinking,kimi_k27_code_highspeed_thinking_official_20261102,D2_with,39,1,,32768,,moonshot
+63,kimi_k27_code_highspeed_thinking,kimi_k27_code_highspeed_thinking_official_20261102,D2_without,39,1,,32768,,moonshot
+64,kimi_k26_thinking,kimi_k26_thinking_official_20261102,D1_different_new,24,1,,32768,,moonshot
+64,kimi_k26_thinking,kimi_k26_thinking_official_20261102,D1_same_new,12,1,,32768,,moonshot
+64,kimi_k26_thinking,kimi_k26_thinking_official_20261102,D2_with,39,1,,32768,,moonshot
+64,kimi_k26_thinking,kimi_k26_thinking_official_20261102,D2_without,39,1,,32768,,moonshot
+65,kimi_k26_nonthinking,kimi_k26_nonthinking_official_20261101,D1_different_new,24,1,,32768,,moonshot
+65,kimi_k26_nonthinking,kimi_k26_nonthinking_official_20261101,D1_same_new,12,1,,32768,,moonshot
+65,kimi_k26_nonthinking,kimi_k26_nonthinking,D2_with,39,0,Historical baseline retained as independent control; primary uses declared official cohort,32768,,moonshot
+65,kimi_k26_nonthinking,kimi_k26_nonthinking_official_20261101,D2_with,39,1,,32768,,moonshot
+65,kimi_k26_nonthinking,kimi_k26_nonthinking_official_20261101,D2_without,39,1,,32768,,moonshot
+66,qwen38max_thinking,qwen38max_thinking_32k,D1_different_new,24,1,,32768,,xpeng_aihub_qwen
+66,qwen38max_thinking,qwen38max_thinking_32k,D1_same_new,12,1,,32768,,xpeng_aihub_qwen
+66,qwen38max_thinking,qwen38_max_thinking_64k,D2_with,39,1,,65536,32768,aihub_qwen; dashscope_qwen
+66,qwen38max_thinking,qwen38_max_thinking_4k_output_64k,D2_with,39,0,Separate 4k thinking budget; primary uses 32k,65536,4096,aihub_qwen; dashscope_qwen
+66,qwen38max_thinking,qwen38_max_thinking_4k_output_32k,D2_with,39,0,Independent thinking/output-budget variant; not primary 72-model cost cohort,32768,4096,aihub_qwen; dashscope_qwen
+66,qwen38max_thinking,qwen38_max_thinking_64k_output_64k,D2_with,39,0,Independent thinking/output-budget variant; not primary 72-model cost cohort,65536,65536,dashscope_qwen
+66,qwen38max_thinking,qwen38max_thinking,D2_without,39,1,,32768,4096,aihub_qwen; dashscope_qwen
+67,qwen38max_nonthinking,qwen38max_nonthinking_32k,D1_different_new,24,1,,32768,,xpeng_aihub_qwen
+67,qwen38max_nonthinking,qwen38max_nonthinking_32k,D1_same_new,12,1,,32768,,xpeng_aihub_qwen
+67,qwen38max_nonthinking,qwen38_max_nonthinking_64k,D2_with,39,1,,65536,,aihub_qwen
+67,qwen38max_nonthinking,qwen38max_nonthinking,D2_without,39,1,,32768,,aihub_qwen
+68,qwen37max_thinking,qwen37max_20260608_thinking32k_answer64k,D1_different_new,24,1,,65536,,dashscope_qwen
+68,qwen37max_thinking,qwen37max_20260608_thinking32k_answer64k,D1_same_new,12,1,,65536,,xpeng_aihub_qwen
+68,qwen37max_thinking,qwen37_max_20260608_thinking,D2_with,39,1,,65536,32768,aihub_qwen; dashscope_qwen
+68,qwen37max_thinking,qwen37max_thinking,D2_without,39,1,,65536,32768,aihub_qwen; dashscope_qwen
+69,qwen37max_nonthinking,qwen37max_20260608_nonthinking_32k,D1_different_new,24,1,,32768,,xpeng_aihub_qwen
+69,qwen37max_nonthinking,qwen37max_20260608_nonthinking_32k,D1_same_new,12,1,,32768,,xpeng_aihub_qwen
+69,qwen37max_nonthinking,qwen37_max_20260608,D2_with,39,1,,32768,,aihub_qwen
+69,qwen37max_nonthinking,qwen37max_nonthinking,D2_without,39,1,,32768,,aihub_qwen
+70,qwen37_plus_thinking_64k,qwen37plus_thinking32k_answer64k,D1_different_new,24,1,,65536,32768,dashscope_qwen
+70,qwen37_plus_thinking_64k,qwen37plus_thinking32k_answer64k,D1_same_new,12,1,,65536,32768,dashscope_qwen
+70,qwen37_plus_thinking_64k,qwen37_plus_thinking_64k,D2_with,39,1,,65536,32768,aihub_qwen; dashscope_qwen
+70,qwen37_plus_thinking_64k,qwen37_plus_thinking_64k,D2_without,39,1,,65536,32768,aihub_qwen; dashscope_qwen
+71,qwen37_plus_nonthinking_64k,qwen37plus_nonthinking_64k,D1_different_new,24,1,,65536,,dashscope_qwen
+71,qwen37_plus_nonthinking_64k,qwen37plus_nonthinking_64k,D1_same_new,12,1,,65536,,xpeng_aihub_qwen
+71,qwen37_plus_nonthinking_64k,qwen37_plus_nonthinking_64k,D2_with,39,1,,65536,,aihub_qwen
+71,qwen37_plus_nonthinking_64k,qwen37_plus_nonthinking_64k,D2_without,39,1,,65536,,dashscope_qwen
+72,qwen_plus,qwen_plus,D1_different_new,24,1,,32768,,dashscope_qwen
+72,qwen_plus,qwen_plus,D1_same_new,12,1,,32768,,dashscope_qwen
+72,qwen_plus,qwen_plus,D2_with,39,1,,32768,,qwen
+72,qwen_plus,qwen_plus,D2_without,39,1,,32768,,aihub_qwen; dashscope_qwen
+73,deepseek_v4_1_flash_max,deepseek_v4_1_flash_max,D1_different_new,24,1,,65536,,deepseek_official
+73,deepseek_v4_1_flash_max,deepseek_v4_1_flash_max,D1_same_new,12,1,,65536,,deepseek_official
+73,deepseek_v4_1_flash_max,deepseek_v4_1_flash_max,D2_with,39,1,,65536,,deepseek_official
+73,kimi_k26_aihub_comparator,kimi_k26_aihub_comparator,D2_with,39,0,Outside requested model/mode list,32768,,aihub_gpt
+73,deepseek_v4_1_flash_max,deepseek_v4_1_flash_max,D2_without,39,1,,65536,,deepseek_official
+74,deepseek_v4_1_flash_high,deepseek_v4_1_flash_high,D1_different_new,24,1,,65536,,deepseek_official
+74,deepseek_v4_1_flash_high,deepseek_v4_1_flash_high,D1_same_new,12,1,,65536,,deepseek_official
+74,deepseek_v4_1_flash_high,deepseek_v4_1_flash_high,D2_with,39,1,,65536,,deepseek_official
+74,deepseek_v4_1_flash_high,deepseek_v4_1_flash_high,D2_without,39,1,,65536,,deepseek_official
+75,deepseek_v4_1_flash_low,deepseek_v4_1_flash_low,D1_different_new,24,1,,65536,,deepseek_official
+75,deepseek_v4_1_flash_low,deepseek_v4_1_flash_low,D1_same_new,12,1,,65536,,deepseek_official
+75,deepseek_v4_1_flash_low,deepseek_v4_1_flash_low,D2_with,39,1,,65536,,deepseek_official
+75,deepseek_v4_1_flash_low,deepseek_v4_1_flash_low,D2_without,39,1,,65536,,deepseek_official
+76,deepseek_v4_1_flash_nonthinking,deepseek_v4_1_flash_nonthinking,D1_different_new,24,1,,65536,,deepseek_official
+76,deepseek_v4_1_flash_nonthinking,deepseek_v4_1_flash_nonthinking,D1_same_new,12,1,,65536,,deepseek_official
+76,deepseek_v4_1_flash_nonthinking,deepseek_v4_1_flash_nonthinking,D2_with,39,1,,65536,,deepseek_official
+76,deepseek_v4_1_flash_nonthinking,deepseek_v4_1_flash_nonthinking,D2_without,39,1,,65536,,deepseek_official
+79,qwen_flash,qwen_flash,D2_with,39,0,Outside requested model/mode list,32768,,qwen

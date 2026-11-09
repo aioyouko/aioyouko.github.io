@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><title>Ductile cubic silver chalcogenides</title><desc>A tensile specimen and a shaped continuous semiconductor foil symbolize tensile ductility and rolling-based processability; not to scale.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#52756c"/></marker><linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9d1c7"/><stop offset=".45" stop-color="#4e8a78"/><stop offset="1" stop-color="#174f44"/></linearGradient></defs><style>text{font-family:Arial,sans-serif;fill:#23493f} .label{font-size:12px;letter-spacing:1.3px;font-weight:700}.small{font-size:13px;fill:#5d736b}.title{font-size:20px;font-weight:600}.arrow{fill:none;stroke:#52756c;stroke-width:2;marker-end:url(#arrow)}</style>
+<text x="35" y="42" class="label">CUBIC Ag₂(S,Se,Te)</text>
+<path d="M60 115H106L122 140H224L240 115H286V205H240L224 180H122L106 205H60Z" fill="#8aab99" stroke="#42755d"/>
+<path d="M44 160H16M302 160H330" class="arrow"/>
+<path d="M358 160Q401 94 439 149T592 150L592 187Q506 217 444 183T358 194Z" fill="url(#ribbon)"/>
+<path d="M358 160Q401 94 439 149T592 150" stroke="#c2d9cb" fill="none" stroke-width="3"/>
+<path d="M311 245H347" class="arrow"/>
+<text x="171" y="266" text-anchor="middle" class="small">Tensile ductility</text><text x="477" y="266" text-anchor="middle" class="small">Rolled, shaped, and bent</text>
+<text x="320" y="329" text-anchor="middle" class="small">Intrinsic plasticity → thin semiconductor foils</text></svg>

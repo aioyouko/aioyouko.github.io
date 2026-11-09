@@ -1,0 +1,323 @@
+{
+  "group": [
+    {
+      "date": "January 5, 2026",
+      "location": "Tech K242",
+      "presenters": "Dimitrios/Shoshanna"
+    },
+    {
+      "date": "January 12, 2026",
+      "location": "Tech K242",
+      "presenters": "Khasim/Elias"
+    },
+    {
+      "date": "January 19, 2026",
+      "location": "MLK Day",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "January 26, 2026",
+      "location": "Tech K242",
+      "presenters": "Hyungseok/Xiangyu"
+    },
+    {
+      "date": "February 2, 2026",
+      "location": "Tech K242",
+      "presenters": "Arbor/Jiale"
+    },
+    {
+      "date": "February 9, 2026",
+      "location": "Tech K242",
+      "presenters": "Xu/Safdar"
+    },
+    {
+      "date": "February 16, 2026",
+      "location": "President's Day",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "February 23, 2026",
+      "location": "Tech K242",
+      "presenters": "Ethan/Taylor"
+    },
+    {
+      "date": "March 2, 2026",
+      "location": "Tech K242",
+      "presenters": "Isaiah/Paty"
+    },
+    {
+      "date": "March 9, 2026",
+      "location": "Tech K242",
+      "presenters": "Pradeep/Tommy"
+    },
+    {
+      "date": "March 16, 2026",
+      "location": "Tech K242",
+      "presenters": "Paribesh/Alann"
+    },
+    {
+      "date": "March 23, 2026",
+      "location": "No Meeting",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "March 30, 2026",
+      "location": "Tech K242",
+      "presenters": "Debattam/Nick"
+    },
+    {
+      "date": "April 6, 2026",
+      "location": "Tech K242",
+      "presenters": "Shoshanna/Heyang"
+    },
+    {
+      "date": "April 13, 2026",
+      "location": "Tech K242",
+      "presenters": "Mengru/Khasim"
+    },
+    {
+      "date": "April 20, 2026",
+      "location": "Tech K242",
+      "presenters": "Dimitrios/Elias"
+    },
+    {
+      "date": "April 27, 2026",
+      "location": "Tech K242",
+      "presenters": "Xiangyu/Hyungseok"
+    },
+    {
+      "date": "May 4, 2026",
+      "location": "Tech K242",
+      "presenters": "Jiale/Arbor"
+    },
+    {
+      "date": "May 11, 2026",
+      "location": "Tech K242",
+      "presenters": "Safdar/Xu"
+    },
+    {
+      "date": "May 18, 2026",
+      "location": "Tech K242",
+      "presenters": "Ethan/Taylor"
+    },
+    {
+      "date": "May 25, 2026",
+      "location": "Memorial Day",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "June 1, 2026",
+      "location": "Tech K242",
+      "presenters": "Isaiah/Pradeep"
+    },
+    {
+      "date": "June 8, 2026",
+      "location": "Tech K242",
+      "presenters": "Nick/Paribesh"
+    },
+    {
+      "date": "June 15, 2026",
+      "location": "Juneteenth",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "June 22, 2026",
+      "location": "No Meeting",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "June 29, 2026",
+      "location": "Tech K242",
+      "presenters": "Koushik/Debattam"
+    },
+    {
+      "date": "July 6, 2026",
+      "location": "K242 @10AM***",
+      "presenters": "Jiachuan/Alann"
+    },
+    {
+      "date": "July 13, 2026",
+      "location": "K242 @10AM***",
+      "presenters": "Mathias/Shoshanna"
+    },
+    {
+      "date": "July 20, 2026",
+      "location": "Tech K242",
+      "presenters": "Debarjya/Heyang"
+    },
+    {
+      "date": "July 27, 2026",
+      "location": "Tech K242",
+      "presenters": "Mengru/Khasim"
+    },
+    {
+      "date": "August 3, 2026",
+      "location": "Tech K242",
+      "presenters": "Dimitrios/Xiangyu"
+    },
+    {
+      "date": "August 10, 2026",
+      "location": "Tech K242",
+      "presenters": "Hyungseok/Elias"
+    },
+    {
+      "date": "August 17, 2026",
+      "location": "No Meeting",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "August 24, 2026",
+      "location": "Tech K242",
+      "presenters": "Jiale/Arbor"
+    },
+    {
+      "date": "August 31, 2026",
+      "location": "Tech K242",
+      "presenters": "Xu/Safdar"
+    },
+    {
+      "date": "September 7, 2026",
+      "location": "Labor Day",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "September 14, 2026",
+      "location": "Tech K242",
+      "presenters": "Taylor/Ethan"
+    },
+    {
+      "date": "September 21, 2026",
+      "location": "Tech K242",
+      "presenters": "Isaiah/Pradeep"
+    },
+    {
+      "date": "September 28, 2026",
+      "location": "Tech K242",
+      "presenters": "Nick/Paribesh"
+    },
+    {
+      "date": "October 5, 2026",
+      "location": "Tech K242",
+      "presenters": "Koushik/Debattam"
+    },
+    {
+      "date": "October 12, 2026",
+      "location": "Tech K242",
+      "presenters": "Jiachuan/Alann"
+    },
+    {
+      "date": "October 19, 2026",
+      "location": "Tech K242",
+      "presenters": "Mathias/Shoshanna"
+    },
+    {
+      "date": "October 26, 2026",
+      "location": "Tech K242",
+      "presenters": "Debarjya/Heyang"
+    },
+    {
+      "date": "November 2, 2026",
+      "location": "Tech K242",
+      "presenters": "Khasim/Mengru"
+    },
+    {
+      "date": "November 9, 2026",
+      "location": "Tech K242",
+      "presenters": "Dimitrios/Xiangyu"
+    },
+    {
+      "date": "November 16, 2026",
+      "location": "Tech K242",
+      "presenters": "Elias/Hyungseok"
+    },
+    {
+      "date": "November 23, 2026",
+      "location": "Thanksgiving",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "November 30, 2026",
+      "location": "Tech K242",
+      "presenters": "Arbor/Jiale"
+    },
+    {
+      "date": "December 7, 2026",
+      "location": "Tech K242",
+      "presenters": "Xu/Safdar"
+    },
+    {
+      "date": "December 14, 2026",
+      "location": "Tech K242",
+      "presenters": "Taylor/Ethan"
+    }
+  ],
+  "joint": [
+    {
+      "date": "October 17, 2025",
+      "location": "Tech K242",
+      "presenters": "Wolverton Group"
+    },
+    {
+      "date": "November 14, 2025",
+      "location": "Tech K242",
+      "presenters": "Kanatzidis Group"
+    },
+    {
+      "date": "December 12, 2025",
+      "location": "Tech K242",
+      "presenters": "Dravid Group"
+    },
+    {
+      "date": "January 9, 2026",
+      "location": "Tech K242",
+      "presenters": "Snyder Group"
+    },
+    {
+      "date": "February 6, 2026",
+      "location": "Tech K242",
+      "presenters": "Kanatzidis Group"
+    },
+    {
+      "date": "March 6, 2026",
+      "location": "Tech K242",
+      "presenters": "Wolverton Group"
+    },
+    {
+      "date": "April 3, 2026",
+      "location": "Tech K242",
+      "presenters": "Kanatzidis Group"
+    },
+    {
+      "date": "May 1, 2026",
+      "location": "Tech K242",
+      "presenters": "Wolverton Group"
+    },
+    {
+      "date": "May 29, 2026",
+      "location": "Tech K242",
+      "presenters": "Kanatzidis Group"
+    },
+    {
+      "date": "June 26, 2026",
+      "location": "Tech K242",
+      "presenters": "Dravid Group"
+    },
+    {
+      "date": "July 24, 2026",
+      "location": "Tech K242",
+      "presenters": "Snyder Group"
+    }
+  ],
+  "unresolved": [
+    {
+      "date": "November 23, 2026",
+      "location": "Christmas Holidays",
+      "presenters": "No Meeting"
+    },
+    {
+      "date": "November 23, 2026",
+      "location": "New Year Holidays",
+      "presenters": "No Meeting"
+    }
+  ]
+}

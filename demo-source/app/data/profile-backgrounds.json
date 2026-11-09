@@ -1,0 +1,1033 @@
+{
+  "arthur-zhang": {
+    "education": [
+      {
+        "title": "Undergraduate studies",
+        "organization": "Northwestern University",
+        "period": "Expected 2028",
+        "location": "Evanston, Illinois",
+        "description": "Chemistry and Biology"
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "august-tang": {
+    "education": [
+      {
+        "title": "Undergraduate studies",
+        "organization": "Northwestern University",
+        "location": "Evanston, Illinois",
+        "description": "Neuroscience and Creative Writing"
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "belen-suros": {
+    "education": [
+      {
+        "title": "Undergraduate studies",
+        "organization": "Northwestern University",
+        "location": "Evanston, Illinois",
+        "description": "Chemistry major; Spanish minor."
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "oba-odusote": {
+    "education": [
+      {
+        "title": "Undergraduate studies",
+        "organization": "Northwestern University",
+        "location": "Evanston, Illinois",
+        "description": "Materials Science and Engineering"
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "vaunshika-bagalwadi": {
+    "education": [
+      {
+        "title": "Undergraduate studies",
+        "organization": "Northwestern University",
+        "location": "Evanston, Illinois",
+        "description": "Chemistry"
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "jeremy-lee": {
+    "education": [
+      {
+        "title": "Undergraduate studies",
+        "organization": "Northwestern University",
+        "period": "Class of 2027",
+        "location": "Evanston, Illinois",
+        "description": "Materials Science and Engineering"
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "paloma-lee": {
+    "education": [],
+    "experience": [],
+    "notes": []
+  },
+  "stephen-kao": {
+    "education": [
+      {
+        "title": "Undergraduate studies",
+        "organization": "Northwestern University",
+        "period": "Class of 2028",
+        "location": "Evanston, Illinois",
+        "description": "Materials Science and Engineering"
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "autumn-fowler": {
+    "education": [
+      {
+        "title": "Undergraduate studies",
+        "organization": "Northwestern University",
+        "location": "Evanston, Illinois",
+        "description": "Materials Science and Engineering"
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "aysha-quadri": {
+    "education": [],
+    "experience": [],
+    "notes": []
+  },
+  "julius-sweiss": {
+    "education": [],
+    "experience": [],
+    "notes": []
+  },
+  "michael-viti": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Western Illinois University",
+        "period": "2020",
+        "location": "Macomb, Illinois",
+        "description": "Minors in Physics and Mathematics."
+      }
+    ],
+    "experience": [
+      {
+        "title": "Research experience",
+        "organization": "Argonne National Laboratory",
+        "period": "Approximately one year",
+        "description": "Studied lithium-metal/LLZTO interfaces for solid-state batteries with Zachary Hood in the Applied Materials Division."
+      },
+      {
+        "title": "Undergraduate research",
+        "organization": "Western Illinois University",
+        "description": "Exploratory synthesis of Co–Sn–Te crystals with Brian Bellott; optical properties of europium-doped bismuth borate glasses with P. K. Babu and Saisudha Mallur."
+      }
+    ],
+    "notes": []
+  },
+  "patricia-meza": {
+    "education": [
+      {
+        "title": "B.S. in Materials Science and Engineering",
+        "organization": "Northwestern University",
+        "period": "2021",
+        "location": "Evanston, Illinois"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Research experience",
+        "organization": "Hersam Group, Northwestern University",
+        "description": "Studied graphene coatings for air-resistant high-nickel cathodes."
+      },
+      {
+        "title": "Battery materials research",
+        "organization": "Nanograph",
+        "description": "Electrode synthesis, electrochemistry and characterization of graphene-coated silicon lithium-ion battery anodes."
+      },
+      {
+        "title": "Research experience",
+        "organization": "Argonne National Laboratory",
+        "description": "Investigated 3D printing of bioplastics and ceramics derived from food waste."
+      }
+    ],
+    "notes": []
+  },
+  "thomas-ie": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Haverford College",
+        "period": "2019",
+        "location": "Haverford, Pennsylvania",
+        "description": "Minor in Music."
+      }
+    ],
+    "experience": [
+      {
+        "title": "Materials research for drug development",
+        "organization": "Contract research organization",
+        "period": "Two years after graduation",
+        "description": "Employer name and formal position title are not specified in the original profile."
+      },
+      {
+        "title": "Undergraduate research",
+        "organization": "Haverford College",
+        "description": "Studied rare-earth-free phosphors for white LEDs with Stephen Podowitz-Thomas."
+      }
+    ],
+    "notes": []
+  },
+  "arbor-reynolds": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Old Dominion University",
+        "period": "2020–2022",
+        "location": "Norfolk, Virginia"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "Old Dominion University",
+        "description": "Studied borrowing-hydrogen catalysis and oxoammonium salt oxidation with Kyle Lambert."
+      }
+    ],
+    "notes": []
+  },
+  "isaiah-gilley": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry; B.A. in Mathematics",
+        "organization": "University of Oklahoma",
+        "period": "2022",
+        "location": "Norman, Oklahoma"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "University of Oklahoma",
+        "description": "Worked with Bayram Saparov on hybrid organic–inorganic metal halides for light emission and detection."
+      }
+    ],
+    "notes": []
+  },
+  "taylor-wiggins": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Wake Forest University",
+        "period": "2022",
+        "location": "Winston-Salem, North Carolina",
+        "description": "Minor in Mathematics."
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "Wake Forest University",
+        "description": "Worked with Scott M. Geyer on perovskite nanocrystal synthesis and photocatalytic removal of organic pollutants."
+      }
+    ],
+    "notes": []
+  },
+  "alann-au-ii": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Canisius College",
+        "period": "2023",
+        "location": "Buffalo, New York"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "Canisius College",
+        "description": "Worked in Phillip Sheridan’s laboratory on isocyanates and thiocyanates using computational and gas-phase methods."
+      }
+    ],
+    "notes": []
+  },
+  "elias-kallon": {
+    "education": [
+      {
+        "title": "B.S. in Materials Science and Engineering",
+        "organization": "University of Maryland, College Park",
+        "period": "2022",
+        "location": "College Park, Maryland"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "University of Maryland, College Park",
+        "description": "Synthesized transition-metal dichalcogenides with Kevin Daniels and developed solid-state batteries with Gary Rubloff."
+      }
+    ],
+    "notes": []
+  },
+  "nicholas-britt": {
+    "education": [
+      {
+        "title": "M.S. in Chemistry",
+        "organization": "University of Wisconsin–Milwaukee",
+        "period": "2023",
+        "location": "Milwaukee, Wisconsin"
+      },
+      {
+        "title": "B.S. in Chemistry; B.S. in Applied Mathematics",
+        "organization": "University of Wisconsin–Whitewater",
+        "period": "2021",
+        "location": "Whitewater, Wisconsin"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Master’s research",
+        "organization": "University of Wisconsin–Milwaukee",
+        "description": "Studied nitrate reductase metalloenzymes with Jarett Wilcoxen using electron paramagnetic resonance and kinetic analysis."
+      },
+      {
+        "title": "Summer research",
+        "organization": "Ames National Laboratory",
+        "description": "Developed machine-learning models of high-entropy alloy structures with Prashant Singh."
+      },
+      {
+        "title": "Undergraduate research",
+        "organization": "University of Wisconsin–Whitewater",
+        "description": "Studied reaction products from simulated wastewater treatment with Paul House."
+      }
+    ],
+    "notes": []
+  },
+  "shoshanna-peifer": {
+    "education": [
+      {
+        "title": "B.A. in Chemistry",
+        "organization": "Amherst College",
+        "period": "2023",
+        "location": "Amherst, Massachusetts"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "Amherst College",
+        "description": "Investigated the structural and optical properties of CdSe nanoplatelets in Jacob H. Olshansky’s laboratory."
+      }
+    ],
+    "notes": []
+  },
+  "xiangyu-ma": {
+    "education": [
+      {
+        "title": "B.S. in Materials Processing and Control Engineering",
+        "organization": "Huazhong University of Science and Technology",
+        "period": "2023",
+        "location": "Wuhan, China"
+      }
+    ],
+    "experience": [],
+    "notes": []
+  },
+  "ethan-ashbrook": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "University of Minnesota–Twin Cities",
+        "period": "2024",
+        "location": "Saint Paul, Minnesota",
+        "description": "Minors in Sustainability Studies and Computer Science."
+      }
+    ],
+    "experience": [
+      {
+        "title": "Summer research",
+        "organization": "Clemson University",
+        "description": "Studied noncentrosymmetric bismuthide telluride compounds with Thao Tran."
+      },
+      {
+        "title": "Undergraduate research",
+        "organization": "University of Minnesota–Twin Cities",
+        "description": "Worked with Ian Tonks on homogeneous titanium catalysts for converting alkynes and amines to imines and pyrroles."
+      }
+    ],
+    "notes": []
+  },
+  "jiale-zhuang": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "University of California, Santa Barbara",
+        "period": "2024",
+        "location": "Santa Barbara, California"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "University of California, Santa Barbara",
+        "description": "Explored new perovskite materials with Ram Seshadri."
+      }
+    ],
+    "notes": []
+  },
+  "xu-huang": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Peking University",
+        "period": "2024",
+        "location": "Beijing, China"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "Peking University",
+        "description": "Studied electron–phonon interactions and carrier dynamics in three-dimensional perovskites with Yongping Fu."
+      }
+    ],
+    "notes": []
+  },
+  "debarjya-ganguly": {
+    "education": [
+      {
+        "title": "M.Sc. in Chemistry",
+        "organization": "Vellore Institute of Technology",
+        "period": "2024",
+        "location": "Vellore, India"
+      },
+      {
+        "title": "B.Sc. in Chemistry",
+        "organization": "St. Xavier’s College",
+        "period": "2022",
+        "location": "Kolkata, India"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Research experience",
+        "organization": "Centre for Nano and Soft Matter Sciences (CeNS)",
+        "description": "Developed core–shell perovskite nanocrystals to improve their stability."
+      },
+      {
+        "title": "Master’s thesis research",
+        "organization": "IIT Kanpur",
+        "description": "Worked with V. G. Rao on energy transfer and photocatalysis in all-inorganic perovskite nanocrystals."
+      }
+    ],
+    "notes": []
+  },
+  "koushik-medhi": {
+    "education": [
+      {
+        "title": "BS–MS dual degree in Chemistry",
+        "organization": "Indian Institute of Science Education and Research (IISER) Bhopal",
+        "period": "2025",
+        "location": "Bhopal, India",
+        "description": "Minor in Chemical Engineering."
+      }
+    ],
+    "experience": [
+      {
+        "title": "Master’s thesis research",
+        "organization": "IISER Bhopal",
+        "description": "Worked with Subhajit Roychowdhury on thermal transport in double perovskites and francisite."
+      }
+    ],
+    "notes": []
+  },
+  "jiachuan-liu": {
+    "education": [
+      {
+        "title": "M.S. in Chemistry",
+        "organization": "Sun Yat-sen University",
+        "period": "2025",
+        "location": "Guangzhou, China"
+      },
+      {
+        "title": "B.S. in Applied Chemistry",
+        "organization": "Shandong University",
+        "period": "2022",
+        "location": "Weihai, China"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Graduate research",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined 2025",
+        "description": "Investigates chalcogenides with novel crystal structures."
+      },
+      {
+        "title": "Master’s research",
+        "organization": "Sun Yat-sen University",
+        "description": "Worked in Mingliang Tong’s laboratory on photothermal and fluorescent materials."
+      }
+    ],
+    "notes": []
+  },
+  "matthias-schmidt": {
+    "education": [
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Clarkson University",
+        "period": "2025",
+        "location": "Potsdam, New York"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Undergraduate research",
+        "organization": "Clarkson University",
+        "description": "Developed luminescent probes for subcellular ion detection with Kaho Leung, including iridium(III) complexes and organic chloride probes."
+      }
+    ],
+    "notes": []
+  },
+  "heyang-chen": {
+    "education": [
+      {
+        "title": "Ph.D. in Materials Science and Engineering",
+        "organization": "Shanghai Jiao Tong University",
+        "period": "2019–2025",
+        "location": "Shanghai, China"
+      },
+      {
+        "title": "B.S. in Materials Science and Engineering",
+        "organization": "Shanghai Jiao Tong University",
+        "period": "2015–2019",
+        "location": "Shanghai, China"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Visiting scholar",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined 2025",
+        "location": "Evanston, Illinois",
+        "description": "Visiting from Nanyang Technological University; research on high-entropy thermoelectric materials."
+      },
+      {
+        "title": "Research Fellow",
+        "organization": "School of Materials Science and Engineering, Nanyang Technological University",
+        "period": "2025–present",
+        "location": "Singapore"
+      },
+      {
+        "title": "Doctoral research",
+        "organization": "Shanghai Jiao Tong University",
+        "period": "2019–2025",
+        "location": "Shanghai, China",
+        "description": "Plastic deformation and mechanical properties of inorganic chalcogenide semiconductors for thermoelectric applications."
+      }
+    ],
+    "notes": []
+  },
+  "indra-raj-pandey": {
+    "education": [
+      {
+        "title": "Ph.D. in Physics",
+        "organization": "Kyungpook National University",
+        "period": "2019",
+        "location": "Daegu, South Korea"
+      },
+      {
+        "title": "M.Sc. in Physics",
+        "organization": "Sikkim Manipal University",
+        "period": "2009",
+        "location": "Sikkim, India"
+      },
+      {
+        "title": "B.S. in Physics",
+        "organization": "Tri-Chandra College",
+        "period": "2006",
+        "location": "Kathmandu, Nepal"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined July 2021",
+        "description": "Synthesis, crystal growth and characterization of materials for hard-radiation detection."
+      },
+      {
+        "title": "Postdoctoral research in Physics",
+        "organization": "Institute for Basic Science",
+        "period": "2019–2021",
+        "location": "Daejeon, South Korea"
+      },
+      {
+        "title": "Doctoral research",
+        "organization": "Kyungpook National University",
+        "description": "Oxide synthesis and Czochralski crystal growth for radiation detection and neutrinoless double-beta-decay studies."
+      }
+    ],
+    "notes": []
+  },
+  "khasim-saheb-b": {
+    "education": [
+      {
+        "title": "Ph.D.",
+        "organization": "USBAS, GGSIPU",
+        "period": "2017",
+        "location": "New Delhi, India"
+      },
+      {
+        "title": "M.Sc. in Physics",
+        "organization": "S. V. University",
+        "period": "2010",
+        "location": "Tirupati, India"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral researcher",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined 2022",
+        "description": "Develops chalcogenide and halide-perovskite materials for hard-radiation detection."
+      },
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "IOP & IAMS, Academia Sinica",
+        "period": "2021",
+        "location": "Taipei, Taiwan",
+        "description": "Crystal growth and characterization of transition-metal dichalcogenides, superconductors and quantum materials; thermoelectric properties of GeTe-based compounds."
+      }
+    ],
+    "notes": []
+  },
+  "safdar-imam": {
+    "education": [
+      {
+        "title": "Ph.D. in Physics",
+        "organization": "National Taiwan Normal University",
+        "period": "2022",
+        "location": "Taipei, Taiwan"
+      },
+      {
+        "title": "B.Sc. and M.Sc. in Physics",
+        "organization": "Jamia Millia Islamia",
+        "location": "New Delhi, India"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined May 2023",
+        "description": "Single-crystal growth and device fabrication for X-ray and gamma-ray detection."
+      },
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "IoP, Academia Sinica",
+        "period": "2023",
+        "location": "Taipei, Taiwan",
+        "description": "Materials synthesis, single-crystal growth and thermoelectric materials."
+      }
+    ],
+    "notes": []
+  },
+  "cheng-liu": {
+    "education": [
+      {
+        "title": "Ph.D. in Renewable Energy and Clean Energy",
+        "organization": "North China Electric Power University",
+        "period": "2021",
+        "location": "Beijing, China"
+      },
+      {
+        "title": "B.Sc. in Chemical Engineering and Technology",
+        "organization": "Hefei University of Technology",
+        "period": "2016",
+        "location": "Hefei, China"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "Northwestern University",
+        "period": "Joined May 2022",
+        "description": "Co-advised by Mercouri G. Kanatzidis and Edward H. Sargent; perovskite materials, multijunction solar cells and radiation detection."
+      },
+      {
+        "title": "Doctoral research",
+        "organization": "North China Electric Power University",
+        "description": "Fabricated efficient and stable all-inorganic perovskite solar cells and modules."
+      }
+    ],
+    "notes": [
+      "Additional affiliation listed in the original profile: Swiss Federal Institute of Technology Lausanne, Sion, Switzerland (2021). The degree or appointment associated with this entry is not specified."
+    ]
+  },
+  "yi-yang": {
+    "education": [
+      {
+        "title": "Ph.D. in Renewable Energy and Clean Energy",
+        "organization": "North China Electric Power University",
+        "period": "2021",
+        "location": "Beijing, China"
+      },
+      {
+        "title": "B.S. in Energy Engineering and Automation",
+        "organization": "North China Electric Power University",
+        "period": "2016",
+        "location": "Beijing, China"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "Northwestern University",
+        "period": "Joined May 2022",
+        "description": "Co-advised by Mercouri G. Kanatzidis and Edward H. Sargent; perovskite materials and photovoltaic devices."
+      },
+      {
+        "title": "Doctoral research",
+        "organization": "North China Electric Power University",
+        "description": "Studied orientation control and defect passivation in two-dimensional perovskite solar cells."
+      }
+    ],
+    "notes": [
+      "Additional affiliation listed in the original profile: Swiss Federal Institute of Technology Lausanne, Sion, Switzerland (2021). The degree or appointment associated with this entry is not specified."
+    ]
+  },
+  "quoc-vuong-phan": {
+    "education": [
+      {
+        "title": "Ph.D. in Physics",
+        "organization": "Kyungpook National University",
+        "period": "2020",
+        "location": "Daegu, Korea"
+      },
+      {
+        "title": "M.S. in Nuclear Engineering",
+        "organization": "Hanoi University of Science and Technology",
+        "period": "2015",
+        "location": "Vietnam"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined March 2023",
+        "description": "Studies CsPbBr₃ single-crystal growth and stability for room-temperature semiconductor detectors."
+      },
+      {
+        "title": "Postdoctoral associate",
+        "organization": "Center for High Energy Physics, Kyungpook National University",
+        "period": "2023",
+        "location": "Korea"
+      },
+      {
+        "title": "Doctoral research",
+        "organization": "Kyungpook National University",
+        "description": "Synthesized high-effective-atomic-number compounds and scintillators for X-ray, gamma-ray and combined gamma/neutron detection."
+      }
+    ],
+    "notes": []
+  },
+  "pradeep-kodimana-ramakrishnan": {
+    "education": [
+      {
+        "title": "Ph.D. in Chemistry",
+        "organization": "JNCASR",
+        "period": "2021",
+        "location": "Bangalore, Karnataka, India"
+      },
+      {
+        "title": "M.S. in Physics",
+        "organization": "RIE, University of Mysore",
+        "period": "2014",
+        "location": "Mysore, India"
+      },
+      {
+        "title": "Integrated B.S.Ed. (PCM)",
+        "organization": "RIE, University of Mysore",
+        "period": "2012",
+        "location": "Mysore, India"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Fulbright–Nehru postdoctoral researcher",
+        "organization": "Northwestern University",
+        "period": "Joined 2024",
+        "description": "Co-advised by Mercouri G. Kanatzidis and Richard Schaller; optical properties of chalcohalides and lead-free perovskite nanocrystals."
+      },
+      {
+        "title": "DFG Walter Benjamin postdoctoral fellow",
+        "organization": "University of Duisburg Essen",
+        "period": "2024",
+        "location": "NRW, Germany",
+        "description": "Magneto-optical spectroscopy of single perovskite nanocrystals and optical properties of monolayer antiferromagnetic crystals."
+      },
+      {
+        "title": "Doctoral research",
+        "organization": "JNCASR",
+        "description": "Designed doped quantum dots and perovskite nanocrystals for optoelectronics."
+      }
+    ],
+    "notes": []
+  },
+  "pronoy-nandi": {
+    "education": [
+      {
+        "title": "Ph.D. in Physics",
+        "organization": "Institute of Physics",
+        "location": "Bhubaneswar, India"
+      },
+      {
+        "title": "M.S. in Physics",
+        "organization": "University of Burdwan",
+        "location": "West Bengal, India"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "Northwestern University",
+        "period": "Joined March 2024",
+        "description": "Co-advised by Mercouri G. Kanatzidis and Edward H. Sargent; hybrid perovskites for single-junction and multijunction photovoltaics."
+      },
+      {
+        "title": "Postdoctoral research",
+        "organization": "Sungkyunkwan University",
+        "location": "Suwon, South Korea"
+      }
+    ],
+    "notes": []
+  },
+  "paribesh-acharyya": {
+    "education": [
+      {
+        "title": "Ph.D. in Chemistry",
+        "organization": "NCU, JNCASR",
+        "period": "2022",
+        "location": "Bengaluru, India"
+      },
+      {
+        "title": "M.S. in Chemistry",
+        "organization": "IIT KGP",
+        "period": "2017",
+        "location": "Kharagpur, India"
+      },
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Jadavpur University",
+        "period": "2015",
+        "location": "Kolkata, India"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral researcher",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined February 2024",
+        "description": "Designs materials for thermoelectric applications."
+      },
+      {
+        "title": "Postdoctoral research",
+        "organization": "CRISMAT, CNRS",
+        "period": "January 2024",
+        "location": "Caen, France",
+        "description": "Studied the optical, dielectric and thermoelectric properties of metal halides and chalcogenides."
+      }
+    ],
+    "notes": []
+  },
+  "debattam-sarkar": {
+    "education": [
+      {
+        "title": "Ph.D. in Chemistry",
+        "organization": "JNCASR",
+        "period": "2023",
+        "location": "Karnataka, India"
+      },
+      {
+        "title": "M.S. in Chemistry",
+        "organization": "University of Hyderabad",
+        "period": "2018",
+        "location": "Telangana, India"
+      },
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Visva Bharati University",
+        "period": "2016",
+        "location": "West Bengal, India"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral researcher",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined 2024",
+        "description": "Thermoelectric properties of metal chalcogenides."
+      },
+      {
+        "title": "Doctoral research",
+        "organization": "JNCASR",
+        "description": "Crystal and electronic structure control, low thermal conductivity and quantum transport in topological materials."
+      }
+    ],
+    "notes": []
+  },
+  "dimitrios-evangelou": {
+    "education": [
+      {
+        "title": "Ph.D. in Inorganic Chemistry",
+        "organization": "University of Ioannina",
+        "period": "2024",
+        "location": "Ioannina, Greece"
+      },
+      {
+        "title": "M.S. in Inorganic Chemistry",
+        "organization": "University of Ioannina",
+        "period": "2021",
+        "location": "Ioannina, Greece"
+      },
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "University of Ioannina",
+        "period": "2019",
+        "location": "Ioannina, Greece"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Postdoctoral fellow",
+        "organization": "Kanatzidis Group, Northwestern University",
+        "period": "Joined November 2024",
+        "description": "Exploratory synthesis of metal-sulfide ion exchangers for water remediation."
+      },
+      {
+        "title": "Doctoral research",
+        "organization": "University of Ioannina",
+        "description": "Worked with Manolis J. Manos on metal-organic frameworks for pollutant sorption and sensing."
+      }
+    ],
+    "notes": []
+  },
+  "hyungseok-lee": {
+    "education": [],
+    "experience": [],
+    "notes": []
+  },
+  "duck-young-chung": {
+    "education": [
+      {
+        "title": "Ph.D. in Chemistry",
+        "organization": "Kyungpook National University",
+        "period": "1991"
+      },
+      {
+        "title": "M.S. in Chemistry",
+        "organization": "Kyungpook National University",
+        "period": "1986"
+      },
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Dankook University",
+        "period": "1984"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Principal Materials Engineer",
+        "organization": "Materials Science Division, Argonne National Laboratory"
+      }
+    ],
+    "notes": []
+  },
+  "christos-malliakas": {
+    "education": [
+      {
+        "title": "Ph.D. in Chemistry",
+        "organization": "Michigan State University",
+        "period": "2007"
+      },
+      {
+        "title": "M.S. in Solid State Physics",
+        "organization": "Aristotle University of Thessaloniki",
+        "period": "2002",
+        "location": "Greece"
+      },
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Aristotle University of Thessaloniki",
+        "period": "2001",
+        "location": "Greece"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Directory affiliation",
+        "organization": "IMSERC, Northwestern University",
+        "description": "The group directory lists IMSERC; the older personal page uses a different appointment title."
+      }
+    ],
+    "notes": []
+  },
+  "xiuquan-zhou": {
+    "education": [],
+    "experience": [],
+    "notes": []
+  },
+  "mercouri-kanatzidis": {
+    "education": [
+      {
+        "title": "Ph.D. in Chemistry",
+        "organization": "University of Iowa",
+        "period": "1984"
+      },
+      {
+        "title": "B.S. in Chemistry",
+        "organization": "Aristotle University",
+        "location": "Greece"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Professor of Chemistry",
+        "organization": "Northwestern University",
+        "period": "Since 2006",
+        "location": "Evanston, Illinois",
+        "description": "Charles E. and Emma H. Morrison Professor of Chemistry."
+      },
+      {
+        "title": "Research appointment",
+        "organization": "Argonne National Laboratory"
+      },
+      {
+        "title": "Faculty appointment in Chemistry",
+        "organization": "Michigan State University",
+        "period": "1987–2006"
+      },
+      {
+        "title": "Postdoctoral research associate",
+        "organization": "University of Michigan and Northwestern University",
+        "period": "1985–1987"
+      }
+    ],
+    "notes": []
+  }
+}

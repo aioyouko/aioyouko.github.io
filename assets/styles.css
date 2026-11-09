@@ -1065,6 +1065,127 @@ h3 {
   padding-top: 0.4rem;
 }
 
+.about-intro .profile-copy > p:not(.section-kicker) {
+  margin-top: 1.25rem;
+}
+
+.profile-inline-link {
+  color: var(--teal-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.about-background {
+  display: grid;
+  gap: 2.4rem;
+  margin-bottom: 2.8rem;
+}
+
+.career-heading {
+  margin-bottom: 1.15rem;
+}
+
+.career-heading .section-kicker {
+  margin-bottom: 0.5rem;
+}
+
+.career-heading h3 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.career-list {
+  margin: 0;
+  padding: 0 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 248, 0.86);
+  list-style: none;
+}
+
+.career-entry {
+  display: grid;
+  grid-template-columns: 185px minmax(0, 1fr);
+  gap: 1.6rem;
+  padding: 1.5rem 0;
+}
+
+.career-entry + .career-entry {
+  border-top: 1px solid var(--line);
+}
+
+.career-date {
+  color: var(--teal-deep);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.career-details h4 {
+  margin: 0 0 0.45rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+.career-details p {
+  line-height: 1.65;
+}
+
+.career-role {
+  font-weight: 600;
+}
+
+.career-location,
+.career-advisors {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.career-summary {
+  max-width: 740px;
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.career-links,
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.career-links a,
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 44px;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(11, 118, 107, 0.24);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  color: var(--teal-deep);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.career-links a:hover,
+.profile-links a:hover {
+  border-color: var(--teal);
+  background: rgba(11, 118, 107, 0.06);
+}
+
+.career-links a:focus-visible,
+.profile-links a:focus-visible,
+.profile-inline-link:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
 .personal-tags {
   display: flex;
   flex-wrap: wrap;
@@ -1555,6 +1676,11 @@ h3 {
 }
 
 @media (max-width: 700px) {
+  .career-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
   .affiliation-grid {
     grid-template-columns: 1fr;
   }
@@ -1624,6 +1750,10 @@ h3 {
 
   .personal-pages {
     padding: 0.85rem;
+  }
+
+  .career-list {
+    padding: 0 1rem;
   }
 
   .plot-card img {

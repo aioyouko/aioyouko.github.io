@@ -16,6 +16,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/mechanics.css" />
+    <link rel="stylesheet" href="assets/te-materials.css" />
+    <link rel="stylesheet" href="assets/plastic-te.css?v=20261109-merged" />
+    <link rel="stylesheet" href="assets/ductility-map.css?v=20261109" />
+    <link rel="stylesheet" href="assets/thermoelectric-lab.css" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -26,8 +31,7 @@
       <nav class="site-nav" aria-label="Primary navigation" data-nav>
         <a href="#home" data-view-link="home">Home</a>
         <a href="#current-work" data-view-link="current-work">Current Work</a>
-        <a href="#te-materials" data-view-link="te-materials">TE Materials</a>
-        <a href="#mechanics" data-view-link="mechanics">Mechanics</a>
+        <a href="#plastic-te" data-view-link="plastic-te">Plastic TE Materials</a>
         <a href="#about" data-view-link="about">About</a>
         <a href="#contact" data-view-link="contact">Contact</a>
       </nav>
@@ -62,6 +66,7 @@
                   <span aria-hidden="true">-&gt;</span>
                 </a>
                 <a class="button secondary" href="#contact" data-view-link="contact">Contact</a>
+                <a class="button secondary" href="/kanatzidis-demo/">Group website demo ↗</a>
               </div>
             </div>
 
@@ -72,7 +77,7 @@
                 decoding="async"
               />
               <div class="portrait-caption">
-                <span>Visiting Scholar at Northwestern</span>
+                <span>Visiting Postdoctoral Fellow at Northwestern</span>
                 <strong>Research Fellow at Nanyang Technological University</strong>
               </div>
             </aside>
@@ -106,7 +111,7 @@
               </p>
             </div>
 
-            <div class="portal-grid" aria-label="Homepage topic cards">
+            <div class="portal-grid unified-portal-grid" aria-label="Homepage topic cards">
               <a class="portal-card featured" href="#current-work" data-view-link="current-work">
                 <p class="meta">Current work</p>
                 <h3>TE Agent Workspace</h3>
@@ -116,31 +121,11 @@
                 </p>
                 <span class="card-link" aria-hidden="true">Open -&gt;</span>
               </a>
-              <a class="portal-card" href="#te-materials" data-view-link="te-materials">
+              <a class="portal-card" href="#plastic-te" data-view-link="plastic-te">
                 <p class="meta">Research theme</p>
-                <h3>Thermoelectric materials and devices</h3>
-                <p>
-                  Materials design, transport coupling, and device-level thinking for heat-to-electricity conversion
-                  and solid-state cooling.
-                </p>
-                <span class="card-link" aria-hidden="true">Open -&gt;</span>
-              </a>
-              <a class="portal-card" href="#mechanics" data-view-link="mechanics">
-                <p class="meta">Research theme</p>
-                <h3>Mechanical properties of semiconductors</h3>
-                <p>
-                  Elasticity, fracture, plasticity, and reliability in semiconductors and thermoelectric materials.
-                </p>
-                <span class="card-link" aria-hidden="true">Open -&gt;</span>
-              </a>
-              <a class="portal-card" href="#mechanics" data-view-link="mechanics">
-                <p class="meta">Previous work</p>
-                <h3>Mechanical and plastic thermoelectrics</h3>
-                <p>
-                  A home for earlier work on thermoelectric mechanical response, deformation, and flexible or
-                  plastic TE concepts.
-                </p>
-                <span class="card-link" aria-hidden="true">Open -&gt;</span>
+                <h3>Plastic TE Materials</h3>
+                <p>Thermoelectric applications, semiconductor mechanics, and two routes to deformability—connected through my research on silver chalcogenides.</p>
+                <span class="card-link" aria-hidden="true">Explore the research →</span>
               </a>
               <a class="portal-card" href="#about" data-view-link="about">
                 <p class="meta">Personal</p>
@@ -178,7 +163,7 @@
                   <span>TEDEX on GitHub</span>
                   <span aria-hidden="true">-&gt;</span>
                 </a>
-                <a class="button secondary" href="#te-materials" data-view-link="te-materials">Research context</a>
+                <a class="button secondary" href="#plastic-te" data-view-link="plastic-te">Research context</a>
               </div>
             </div>
             <aside class="repo-card" aria-label="TEDEX repository summary">
@@ -204,6 +189,16 @@
               </dl>
             </aside>
           </div>
+
+          <aside class="repo-card" aria-labelledby="group-demo-title" style="margin-bottom:1.3rem">
+            <p class="meta">Website preview · Feedback welcome</p>
+            <h3 id="group-demo-title">Kanatzidis Group website demo</h3>
+            <p>A preview of the group’s research, people, publications and news. Explore the proposed website and share suggestions on its content, navigation and design.</p>
+            <div class="project-actions">
+              <a class="button primary" href="/kanatzidis-demo/">Open group demo ↗</a>
+              <a class="button secondary" href="mailto:heyang.chen@northwestern.edu?subject=Kanatzidis%20website%20demo%20feedback">Share feedback</a>
+            </div>
+          </aside>
 
           <div class="workspace-note">
             <p>
@@ -544,158 +539,588 @@
         </div>
       </section>
 
-      <section class="page-view" id="te-materials" data-view="te-materials" hidden aria-labelledby="te-title">
-        <div class="page-shell">
-          <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
-          <div class="view-hero split-hero">
-            <div>
-              <p class="section-kicker">Research theme</p>
-              <h2 id="te-title">Thermoelectric materials and devices</h2>
-            </div>
-            <p>
-              Thermoelectric materials convert heat gradients and electrical voltage into each other. I am interested
-              in the material physics behind high performance and in the device constraints that make a promising
-              transport curve become a useful technology.
-            </p>
-          </div>
 
-          <div class="info-grid three">
-            <article class="info-card">
-              <p class="meta">Transport</p>
-              <h3>Coupled electronic and thermal behavior</h3>
-              <p>
-                Seebeck coefficient, electrical conductivity, carrier mobility, Lorenz number, lattice thermal
-                conductivity, power factor, and ZT must be interpreted together rather than as isolated metrics.
-              </p>
-            </article>
-            <article class="info-card">
-              <p class="meta">Chemistry</p>
-              <h3>Defects, bonding, and microstructure</h3>
-              <p>
-                Composition, dopants, phase purity, grain boundaries, and local bonding distortions control both
-                carrier transport and phonon scattering.
-              </p>
-            </article>
-            <article class="info-card">
-              <p class="meta">Device</p>
-              <h3>From material to module</h3>
-              <p>
-                Contact resistance, geometry, thermal expansion, stability, and manufacturability decide whether a
-                material can survive the jump from pellet to device.
-              </p>
-            </article>
-          </div>
+<section class="page-view pt-page te-research" id="plastic-te" data-view="plastic-te" data-page-title="Plastic TE Materials" hidden aria-labelledby="plastic-te-title">
+<div class="page-shell"><a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
+<header class="pt-hero"><div><p class="section-kicker">Research / Materials, mechanics &amp; energy</p><h2 id="plastic-te-title">Plastic<br /><em>TE Materials</em></h2></div><div class="pt-hero-copy"><p class="pt-hero-tagline">Thermoelectric transport and semiconductor mechanics</p><p>From solid-state cooling to heat-powered flexible electronics, I study how thermoelectric performance and mechanical behavior can be designed together.</p></div></header>
+<nav class="pt-contents pt-overview-contents" aria-label="Plastic TE research overview"><a href="#plastic-te" data-te-jump="pt-applications"><span>01</span> Thermoelectrics</a><a href="#plastic-te" data-te-jump="pt-mechanics"><span>02</span> Mechanics &amp; flexibility</a><a href="#plastic-te" data-te-jump="pt-my-work"><span>03</span> My work</a></nav>
+<section class="pt-overview-section pt-story-row" id="pt-applications" aria-labelledby="pt-applications-title"><div class="pt-story-copy"><p class="section-kicker">01 / Thermoelectric materials</p><h3 id="pt-applications-title" tabindex="-1">Direct conversion between heat and electricity</h3><p>Harvesting a temperature difference offers a potential route to battery-free power supplies, while electrically driven thermoelectric devices provide solid-state cooling.<a class="pt-cite" href="#plastic-te" data-te-jump="plastic-te-ref-1" aria-label="Reference 1">[1]</a><a class="pt-cite" href="#plastic-te" data-te-jump="plastic-te-ref-2" aria-label="Reference 2">[2]</a></p><a class="pt-link" href="#plastic-te-applications" data-view-link="plastic-te-applications">Explore the applications <span aria-hidden="true">↗</span></a></div><a class="pt-diagram-link" href="#plastic-te-applications" data-view-link="plastic-te-applications" aria-label="Explore thermoelectric applications"><figure class="pt-diagram"><picture><source media="(max-width: 520px)" srcset="assets/research/plastic-te-applications-mobile.svg" width="320" height="696" /><img src="assets/research/plastic-te-applications.svg" width="640" height="360" alt="Electrical input drives thermoelectric cooling; a separate flexible generator harvests a temperature difference to power electronics." loading="lazy" decoding="async" /></picture><figcaption>Two operating modes. Cooling uses electrical power; generation requires a temperature difference.</figcaption></figure></a></section>
+<section class="pt-overview-section dm-overview" id="pt-mechanics" aria-labelledby="pt-mechanics-title">
+  <div class="pt-work-heading">
+    <div><p class="section-kicker">02 / Mechanics &amp; flexibility</p><h3 id="pt-mechanics-title" tabindex="-1">From mechanical reliability<br />to flexible electronics</h3></div>
+    <p>Strength, toughness, and plasticity help determine fabrication yield, device reliability, and where a semiconductor can be used. Thin geometries enable elastic bending; intrinsically plastic materials also allow permanent shaping.<a class="pt-cite" href="#plastic-te" data-te-jump="plastic-te-ref-3" aria-label="Reference 3">[3]</a><a class="pt-cite" href="#plastic-te" data-te-jump="plastic-te-ref-5" aria-label="Reference 5">[5]</a><a class="pt-cite" href="#plastic-te" data-te-jump="plastic-te-ref-8" aria-label="Reference 8">[8]</a></p>
+  </div>
+  <section class="ductility-map" data-ductility-map aria-labelledby="dm-title">
+    <div class="dm-heading"><h4 id="dm-title">Band gap × elongation</h4><span class="dm-estimate">Provisional · schematic estimates</span></div>
+    <p class="dm-intro">Explore the mechanical response of semiconductors and ceramics, with metals as a reference. Hover to preview a point, click to keep a selection, or filter by material family.</p>
+    <div class="dm-filters" data-dm-filters role="group" aria-label="Material categories"></div>
+    <div class="dm-toolbar"><label><input type="checkbox" data-dm-labels checked /> Material labels</label><button type="button" data-dm-reset>Reset view</button><span data-dm-count></span></div>
+    <p class="dm-mobile-hint">Swipe the plot horizontally · tap a point or use the material selector below.</p>
+    <div class="dm-layout">
+      <figure class="dm-chart">
+        <div class="dm-scroll" data-dm-scroll tabindex="0" role="region" aria-label="Scrollable materials map"><svg data-dm-plot viewBox="0 0 900 610" role="group" aria-labelledby="dm-plot-title dm-plot-desc"></svg></div>
+        <figcaption>Both numerical axes are logarithmic; near-zero-gap materials occupy a separate strip. Shaded regions are visual guides, not fitted boundaries.</figcaption>
+        <p class="dm-empty" data-dm-empty hidden>No materials shown. Choose a category or reset the view.</p>
+      </figure>
+      <aside class="dm-panel" data-dm-panel aria-label="Material details">
+        <p class="dm-panel-state" data-dm-state>Selected material</p><h5 data-dm-name>Ag₂(S,Se,Te)</h5><p class="dm-group" data-dm-group></p>
+        <dl><div><dt>Band gap</dt><dd data-dm-gap>≈ 0.11 eV</dd></div><div><dt>Elongation</dt><dd data-dm-elongation>≈ 105%</dd></div></dl>
+        <p class="dm-point-note" data-dm-point-note></p>
+        <label class="dm-selector">Choose a material<select data-dm-select aria-label="Choose a material"></select></label>
+      </aside>
+    </div>
+    <details class="dm-data"><summary>View provisional values &amp; data notes</summary><p>Coordinates and categories were estimated from the supplied reference image. Multiple examples in a material family have not yet been assigned exact compositions or test conditions. Elongation is shown as a ductility indicator; it does not describe recoverable bending strain. Accurate values and literature references will replace these estimates.</p><button type="button" data-dm-download>Download provisional data (CSV)</button><div class="pt-table-wrap"><table class="pt-table"><caption class="visually-hidden">Provisional band gap and elongation values for the visible material categories</caption><thead><tr><th scope="col">Material / example</th><th scope="col">Category</th><th scope="col">Band gap</th><th scope="col">Elongation</th></tr></thead><tbody data-dm-table></tbody></table></div></details>
+    <p class="visually-hidden" data-dm-live aria-live="polite" aria-atomic="true"></p>
+    <noscript><p class="pt-note">Enable JavaScript to explore the material map. Values are approximate readings from the supplied schematic, pending confirmation.</p></noscript>
+  </section>
+  <a class="pt-link" href="#plastic-te-mechanics" data-view-link="plastic-te-mechanics">Explore mechanics, flexibility &amp; the material timeline <span aria-hidden="true">↗</span></a>
+</section>
+<section class="pt-overview-section" id="pt-my-work" aria-labelledby="pt-my-work-title"><div class="pt-work-heading"><div><p class="section-kicker">03 / My representative work</p><h3 id="pt-my-work-title" tabindex="-1">Exploration of Ag<sub>2</sub>(S,Se,Te)-based semiconductors</h3></div><p>My work examines thermoelectric transport and mechanical properties in the Ag<sub>2</sub>(S,Se,Te) family, focusing on compressive plasticity and fracture toughness in Ag<sub>2</sub>Se-based alloys and tensile ductility in cubic Ag<sub>2</sub>(S,Se,Te).</p></div>
+<div class="pt-work-grid">
+<a class="pt-work-card" href="#plastic-te-ag2se" data-view-link="plastic-te-ag2se"><img src="assets/research/plastic-te-compression.svg" width="640" height="360" alt="Schematic compression of an Ag2Se-based specimen between two platens" loading="lazy" /><span class="pt-label">Ag₂Se-based · National Science Open, 2025</span><h4>Compressive plasticity and fracture toughness</h4><p>Ag<sub>2</sub>Se<sub>0.9</sub>Te<sub>0.1</sub> combines near-room-temperature thermoelectric performance with substantial compressive deformation and resistance to crack propagation.</p><span class="pt-link">Explore the Ag₂Se-based study <span aria-hidden="true">↗</span></span></a>
+<a class="pt-work-card" href="#plastic-te-ag2ssete" data-view-link="plastic-te-ag2ssete"><img src="assets/research/plastic-te-ductility.svg" width="640" height="360" alt="Schematic tensile specimen and shaped foil of ductile cubic Ag2(S,Se,Te)" loading="lazy" /><span class="pt-label">Ag₂(S,Se,Te) · Advanced Energy Materials, 2024</span><h4>Tensile ductility and thermoelectric performance</h4><p>High-entropy cubic alloys combine large tensile elongation with useful thermoelectric transport, enabling roller-pressed foils and a flexible in-plane device.</p><span class="pt-link">Explore the ductile alloy study <span aria-hidden="true">↗</span></span></a>
+</div><p class="pt-note">Compressive plasticity, tensile ductility, and fracture toughness describe different responses. The Ag<sub>2</sub>Se-based alloys remain brittle in bending; they are not presented as equivalent to the ductile cubic alloys.<a class="pt-cite" href="#plastic-te" data-te-jump="plastic-te-ref-7" aria-label="Reference 7">[7]</a><a class="pt-cite" href="#plastic-te" data-te-jump="plastic-te-ref-8" aria-label="Reference 8">[8]</a></p></section>
+<section class="pt-references" id="plastic-te-references" aria-labelledby="plastic-te-refs-title"><div class="pt-reference-heading"><h3 id="plastic-te-refs-title" tabindex="-1">References</h3><p>Foundations, device context, and my representative work.</p></div><ol class="pt-ref-list"><li id="plastic-te-ref-1" tabindex="-1"><span class="pt-ref-number">[1]</span><p>S. Hong et al. <a href="https://doi.org/10.1126/sciadv.aaw0536" target="_blank" rel="noopener">Wearable thermoelectrics for personalized thermoregulation.</a> <cite>Science Advances 5, eaaw0536 (2019).</cite></p></li><li id="plastic-te-ref-2" tabindex="-1"><span class="pt-ref-number">[2]</span><p>S. Yang et al. <a href="https://doi.org/10.1038/s41378-023-00583-3" target="_blank" rel="noopener">Flexible thermoelectric generator and energy management electronics powered by body heat.</a> <cite>Microsystems &amp; Nanoengineering 9, 106 (2023).</cite></p></li><li id="plastic-te-ref-3" tabindex="-1"><span class="pt-ref-number">[3]</span><p>J. Peng &amp; G. J. Snyder. <a href="https://doi.org/10.1126/science.aaz5704" target="_blank" rel="noopener">A figure of merit for flexibility.</a> <cite>Science 366, 690–691 (2019).</cite></p></li><li id="plastic-te-ref-4" tabindex="-1"><span class="pt-ref-number">[4]</span><p>W. Liu et al. <a href="https://doi.org/10.1038/s41586-023-05921-z" target="_blank" rel="noopener">Flexible solar cells based on foldable silicon wafers with blunted edges.</a> <cite>Nature 617, 717–723 (2023).</cite></p></li><li id="plastic-te-ref-5" tabindex="-1"><span class="pt-ref-number">[5]</span><p>X. Shi et al. <a href="https://doi.org/10.1038/s41563-018-0047-z" target="_blank" rel="noopener">Room-temperature ductile inorganic semiconductor.</a> <cite>Nature Materials 17, 421–426 (2018).</cite></p></li><li id="plastic-te-ref-6" tabindex="-1"><span class="pt-ref-number">[6]</span><p>J. Liang et al. <a href="https://doi.org/10.1039/C9EE01777A" target="_blank" rel="noopener">Flexible thermoelectrics: from silver chalcogenides to full-inorganic devices.</a> <cite>Energy &amp; Environmental Science 12, 2983–2990 (2019).</cite></p></li><li id="plastic-te-ref-7" tabindex="-1" class="pt-ref-own"><span class="pt-ref-number">[7]</span><p><strong>Heyang Chen, Shenghong Ren et al.</strong> <a href="https://doi.org/10.1360/nso/20250005" target="_blank" rel="noopener">Robust mechanical properties of Ag₂Se₁₋ₓTeₓ thermoelectric materials.</a> <cite>National Science Open 4, 20250005 (2025).</cite></p></li><li id="plastic-te-ref-8" tabindex="-1" class="pt-ref-own"><span class="pt-ref-number">[8]</span><p><strong>Heyang Chen et al.</strong> <a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">High-Entropy Cubic Pseudo-Ternary Ag₂(S, Se, Te) Materials With Excellent Ductility and Thermoelectric Performance.</a> <cite>Advanced Energy Materials 14, 2303473 (2024).</cite></p></li></ol></section>
+</div></section>
+<section class="page-view pt-page te-research te-lab" id="plastic-te-applications" data-view="plastic-te-applications" data-view-parent="plastic-te" data-page-title="Thermoelectric cooling and power generation" hidden aria-labelledby="plastic-te-applications-title">
+  <div class="page-shell">
+    <a class="back-link" href="#plastic-te" data-view-link="plastic-te">&larr; Plastic TE Materials</a>
+    <header class="pt-detail-hero tc-hero">
+      <p class="section-kicker">01 / Thermoelectric applications</p>
+      <h2 id="plastic-te-applications-title">Direct conversion between<br />heat and electricity</h2>
+      <p>The Peltier effect enables solid-state cooling. The Seebeck effect converts a temperature difference into electrical power.</p>
+    </header>
+    <nav class="tc-contents" aria-label="In this chapter">
+      <a href="#plastic-te-applications" data-te-jump="tc-basics">01 <span>Effects &amp; figure of merit</span></a>
+      <a href="#plastic-te-applications" data-te-jump="tc-cop-section">02 <span>Cooling efficiency</span></a>
+      <a href="#plastic-te-applications" data-te-jump="tc-power-section">03 <span>Cooling power</span></a>
+      <a href="#plastic-te-applications" data-te-jump="tc-generation-section">04 <span>Power generation</span></a>
+    </nav>
 
-          <div class="research-strip" aria-label="Thermoelectric research directions">
-            <article>
-              <span>Power generation</span>
-              <p>Recovering waste heat requires materials that keep performance under large temperature gradients.</p>
-            </article>
-            <article>
-              <span>Solid-state cooling</span>
-              <p>Peltier devices need high transport performance plus mechanical and interfacial reliability.</p>
-            </article>
-            <article>
-              <span>Data-driven iteration</span>
-              <p>Local datasets and reference curves help connect synthesis, measurement, and next-batch decisions.</p>
-            </article>
+    <section id="tc-basics" class="tc-basics" aria-labelledby="tc-basics-title">
+      <h3 id="tc-basics-title" class="tc-sr-only" tabindex="-1">Thermoelectric effects and figure of merit</h3>
+      <div class="tc-effects">
+        <article class="tc-effect tc-effect-cooling">
+          <div><p class="tc-eyebrow">Peltier effect</p><h4>Solid-state cooling</h4><p>An electrical current pumps heat from the cold side to the hot side.</p></div>
+          <picture><source media="(max-width: 520px)" srcset="assets/research/te-peltier-mobile.svg" width="320" height="260" /><img src="assets/research/te-peltier.svg" width="460" height="225" alt="Electrical input drives a p–n thermoelectric couple: heat is absorbed at T c and rejected at T h." /></picture>
+          <div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Peltier heat equals alpha T c I"><msub><mi>Q</mi><mi mathvariant="normal">Peltier</mi></msub><mo>=</mo><mi>α</mi><msub><mi>T</mi><mi mathvariant="normal">c</mi></msub><mi>I</mi></math></div>
+          <p class="tc-effect-foot">Peltier heat is only one contribution to the net cooling power.</p>
+        </article>
+        <article class="tc-effect tc-effect-generation">
+          <div><p class="tc-eyebrow">Seebeck effect</p><h4>Power generation</h4><p>A temperature difference generates a voltage; a connected load receives electrical power.</p></div>
+          <picture><source media="(max-width: 520px)" srcset="assets/research/te-seebeck-mobile.svg" width="320" height="260" /><img src="assets/research/te-seebeck.svg" width="460" height="225" alt="Heat flows from a hot source through a p–n thermoelectric couple to a cold sink, producing electricity for a load." /></picture>
+          <div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Open circuit voltage equals alpha times temperature difference"><msub><mi>V</mi><mi mathvariant="normal">oc</mi></msub><mo>=</mo><mi>α</mi><mrow><mi>Δ</mi><mi>T</mi></mrow></math></div>
+          <p class="tc-effect-foot">Open-circuit voltage for a constant effective Seebeck coefficient α.</p>
+        </article>
+      </div>
+      <div class="tc-zt-band">
+        <div><p class="tc-eyebrow">Material figure of merit</p><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="zT equals S squared sigma T over kappa, or S squared T over rho kappa"><mrow><mi>z</mi><mi>T</mi></mrow><mo>=</mo><mfrac><mrow><msup><mi>S</mi><mn>2</mn></msup><mi>σ</mi><mi>T</mi></mrow><mrow><mi>κ</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><msup><mi>S</mi><mn>2</mn></msup><mi>T</mi></mrow><mrow><mi>ρ</mi><mi>κ</mi></mrow></mfrac></math></div><p>S: Seebeck coefficient · σ: electrical conductivity · ρ = 1/σ · κ: total thermal conductivity.</p></div>
+        <div><p class="tc-eyebrow">Device parameter used in the plots</p><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Device Z T bar equals alpha squared T bar over R K"><mi>Z</mi><mover><mi>T</mi><mo>¯</mo></mover><mo>=</mo><mfrac><mrow><msup><mi>α</mi><mn>2</mn></msup><mover><mi>T</mi><mo>¯</mo></mover></mrow><mrow><mi>R</mi><mi>K</mi></mrow></mfrac></math></div><p>T̄ = (T<sub>h</sub> + T<sub>c</sub>)/2. α: effective Seebeck coefficient · R: electrical resistance · K: thermal conductance.</p></div>
+      </div>
+      <p class="tc-model-note">The plots use an ideal, single-stage, constant-property model. Device ZT̄ represents the operating temperature interval; it is not a material’s peak zT.<a class="pt-cite" href="#plastic-te-applications" data-te-jump="plastic-te-applications-ref-3" aria-label="Reference 3">[3]</a><a class="pt-cite" href="#plastic-te-applications" data-te-jump="plastic-te-applications-ref-4" aria-label="Reference 4">[4]</a><a class="pt-cite" href="#plastic-te-applications" data-te-jump="plastic-te-applications-ref-5" aria-label="Reference 5">[5]</a></p>
+    </section>
+
+    <section class="tc-experiment" id="tc-cop-section" aria-labelledby="tc-cop-title">
+      <header class="tc-section-heading"><div><p class="tc-eyebrow">02 / Peltier cooling</p><h3 id="tc-cop-title" tabindex="-1">Maximum COP and ZT̄</h3></div><p>COP measures heat removed per unit of electrical input. Adjust ZT̄ and the hot–cold temperature difference to compare the optimum with the Carnot limit.</p></header>
+      <div class="tc-panel">
+        <div class="tc-plot-layout">
+          <figure class="tc-plot">
+            <div class="tc-legend"><span><i class="tc-line"></i>Maximum COP</span><span><i class="tc-line tc-line-carnot"></i>Carnot limit</span><span><i class="tc-dot"></i>Selected ZT̄</span></div>
+            <svg id="tc-cop-chart" class="tc-chart" role="img" aria-label="Maximum coefficient of performance versus device figure of merit, with the Carnot limit and a selected operating point" viewBox="0 0 680 350"></svg>
+            <figcaption id="tc-cop-caption">Adjust the controls to explore the constant-property model.</figcaption>
+          </figure>
+          <div class="tc-controls" role="group" aria-label="Cooling efficiency controls">
+            <div class="tc-control"><label for="tc-cop-zt"><span>Device ZT̄</span><output for="tc-cop-zt" id="tc-cop-zt-value">1 </output></label><input id="tc-cop-zt" type="range" min="0.1" max="4" step="0.1" value="1" data-unit="" /><div class="tc-range-ends" aria-hidden="true"><span>0.1 </span><span>4 </span></div></div>
+            <div class="tc-control"><label for="tc-cop-th"><span>Hot side T<sub>h</sub></span><output for="tc-cop-th" id="tc-cop-th-value">300 K</output></label><input id="tc-cop-th" type="range" min="280" max="360" step="5" value="300" data-unit="K" /><div class="tc-range-ends" aria-hidden="true"><span>280 K</span><span>360 K</span></div></div>
+            <div class="tc-control"><label for="tc-cop-delta"><span>Hot–cold temperature difference ΔT</span><output for="tc-cop-delta" id="tc-cop-delta-value">30 K</output></label><input id="tc-cop-delta" aria-describedby="tc-cop-delta-hint" type="range" min="5" max="100" step="1" value="30" data-unit="K" /><div class="tc-range-ends" aria-hidden="true"><span>5 K</span><span>100 K</span></div><p class="tc-control-hint" id="tc-cop-delta-hint">Cold side: T<sub>c</sub> = T<sub>h</sub> − ΔT.</p></div>
+            <dl class="tc-metrics"><div><dt>Maximum COP</dt><dd id="tc-cop-result">—</dd></div><div><dt>Carnot COP</dt><dd id="tc-cop-carnot">—</dd></div><div><dt>Fraction of Carnot</dt><dd id="tc-cop-relative">—</dd></div></dl>
+            <button class="tc-reset" type="button" data-tc-reset="cop">Reset</button>
           </div>
         </div>
-      </section>
+        <div class="tc-formula-row"><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Maximum COP equals T c over delta T, times square root of one plus Z T bar minus T h over T c, divided by square root of one plus Z T bar plus one"><msub><mi mathvariant="normal">COP</mi><mi mathvariant="normal">max</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>T</mi><mi mathvariant="normal">c</mi></msub></mrow><mrow><mrow><mi>Δ</mi><mi>T</mi></mrow></mrow></mfrac><mfrac><mrow><msqrt><mn>1</mn><mo>+</mo><mi>Z</mi><mover><mi>T</mi><mo>¯</mo></mover></msqrt><mo>−</mo><mfrac><mrow><msub><mi>T</mi><mi mathvariant="normal">h</mi></msub></mrow><mrow><msub><mi>T</mi><mi mathvariant="normal">c</mi></msub></mrow></mfrac></mrow><mrow><msqrt><mn>1</mn><mo>+</mo><mi>Z</mi><mover><mi>T</mi><mo>¯</mo></mover></msqrt><mo>+</mo><mn>1</mn></mrow></mfrac></math></div><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Carnot COP equals T c over delta T"><msub><mi mathvariant="normal">COP</mi><mi mathvariant="normal">C</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>T</mi><mi mathvariant="normal">c</mi></msub></mrow><mrow><mrow><mi>Δ</mi><mi>T</mi></mrow></mrow></mfrac></math></div></div>
+      </div>
+      <p class="tc-takeaway">A larger hot–cold temperature difference reduces COP. Below the shaded ZT̄ threshold, no current can produce positive net cooling in this model.</p>
+    </section>
 
-      <section class="page-view" id="mechanics" data-view="mechanics" hidden aria-labelledby="mechanics-title">
-        <div class="page-shell">
-          <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
-          <div class="view-hero split-hero">
-            <div>
-              <p class="section-kicker">Research theme and previous work</p>
-              <h2 id="mechanics-title">Mechanical properties of semiconductors</h2>
-            </div>
-            <p>
-              Functional semiconductors have to carry current, block or conduct heat, and survive processing,
-              handling, thermal cycling, and contact formation. That makes mechanical behavior part of the materials
-              design problem, not a separate afterthought.
-            </p>
-          </div>
-
-          <div class="timeline" aria-label="Mechanics research areas">
-            <article class="timeline-item">
-              <p class="meta">Semiconductors</p>
-              <h3>Mechanical reliability in functional crystals</h3>
-              <p>
-                Elastic response, hardness, fracture, defect motion, and bonding anisotropy help explain why some
-                semiconductors tolerate processing while others crack or degrade.
-              </p>
-            </article>
-            <article class="timeline-item">
-              <p class="meta">Thermoelectric materials</p>
-              <h3>Mechanical properties as a performance constraint</h3>
-              <p>
-                Thermoelectric modules experience thermal stress, contact pressure, and repeated temperature swings,
-                so fracture resistance and compatibility matter alongside ZT.
-              </p>
-            </article>
-            <article class="timeline-item">
-              <p class="meta">Plastic TE materials</p>
-              <h3>Deformable inorganic thermoelectrics</h3>
-              <p>
-                Earlier work on plastic thermoelectric materials connects bonding character, defect-mediated
-                deformation, and mechanically tolerant device concepts.
-              </p>
-            </article>
-          </div>
-
-          <div class="info-grid two">
-            <article class="info-card accent">
-              <p class="meta">Question</p>
-              <h3>Can a high-ZT material also be mechanically useful?</h3>
-              <p>
-                This theme links transport optimization with reliability: a useful material must be electrically,
-                thermally, chemically, and mechanically coherent.
-              </p>
-            </article>
-            <article class="info-card accent copper">
-              <p class="meta">Direction</p>
-              <h3>Bridge measurements and mechanism</h3>
-              <p>
-                Combining mechanical testing with microstructure and transport analysis can clarify which deformation
-                mechanisms are compatible with real thermoelectric use.
-              </p>
-            </article>
+    <section class="tc-experiment" id="tc-power-section" aria-labelledby="tc-power-title">
+      <header class="tc-section-heading"><div><p class="tc-eyebrow">03 / Peltier cooling</p><h3 id="tc-power-title" tabindex="-1">Cooling power and current</h3></div><p>Peltier heat grows linearly with current; Joule heating grows quadratically. Their competition sets an optimum cooling power.</p></header>
+      <div class="tc-panel">
+        <div class="tc-plot-layout">
+          <figure class="tc-plot">
+            <div class="tc-legend"><span><i class="tc-line"></i>Net cooling Q<sub>c</sub></span><span><i class="tc-line tc-line-opt"></i>Current for max COP</span><span><i class="tc-line tc-line-q"></i>Current for max Q<sub>c</sub></span></div>
+            <svg id="tc-power-chart" class="tc-chart" role="img" aria-label="Net cooling power in watts versus current, showing the separate optima for COP and cooling power" viewBox="0 0 680 350"></svg>
+            <div class="tc-chart-tools"><label><input type="checkbox" id="tc-power-terms" /> Show the three heat-flow contributions</label></div>
+            <div class="tc-legend tc-term-legend" id="tc-term-legend" hidden><span><i class="tc-line tc-line-peltier"></i>+ Peltier</span><span><i class="tc-line tc-line-joule"></i>− Joule / 2</span><span><i class="tc-line tc-line-conduction"></i>− Conduction</span></div>
+            <figcaption id="tc-power-caption">An illustrative module with fixed α = 50 mV K⁻¹, R = 2 Ω and T<sub>h</sub> = 300 K.</figcaption>
+          </figure>
+          <div class="tc-controls" role="group" aria-label="Cooling power controls">
+            <div class="tc-control"><label for="tc-power-current"><span>Current I</span><output for="tc-power-current" id="tc-power-current-value">3 A</output></label><input id="tc-power-current" type="range" min="0" max="12" step="0.01" value="3" data-unit="A" /><div class="tc-range-ends" aria-hidden="true"><span>0 A</span><span>12 A</span></div></div>
+            <div class="tc-control"><label for="tc-power-delta"><span>Hot–cold temperature difference ΔT</span><output for="tc-power-delta" id="tc-power-delta-value">30 K</output></label><input id="tc-power-delta" aria-describedby="tc-power-delta-hint" type="range" min="5" max="100" step="1" value="30" data-unit="K" /><div class="tc-range-ends" aria-hidden="true"><span>5 K</span><span>100 K</span></div><p class="tc-control-hint" id="tc-power-delta-hint">Cold side: T<sub>c</sub> = T<sub>h</sub> − ΔT.</p></div>
+            <div class="tc-control"><label for="tc-power-k"><span>Thermal conductance K</span><output for="tc-power-k" id="tc-power-k-value">0.4 W/K</output></label><input id="tc-power-k" type="range" min="0.2" max="1.2" step="0.01" value="0.4" data-unit="W/K" /><div class="tc-range-ends" aria-hidden="true"><span>0.2 W/K</span><span>1.2 W/K</span></div></div>
+            <div class="tc-presets"><button type="button" id="tc-set-cop">Max COP</button><button type="button" id="tc-set-q">Max Q<sub>c</sub></button></div>
+            <dl class="tc-metrics"><div><dt>Net cooling</dt><dd id="tc-power-q">—</dd></div><div><dt>Electrical input</dt><dd id="tc-power-input">—</dd></div><div><dt>COP at this current</dt><dd id="tc-power-cop">—</dd></div></dl>
+            <button class="tc-reset" type="button" data-tc-reset="power">Reset</button>
           </div>
         </div>
-      </section>
+        <div class="tc-balance" aria-label="Cold-side heat balance at the selected current">
+          <div class="tc-balance-peltier"><span>+ Peltier absorption</span><strong id="tc-balance-peltier">—</strong><small>αT<sub>c</sub>I</small></div>
+          <div class="tc-balance-conduction"><span>− Conductive backflow</span><strong id="tc-balance-conduction">—</strong><small>KΔT</small></div>
+          <div class="tc-balance-joule"><span>− Cold-side Joule heat</span><strong id="tc-balance-joule">—</strong><small>½I²R</small></div>
+          <div class="tc-balance-net"><span>= Net cooling power</span><strong id="tc-balance-net">—</strong><small>Q<sub>c</sub> (W)</small></div>
+        </div>
+        <div class="tc-formula-row tc-formula-power"><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Cooling power Q c equals alpha T c I minus K delta T minus one half I squared R"><msub><mi>Q</mi><mi mathvariant="normal">c</mi></msub><mo>=</mo><mi>α</mi><msub><mi>T</mi><mi mathvariant="normal">c</mi></msub><mi>I</mi><mo>−</mo><mi>K</mi><mrow><mi>Δ</mi><mi>T</mi></mrow><mo>−</mo><mfrac><mrow><msup><mi>I</mi><mn>2</mn></msup><mi>R</mi></mrow><mrow><mn>2</mn></mrow></mfrac></math></div><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Electrical input power equals alpha delta T I plus I squared R"><msub><mi>P</mi><mi mathvariant="normal">in</mi></msub><mo>=</mo><mi>α</mi><mrow><mi>Δ</mi><mi>T</mi></mrow><mi>I</mi><mo>+</mo><msup><mi>I</mi><mn>2</mn></msup><mi>R</mi></math></div><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="COP equals cooling power over electrical input power"><mi mathvariant="normal">COP</mi><mo>=</mo><mfrac><mrow><msub><mi>Q</mi><mi mathvariant="normal">c</mi></msub></mrow><mrow><msub><mi>P</mi><mi mathvariant="normal">in</mi></msub></mrow></mfrac></math></div></div>
+      </div>
+      <p class="tc-takeaway" id="tc-power-note">Maximum COP and maximum cooling power occur at different currents.</p>
+      <details class="tc-derivation"><summary>Optimal currents and the no-load cooling limit</summary><div class="tc-derivation-grid">
+        <div><h4>Maximum COP</h4><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Current for maximum COP equals alpha delta T over R times square root of one plus Z T bar minus one"><msub><mi>I</mi><mi mathvariant="normal">COP</mi></msub><mo>=</mo><mfrac><mrow><mi>α</mi><mrow><mi>Δ</mi><mi>T</mi></mrow></mrow><mrow><mi>R</mi><mo>(</mo><msqrt><mn>1</mn><mo>+</mo><mi>Z</mi><mover><mi>T</mi><mo>¯</mo></mover></msqrt><mo>−</mo><mn>1</mn><mo>)</mo></mrow></mfrac></math></div><p>Valid when positive net cooling is possible.</p></div>
+        <div><h4>Maximum cooling power</h4><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Current for maximum cooling power equals alpha T c over R"><msub><mi>I</mi><mi mathvariant="normal">Q</mi></msub><mo>=</mo><mfrac><mrow><mi>α</mi><msub><mi>T</mi><mi mathvariant="normal">c</mi></msub></mrow><mrow><mi>R</mi></mrow></mfrac></math></div><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Maximum cooling power equals alpha squared T c squared over two R minus K delta T"><msub><mi>Q</mi><mi mathvariant="normal">c,max</mi></msub><mo>=</mo><mfrac><mrow><msup><mi>α</mi><mn>2</mn></msup><msup><msub><mi>T</mi><mi mathvariant="normal">c</mi></msub><mn>2</mn></msup></mrow><mrow><mn>2</mn><mi>R</mi></mrow></mfrac><mo>−</mo><mi>K</mi><mrow><mi>Δ</mi><mi>T</mi></mrow></math></div></div>
+        <div><h4>Maximum no-load temperature difference</h4><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Maximum no-load temperature difference equals T h times square root of one plus two Z T h minus one, divided by square root of one plus two Z T h plus one"><msub><mrow><mi>Δ</mi><mi>T</mi></mrow><mi mathvariant="normal">max</mi></msub><mo>=</mo><msub><mi>T</mi><mi mathvariant="normal">h</mi></msub><mfrac><mrow><msqrt><mn>1</mn><mo>+</mo><mn>2</mn><mi>Z</mi><msub><mi>T</mi><mi mathvariant="normal">h</mi></msub></msqrt><mo>−</mo><mn>1</mn></mrow><mrow><msqrt><mn>1</mn><mo>+</mo><mn>2</mn><mi>Z</mi><msub><mi>T</mi><mi mathvariant="normal">h</mi></msub></msqrt><mo>+</mo><mn>1</mn></mrow></mfrac></math></div><p>At Q<sub>c</sub> = 0, fixed T<sub>h</sub> and constant Z = α²/(RK). This no-load limit does not describe a device removing a finite heat load.</p></div>
+      </div><p class="tc-details-source">Adapted from the author’s derivation notes, Eqs. (16), (17), (19) and (22).<a class="pt-cite" href="#plastic-te-applications" data-te-jump="plastic-te-applications-ref-3" aria-label="Reference 3">[3]</a></p></details>
+    </section>
+
+    <section class="tc-experiment" id="tc-generation-section" aria-labelledby="tc-generation-title">
+      <header class="tc-section-heading"><div><p class="tc-eyebrow">04 / Seebeck power generation</p><h3 id="tc-generation-title" tabindex="-1">Efficiency, ZT̄ and temperature difference</h3></div><p>The Carnot limit sets the available thermodynamic efficiency. Finite ZT̄ reduces the fraction a thermoelectric generator can attain.</p></header>
+      <div class="tc-panel tc-generation-panel">
+        <div class="tc-gen-controls" role="group" aria-label="Power generation controls">
+          <div class="tc-control"><label for="tc-gen-zt"><span>Device ZT̄</span><output for="tc-gen-zt" id="tc-gen-zt-value">1 </output></label><input id="tc-gen-zt" type="range" min="0.1" max="4" step="0.1" value="1" data-unit="" /><div class="tc-range-ends" aria-hidden="true"><span>0.1 </span><span>4 </span></div></div>
+          <div class="tc-control"><label for="tc-gen-tc"><span>Cold side T<sub>c</sub></span><output for="tc-gen-tc" id="tc-gen-tc-value">300 K</output></label><input id="tc-gen-tc" type="range" min="250" max="350" step="5" value="300" data-unit="K" /><div class="tc-range-ends" aria-hidden="true"><span>250 K</span><span>350 K</span></div></div>
+          <div class="tc-control"><label for="tc-gen-delta"><span>Temperature difference ΔT</span><output for="tc-gen-delta" id="tc-gen-delta-value">100 K</output></label><input id="tc-gen-delta" type="range" min="0" max="500" step="5" value="100" data-unit="K" /><div class="tc-range-ends" aria-hidden="true"><span>0 K</span><span>500 K</span></div></div>
+          <button class="tc-reset" type="button" data-tc-reset="gen">Reset</button>
+        </div>
+        <div class="tc-gen-plots">
+          <figure class="tc-plot"><h4>Vary ZT̄</h4><div class="tc-legend"><span><i class="tc-line"></i>Maximum efficiency</span><span><i class="tc-line tc-line-carnot"></i>Carnot</span></div><svg id="tc-gen-zt-chart" class="tc-chart" role="img" aria-label="Maximum generation efficiency versus device figure of merit, compared with Carnot efficiency" viewBox="0 0 680 350"></svg><figcaption id="tc-gen-zt-caption">Fixed cold-side temperature and temperature difference.</figcaption></figure>
+          <figure class="tc-plot"><h4>Vary ΔT</h4><div class="tc-legend"><span><i class="tc-line tc-line-generation"></i>Maximum efficiency</span><span><i class="tc-line tc-line-carnot"></i>Carnot</span></div><svg id="tc-gen-delta-chart" class="tc-chart" role="img" aria-label="Maximum generation efficiency versus temperature difference, compared with Carnot efficiency" viewBox="0 0 680 350"></svg><figcaption id="tc-gen-delta-caption">Fixed cold-side temperature and effective device ZT̄.</figcaption></figure>
+        </div>
+        <dl class="tc-gen-metrics"><div><dt>Maximum TE efficiency</dt><dd id="tc-gen-eta">—</dd></div><div><dt>Carnot efficiency</dt><dd id="tc-gen-carnot">—</dd></div><div><dt>Fraction of Carnot</dt><dd id="tc-gen-relative">—</dd></div><div><dt>Hot-side temperature</dt><dd id="tc-gen-th">—</dd></div></dl>
+        <div class="tc-formula-row tc-formula-generation"><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Maximum generator efficiency equals Carnot efficiency times square root of one plus Z T bar minus one over square root of one plus Z T bar plus T c over T h"><msub><mi>η</mi><mi mathvariant="normal">max</mi></msub><mo>=</mo><mfrac><mrow><mrow><mi>Δ</mi><mi>T</mi></mrow></mrow><mrow><msub><mi>T</mi><mi mathvariant="normal">h</mi></msub></mrow></mfrac><mfrac><mrow><msqrt><mn>1</mn><mo>+</mo><mi>Z</mi><mover><mi>T</mi><mo>¯</mo></mover></msqrt><mo>−</mo><mn>1</mn></mrow><mrow><msqrt><mn>1</mn><mo>+</mo><mi>Z</mi><mover><mi>T</mi><mo>¯</mo></mover></msqrt><mo>+</mo><mfrac><mrow><msub><mi>T</mi><mi mathvariant="normal">c</mi></msub></mrow><mrow><msub><mi>T</mi><mi mathvariant="normal">h</mi></msub></mrow></mfrac></mrow></mfrac></math></div><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Carnot efficiency equals delta T over T h"><msub><mi>η</mi><mi mathvariant="normal">C</mi></msub><mo>=</mo><mfrac><mrow><mrow><mi>Δ</mi><mi>T</mi></mrow></mrow><mrow><msub><mi>T</mi><mi mathvariant="normal">h</mi></msub></mrow></mfrac></math></div><div class="tc-equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" aria-label="Generator efficiency equals electrical power output over hot-side heat input"><mi>η</mi><mo>=</mo><mfrac><mrow><msub><mi>P</mi><mi mathvariant="normal">out</mi></msub></mrow><mrow><msub><mi>Q</mi><mi mathvariant="normal">h</mi></msub></mrow></mfrac></math></div></div>
+      </div>
+      <p class="tc-takeaway">A small ΔT limits the available efficiency even at high ZT̄. The curves assume an electrical load optimized for efficiency, rather than maximum output power.<a class="pt-cite" href="#plastic-te-applications" data-te-jump="plastic-te-applications-ref-5" aria-label="Reference 5">[5]</a></p>
+    </section>
+
+    <section class="tc-context" aria-labelledby="tc-context-title"><h3 id="tc-context-title">From the model to an application</h3><div><p><strong>Solid-state cooling.</strong> Heat must be rejected at the hot side, including the electrical input: Q<sub>h</sub> = Q<sub>c</sub> + P<sub>in</sub>. Wearable cooling also depends on thermal interfaces and the heat sink.<a class="pt-cite" href="#plastic-te-applications" data-te-jump="plastic-te-applications-ref-1" aria-label="Reference 1">[1]</a></p><p><strong>Battery-free electronics.</strong> Body heat or another available heat source can supply low-power sensors when the harvested energy meets the load. The temperature difference across the device, power conversion and sensing duty cycle matter.<a class="pt-cite" href="#plastic-te-applications" data-te-jump="plastic-te-applications-ref-2" aria-label="Reference 2">[2]</a></p></div></section>
+    <details class="tc-derivation tc-assumptions"><summary>Model assumptions and notation</summary><div class="tc-assumption-copy"><p>Steady-state, one-dimensional, single-stage transport with constant α, R and K over each temperature interval. Ideal contacts; no parasitic heat leaks, Thomson heat, or heat-exchanger losses. Joule heat is split equally between the two ends. Temperatures are absolute (K), and ΔT = T<sub>h</sub> − T<sub>c</sub>.</p><p>For one p–n couple, α = S<sub>p</sub> − S<sub>n</sub>, R = R<sub>p</sub> + R<sub>n</sub>, and K = K<sub>p</sub> + K<sub>n</sub>. A module uses effective totals. K (W K⁻¹) is thermal conductance; κ (W m⁻¹ K⁻¹) is material thermal conductivity.</p><p>In the cooling-power plot, α, R and T<sub>h</sub> stay fixed; K and ΔT are adjustable, so ZT̄ is calculated. In the efficiency sweeps, ZT̄ is an independent effective parameter at each condition. The ΔT sweep at fixed ZT̄ compares idealized conditions, not the temperature dependence of one specific material. All curves are calculated examples, not measurements of the Ag₂(S,Se,Te) materials.</p></div></details>
+    <noscript><p class="pt-note">Enable JavaScript to use the interactive plots. The equations, assumptions and references remain available.</p></noscript>
+
+    <section class="pt-references" id="plastic-te-applications-references" aria-labelledby="plastic-te-applications-refs-title"><div class="pt-reference-heading"><h3 id="plastic-te-applications-refs-title" tabindex="-1">References</h3><p>Physical model, derivation notes and application examples.</p></div><ol class="pt-ref-list">
+      <li id="plastic-te-applications-ref-1" tabindex="-1"><span class="pt-ref-number">[1]</span><p>S. Hong et al. <a href="https://doi.org/10.1126/sciadv.aaw0536" target="_blank" rel="noopener">Wearable thermoelectrics for personalized thermoregulation.</a> <cite>Science Advances 5, eaaw0536 (2019).</cite></p></li>
+      <li id="plastic-te-applications-ref-2" tabindex="-1"><span class="pt-ref-number">[2]</span><p>S. Yang et al. <a href="https://doi.org/10.1038/s41378-023-00583-3" target="_blank" rel="noopener">Flexible thermoelectric generator and energy management electronics powered by body heat.</a> <cite>Microsystems &amp; Nanoengineering 9, 106 (2023).</cite></p></li>
+      <li id="plastic-te-applications-ref-3" tabindex="-1"><span class="pt-ref-number">[3]</span><p>Heyang Chen. <cite>Thermoelectric Cooling.</cite> Author’s derivation notes, 3 pp. Cooling-power balance, maximum COP, optimal currents and the no-load temperature limit. Notation standardized here.</p></li>
+      <li id="plastic-te-applications-ref-4" tabindex="-1"><span class="pt-ref-number">[4]</span><p>Ferrotec. <a href="https://thermal.ferrotec.com/technology/thermoelectric-reference-guide/thermalref11/" target="_blank" rel="noopener">Thermoelectric Reference Guide: Mathematical Modeling of Modules.</a> Single-stage heat and electrical-power balances.</p></li>
+      <li id="plastic-te-applications-ref-5" tabindex="-1"><span class="pt-ref-number">[5]</span><p>Northwestern Thermoelectrics. <a href="https://thermoelectrics.matsci.northwestern.edu/thermoelectrics/" target="_blank" rel="noopener">Thermoelectric Properties of Materials.</a> Material zT, device ZT and maximum generation efficiency.</p></li>
+    </ol></section>
+    <div class="pt-detail-next"><a class="pt-link" href="#plastic-te" data-view-link="plastic-te">Back to research overview <span aria-hidden="true">↗</span></a><a class="pt-link" href="#plastic-te-mechanics" data-view-link="plastic-te-mechanics">Next: mechanics &amp; flexibility <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+<section class="page-view pt-page te-research" id="plastic-te-mechanics" data-view="plastic-te-mechanics" data-view-parent="plastic-te" data-page-title="Mechanics shapes what a semiconductor can do." hidden aria-labelledby="plastic-te-mechanics-title">
+  <div class="page-shell">
+    <a class="back-link" href="#plastic-te" data-view-link="plastic-te">&larr; Plastic TE Materials</a>
+    <header class="pt-detail-hero pm-hero">
+      <p class="section-kicker">02 / Mechanics &amp; flexibility</p>
+      <h2 id="plastic-te-mechanics-title">Mechanics shapes what<br /> a semiconductor can do.</h2>
+      <p>What determines whether a semiconductor device can be manufactured intact, operate reliably, and work in a new environment? Alongside its electronic and thermal properties, <strong>its mechanical response is a key part of the answer.</strong></p>
+    </header>
+    <nav class="pt-contents pm-contents" aria-label="Semiconductor mechanics chapter">
+      <a href="#plastic-te-mechanics" data-te-jump="pm-properties"><span>01</span> Properties &amp; device outcomes</a>
+      <a href="#plastic-te-mechanics" data-te-jump="pm-flexibility"><span>02</span> Flexibility in use</a>
+      <a href="#plastic-te-mechanics" data-te-jump="pm-design"><span>03</span> Ag–S–Se–Te timeline</a>
+    </nav>
+
+    <section class="pm-part" id="pm-properties" aria-labelledby="pm-properties-title">
+      <div class="pm-heading">
+        <p class="section-kicker">Part 01 / Why mechanical properties matter</p>
+        <h3 id="pm-properties-title" tabindex="-1">From material response<br />to device outcomes.</h3>
+        <p>Strength, elastic limits, plastic deformation, and resistance to fracture matter at different stages of a device’s life. No single mechanical metric describes them all.<a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-9" aria-label="Reference 9">[9]</a></p>
+      </div>
+      <div class="pm-outcomes">
+        <article><span class="pm-stage">Make it</span><h4>Fabrication yield</h4><p>Cutting, thinning, handling, and assembly impose local stresses. Strength and flaw tolerance help determine whether a component survives processing.</p><span class="pm-property-line">Strength · toughness · processability</span></article>
+        <article><span class="pm-stage">Keep it working</span><h4>Operational stability</h4><p>Thermal expansion and repeated mechanical loads can damage the semiconductor or its contacts. Stable operation requires both structural and functional integrity.</p><span class="pm-property-line">Elastic limits · cracks · fatigue</span></article>
+        <article><span class="pm-stage">Put it to use</span><h4>Application space</h4><p>A rigid package, a skin-mounted sensor, and a formed foil need different responses: dimensional stability, reversible bending, or permanent shape change.</p><span class="pm-property-line">Stiffness · flexibility · plasticity</span></article>
+      </div>
+
+      <div class="pm-curve-heading"><p class="section-kicker">A common language</p><h4>Read the stress–strain curve.</h4><p>The curve separates how easily a material deforms, how much stress it supports, and whether that deformation is recoverable.</p></div>
+      <div class="pm-curve-layout">
+        <figure class="te-figure pm-paper-figure">
+          <button class="te-figure-button" type="button" aria-label="Enlarge: Mechanical responses from the InfoMat review" data-te-figure="assets/research/infomat-2021-stress-strain.png" data-figure-title="Mechanical response: stress–strain curves" data-figure-caption="Heyang Chen et al., InfoMat 3, 22–35 (2021), Figure 1A. Panel cropped from the supplied review; curves, labels, and colors are unchanged. Schematic material classes, not measured semiconductor data. © 2020 The Authors. DOI: 10.1002/inf2.12149.">
+            <img src="assets/research/infomat-2021-stress-strain.png" width="882" height="728" alt="Figure 1A compares brittle ceramic, low-carbon steel, plastic semicrystalline polymer, and elastomeric polymer stress–strain curves. It labels Young’s modulus, elastic limit, yield strength, and ultimate strength." loading="lazy" decoding="async" />
+            <span class="pm-enlarge" aria-hidden="true">View figure ↗</span>
+          </button>
+          <figcaption>From my <a href="https://doi.org/10.1002/inf2.12149" target="_blank" rel="noopener">InfoMat review (2021), Fig. 1A</a>. Schematic responses; panel cropped from the original figure.</figcaption>
+        </figure>
+        <dl class="pm-glossary">
+          <div><dt><span class="pm-math"><var>E</var></span> Stiffness / Young’s modulus</dt><dd>The initial linear slope, <span class="pm-math"><var>E</var> = d<var>σ</var>/d<var>ε</var></span>. A larger modulus means more stress is needed for the same small elastic strain.</dd></div>
+          <div><dt><span class="pm-math"><var>σ</var><sub>el</sub></span> Elastic limit</dt><dd>The greatest stress that leaves no permanent strain after unloading. The usable elastic strain also depends on the modulus.</dd></div>
+          <div><dt><span class="pm-math"><var>σ</var><sub>y</sub> · <var>σ</var><sub>UTS</sub></span> Strength</dt><dd>Yield strength marks a defined onset of plastic flow; ultimate tensile strength is the peak engineering tensile stress. A high strength does not by itself imply high ductility.</dd></div>
+          <div><dt><span class="pm-math"><var>ε</var><sub>p</sub></span> Plasticity &amp; ductility</dt><dd>Plasticity leaves permanent deformation after unloading. Ductility describes tensile plastic deformation; large compression strain alone does not establish it.</dd></div>
+        </dl>
+      </div>
+      <div class="pm-toughness">
+        <div><p class="pm-stage">Energy absorption</p><h4>Toughness</h4><p>The area under a uniaxial stress–strain curve up to fracture represents absorbed energy per unit volume. Both the sustained stress and the available strain matter.</p></div>
+        <div><p class="pm-stage">Crack resistance</p><h4>Fracture toughness</h4><p>Resistance to the growth of an existing crack is a separate property. <span class="pm-math"><var>K</var><sub>IC</sub></span> (MPa m<sup>1/2</sup>) requires a suitable fracture test; it cannot be read directly from this curve.</p></div>
+      </div>
+      <p class="pt-note">Material properties set part of the operating window. Defects, specimen size, loading mode, interfaces, and temperature also affect fabrication yield and device reliability.</p>
+    </section>
+
+    <section class="pm-part" id="pm-flexibility" aria-labelledby="pm-flexibility-title">
+      <div class="pm-heading">
+        <p class="section-kicker">Part 02 / Flexibility in real applications</p>
+        <h3 id="pm-flexibility-title" tabindex="-1">What does the device<br />need to do?</h3>
+        <p>Flexibility connects mechanical properties to the shape and motion of an application. Start with the required deformation, then choose the material and architecture.</p>
+      </div>
+      <div class="pm-applications">
+        <article>
+          <svg viewBox="0 0 280 115" aria-hidden="true" focusable="false"><path class="pm-app-base" d="M28 94 Q75 82 96 59 Q130 20 175 38 Q218 57 252 49 L252 85 Q214 92 181 73 Q148 55 122 83 Q88 111 28 113Z"/><path class="pm-app-device" d="M81 67 Q126 14 180 37 L192 26 Q128 0 70 56Z"/><path class="pm-app-line" d="M83 60 Q126 17 184 31"/><circle cx="130" cy="28" r="3"/><circle cx="146" cy="26" r="3"/></svg>
+          <p class="pm-stage">Conform &amp; follow motion</p><h4>Wearables &amp; skin sensors</h4><p>Fit a curved surface and move with the body while maintaining contact and electrical function.</p><p class="pm-check"><strong>Evaluate</strong> Bending radius, repeated cycles, contact stability, and output under motion.</p>
+        </article>
+        <article>
+          <svg viewBox="0 0 280 115" aria-hidden="true" focusable="false"><path class="pm-app-base" d="M28 103 Q140 18 252 103 V114 H28Z"/><path class="pm-app-device" d="M42 84 Q140 6 238 84 L238 94 Q140 16 42 94Z"/><path class="pm-app-line" d="M42 89 Q140 11 238 89 M81 60V70 M120 45V55 M159 46V56 M198 61V71"/><circle cx="232" cy="22" r="10" class="pm-app-sun"/><path class="pm-app-line" d="M232 5V0 M249 22H256 M216 22H209 M232 39V45"/></svg>
+          <p class="pm-stage">Wrap a curved surface</p><h4>Conformal solar cells</h4><p>Use thin semiconductor sheets on curved supports. Edge and surface quality become part of the mechanical design.<a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-4" aria-label="Reference 4">[4]</a></p><p class="pm-check"><strong>Evaluate</strong> Surface strain, edge defects, thermal cycling, and retained efficiency.</p>
+        </article>
+        <article>
+          <svg viewBox="0 0 280 115" aria-hidden="true" focusable="false"><path class="pm-app-base" d="M28 94H252V101H28Z"/><path class="pm-app-device" d="M43 62 L104 62 Q122 62 125 44 Q130 12 158 12 Q190 12 194 47 Q197 74 237 74 L237 88 Q185 88 180 53 Q177 25 158 25 Q142 25 138 48 Q132 76 104 76 H43Z"/><path class="pm-app-line" d="M44 69H102 Q129 69 132 46 Q136 18 158 18 Q183 18 187 50 Q191 81 236 81"/></svg>
+          <p class="pm-stage">Form &amp; retain a shape</p><h4>Deformable TE foils</h4><p>Roll or form a plastic semiconductor into a useful geometry, then operate it within an appropriate service window.<a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-8" aria-label="Reference 8">[8]</a></p><p class="pm-check"><strong>Evaluate</strong> Forming strain, cracking, and transport properties after deformation.</p>
+        </article>
+      </div>
+      <div class="pm-bending">
+        <div class="pm-bending-copy"><p class="section-kicker">Material × geometry</p><h4>A brittle material can still bend.</h4><p>For a thin, homogeneous sheet of thickness <var>h</var> bent to radius <var>R</var>, reducing thickness lowers both the surface strain at a given radius and the force needed to bend it. This gives an elastic route to flexibility.<a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-3" aria-label="Reference 3">[3]</a></p></div>
+        <div class="pm-equations"><div><span>Surface strain</span><strong class="pm-math"><var>ε</var><sub>max</sub> ≈ <var>h</var> / (2<var>R</var>)</strong><p>Thinner sheet → less strain at the same radius.</p></div><div><span>Elastic bending limit</span><strong class="pm-math"><var>R</var><sub>min</sub> ≈ <var>h</var> / (2<var>ε</var><sub>limit</sub>)</strong><p>Use the recoverable strain limit; fracture can set the limit in brittle materials.</p></div><small>Simple bending of a free-standing sheet; <var>R</var> is measured at the neutral plane. At fixed modulus and width, bending rigidity scales with <span class="pm-math"><var>h</var><sup>3</sup></span>.</small></div>
+      </div>
+      <div class="pm-route-note"><p><strong>Elastic flexibility</strong><br />Bend and recover during use.</p><span aria-hidden="true">+</span><p><strong>Intrinsic plasticity</strong><br />Form a permanent shape without fracture.</p><p class="pm-route-takeaway">A ductile thin foil can use both: plastic forming during fabrication and elastic bending during service.</p></div>
+      <details class="pm-flex-explainer" id="pm-flexibility-explorer">
+        <summary>Explore flexibility: compare the routes &amp; try the thickness demo <span aria-hidden="true">+</span></summary>
+        <div class="pm-flex-explainer-body">
+<div class="pt-detailed-diagram"><figure class="pt-diagram"><picture><source media="(max-width: 520px)" srcset="assets/research/plastic-te-flexibility-mobile.svg" width="320" height="636" /><img src="assets/research/plastic-te-flexibility.svg" width="640" height="360" alt="Compliant architecture around rigid semiconductor islands versus plastic flow inside a continuous semiconductor." loading="lazy" decoding="async" /></picture><figcaption>Original schematic. The slip lines are symbolic, not a crystallographic model.</figcaption></figure></div>
+<div class="pt-table-wrap"><table class="pt-table"><caption class="visually-hidden">Comparison of extrinsic flexibility and intrinsic plasticity</caption><thead><tr><th scope="col">Design question</th><th scope="col">Extrinsic flexibility</th><th scope="col">Intrinsic plasticity</th></tr></thead><tbody><tr><th scope="row">What changes?</th><td>Thickness, geometry, interconnects, or the supporting architecture.</td><td>Permanent deformation within the semiconductor.</td></tr><tr><th scope="row">How does it work?</th><td>Reduce strain in a thin sheet or accommodate bending between rigid elements.</td><td>Enable slip and other plastic deformation mechanisms before fracture.</td></tr><tr><th scope="row">Examples</th><td>Thin silicon sheets; rigid TE pillars in flexible supports.</td><td>Ductile α-Ag<sub>2</sub>S and selected Ag<sub>2</sub>S-based alloys.</td></tr><tr><th scope="row">What must be checked?</th><td>Curvature, surface strain, interfaces, and cyclic reliability.</td><td>Loading mode, plastic strain, toughness, and retained transport properties.</td></tr></tbody></table></div><p class="pt-note">The two routes can be combined. Thin foils made from a ductile semiconductor benefit from both their material response and their geometry.<a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-1" aria-label="Reference 1">[1]</a><a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-3" aria-label="Reference 3">[3]</a><a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-5" aria-label="Reference 5">[5]</a><a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-8" aria-label="Reference 8">[8]</a></p>
+          <section class="flexibility-section" aria-labelledby="flexibility-title">
+            <div class="mechanics-section-heading">
+              <p class="section-kicker">Interactive / Extrinsic flexibility</p>
+              <h3 id="flexibility-title">Same material. Different thickness.</h3>
+              <p>A thin silicon sheet can bend elastically even though bulk silicon is brittle. Drag the thickness to explore why.</p>
+            </div>
+
+            <div class="flex-demo" data-flex-demo data-state="elastic">
+              <div class="flex-stage">
+                <div class="flex-stage-top">
+                  <span class="flex-specimen"><span class="flex-si">Si</span>Free-standing silicon sheet</span>
+                  <span class="flex-state" data-flex-state>Elastic bending</span>
+                </div>
+                <svg class="flex-wafer" viewBox="0 0 700 410" role="img" aria-labelledby="flex-svg-title flex-svg-desc">
+                  <title id="flex-svg-title">Thickness-dependent bending of a silicon sheet</title>
+                  <desc id="flex-svg-desc">An illustrative silicon sheet bends without fracture when its surface strain stays below the assumed failure strain.</desc>
+                  <defs>
+                    <linearGradient id="flex-silicon" x1="0" y1="1" x2="0.8" y2="0">
+                      <stop offset="0" stop-color="#243b55" />
+                      <stop offset="0.38" stop-color="#446480" />
+                      <stop offset="0.7" stop-color="#8196ad" />
+                      <stop offset="1" stop-color="#343b67" />
+                    </linearGradient>
+                    <linearGradient id="flex-edge" x1="0" y1="0" x2="0" y2="1">
+                      <stop stop-color="#adbed0" /><stop offset="1" stop-color="#41566e" />
+                    </linearGradient>
+                    <radialGradient id="flex-shadow"><stop stop-color="#304957" stop-opacity="0.18" /><stop offset="1" stop-color="#304957" stop-opacity="0" /></radialGradient>
+                  </defs>
+                  <ellipse cx="350" cy="331" rx="242" ry="37" fill="url(#flex-shadow)" />
+                  <path d="M65 337 H635" stroke="#cbd7d7" stroke-width="1" />
+                  <g data-flex-guide fill="none" stroke="#6c8b89" stroke-width="1.2" stroke-dasharray="4 5"></g>
+                  <g data-flex-sheet></g>
+                  <g data-flex-annotations></g>
+                </svg>
+                <div class="flex-stage-bottom">
+                  <p data-flex-caption>Thin enough to reach the target radius and recover on release.</p>
+                  <button class="flex-load-button" type="button" data-flex-load aria-pressed="true"><span aria-hidden="true">↗</span> Release sample</button>
+                </div>
+                <p class="flex-scale-note">Geometry schematic · thickness exaggerated · no substrate</p>
+              </div>
+
+              <div class="flex-controls">
+                <div class="flex-control-heading"><span class="meta">Explore the geometry</span><button type="button" class="flex-reset" data-flex-reset>Reset</button></div>
+                <div class="flex-thickness-heading"><label for="flex-thickness">Sheet thickness <i>h</i></label><output for="flex-thickness" data-flex-thickness-output>60 <span>μm</span></output></div>
+                <div class="flex-range-wrap">
+                  <input id="flex-thickness" type="range" min="20" max="500" step="1" value="60" aria-describedby="flex-thickness-help flex-threshold" />
+                  <span class="flex-critical-tick" data-flex-critical-tick aria-hidden="true"></span>
+                </div>
+                <div class="flex-range-labels" id="flex-thickness-help"><span>20 μm · thin</span><span>thick · 500 μm</span></div>
+                <div class="flex-presets" aria-label="Thickness presets">
+                  <button type="button" data-flex-preset="60" aria-pressed="true">60 μm</button>
+                  <button type="button" data-flex-preset="180" aria-pressed="false">180 μm</button>
+                  <button type="button" data-flex-preset="500" aria-pressed="false">500 μm</button>
+                </div>
+                <fieldset class="flex-radius">
+                  <legend>Target bending radius <i>R</i></legend>
+                  <div class="flex-radius-options">
+                    <label><input type="radio" name="flex-radius" value="5" /><span>5 mm</span></label>
+                    <label><input type="radio" name="flex-radius" value="10" checked /><span>10 mm</span></label>
+                    <label><input type="radio" name="flex-radius" value="20" /><span>20 mm</span></label>
+                  </div>
+                </fieldset>
+                <div class="flex-strain">
+                  <div><span>Strain required at target <i>R</i></span><strong data-flex-strain>0.30%</strong></div>
+                  <div class="flex-strain-track" aria-hidden="true"><span data-flex-strain-bar></span><i></i></div>
+                  <p>Assumed failure strain <strong>0.50%</strong></p>
+                </div>
+                <p class="flex-threshold" id="flex-threshold">At this radius, <strong>h<sub>c</sub> = <span data-flex-critical>100</span> μm</strong></p>
+                <p class="flex-assumption">Illustrative failure criterion, not a measured Si threshold. Actual limits depend on defects, surfaces, orientation, and loading.</p>
+                <p class="visually-hidden" data-flex-live aria-live="polite" aria-atomic="true"></p>
+              </div>
+
+              <div class="flex-metrics" aria-label="Bending relationships">
+                <div><span>Surface strain at target radius</span><strong>ε = h / (2R)</strong><p>Less thickness → less strain.</p></div>
+                <div><span>Minimum radius in this model</span><strong>R<sub>min</sub> = <output data-flex-min-radius>6.0</output> <small>mm</small></strong><p>R<sub>min</sub> = h / (2ε<sub>limit</sub>)</p></div>
+                <div><span>Relative bending rigidity</span><strong><output data-flex-rigidity>0.0017</output><small> ×</small></strong><p>∝ h³ · normalized to a 500 μm sheet</p></div>
+              </div>
+            </div>
+            <noscript><p class="flex-no-script">Enable JavaScript to adjust the sheet. At h = 60 μm and R = 10 mm, ε = 0.30%, below the illustrative 0.50% failure strain.</p></noscript>
+
+            <div class="flex-reading">
+              <div class="flex-takeaway"><span class="meta">What changes?</span><p>Geometry changes the bending response. <strong>The material remains intrinsically brittle.</strong> Elastic bending recovers on unloading; plastic deformation leaves a permanent shape change.</p></div>
+              <details class="flex-model-notes"><summary>Model &amp; assumptions <span aria-hidden="true">+</span></summary>
+                <div>
+                  <p>For a homogeneous, free-standing sheet in elastic bending, the neutral plane lies at mid-thickness and ε<sub>max</sub> = h/(2R). Here, R is measured at that plane. The illustrative limit ε<sub>limit</sub> = 0.50% is held constant as thickness changes; equality marks the failure boundary.</p>
+                  <p>At a chosen R, h<sub>c</sub> = 2Rε<sub>limit</sub>. This is a geometry-dependent boundary, not a universal brittle-to-flexible transition. Above it, the schematic shows fracture before the target curvature is reached; the strain readout is the required target strain, not a post-fracture measurement. Changing thickness or radius starts a new specimen.</p>
+                  <p>For fixed width, elastic modulus, and Poisson ratio, bending rigidity scales as h³. The visualization prescribes curvature rather than force. Real strength may also depend on thickness, surface damage, edge quality, and flaw statistics. Substrates and multilayers shift the neutral plane.</p>
+                  <p>Peng and Snyder express flexibility as 1/R<sub>min</sub> = (2/h)(σ<sub>y</sub>/E), with σ<sub>y</sub>/E as the material figure of merit. For this brittle-Si illustration, ε<sub>limit</sub> denotes a fracture limit rather than plastic yielding.</p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <aside class="mechanics-literature" aria-labelledby="flex-literature-title">
+            <div class="mechanics-literature-label"><span class="meta">From geometry to devices</span><h3 id="flex-literature-title">Flexible silicon solar cells</h3></div>
+            <div><p>Liu and colleagues demonstrated flexible solar cells using approximately 60 μm silicon wafers with blunted edges. Thinning and edge treatment work together: the latter reduces fracture initiation at sharp surface features near the wafer edge.</p><a href="https://doi.org/10.1038/s41586-023-05921-z" target="_blank" rel="noopener">Liu et al. · Nature 617, 717–723 (2023) <span aria-hidden="true">↗</span></a></div>
+          </aside>
+<section class="pt-detail-section"><p class="section-kicker">Material response / Intrinsic plasticity</p><h3>The Ag<sub>2</sub>S family opens another route.</h3><p>Room-temperature ductility in α-Ag<sub>2</sub>S showed that an inorganic semiconductor can undergo substantial plastic deformation. The reported bonding picture combines relatively weak interactions between planes with bonding rearrangements that suppress cleavage during slip.<a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-5" aria-label="Reference 5">[5]</a></p><p>Alloying within silver chalcogenides then provides a way to connect deformability with thermoelectric transport. Ag<sub>2</sub>S-based materials have been used in flexible inorganic thermoelectric devices; my cubic Ag<sub>2</sub>(S,Se,Te) study extends the composition–structure–property design space.<a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-6" aria-label="Reference 6">[6]</a><a class="pt-cite" href="#plastic-te-mechanics" data-te-jump="plastic-te-mechanics-ref-8" aria-label="Reference 8">[8]</a></p><p class="pt-note">Plasticity depends on composition, phase, temperature, and loading. The ductility of one Ag<sub>2</sub>S-based material should not be assigned to every silver chalcogenide.</p></section>
+        </div>
+      </details>
+    </section>
+
+    <section class="pm-part at-section" id="pm-design" aria-labelledby="pm-design-title">
+      <div class="pm-heading at-heading">
+        <p class="section-kicker">Part 03 / Ag–S–Se–Te materials through time</p>
+        <h3 id="pm-design-title" tabindex="-1">Ag<sub>2</sub>(S,Se,Te):<br />from ductile solids to devices.</h3>
+        <p>A photographic timeline of Ag<sub>2</sub>S and its S/Se/Te alloys: from bulk plasticity to shapeable thermoelectrics, rolled foils, and wearable devices.</p>
+      </div>
+      <div class="at-phases" aria-label="The development of ductile silver chalcogenides"><span><b>01</b> Discover ductility</span><span aria-hidden="true">→</span><span><b>02</b> Alloy &amp; shape</span><span aria-hidden="true">→</span><span><b>03</b> Integrate devices</span></div>
+      <p class="at-guide">Selected milestones, 2018–2026 · chronological order, not to scale · click a photograph to enlarge</p>
+      <ol class="at-timeline" aria-label="Photographic timeline of ductile silver chalcogenides, 2018 to 2026">
+        <li class="at-milestone at-top" style="--at-step: 1">
+          <time class="at-year" datetime="2018-04-09">2018</time>
+          <div class="at-card-heading"><p class="at-stage">Discovery</p><h4>Room-temperature ductile Ag<sub>2</sub>S</h4></div>
+          <figure class="at-figure">
+            <button class="te-figure-button at-photo" type="button" aria-label="Enlarge: Room-temperature ductile Ag2S (2018)" data-te-figure="assets/research/timeline-2018-ag2s.png" data-figure-title="Room-temperature ductile Ag2S · 2018" data-figure-alt="A machined Ag2S cylinder with curled machining shavings, and cylinders flattened by hammering." data-figure-caption="X. Shi et al. Room-temperature ductile inorganic semiconductor. Nature Materials 17, 421–426 (2018). © 2018 Macmillan Publishers Limited, part of Springer Nature. Figure 2a, PDF page 3. Photographic panel excerpt; original scale and deformation labels retained. DOI: 10.1038/s41563-018-0047-z"><img src="assets/research/timeline-2018-ag2s.png" width="496" height="472" alt="A machined Ag2S cylinder with curled machining shavings, and cylinders flattened by hammering." loading="lazy" decoding="async" /></button>
+            <figcaption>Fig. 2a · photograph excerpt</figcaption>
+          </figure>
+          <p class="at-description">Machining and hammering reveal room-temperature plasticity in bulk α-Ag<sub>2</sub>S.</p>
+
+          <p class="at-source"><a href="https://doi.org/10.1038/s41563-018-0047-z" target="_blank" rel="noopener">X. Shi et al.<br /><cite>Nature Materials 17, 421–426 (2018).</cite></a></p>
+
+        </li>
+        <li class="at-milestone at-bottom" style="--at-step: 2">
+          <time class="at-year" datetime="2021-02-04">2021</time>
+          <div class="at-card-heading"><p class="at-stage">Alloying & shaping</p><h4>Shape-conformable Ag<sub>20</sub>S<sub>7</sub>Te<sub>3</sub></h4></div>
+          <figure class="at-figure">
+            <button class="te-figure-button at-photo" type="button" aria-label="Enlarge: Shape-conformable Ag20S7Te3 (2021)" data-te-figure="assets/research/timeline-2021-shape-panel.png" data-figure-title="Shape-conformable Ag20S7Te3 · 2021" data-figure-alt="Four Ag20S7Te3 samples formed into circular, polygonal, and twisted shapes, from Figure 2c." data-figure-caption="S. Yang et al. Ductile Ag20S7Te3 with Excellent Shape-Conformability and High Thermoelectric Performance. Advanced Materials 33, 2007681 (2021). © 2021 Wiley-VCH GmbH. Figure 2c, PDF page 4. Timeline shows the rightmost twisted specimen; enlarged view retains all four original specimen photographs. DOI: 10.1002/adma.202007681"><img src="assets/research/timeline-2021-shaped-ag20s7te3.png" width="466" height="268" alt="A metallic-looking Ag20S7Te3 ribbon twisted into a complex permanent shape." loading="lazy" decoding="async" /></button>
+            <figcaption>Fig. 2c · photograph excerpt</figcaption>
+          </figure>
+          <p class="at-description">Te alloying combines shape conformability with thermoelectric performance.</p>
+
+          <p class="at-source"><a href="https://doi.org/10.1002/adma.202007681" target="_blank" rel="noopener">S. Yang et al.<br /><cite>Advanced Materials 33, 2007681 (2021).</cite></a></p>
+
+        </li>
+        <li class="at-milestone at-top" style="--at-step: 3">
+          <time class="at-year" datetime="2022-08-19">2022</time>
+          <div class="at-card-heading"><p class="at-stage">p–n integration</p><h4>Flexible π-shaped devices</h4></div>
+          <figure class="at-figure">
+            <button class="te-figure-button at-photo" type="button" aria-label="Enlarge: Flexible π-shaped devices (2022)" data-te-figure="assets/research/timeline-2022-flexible-device.png" data-figure-title="Flexible π-shaped devices · 2022" data-figure-alt="A flexible thermoelectric device attached to a wrist, connected to a multimeter." data-figure-caption="Q. Yang et al. Flexible thermoelectrics based on ductile semiconductors. Science 377, 854–858 (2022). © 2022 The Authors; exclusive licensee AAAS. Figure 4E, PDF page 4. Optical photograph of a 31-couple device on a wrist; the original voltage readout is preserved. The p-type leg is (AgCu)0.998Se0.22S0.08Te0.7, not Ag2(S,Se,Te). DOI: 10.1126/science.abq0682"><img src="assets/research/timeline-2022-flexible-device.png" width="480" height="474" alt="A flexible thermoelectric device attached to a wrist, connected to a multimeter." loading="lazy" decoding="async" /></button>
+            <figcaption>Fig. 4E · photograph excerpt</figcaption>
+          </figure>
+          <p class="at-description">Ductile AgCu(Se,S,Te) provides the p-type partner for n-type Ag<sub>20</sub>S<sub>7</sub>Te<sub>3</sub>.</p>
+
+          <p class="at-source"><a href="https://doi.org/10.1126/science.abq0682" target="_blank" rel="noopener">Q. Yang et al.<br /><cite>Science 377, 854–858 (2022).</cite></a></p>
+
+        </li>
+        <li class="at-milestone at-bottom at-own" style="--at-step: 4">
+          <time class="at-year" datetime="2024">2024</time>
+          <div class="at-card-heading"><p class="at-stage">My work · ternary alloys</p><h4>Cubic Ag<sub>2</sub>(S,Se,Te) foils</h4></div>
+          <figure class="at-figure">
+            <button class="te-figure-button at-photo" type="button" aria-label="Enlarge: Cubic Ag2(S,Se,Te) foils (2024)" data-te-figure="assets/research/aem-2024-flexible-foils.webp" data-figure-title="Cubic Ag2(S,Se,Te) foils · 2024" data-figure-alt="Rolled cubic Ag2(S,Se,Te) foils bent into a loop and twisted into a spiral, held with blue gloves." data-figure-caption="Heyang Chen et al. High-Entropy Cubic Pseudo-Ternary Ag2(S, Se, Te) Materials With Excellent Ductility and Thermoelectric Performance. Advanced Energy Materials 14, 2303473 (2024). © 2023 Wiley-VCH GmbH. Figure 5b,c, PDF page 6. Existing photograph crop from the supplied 2024 study. Publication issue year is used for this milestone. DOI: 10.1002/aenm.202303473"><img src="assets/research/aem-2024-flexible-foils.webp" width="378" height="360" alt="Rolled cubic Ag2(S,Se,Te) foils bent into a loop and twisted into a spiral, held with blue gloves." loading="lazy" decoding="async" /></button>
+            <figcaption>Fig. 5b,c · photograph excerpt</figcaption>
+          </figure>
+          <p class="at-description">High-entropy cubic alloys can be rolled into flexible thermoelectric foils.</p>
+
+          <p class="at-source"><a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">Heyang Chen et al.<br /><cite>Advanced Energy Materials 14, 2303473 (2024).</cite></a></p>
+          <a class="at-own-link" href="#plastic-te-ag2ssete" data-view-link="plastic-te-ag2ssete">Explore my study <span aria-hidden="true">↗</span></a>
+        </li>
+        <li class="at-milestone at-top" style="--at-step: 5">
+          <time class="at-year" datetime="2025-04-28">2025</time>
+          <div class="at-card-heading"><p class="at-stage">Processing extension</p><h4>Warm-rolled Ag<sub>2</sub>Se sheets</h4></div>
+          <figure class="at-figure">
+            <button class="te-figure-button at-photo" type="button" aria-label="Enlarge: Warm-rolled Ag2Se sheets (2025)" data-te-figure="assets/research/timeline-2025-warm-ag2se.png" data-figure-title="Warm-rolled Ag2Se sheets · 2025" data-figure-alt="A large Ag2Se sheet with a 15-centimetre width annotation, a ruler, and an inset of the starting disk." data-figure-caption="Z. Gao et al. Warm metalworking for plastic manufacturing in brittle semiconductors. Nature Materials 24, 1538–1544 (2025). © 2025 The Author(s), under exclusive licence to Springer Nature Limited. Extended Data Figure 1b, PDF page 10. The 15 cm annotation, ruler, composition, and starting-disk inset are retained. This Ag2Se sheet was warm-rolled at 393 K; this is not a room-temperature ductility claim. DOI: 10.1038/s41563-025-02223-9"><img src="assets/research/timeline-2025-warm-ag2se.png" width="682" height="416" alt="A large Ag2Se sheet with a 15-centimetre width annotation, a ruler, and an inset of the starting disk." loading="lazy" decoding="async" /></button>
+            <figcaption>Extended Data Fig. 1b · photograph excerpt</figcaption>
+          </figure>
+          <p class="at-description">Warm rolling at 393 K turns Ag<sub>2</sub>Se into a large, free-standing sheet.</p>
+
+          <p class="at-source"><a href="https://doi.org/10.1038/s41563-025-02223-9" target="_blank" rel="noopener">Z. Gao et al.<br /><cite>Nature Materials 24, 1538–1544 (2025).</cite></a></p>
+
+        </li>
+        <li class="at-milestone at-bottom" style="--at-step: 6">
+          <time class="at-year" datetime="2026-01-26">2026</time>
+          <div class="at-card-heading"><p class="at-stage">January · dense blade arrays</p><h4>Body heat powers a watch</h4></div>
+          <figure class="at-figure">
+            <button class="te-figure-button at-photo" type="button" aria-label="Enlarge: Body heat powers a watch (2026)" data-te-figure="assets/research/timeline-2026-blade-watch.png" data-figure-title="Body heat powers a watch · 2026" data-figure-alt="A blade thermoelectric device worn on a wrist powering an electronic watch, with the original magnified display inset." data-figure-caption="C. Sun et al. A highly integrated blade structure for thermoelectric devices with ultra-high output voltage and power densities. Energy &amp; Environmental Science 19, 1080–1087 (2026). © 2026 The Royal Society of Chemistry. Figure 4d, PDF page 5. Original photograph and watch inset retained. The 160-couple watch demonstration used 273 K ambient temperature and 1 m s−1 airflow. The n- and p-type materials are Ag2S0.33Se0.67 and Ag0.995CuSe0.22S0.08Te0.7. DOI: 10.1039/D5EE06920C"><img src="assets/research/timeline-2026-blade-watch.png" width="562" height="392" alt="A blade thermoelectric device worn on a wrist powering an electronic watch, with the original magnified display inset." loading="lazy" decoding="async" /></button>
+            <figcaption>Fig. 4d · photograph excerpt</figcaption>
+          </figure>
+          <p class="at-description">Dense n-Ag<sub>2</sub>(S,Se)/p-AgCu(Se,S,Te) blade arrays power an electronic watch.</p>
+          <p class="at-context">Watch demonstration: 273 K ambient, 1 m s<sup>−1</sup> airflow.</p>
+          <p class="at-source"><a href="https://doi.org/10.1039/D5EE06920C" target="_blank" rel="noopener">C. Sun et al.<br /><cite>Energy &amp; Environmental Science 19, 1080–1087 (2026).</cite></a></p>
+
+        </li>
+        <li class="at-milestone at-top" style="--at-step: 7">
+          <time class="at-year" datetime="2026-03-15">2026</time>
+          <div class="at-card-heading"><p class="at-stage">March · wearable systems</p><h4>Conformal blade devices</h4></div>
+          <figure class="at-figure">
+            <button class="te-figure-button at-photo" type="button" aria-label="Enlarge: Conformal blade devices (2026)" data-te-figure="assets/research/timeline-2026-blade-panel.png" data-figure-title="Conformal blade devices · 2026" data-figure-alt="Two photographs of the 600-couple flexible blade device: held in a glove and worn on a wrist powering an LED, with original 5 cm scales." data-figure-caption="C. Sun, X. Zhao et al. Flexible thermoelectric device with blade-like structure for ultrahigh output performance. Watt 1, 3 (2026). © The Author(s) 2026, CC BY-NC-ND 4.0 (https://creativecommons.org/licenses/by-nc-nd/4.0/). Figure 3a, PDF page 6. Timeline shows the right-hand wrist/LED photograph; enlarged view shows both photographs, with original insets and scales. The related health-monitoring system uses a supercapacitor and boost circuitry, with intermittent measurements; output depends on ambient temperature and airflow. DOI: 10.1007/s44503-026-00002-4"><img src="assets/research/timeline-2026-wearable-blade.png" width="794" height="330" alt="A flexible 600-couple thermoelectric array wrapped around a wrist powering a red LED; the original inset and 5 cm scale are visible." loading="lazy" decoding="async" /></button>
+            <figcaption>Fig. 3a · photograph excerpt</figcaption>
+          </figure>
+          <p class="at-description">A conformal 600-couple array powers an LED and supports wearable systems.</p>
+
+          <p class="at-source"><a href="https://doi.org/10.1007/s44503-026-00002-4" target="_blank" rel="noopener">C. Sun, X. Zhao et al.<br /><cite>Watt 1, 3 (2026).</cite></a></p>
+
+        </li>
+      </ol>
+      <div class="at-reading">
+        <p><strong>One materials family, several routes.</strong> The timeline follows Ag<sub>2</sub>(S,Se,Te) materials and their device development. Cu-containing p-type partners and warm processing extend what can be built from this family.</p>
+        <details class="at-notes"><summary>Material and test context <span aria-hidden="true">+</span></summary><div><p>AgCu(Se,S,Te) is a distinct Cu-containing p-type family, paired with n-type silver chalcogenides in the 2022 and 2026 devices. The 2025 Ag<sub>2</sub>Se sheet demonstrates warm processing at 393 K, rather than room-temperature ductility.</p><p>The 2026 demonstrations depend on the reported ambient temperature and airflow. The Watt health-monitoring system also includes a supercapacitor and a voltage-boost circuit, and acquires data intermittently. The timeline does not compare device outputs measured under different conditions.</p></div></details>
+      </div>
+    </section>
+    <!-- Chapter references and onward navigation are retained below. -->
+<section class="pt-references" id="plastic-te-mechanics-references" aria-labelledby="plastic-te-mechanics-refs-title"><div class="pt-reference-heading"><h3 id="plastic-te-mechanics-refs-title" tabindex="-1">References</h3><p>Background and related research cited in this chapter.</p></div><ol class="pt-ref-list"><li id="plastic-te-mechanics-ref-1" tabindex="-1"><span class="pt-ref-number">[1]</span><p>S. Hong et al. <a href="https://doi.org/10.1126/sciadv.aaw0536" target="_blank" rel="noopener">Wearable thermoelectrics for personalized thermoregulation.</a> <cite>Science Advances 5, eaaw0536 (2019).</cite></p></li><li id="plastic-te-mechanics-ref-3" tabindex="-1"><span class="pt-ref-number">[3]</span><p>J. Peng &amp; G. J. Snyder. <a href="https://doi.org/10.1126/science.aaz5704" target="_blank" rel="noopener">A figure of merit for flexibility.</a> <cite>Science 366, 690–691 (2019).</cite></p></li><li id="plastic-te-mechanics-ref-4" tabindex="-1"><span class="pt-ref-number">[4]</span><p>W. Liu et al. <a href="https://doi.org/10.1038/s41586-023-05921-z" target="_blank" rel="noopener">Flexible solar cells based on foldable silicon wafers with blunted edges.</a> <cite>Nature 617, 717–723 (2023).</cite></p></li><li id="plastic-te-mechanics-ref-5" tabindex="-1"><span class="pt-ref-number">[5]</span><p>X. Shi et al. <a href="https://doi.org/10.1038/s41563-018-0047-z" target="_blank" rel="noopener">Room-temperature ductile inorganic semiconductor.</a> <cite>Nature Materials 17, 421–426 (2018).</cite></p></li><li id="plastic-te-mechanics-ref-6" tabindex="-1"><span class="pt-ref-number">[6]</span><p>J. Liang et al. <a href="https://doi.org/10.1039/C9EE01777A" target="_blank" rel="noopener">Flexible thermoelectrics: from silver chalcogenides to full-inorganic devices.</a> <cite>Energy &amp; Environmental Science 12, 2983–2990 (2019).</cite></p></li><li id="plastic-te-mechanics-ref-7" tabindex="-1"><span class="pt-ref-number">[7]</span><p><strong>Heyang Chen, Shenghong Ren et al.</strong> <a href="https://doi.org/10.1360/nso/20250005" target="_blank" rel="noopener">Robust mechanical properties of Ag₂Se₁₋ₓTeₓ thermoelectric materials.</a> <cite>National Science Open 4, 20250005 (2025).</cite></p></li><li id="plastic-te-mechanics-ref-8" tabindex="-1"><span class="pt-ref-number">[8]</span><p><strong>Heyang Chen et al.</strong> <a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">High-Entropy Cubic Pseudo-Ternary Ag₂(S, Se, Te) Materials With Excellent Ductility and Thermoelectric Performance.</a> <cite>Advanced Energy Materials 14, 2303473 (2024).</cite></p></li><li id="plastic-te-mechanics-ref-9" tabindex="-1"><span class="pt-ref-number">[9]</span><p><strong>Heyang Chen et al.</strong> <a href="https://doi.org/10.1002/inf2.12149" target="_blank" rel="noopener">Room-temperature plastic inorganic semiconductors for flexible and deformable electronics.</a> <cite>InfoMat 3, 22–35 (2021).</cite> Figure 1A and Sections 2–3.</p></li><li id="plastic-te-mechanics-ref-10" tabindex="-1"><span class="pt-ref-number">[10]</span><p>S. Yang et al. <a href="https://doi.org/10.1002/adma.202007681" target="_blank" rel="noopener">Ductile Ag20S7Te3 with Excellent Shape-Conformability and High Thermoelectric Performance.</a> <cite>Advanced Materials 33, 2007681 (2021).</cite></p></li><li id="plastic-te-mechanics-ref-11" tabindex="-1"><span class="pt-ref-number">[11]</span><p>Q. Yang et al. <a href="https://doi.org/10.1126/science.abq0682" target="_blank" rel="noopener">Flexible thermoelectrics based on ductile semiconductors.</a> <cite>Science 377, 854–858 (2022).</cite></p></li><li id="plastic-te-mechanics-ref-12" tabindex="-1"><span class="pt-ref-number">[12]</span><p>Z. Gao et al. <a href="https://doi.org/10.1038/s41563-025-02223-9" target="_blank" rel="noopener">Warm metalworking for plastic manufacturing in brittle semiconductors.</a> <cite>Nature Materials 24, 1538–1544 (2025).</cite></p></li><li id="plastic-te-mechanics-ref-13" tabindex="-1"><span class="pt-ref-number">[13]</span><p>C. Sun et al. <a href="https://doi.org/10.1039/D5EE06920C" target="_blank" rel="noopener">A highly integrated blade structure for thermoelectric devices with ultra-high output voltage and power densities.</a> <cite>Energy &amp; Environmental Science 19, 1080–1087 (2026).</cite></p></li><li id="plastic-te-mechanics-ref-14" tabindex="-1"><span class="pt-ref-number">[14]</span><p>C. Sun, X. Zhao et al. <a href="https://doi.org/10.1007/s44503-026-00002-4" target="_blank" rel="noopener">Flexible thermoelectric device with blade-like structure for ultrahigh output performance.</a> <cite>Watt 1, 3 (2026).</cite></p></li></ol></section><div class="pt-detail-next"><a class="pt-link" href="#plastic-te" data-view-link="plastic-te">Back to research overview <span aria-hidden="true">↗</span></a><a class="pt-link" href="#plastic-te-ag2se" data-view-link="plastic-te-ag2se">Next: my Ag₂Se-based study <span aria-hidden="true">↗</span></a></div></div></section>
+<section class="page-view pt-page te-research" id="plastic-te-ag2se" data-view="plastic-te-ag2se" data-view-parent="plastic-te" data-page-title="Compression plasticity. High fracture toughness." hidden aria-labelledby="plastic-te-ag2se-title"><div class="page-shell"><a class="back-link" href="#plastic-te" data-view-link="plastic-te">&larr; Plastic TE Materials</a><header class="pt-detail-hero"><p class="section-kicker">03 / My work · Ag₂Se-based thermoelectrics</p><h2 id="plastic-te-ag2se-title">Compression plasticity.<br />High fracture toughness.</h2><p>Our Ag₂Se₁₋ₓTeₓ study connects near-room-temperature thermoelectric performance with compressibility, strength, and resistance to crack propagation. Ag₂Se₀.₉Te₀.₁ is a representative composition.</p></header>
+<dl class="pt-stats"><div><dt>26.7 ± 4.5<small>%</small></dt><dd>Compression strain<br />Ag<sub>2</sub>Se<sub>0.9</sub>Te<sub>0.1</sub></dd></div><div><dt>4.5 ± 0.6<br /><small>MPa m<sup>1/2</sup></small></dt><dd>Fracture toughness K<sub>IC</sub><br />Ag<sub>2</sub>Se<sub>0.9</sub>Te<sub>0.1</sub></dd></div><div><dt>0.78</dt><dd><i>zT</i> at 300 K<br />1.1 at 380 K</dd></div></dl>
+<div class="pt-evidence"><div><p class="section-kicker">The mechanical evidence</p><h3>More than a compression curve.</h3><p>We measured compression and bending response, fracture toughness, and energy absorption across a series of Ag<sub>2</sub>Se<sub>1−x</sub>Te<sub>x</sub> compositions. Ag<sub>2</sub>Se<sub>0.9</sub>Te<sub>0.1</sub> reaches a compression strength of 279.2 ± 49 MPa alongside its large compressive strain.</p><p>Its fracture toughness and energy absorption provide complementary evidence of mechanical robustness.<a class="pt-cite" href="#plastic-te-ag2se" data-te-jump="plastic-te-ag2se-ref-7" aria-label="Reference 7">[7]</a></p><p class="pt-note">The alloys exhibit brittle behavior in bending. Compression plasticity is not evidence of equivalent tensile ductility.</p></div><figure class="te-figure"><button class="te-figure-button" type="button" aria-label="Enlarge: Strength, compression strain, and fracture toughness" data-te-figure="assets/research/nso-2025-mechanics.webp" data-figure-title="Strength, compression strain, and fracture toughness" data-figure-caption="Heyang Chen, Shenghong Ren et al. National Science Open 4, 20250005 (2025). Figure 2. Composition-dependent mechanical properties and energy absorption. Error bars denote standard deviations from multiple measurements. © The authors 2025, CC BY 4.0."><img src="assets/research/nso-2025-mechanics.webp" width="1812" height="1379" loading="lazy" decoding="async" alt="Composition-dependent mechanical properties and energy absorption. Error bars denote standard deviations from multiple measurements." /></button><figcaption>Strength, compression strain, and fracture toughness. <a href="https://doi.org/10.1360/nso/20250005" target="_blank" rel="noopener">NSO (2025), Fig. 2.</a></figcaption></figure></div>
+<div class="pt-evidence"><div><p class="section-kicker">Microstructural insight</p><h3>How is deformation accommodated?</h3><p>TEM after compression reveals dense dislocations and dislocation arrays. The observed sub-grain boundary structures also suggest a possible contribution from sub-grain rotation.</p><p>These observations connect the macroscopic response to deformation within the microstructure; sub-grain rotation remains a proposed mechanism.<a class="pt-cite" href="#plastic-te-ag2se" data-te-jump="plastic-te-ag2se-ref-7" aria-label="Reference 7">[7]</a></p></div><figure class="te-figure"><button class="te-figure-button" type="button" aria-label="Enlarge: Dislocations and sub-grain boundaries" data-te-figure="assets/research/nso-2025-microstructure.webp" data-figure-title="Dislocations and sub-grain boundaries" data-figure-caption="Heyang Chen, Shenghong Ren et al. National Science Open 4, 20250005 (2025). Figure 3. TEM of Ag₂Se₀.₉Te₀.₁ after 10% compression, showing dislocations, a dislocation array, and grain-boundary structures. © The authors 2025, CC BY 4.0."><img src="assets/research/nso-2025-microstructure.webp" width="1324" height="1199" loading="lazy" decoding="async" alt="TEM of Ag₂Se₀.₉Te₀.₁ after 10% compression, showing dislocations, a dislocation array, and grain-boundary structures." /></button><figcaption>Dislocations and sub-grain boundaries. <a href="https://doi.org/10.1360/nso/20250005" target="_blank" rel="noopener">NSO (2025), Fig. 3.</a></figcaption></figure></div>
+<div class="pt-evidence"><div><p class="section-kicker">Thermoelectric transport</p><h3>Useful performance near room temperature.</h3><p>The nominal Ag<sub>2</sub>Se<sub>0.9</sub>Te<sub>0.1</sub> composition reaches <i>zT</i> = 0.78 at 300 K and 1.1 at 380 K. Small Ag deficiencies are used to optimize transport; the paper retains nominal stoichiometric labels for readability.</p><p>The result brings compressive plasticity and high fracture toughness into the same material design discussion as carrier transport and thermal conductivity.<a class="pt-cite" href="#plastic-te-ag2se" data-te-jump="plastic-te-ag2se-ref-7" aria-label="Reference 7">[7]</a></p></div><figure class="te-figure"><button class="te-figure-button" type="button" aria-label="Enlarge: Thermoelectric transport in Ag₂Se₁₋ₓTeₓ" data-te-figure="assets/research/nso-2025-transport.webp" data-figure-title="Thermoelectric transport in Ag₂Se₁₋ₓTeₓ" data-figure-caption="Heyang Chen, Shenghong Ren et al. National Science Open 4, 20250005 (2025). Figure 4. Pisarenko relation, weighted mobility and lattice thermal conductivity, zT versus temperature, and zT versus carrier concentration. © The authors 2025, CC BY 4.0."><img src="assets/research/nso-2025-transport.webp" width="1692" height="1280" loading="lazy" decoding="async" alt="Pisarenko relation, weighted mobility and lattice thermal conductivity, zT versus temperature, and zT versus carrier concentration." /></button><figcaption>Thermoelectric transport in Ag₂Se₁₋ₓTeₓ. <a href="https://doi.org/10.1360/nso/20250005" target="_blank" rel="noopener">NSO (2025), Fig. 4.</a></figcaption></figure></div>
+<section class="pt-references" id="plastic-te-ag2se-references" aria-labelledby="plastic-te-ag2se-refs-title"><div class="pt-reference-heading"><h3 id="plastic-te-ag2se-refs-title" tabindex="-1">References</h3><p>Sources for this chapter · numbering follows the overview.</p></div><ol class="pt-ref-list"><li id="plastic-te-ag2se-ref-7" tabindex="-1"><span class="pt-ref-number">[7]</span><p><strong>Heyang Chen, Shenghong Ren et al.</strong> <a href="https://doi.org/10.1360/nso/20250005" target="_blank" rel="noopener">Robust mechanical properties of Ag₂Se₁₋ₓTeₓ thermoelectric materials.</a> <cite>National Science Open 4, 20250005 (2025).</cite></p></li></ol></section><div class="pt-detail-next"><a class="pt-link" href="#plastic-te" data-view-link="plastic-te">Back to research overview <span aria-hidden="true">↗</span></a><a class="pt-link" href="#plastic-te-ag2ssete" data-view-link="plastic-te-ag2ssete">Next: my ductile cubic-alloy study <span aria-hidden="true">↗</span></a></div></div></section><section class="page-view pt-page te-research" id="plastic-te-ag2ssete" data-view="plastic-te-ag2ssete" data-view-parent="plastic-te" data-page-title="Ductile cubic alloys. Shapeable thermoelectrics." hidden aria-labelledby="plastic-te-ag2ssete-title"><div class="page-shell"><a class="back-link" href="#plastic-te" data-view-link="plastic-te">&larr; Plastic TE Materials</a><header class="pt-detail-hero"><p class="section-kicker">03 / My work · Ag₂(S,Se,Te)</p><h2 id="plastic-te-ag2ssete-title">Ductile cubic alloys.<br />Shapeable thermoelectrics.</h2><p>High-entropy design in the pseudo-ternary Ag₂S–Ag₂Se–Ag₂Te system connects cubic crystal structure, tensile ductility, and thermoelectric transport. The materials can be shaped and roller-pressed into flexible foils.</p></header>
+<dl class="pt-stats"><div><dt>60–97<small>%</small></dt><dd>Tensile elongation across the<br />studied cubic compositions</dd></div><div><dt>0.45</dt><dd><i>zT</i> at 300 K; 0.8 at 460 K<br />Ag<sub>1.98</sub>S<sub>1/3</sub>Se<sub>1/3</sub>Te<sub>1/3</sub></dd></div><div><dt>30 <small>μm</small></dt><dd>Minimum demonstrated<br />roller-pressed foil thickness</dd></div></dl>
+<div class="pt-evidence"><div><p class="section-kicker">Composition &amp; structure</p><h3>Map the design space.</h3><p>We compiled composition–structure–plasticity–<i>zT</i> maps across the pseudo-ternary alloy system and outlined the cubic region. The equimolar S/Se/Te anion composition provides a high-entropy starting point, while small Ag deficiencies tune carrier concentration.<a class="pt-cite" href="#plastic-te-ag2ssete" data-te-jump="plastic-te-ag2ssete-ref-8" aria-label="Reference 8">[8]</a></p><p class="pt-note">The 15% bending strain in the phase map is restricted by the test geometry for ductile compositions; it is not an ultimate fracture strain.</p></div><figure class="te-figure"><button class="te-figure-button" type="button" aria-label="Enlarge: Composition, crystal structure, and properties" data-te-figure="assets/research/aem-2024-composition.webp" data-figure-title="Composition, crystal structure, and properties" data-figure-caption="Heyang Chen et al. Advanced Energy Materials 14, 2303473 (2024). Figure 1. Phase, configurational entropy, bending-strain and room-temperature zT maps, with XRD and microscopy. The 15% bending strain in ductile compositions is apparatus-limited. © 2023 Wiley-VCH GmbH."><img src="assets/research/aem-2024-composition.webp" width="1506" height="1939" loading="lazy" decoding="async" alt="Phase, configurational entropy, bending-strain and room-temperature zT maps, with XRD and microscopy. The 15% bending strain in ductile compositions is apparatus-limited." /></button><figcaption>Composition, crystal structure, and properties. <a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">AEM (2024), Fig. 1.</a></figcaption></figure></div>
+<div class="pt-evidence"><div><p class="section-kicker">Intrinsic ductility</p><h3>Large deformation in tension.</h3><p>Ag<sub>2</sub>S<sub>1/3</sub>Se<sub>1/3</sub>Te<sub>1/3</sub> reaches approximately 97% tensile elongation; Ag<sub>1.98</sub>S<sub>1/3</sub>Se<sub>1/3</sub>Te<sub>1/3</sub> reaches approximately 60%. Necking, slip bands, and local strain evolution provide evidence of large plastic deformation.</p><p>This tensile response supports a different processing opportunity from the compressive plasticity of the Ag<sub>2</sub>Se-based alloys.<a class="pt-cite" href="#plastic-te-ag2ssete" data-te-jump="plastic-te-ag2ssete-ref-8" aria-label="Reference 8">[8]</a></p></div><figure class="te-figure"><button class="te-figure-button" type="button" aria-label="Enlarge: Tensile, compression, and bending response" data-te-figure="assets/research/aem-2024-ductility.webp" data-figure-title="Tensile, compression, and bending response" data-figure-caption="Heyang Chen et al. Advanced Energy Materials 14, 2303473 (2024). Figure 2. Mechanical tests, digital image correlation, slip bands, and hardness of the cubic alloys. © 2023 Wiley-VCH GmbH."><img src="assets/research/aem-2024-ductility.webp" width="1506" height="1749" loading="lazy" decoding="async" alt="Mechanical tests, digital image correlation, slip bands, and hardness of the cubic alloys." /></button><figcaption>Tensile, compression, and bending response. <a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">AEM (2024), Fig. 2.</a></figcaption></figure></div>
+<div class="pt-evidence"><div><p class="section-kicker">Transport optimization</p><h3>Tune carriers, retain ductility.</h3><p>Ag deficiency lowers the carrier concentration and adjusts electrical and thermal transport. Ag<sub>1.98</sub>S<sub>1/3</sub>Se<sub>1/3</sub>Te<sub>1/3</sub> reaches <i>zT</i> = 0.45 at 300 K and 0.8 at 460 K.</p><p>The room-temperature κ–σ analysis suggests an average lattice thermal conductivity of approximately 0.2 W m<sup>−1</sup> K<sup>−1</sup> in the studied cubic materials.<a class="pt-cite" href="#plastic-te-ag2ssete" data-te-jump="plastic-te-ag2ssete-ref-8" aria-label="Reference 8">[8]</a></p></div><figure class="te-figure"><button class="te-figure-button" type="button" aria-label="Enlarge: Thermoelectric transport in the cubic alloys" data-te-figure="assets/research/aem-2024-transport.webp" data-figure-title="Thermoelectric transport in the cubic alloys" data-figure-caption="Heyang Chen et al. Advanced Energy Materials 14, 2303473 (2024). Figure 3. Seebeck coefficient, electrical conductivity, power factor, thermal conductivity, κ–σ relation, and zT versus temperature. © 2023 Wiley-VCH GmbH."><img src="assets/research/aem-2024-transport.webp" width="2060" height="1124" loading="lazy" decoding="async" alt="Seebeck coefficient, electrical conductivity, power factor, thermal conductivity, κ–σ relation, and zT versus temperature." /></button><figcaption>Thermoelectric transport in the cubic alloys. <a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">AEM (2024), Fig. 3.</a></figcaption></figure></div>
+<section class="pt-detail-section"><p class="section-kicker">From bulk material to a device</p><h3>Roll, shape, and generate power.</h3><p>Rolling produces foils down to 30 μm. A separate bending test on a 30 μm foil maintains R/R<sub>0</sub> within 99.2–101.3% over 150 cycles, with a minimum bending radius of approximately 3 mm.</p><p>A six-leg in-plane generator uses 50 μm Ag<sub>1.98</sub>S<sub>1/3</sub>Se<sub>1/3</sub>Te<sub>1/3</sub> foils, Pt wires, and Cu electrodes. At ΔT = 30 K, it delivers a maximum output power of 12.8 μW and a reported maximum power density of 14.3 W m<sup>−2</sup>.<a class="pt-cite" href="#plastic-te-ag2ssete" data-te-jump="plastic-te-ag2ssete-ref-8" aria-label="Reference 8">[8]</a></p><div class="pt-chart-grid"><figure class="te-figure"><button class="te-figure-button" type="button" aria-label="Enlarge: Rolling, shaping, and bending stability" data-te-figure="assets/research/aem-2024-foils.webp" data-figure-title="Rolling, shaping, and bending stability" data-figure-caption="Heyang Chen et al. Advanced Energy Materials 14, 2303473 (2024). Figure 5. Structure and transport versus foil thickness, flexible foil photographs, fracture surfaces, and resistance over 150 bending cycles. © 2023 Wiley-VCH GmbH."><img src="assets/research/aem-2024-foils.webp" width="1506" height="986" loading="lazy" decoding="async" alt="Structure and transport versus foil thickness, flexible foil photographs, fracture surfaces, and resistance over 150 bending cycles." /></button><figcaption>Rolling, shaping, and bending stability. <a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">AEM (2024), Fig. 5.</a></figcaption></figure><figure class="te-figure"><button class="te-figure-button" type="button" aria-label="Enlarge: Flexible in-plane thermoelectric device" data-te-figure="assets/research/aem-2024-device.webp" data-figure-title="Flexible in-plane thermoelectric device" data-figure-caption="Heyang Chen et al. Advanced Energy Materials 14, 2303473 (2024). Figure 6. Device schematic and infrared image, voltage and power versus current, and reported power-density comparison. © 2023 Wiley-VCH GmbH."><img src="assets/research/aem-2024-device.webp" width="1431" height="761" loading="lazy" decoding="async" alt="Device schematic and infrared image, voltage and power versus current, and reported power-density comparison." /></button><figcaption>Flexible in-plane thermoelectric device. <a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">AEM (2024), Fig. 6.</a></figcaption></figure></div><p class="pt-note">This is a laboratory device demonstration at the reported temperature difference. Its output is not an on-body power measurement or a demonstrated battery-free sensor system.</p></section>
+<section class="pt-references" id="plastic-te-ag2ssete-references" aria-labelledby="plastic-te-ag2ssete-refs-title"><div class="pt-reference-heading"><h3 id="plastic-te-ag2ssete-refs-title" tabindex="-1">References</h3><p>Sources for this chapter · numbering follows the overview.</p></div><ol class="pt-ref-list"><li id="plastic-te-ag2ssete-ref-8" tabindex="-1"><span class="pt-ref-number">[8]</span><p><strong>Heyang Chen et al.</strong> <a href="https://doi.org/10.1002/aenm.202303473" target="_blank" rel="noopener">High-Entropy Cubic Pseudo-Ternary Ag₂(S, Se, Te) Materials With Excellent Ductility and Thermoelectric Performance.</a> <cite>Advanced Energy Materials 14, 2303473 (2024).</cite></p></li></ol></section><div class="pt-detail-next"><a class="pt-link" href="#plastic-te" data-view-link="plastic-te">Back to research overview <span aria-hidden="true">↗</span></a><a class="pt-link" href="#plastic-te-applications" data-view-link="plastic-te-applications">Return to the application context <span aria-hidden="true">↗</span></a></div></div></section>
+      <dialog class="te-figure-dialog" id="te-figure-dialog" aria-labelledby="te-figure-title" aria-describedby="te-figure-caption">
+        <div class="te-dialog-header">
+          <h3 id="te-figure-title">Research figure</h3>
+          <button class="te-dialog-close" type="button" aria-label="Close figure" data-te-close autofocus>×</button>
+        </div>
+        <img alt="" />
+        <p id="te-figure-caption"></p>
+        <a class="te-dialog-original" data-te-full-size target="_blank" rel="noopener">Open full-resolution figure ↗</a>
+      </dialog>
 
       <section class="page-view" id="about" data-view="about" hidden aria-labelledby="about-title">
         <div class="page-shell">
           <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
           <div class="profile-layout about-intro">
             <div class="profile-copy">
-              <p class="section-kicker">About</p>
-              <h2 id="about-title">Research, tools, and the sky after dark</h2>
+              <p class="section-kicker">Heyang Chen</p>
+              <h2 id="about-title">About me</h2>
               <p>
-                I like problems where careful experiments, good data structure, and physical intuition all have to
-                meet. Outside the lab, this page holds a more personal layer too: deep-sky imaging, travel notes,
-                and small visual records from the places around the work.
+                I am a Research Fellow at Nanyang Technological University and a Visiting Postdoctoral Fellow at
+                Northwestern University. My research connects materials synthesis, transport physics, and mechanical
+                properties.
               </p>
-              <div class="personal-tags" aria-label="Personal interests">
-                <span>Astrophotography</span>
-                <span>Scientific plotting</span>
-                <span>Materials stories</span>
-                <span>Open notes</span>
+              <p>
+                My work spans high-entropy thermoelectric materials, ductile inorganic semiconductors, and flexible
+                devices. I also develop <a class="profile-inline-link" href="#current-work" data-view-link="current-work">TEDEX</a>,
+                a workspace for experimental data management, transport modeling, scientific plotting, and
+                AI-assisted materials screening.
+              </p>
+              <div class="profile-links" aria-label="CV and academic profiles">
+                <a href="assets/cv/Heyang_Chen_CV.pdf" target="_blank" rel="noopener">CV (PDF) <span aria-hidden="true">&nearr;</span></a>
+                <a href="https://scholar.google.com/citations?user=YEV-WyIAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">&nearr;</span></a>
+                <a href="https://orcid.org/0009-0004-5136-6317" target="_blank" rel="noopener">ORCID <span aria-hidden="true">&nearr;</span></a>
               </div>
             </div>
+          </div>
+
+          <div class="about-background">
+            <section class="career-section" aria-labelledby="experience-title">
+              <div class="career-heading">
+                <p class="section-kicker">Research appointments</p>
+                <h3 id="experience-title">Work experience</h3>
+              </div>
+              <ol class="career-list">
+                <li class="career-entry">
+                  <p class="career-date"><time datetime="2025-11">Nov 2025</time> &ndash; Present</p>
+                  <div class="career-details">
+                    <h4>Northwestern University</h4>
+                    <p class="career-role">Visiting Postdoctoral Fellow &middot; Department of Chemistry</p>
+                    <p class="career-location">Evanston, IL, USA</p>
+                    <p class="career-advisors">Supervisor: Prof. Mercouri G. Kanatzidis</p>
+                    <p class="career-summary">
+                      Exploring new chalcogenides and high-entropy thermoelectric materials with low thermal
+                      conductivity, alongside TEDEX workflows for data analysis and AI-assisted materials screening.
+                    </p>
+                    <div class="career-links" aria-label="Research at Northwestern">
+                      <a href="#current-work" data-view-link="current-work">Current Work <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <li class="career-entry">
+                  <p class="career-date"><time datetime="2025-05">May 2025</time> &ndash; Present</p>
+                  <div class="career-details">
+                    <h4>Nanyang Technological University</h4>
+                    <p class="career-role">Research Fellow &middot; School of Materials Science and Engineering</p>
+                    <p class="career-location">Singapore</p>
+                    <p class="career-advisors">Supervisor: Prof. Qingyu Yan</p>
+                    <p class="career-summary">Research in thermoelectric materials and their electrical and thermal transport properties.</p>
+                  </div>
+                </li>
+              </ol>
+            </section>
+
+            <section class="career-section" aria-labelledby="education-title">
+              <div class="career-heading">
+                <p class="section-kicker">Academic background</p>
+                <h3 id="education-title">Education</h3>
+              </div>
+              <ol class="career-list">
+                <li class="career-entry">
+                  <p class="career-date"><time datetime="2019-09">Sep 2019</time> &ndash; <time datetime="2025-03">Mar 2025</time></p>
+                  <div class="career-details">
+                    <h4>Shanghai Jiao Tong University</h4>
+                    <p class="career-role">Ph.D. in Materials Science and Engineering</p>
+                    <p class="career-location">Shanghai, China</p>
+                    <p class="career-advisors">Supervisors: Prof. Xun Shi and Prof. Tian-Ran Wei</p>
+                    <p class="career-summary">
+                      Doctoral research on thermoelectric transport and plasticity in inorganic semiconductors,
+                      including silver chalcogenides and van der Waals materials for flexible thermoelectric devices,
+                      wearable electronics, and sensors.
+                    </p>
+                    <div class="career-links" aria-label="Doctoral research themes">
+                      <a href="#plastic-te" data-view-link="plastic-te">Plastic TE Materials <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                  </div>
+                </li>
+                <li class="career-entry">
+                  <p class="career-date"><time datetime="2015-09">Sep 2015</time> &ndash; <time datetime="2019-06">Jun 2019</time></p>
+                  <div class="career-details">
+                    <h4>Shanghai Jiao Tong University</h4>
+                    <p class="career-role">B.S. in Materials Science and Engineering</p>
+                    <p class="career-location">Shanghai, China</p>
+                  </div>
+                </li>
+              </ol>
+            </section>
           </div>
 
           <section class="personal-pages" aria-labelledby="personal-pages-title">
             <div class="personal-pages-heading">
               <div>
-                <p class="section-kicker">Personal pages</p>
+                <p class="section-kicker">Beyond research</p>
                 <h3 id="personal-pages-title">Small records outside the lab</h3>
               </div>
               <p>
-                A growing row for the personal side of this page. The sky gallery is live now; pet, bird, and running
-                notes can drop into the same structure later.
+                Outside the lab, I enjoy astrophotography and keeping small visual records of the world around me.
+                This is a home for deep-sky images and personal notes.
               </p>
             </div>
 
@@ -1152,6 +1577,12 @@
       <p>Built with plain HTML, CSS, and JavaScript. Hosted on GitHub Pages.</p>
     </footer>
 
-    <script src="assets/main.js"></script>
+    <script src="assets/main.js?v=20261109-merged"></script>
+    <script src="assets/mechanics.js"></script>
+    <script src="assets/research/ductility-map-data.js?v=20261109"></script>
+    <script src="assets/ductility-map.js?v=20261109"></script>
+    <script src="assets/te-materials.js"></script>
+    <script src="assets/thermoelectric-model.js"></script>
+    <script src="assets/thermoelectric-lab.js"></script>
   </body>
 </html>

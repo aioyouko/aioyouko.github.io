@@ -1,0 +1,528 @@
+{
+  "facilities": [
+    {
+      "text": "Northwesten Core Research Facilities",
+      "href": "https://facilities.research.northwestern.edu/"
+    },
+    {
+      "text": "NUcore Reservations",
+      "href": "https://nucore.northwestern.edu/facilities"
+    },
+    {
+      "text": "IMSERC Homepage",
+      "href": "http://imserc.northwestern.edu/"
+    },
+    {
+      "text": "NUANCE/EPIC Homepage",
+      "href": "http://www.nuance.northwestern.edu/"
+    },
+    {
+      "text": "GIANTFab Homepage",
+      "href": "https://isen.northwestern.edu/giantfab"
+    },
+    {
+      "text": "Research Machine Shop",
+      "href": "https://researchshop.facilities.northwestern.edu/"
+    }
+  ],
+  "videos": [
+    {
+      "text": "Kanatzidis Lab Tour Video",
+      "href": "https://www.youtube.com/watch?v=KD_SORp66Pk"
+    },
+    {
+      "text": "Alkali Metal Chalcogenide Synthesis in Ammonia Video",
+      "href": "https://www.youtube.com/watch?v=2SCKDt5hIUI"
+    },
+    {
+      "text": "How to Make and Seal Fused Silica Tubes",
+      "href": "https://www.youtube.com/watch?v=66IPBFEKOhE"
+    },
+    {
+      "text": "Exploratory Synthesis of Novel Materials",
+      "href": "https://www.youtube.com/watch?v=AErPTHxS9FY"
+    }
+  ],
+  "media": [
+    {
+      "text": "here",
+      "href": "https://www.rsc.org/prizes-funding/prizes/2023-winners/professor-mercouri-kanatzidis/"
+    },
+    {
+      "text": "2015 Royal Society of Chemistry de Gennes Prize",
+      "href": "http://www.rsc.org/ScienceAndTechnology/Awards/deGennesPrize/2015-winner.asp"
+    },
+    {
+      "text": "2014 MRS Medal",
+      "href": "http://www.mrs.org/medal"
+    },
+    {
+      "text": "here",
+      "href": "https://www.youtube.com/watch?v=sG_evRbyzgE"
+    },
+    {
+      "text": "Nature Photonics",
+      "href": "http://www.nature.com/nphoton/journal/v8/n6/full/nphoton.2014.82.html"
+    },
+    {
+      "text": "UPI",
+      "href": "http://www.upi.com/Science_News/2014/05/05/Scientists-create-new-cheaper-solar-cells-with-tin-instead-of-lead/7011399300816/"
+    },
+    {
+      "text": "International Business Times",
+      "href": "http://www.ibtimes.com/solar-cells-made-tin-are-very-promising-low-cost-alternative-energy-source-1580105"
+    },
+    {
+      "text": "Christian Science Monitor",
+      "href": "http://www.csmonitor.com/Environment/2014/0505/Solar-power-breakthrough-hints-at-cheaper-panels-for-more-roofs-video"
+    },
+    {
+      "text": "CNET",
+      "href": "http://www.cnet.com/news/coming-soon-a-better-solar-cell-and-without-poison/"
+    },
+    {
+      "text": "IEEE Spectrum Magazine",
+      "href": "http://spectrum.ieee.org/energywise/green-tech/solar/two-labs-get-the-lead-out-of-promising-perovskite-solar-cells"
+    },
+    {
+      "text": "Nature",
+      "href": "http://www.nature.com/nature/journal/v508/n7496/full/nature13184.html"
+    },
+    {
+      "text": "LinkedIn",
+      "href": "https://www.linkedin.com/groupItem?view=&item=5864122190240174080&type=member&gid=5093109&trk=eml-b2_anet_digest-null-2-null&fromEmail=fromEmail&ut=0jNfPHI1QPB6c1"
+    },
+    {
+      "text": "Nature",
+      "href": "http://www.nature.com/nature/journal/v489/n7416/full/nature11439.html"
+    },
+    {
+      "text": "Science Daily",
+      "href": "http://www.sciencedaily.com/releases/2012/09/120919135310.htm"
+    },
+    {
+      "text": "Gizmag",
+      "href": "http://www.gizmag.com/most-efficient-thermoelectric-material/24210/"
+    },
+    {
+      "text": "Next Big Future",
+      "href": "http://nextbigfuture.com/2012/09/commercializable-thermoelectric.html"
+    },
+    {
+      "text": "NU McCormick News",
+      "href": "http://www.mccormick.northwestern.edu/news/articles/2012/09/vinayak-dravid-thermoelectric-material-world-record.html"
+    },
+    {
+      "text": "BioPortfolio",
+      "href": "http://www.bioportfolio.com/news/article/1173494/High-performance-Bulk-Thermoelectrics-With-All-scale-Hierarchical-Architectures.html"
+    },
+    {
+      "text": "thenakedscientists.com",
+      "href": "http://www.thenakedscientists.com/HTML/content/news-archive/news/2659/"
+    },
+    {
+      "text": "The Iconocast News",
+      "href": "http://www.iconocast.com/07-11-2012/97/Researchers-step-closer-to-new-kind-of-thermoelectric-heat-engine.php"
+    },
+    {
+      "text": "Nature",
+      "href": "http://www.nature.com/nature/journal/v485/n7399/full/nature11067.html"
+    },
+    {
+      "text": "nanowerk.com",
+      "href": "http://www.nanowerk.com/news/newsid=25350.php"
+    },
+    {
+      "text": "ieee.org",
+      "href": "http://spectrum.ieee.org/nanoclast/semiconductors/nanotechnology/solidstate-dyesensitized-solar-cell-matches-performance-of-grtzel-cell"
+    },
+    {
+      "text": "technologyreview.com",
+      "href": "http://www.technologyreview.com/energy/40473/"
+    },
+    {
+      "text": "gizmag.com",
+      "href": "http://www.gizmag.com/dye-sensitized-solar-cell/22664/"
+    },
+    {
+      "text": "ecoseed.org",
+      "href": "http://www.ecoseed.org/technology/13147-solid-electrolyte-developed-for-dye-sensitized-solar-cells/"
+    },
+    {
+      "text": "Advanced Materials",
+      "href": "http://onlinelibrary.wiley.com/doi/10.1002/adma.201102450/abstract"
+    },
+    {
+      "text": "theengineer.co.uk",
+      "href": "http://www.theengineer.co.uk/sectors/military-and-defence/news/new-materials-could-lead-to-handheld-nuclear-detector/1009988.article"
+    },
+    {
+      "text": "iom3.org",
+      "href": "http://www.iom3.org/news/gamma-rays-enter-new-dimension"
+    },
+    {
+      "text": "economictimes.com",
+      "href": "http://articles.economictimes.indiatimes.com/2011-09-13/news/30149548_1_nuclear-weapons-and-materials-dangerous-materials-nuclear-bomb"
+    },
+    {
+      "text": "futurity.org",
+      "href": "http://www.futurity.org/science-technology/semiconductors-sniff-out-nuclear-weapons/"
+    },
+    {
+      "text": "security-technologynews.com",
+      "href": "http://www.security-technologynews.com/news/hard-radiation-detection-material-research.html"
+    },
+    {
+      "text": "physnews.com",
+      "href": "http://www.physnews.com/materials-news/cluster181682346/"
+    },
+    {
+      "text": "Nature Materials",
+      "href": "http://www.nature.com/nchem/journal/vaop/ncurrent/pdf/nchem.519.pdf"
+    },
+    {
+      "text": "US News and World Report",
+      "href": "http://www.usnews.com/science/articles/2010/01/26/new-material-sops-up-radioactive-cesium.html"
+    },
+    {
+      "text": "ABC Online",
+      "href": "http://www.abc.net.au/news/stories/2010/01/26/2801857.htm"
+    },
+    {
+      "text": "Science Magazine",
+      "href": "http://sciencenow.sciencemag.org/cgi/content/full/2010/126/1"
+    },
+    {
+      "text": "Eureka Alert",
+      "href": "http://www.eurekalert.org/pub_releases/2010-01/nu-avf012610.php"
+    },
+    {
+      "text": "spongy chalcogels",
+      "href": "http://www.nature.com/nchem/journal/v1/n3/abs/nchem.208.html"
+    },
+    {
+      "text": "online. February, 2009 G. Makis' new, efficient method of producing purer hydrogen cells published in Nature Materials and featured online. January, 2009 Joseph Sootsman's article featured on MSNBC. October, 2008 Argonne National Laboratory Press Release Features Banerjee's 1/∞[ZrPSe6-] (JACS 08/21/08) compound that may serve to detect chemical and biological weapons. Argonne National Laboratory Release http://www.eurekalert.org/ http://www.sciencecodex.com/ http://esciencenews.com/ http://google-sina.com/ http://www.labspaces.net/ http://www.lightsources.org/cms/?pid=1003032 http://www.bio-medicine.org/ http://www.chemie.de/ http://www.prweb.com/ http://bitnavegante.blogspot.com/ http://www.fiberopticsonline.com http://www.photonicsonline.com http://presszoom.com/ http://www.emediawire.com/ http://www.medicalnewstoday.com/ http://www.chemistrytimes.com/ http://www.physorg.com/ http://www.chemeurope.com/ http://www.sciencenewsdaily.org/ http://www.lpi-enewsflash.com/ http://aurmoth.blogspot.com/ http://pda.physorg.com/ http://www.brightsurf.com/ http://eetimes.com http://blogs.physicstoday.org March, 2008 Manos and Ding publish a paper in PNAS on Sr removal using KMS-I. (Potassium Metal Sulfide 1). It has been highlighted in many articles in the media. Articles (Click for Links): 1.Chemistry World, 2. Chemie.De, 3. Northwestern News Center August 2007 Santanu Bag's paper on chalcogel research is published in Science and is highlighted in many articles in the media. Articles (Click for Links): 1.Chemistry World, 2. BBC News, 3. Scientific American, 4. FOX News, 5. Times of India, 6. Indian Express , 7. Chemical & Engineering,� 8. Reuters, 9. Yahoo, 10. UK Sunday Times, 11. Los Angeles Times, 12. London Times, 13. US ABC News, 14. Metals Place, 15. ABC Net, 16. Chemistry Europe, 17. Earthhope, 18. Planetark, 19. Epoch Times, �20. NewHeavenNewEarth, 21. Kerala News, 22. Daily Grail, 23. IndianPad, 24. Environmetal Technology, 25.� Product Reviews, 26. � NewScientistTech, 27. ScienceNews, 28. Netscape, 29. ScienceORF, 30. Wossenschaft, 31. EurekAlert, 32. HarvardNews, 33. ForumtechnoScience, 34. � TechnoScience, 35. Abendblatt, 36. ChemicalScienceNews, 37.� CuriousCat, 38.� FaaB, 39. �MysteriousUniverse,� 40. eFluxMedia,� 41. Farlex,� 42. Uplink, 43. Softpedia,��44. People's Daily, 45. China View January 2007 Emmanouil Manos' cover article on Ion Exchange Materials. Front Page Cover of Chemistry: A European Journal Heavy-Metal-Ion Capture, Ion-Exchange, and Exceptional Acid Stability of the Open-Framework Chalcogenide (NH4)4In12Se20 Click For Article",
+      "href": "http://www.sciencedaily.com/releases/2009/05/090517143341.htm"
+    },
+    {
+      "text": "new, efficient method of producing purer hydrogen cells",
+      "href": "http://www.nature.com/nmat/journal/v8/n3/full/nmat2381.html"
+    },
+    {
+      "text": "online.",
+      "href": "http://www.gasworld.com/news.php?a=3568"
+    },
+    {
+      "text": "article",
+      "href": "http://www3.interscience.wiley.com/cgi-bin/fulltext/121431316/PDFSTART"
+    },
+    {
+      "text": "MSNBC",
+      "href": "http://www.msnbc.msn.com/id/27916289/"
+    },
+    {
+      "text": "Argonne National Laboratory Release",
+      "href": "http://www.anl.gov/Media_Center/News/2008/news080926.html"
+    },
+    {
+      "text": "http://www.eurekalert.org/",
+      "href": "http://www.eurekalert.org/pub_releases/2008-09/dnl-asp092608.php"
+    },
+    {
+      "text": "http://www.sciencecodex.com/",
+      "href": "http://www.sciencecodex.com/argonne_scientists_peer_into_heart_of_compound_that_may_detect_chemical_biological_weapons"
+    },
+    {
+      "text": "http://esciencenews.com/",
+      "href": "http://esciencenews.com/articles/2008/09/26/argonne.scientists.peer.heart.compound.may.detect.chemical.biological.weapons"
+    },
+    {
+      "text": "http://google-sina.com/",
+      "href": "http://google-sina.com/2008/09/27/scientists-peer-into-heart-of-compound-that-may-detect-chemical-biological-weapons/"
+    },
+    {
+      "text": "http://www.labspaces.net/",
+      "href": "http://www.labspaces.net/91670/Scientists_peer_into_heart_of_compound_that_may_detect_chemical__biological_weapons"
+    },
+    {
+      "text": "http://www.lightsources.org/cms/?pid=1003032",
+      "href": "http://www.lightsources.org/cms/?pid=1003032"
+    },
+    {
+      "text": "http://www.bio-medicine.org/",
+      "href": "http://www.bio-medicine.org/biology-news-1/Argonne-scientists-peer-into-heart-of-compound-that-may-detect-chemical--biological-weapons-5098-1/"
+    },
+    {
+      "text": "http://www.chemie.de/",
+      "href": "http://www.chemie.de/news/e/87606/"
+    },
+    {
+      "text": "http://www.prweb.com/",
+      "href": "http://www.prweb.com/ebooknews/chemical_digest.pdf"
+    },
+    {
+      "text": "http://bitnavegante.blogspot.com/",
+      "href": "http://bitnavegante.blogspot.com/2008/09/detectar-sustancias-qumicas-armas.html"
+    },
+    {
+      "text": "http://www.fiberopticsonline.com",
+      "href": "http://www.fiberopticsonline.com/article.mvc/Argonne-Scientists-Peer-Into-Heart-Of-0001?VNETCOOKIE=NO"
+    },
+    {
+      "text": "http://www.photonicsonline.com",
+      "href": "http://www.photonicsonline.com/article.mvc/Argonne-Scientists-Peer-Into-Heart-Of-0001?VNETCOOKIE=NO"
+    },
+    {
+      "text": "http://presszoom.com/",
+      "href": "http://presszoom.com/story_145930.html"
+    },
+    {
+      "text": "http://www.emediawire.com/",
+      "href": "http://www.emediawire.com/releases/Argonne/National_Laboratory/emw1387354.htm"
+    },
+    {
+      "text": "http://www.medicalnewstoday.com/",
+      "href": "http://www.medicalnewstoday.com/articles/123343.php"
+    },
+    {
+      "text": "http://www.chemistrytimes.com/",
+      "href": "http://www.chemistrytimes.com/Research/Compound_could_help_detect_chemical_biological_weapons.asp"
+    },
+    {
+      "text": "http://www.physorg.com/",
+      "href": "http://www.physorg.com/news141646267.html"
+    },
+    {
+      "text": "http://www.chemeurope.com/",
+      "href": "http://www.chemeurope.com/news/e/87606/?WT.mc_id=ca0069"
+    },
+    {
+      "text": "http://www.sciencenewsdaily.org/",
+      "href": "http://www.sciencenewsdaily.org/story-141646267.html"
+    },
+    {
+      "text": "http://www.lpi-enewsflash.com/",
+      "href": "http://www.lpi-enewsflash.com/index.php?id=14&tx_ttnews%5Btt_news%5D=488&cHash=65536"
+    },
+    {
+      "text": "http://aurmoth.blogspot.com/",
+      "href": "http://aurmoth.blogspot.com/"
+    },
+    {
+      "text": "http://pda.physorg.com/",
+      "href": "http://pda.physorg.com/lofi-news-chemical-structure-material_141646267.html"
+    },
+    {
+      "text": "http://www.brightsurf.com/",
+      "href": "http://www.brightsurf.com/news/headlines/40515/Argonne_scientists_peer_into_heart_of_compound_that_may_detect_chemical_biological_weapons.html"
+    },
+    {
+      "text": "http://eetimes.com",
+      "href": "http://www.eetimes.com/news/latest/showArticle.jhtml?articleID=210605464"
+    },
+    {
+      "text": "http://blogs.physicstoday.org",
+      "href": "http://blogs.physicstoday.org/update/2008/10/structure_of_strongly_nonlinea.html"
+    },
+    {
+      "text": "paper in PNAS",
+      "href": "http://www.pnas.org/cgi/reprint/0711528105v1"
+    },
+    {
+      "text": "Chemistry World",
+      "href": "http://www.rsc.org/chemistryworld/News/2008/March/03030802.asp"
+    },
+    {
+      "text": "Chemie.De",
+      "href": "http://www.chemie.de/news/e/79039/"
+    },
+    {
+      "text": "Northwestern News Center",
+      "href": "http://www.northwestern.edu/newscenter/stories/2008/03/nuclearwaste.html"
+    },
+    {
+      "text": "Science",
+      "href": "http://santanu.nu.googlepages.com/Bagetal.pdf"
+    },
+    {
+      "text": "Chemistry World",
+      "href": "http://www.rsc.org/chemistryworld/News/2007/July/26070701.asp"
+    },
+    {
+      "text": "BBC News",
+      "href": "http://news.bbc.co.uk/1/hi/sci/tech/6917753.stm"
+    },
+    {
+      "text": "Scientific American",
+      "href": "http://www.sciam.com/article.cfm?articleID=044B7489-E7F2-99DF-3433709C76B127DF"
+    },
+    {
+      "text": "FOX News",
+      "href": "http://www.foxnews.com/story/0,2933,293825,00.html"
+    },
+    {
+      "text": "Times of India",
+      "href": "http://timesofindia.indiatimes.com/New_material_can_soak_up_pollutants/articleshow/2239859.cms"
+    },
+    {
+      "text": "Indian Express",
+      "href": "http://www.indianexpress.com/sunday/story/209890.html"
+    },
+    {
+      "text": "Chemical & Engineering",
+      "href": "http://pubs.acs.org/isubscribe/journals/cen/85/i31/html/8531scic.html#1"
+    },
+    {
+      "text": "Reuters",
+      "href": "http://www.reuters.com/article/scienceNews/idUSN2618995520070726"
+    },
+    {
+      "text": "Yahoo",
+      "href": "http://messages.finance.yahoo.com/Stocks_(A_to_Z)/Stocks_B/threadview?m=tm&bn=22804&tid=139483&mid=139483&tof=12&frt=2"
+    },
+    {
+      "text": "UK Sunday Times",
+      "href": "http://www.timesonline.co.uk/tol/news/uk/science/article2284349.ece"
+    },
+    {
+      "text": "Los Angeles Times",
+      "href": "http://www.latimes.com/news/science/la-sci-aerogel28jul28,1,1553482.story?track=rss"
+    },
+    {
+      "text": "London Times",
+      "href": "http://blog.wired.com/gadgets/2007/08/what-would-you-.html"
+    },
+    {
+      "text": "US ABC News",
+      "href": "http://abcnews.go.com/US/wireStory?id=3418746"
+    },
+    {
+      "text": "Metals Place",
+      "href": "http://metalsplace.com/news/?a=13706"
+    },
+    {
+      "text": "ABC Net",
+      "href": "http://abc.net.au/science/news/stories/2007/1989897.htm"
+    },
+    {
+      "text": "Chemistry Europe",
+      "href": "http://www.chemeurope.com/news/e/66724/"
+    },
+    {
+      "text": "Earthhope",
+      "href": "http://earthhopenetwork.net/New_Material_Soak_up_Pollutants.htm"
+    },
+    {
+      "text": "Planetark",
+      "href": "http://www.planetark.com/dailynewsstory.cfm/newsid/43307/story.htm"
+    },
+    {
+      "text": "Epoch Times",
+      "href": "http://epoch-archive.com/a1/en/au/nnn/2007/08-Aug/Edition%20134/Edition%20134_page08.pdf"
+    },
+    {
+      "text": "NewHeavenNewEarth",
+      "href": "http://www.nhne.org/news/NewsArticlesArchive/tabid/400/articleType/ArticleView/articleId/3424/Scientists-Say-Frozen-Smoke-Will-Change-World.aspx"
+    },
+    {
+      "text": "Kerala News",
+      "href": "http://www.newkerala.com/july.php?action=fullnews&id=49705"
+    },
+    {
+      "text": "Daily Grail",
+      "href": "http://www.dailygrail.com/node/5167"
+    },
+    {
+      "text": "IndianPad",
+      "href": "http://www.indianpad.com/story/88871"
+    },
+    {
+      "text": "Environmetal Technology",
+      "href": "http://www.export.gov.il/Eng/_Articles/Article.asp?CategoryID=354&ArticleID=6521"
+    },
+    {
+      "text": "Product Reviews",
+      "href": "http://www.product-reviews.net/2007/08/20/scientist-say-aerogel-is-the-new-miracle-chemical/"
+    },
+    {
+      "text": "NewScientistTech",
+      "href": "http://technology.newscientist.com/article.ns?id=dn12360&feedId=online-news_rss20"
+    },
+    {
+      "text": "ScienceNews",
+      "href": "http://www.sciencenews.org/articles/20070728/fob4ref.asp"
+    },
+    {
+      "text": "Netscape",
+      "href": "http://science.propeller.com/story/2007/07/26/novel-gel-soaks-up-heavy-metal-pollution/comments/0#comment1130407"
+    },
+    {
+      "text": "ScienceORF",
+      "href": "http://translate.google.com/translate?hl=en&sl=de&u=http://science.orf.at/science/news/148864&sa=X&oi=translate&resnum=9&ct=result&prev=/search%3Fq%3DSantanu%2Bbag%26start%3D10%26hl%3Den%26sa%3DN"
+    },
+    {
+      "text": "Wossenschaft",
+      "href": "http://translate.google.com/translate?hl=en&sl=de&u=http://www.wissenschaft.de/wissenschaft/news/280989.html&sa=X&oi=translate&resnum=5&ct=result&prev=/search%3Fq%3DSantanu%2Bbag%26start%3D30%26hl%3Den%26sa%3DN"
+    },
+    {
+      "text": "EurekAlert",
+      "href": "http://translate.google.com/translate?hl=en&sl=es&u=http://www.eurekalert.org/staticrel.php%3Fview%3Dsci072707sp&sa=X&oi=translate&resnum=8&ct=result&prev=/search%3Fq%3DSantanu%2BBag%26start%3D30%26hl%3Den%26sa%3DN"
+    },
+    {
+      "text": "HarvardNews",
+      "href": "http://adsabs.harvard.edu/abs/2007Sci...317..490B"
+    },
+    {
+      "text": "ForumtechnoScience",
+      "href": "http://translate.google.com/translate?hl=en&sl=fr&u=http://www.techno-science.net/forum/viewtopic.php%3Ft%3D9577&sa=X&oi=translate&resnum=3&ct=result&prev=/search%3Fq%3DSantanu%2BBag%26start%3D50%26hl%3Den%26sa%3DN"
+    },
+    {
+      "text": "TechnoScience",
+      "href": "http://translate.google.com/translate?hl=en&sl=fr&u=http://www.techno-science.net/%3Fonglet%3Dnews%26news%3D4341&sa=X&oi=translate&resnum=2&ct=result&prev=/search%3Fq%3DSantanu%2BBag%26start%3D50%26hl%3Den%26sa%3DN"
+    },
+    {
+      "text": "Abendblatt",
+      "href": "http://translate.google.com/translate?hl=en&sl=de&u=http://www.abendblatt.de/daten/2007/07/27/775991.html&sa=X&oi=translate&resnum=10&ct=result&prev=/search%3Fq%3DSantanu%2BBag%26start%3D50%26hl%3Den%26sa%3DN"
+    },
+    {
+      "text": "ChemicalScienceNews",
+      "href": "http://translate.google.com/translate?hl=en&sl=ru&u=http://www.chemport.ru/datenews.php%3Fnews%3D576&sa=X&oi=translate&resnum=9&ct=result&prev=/search%3Fq%3DSantanu%2BBag%26start%3D50%26hl%3Den%26sa%3DN"
+    },
+    {
+      "text": "CuriousCat",
+      "href": "http://engineering.curiouscatblog.net/2007/08/06/aerogels-cool-substances/"
+    },
+    {
+      "text": "FaaB",
+      "href": "http://faab64.blogspot.com/2007/08/revolutionary-new-material.html"
+    },
+    {
+      "text": "MysteriousUniverse",
+      "href": "http://www.mysteriousuniverse.org/?p=1447"
+    },
+    {
+      "text": "eFluxMedia",
+      "href": "http://www.efluxmedia.com/news_Chalcogel_Could_Clean_Water_of_Heavy_Metals_07286.html"
+    },
+    {
+      "text": "Farlex,",
+      "href": "http://www.thefreelibrary.com/Sop+story:+new+porous+gel+soaks+up+heavy+metal-a0167346206"
+    },
+    {
+      "text": "Uplink",
+      "href": "http://uplink.space.com/showflat.php?Cat=&Board=tech&Number=756106&page=4&view=expanded&sb=5&o=0&fpart="
+    },
+    {
+      "text": "Softpedia",
+      "href": "http://news.softpedia.com/news/Highly-Efficient-Heavy-Metal-Filter-Made-Mostly-of-Air-61157.shtml"
+    },
+    {
+      "text": "People's Daily",
+      "href": "http://english.people.com.cn/90001/90781/6225599.html"
+    },
+    {
+      "text": "China View",
+      "href": "http://news.xinhuanet.com/english/2007-07/27/content_6438305.htm"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "category": "Synthesis & crystal growth",
+  "inventory_source": "https://chemgroups.northwestern.edu/kanatzidis/resources.html",
+  "assets": [
+    {
+      "equipment_title": "Dr. Sinter-Lab SPS-515 S spark plasma sintering system",
+      "exact_model_identity": "Dr. SINTER LAB Series SPS 515S, as explicitly identified on the source page",
+      "file": "/private/tmp/resource-assets/synthesis/dr-sinter-sps-515s-sdsu-original.avif",
+      "preview_file": "/private/tmp/resource-assets/synthesis/dr-sinter-sps-515s-sdsu-original.png",
+      "source": "https://aesc.sdsu.edu/~ptl/facilities.html",
+      "source_institution": "San Diego State University, Powder Technology Laboratory",
+      "image_url": "https://aesc.sdsu.edu/~ptl/images/facility/SPSMachine.avif",
+      "dimensions": {
+        "width": 2348,
+        "height": 1699
+      },
+      "provenance": "Another university laboratory; model reference only, not Kanatzidis laboratory equipment photo",
+      "suggested_visible_label": "Model reference \u00b7 SDSU Powder Technology Laboratory",
+      "inspection": "Visually inspected decoded PNG. Shows Dr. Sinter-Lab press and control cabinets. Exact 515S identification comes from source card heading.",
+      "notes": "Original AVIF preserved. PNG is format conversion only. Public source has an expired/untrusted TLS certificate in curl; fetched with certificate verification disabled. Source website specifications must not replace original Kanatzidis inventory specifications."
+    },
+    {
+      "equipment_title": "Struers Accutom-50 precision cutting saw",
+      "exact_model_identity": "Struers Accutom 50, as explicitly identified by source table and visible front-panel label",
+      "file": "/private/tmp/resource-assets/synthesis/struers-accutom-50-leuven-original.png",
+      "source": "https://gbiomed.kuleuven.be/english/research/50000644/research/biomat/in-house-research-infrastructure-of-biomat",
+      "source_institution": "KU Leuven, BIOMAT",
+      "image_url": "https://gbiomed.kuleuven.be/english/research/50000644/research/biomat/img/inhouse-equipment/accutom.png",
+      "dimensions": {
+        "width": 400,
+        "height": 280
+      },
+      "provenance": "University-hosted studio product photograph; model reference only, not Kanatzidis laboratory equipment photo",
+      "suggested_visible_label": "Model reference \u00b7 KU Leuven BIOMAT",
+      "inspection": "Visually inspected. Clean three-quarter photograph of the Accutom-50 with open cutting chamber; front label reads Accutom-50.",
+      "notes": "Below the preferred 600px resolution. The source original is 400\u00d7280; no upscaling performed. Better suited to a small card."
+    }
+  ],
+  "fallback_assets": [
+    {
+      "equipment_title": "Struers Accutom-50",
+      "file": "/private/tmp/resource-assets/synthesis/struers-accutom-50-uq-original.jpg",
+      "source": "https://cmm.centre.uq.edu.au/node/2620",
+      "image_url": "https://cmm.centre.uq.edu.au/files/24035/Struers%20Accutom%2050.JPG",
+      "dimensions": {
+        "width": 245,
+        "height": 240
+      },
+      "provenance": "University of Queensland lab photograph; model reference only",
+      "notes": "Inspected but lower resolution and poorer composition than the KU Leuven photograph; not recommended."
+    }
+  ],
+  "unavailable": "No verified Kanatzidis-specific glovebox or furnace photograph located in the bounded search. No newer-model substitutions used."
+}

@@ -1,0 +1,67 @@
+{
+  "release": "2026-11-09",
+  "selected_snapshot": "2026-11-04",
+  "configurations": 76,
+  "complete_configurations": 64,
+  "slots_per_configuration": 114,
+  "source_bundle_sha256": "784520d87ed73c33cb1059473ec923302ce560b0f28ce4030a474c60f479a58a",
+  "model_order_sha256": "22e26259f41bb2fbcccfb02b5828f19a8edbdd5eb1132a1fa481d69d402ff148",
+  "files": {
+    "D1_different.js": {
+      "bytes": 4317508,
+      "sha256": "2384bb9743fa4368ac6cd45b1f25999b68bf71c3bbf254ce29ce6f2c9948d983"
+    },
+    "D1_different_csv.zip": {
+      "bytes": 1274045,
+      "sha256": "54b1632b04c1776ffea046eab2049d8883ee64e087c547af1419f66f685acc65"
+    },
+    "D1_same.js": {
+      "bytes": 2128631,
+      "sha256": "84726ae4c0cc7295dec25e0877cc177bb710d4afb8391137deaa2d8fddad8ba0"
+    },
+    "D1_same_csv.zip": {
+      "bytes": 760095,
+      "sha256": "9ae96ea9c252a4c9bf6911c667237d303486f8f413b56d8b0d88fb1604759204"
+    },
+    "D2_with.js": {
+      "bytes": 19434024,
+      "sha256": "271cd3e985827cda283ed6d24f8d7345580f844b06e98cfe675cd4ef694c8386"
+    },
+    "D2_with_csv.zip": {
+      "bytes": 7381518,
+      "sha256": "fa94ff4a2582704982cff7a9d4d621a3d11fe9a594fc275972533be406e90a11"
+    },
+    "D2_without.js": {
+      "bytes": 19132955,
+      "sha256": "9f5e929be3a14209ce60e4ee57025c49d547a78ca76a981710f6c68bdcbc5940"
+    },
+    "D2_without_csv.zip": {
+      "bytes": 7269276,
+      "sha256": "068874243f72f98449a448b23df154d530b22f80dbcbb58c862e69521203b072"
+    },
+    "Plot_Condition_Reliability.csv": {
+      "bytes": 86951,
+      "sha256": "9b98947b6bf87845522971900cb54bb5ea1ef5d8208be1697d36a239b16b9da9"
+    },
+    "Target_Budget_Variants.csv": {
+      "bytes": 29610,
+      "sha256": "baf50dcf2fc7843a4df713111a1419a3f691e6976c616f875f8717260fd08122"
+    },
+    "Target_Coverage.csv": {
+      "bytes": 8783,
+      "sha256": "f41f3438ebb880c732c400f84cfc277879af17f127c252f8c544403756626da3"
+    },
+    "Target_Track_Audit.csv": {
+      "bytes": 31114,
+      "sha256": "1dc79df686b70f29d8125597b0672e99e0a7395e28cc43c40f37bd5e2a9ed8fb"
+    },
+    "audit.js": {
+      "bytes": 23386,
+      "sha256": "e63f37875d7c72f70a24e61e980874add9ab18a3bc7ab01333ca12795f7f08cd"
+    },
+    "build_validation.json": {
+      "bytes": 757,
+      "sha256": "c16a7fb3a40875479340ca8f0490e1ccc833ab10eb15c703844670b39a14570f"
+    }
+  }
+}

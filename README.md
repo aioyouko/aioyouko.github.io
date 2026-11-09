@@ -35,3 +35,15 @@ git push origin demo
 The build exports every research and person page, uses `/kanatzidis-demo` as its URL prefix, and copies the export into the published folder. Publication search, year filtering and pagination run in the browser; no application server is required. The root `.nojekyll` file allows the `_next` assets to be served.
 
 The preview is labeled for feedback and requests that search engines do not index it. Image and publication source links are retained on the relevant pages. Keep private lab files, credentials and unpublished research out of this public repository.
+
+## ExtractBench
+
+- Project page: https://aioyouko.github.io/extractbench/
+- Full curve explorer: https://aioyouko.github.io/extractbench/explorer/
+- Static source: `extractbench/index.html`, `style.css`, `app.js`, and `results.js`.
+- Selected benchmark snapshot: 2026-11-04; public export: 2026-11-09.
+- 64 complete configurations, 76 requested configurations, 114 question slots each.
+- Scientific summaries and curves are taken from the verified archived-response export; no new benchmark requests were made.
+- Curves load by dataset. Each dataset ZIP contains curves, Gold, metrics, and stability CSVs.
+- `extractbench/explorer/data/release.json` records source and public-data SHA-256 checksums. Original API responses and operational source paths stay in the research archive.
+- Publish updates to `demo`, the existing GitHub Pages source branch.

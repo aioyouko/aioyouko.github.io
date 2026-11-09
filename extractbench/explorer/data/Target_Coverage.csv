@@ -1,0 +1,77 @@
+﻿model_order,model,effort,canonical_key,expected,schema_ok,not_tested,unrequested,api_failed,output_error,high_error_tracks,action
+1,GPT-6.1 Sol,max,gpt6_1_sol_max,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+2,GPT-6.1 Sol,xhigh,gpt6_1_sol_xhigh,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+3,GPT-6.1 Sol,high,gpt6_1_sol_high,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+4,GPT-6.1 Sol,medium,gpt6_1_sol_medium,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+5,GPT-6.1 Sol,low,gpt6_1_sol_low,114,111,0,0,0,3,,复核输出错误；独立重测保留原结果
+6,GPT-6 Astra,max,gpt6_astra_max,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+7,GPT-6 Astra,xhigh,gpt6_astra_xhigh,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+8,GPT-6 Astra,high,gpt6_astra_high,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+9,GPT-6 Astra,medium,gpt6_astra_medium,114,113,0,0,0,1,,复核输出错误；独立重测保留原结果
+10,GPT-6 Astra,low,gpt6_astra_low,114,113,0,0,0,1,,复核输出错误；独立重测保留原结果
+11,GPT-6 Sol,max,gpt6_sol_max,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+12,GPT-6 Sol,xhigh,gpt6_sol_xhigh,114,111,0,0,0,3,,复核输出错误；独立重测保留原结果
+13,GPT-6 Sol,high,gpt6_sol_high,114,109,0,0,0,5,,复核输出错误；独立重测保留原结果
+14,GPT-6 Sol,medium,gpt6_sol_medium,114,106,0,0,0,8,,复核输出错误；独立重测保留原结果
+15,GPT-6 Sol,low,gpt6_sol_low,114,99,0,0,0,15,,运行覆盖完整；结构异常保留为能力结果
+16,GPT-6 Luna,max,gpt6_luna_max,114,111,0,0,0,3,,复核输出错误；独立重测保留原结果
+17,GPT-6 Luna,xhigh,gpt6_luna_xhigh,114,101,0,0,0,13,D2_without,复核输出错误；独立重测保留原结果
+18,GPT-6 Luna,high,gpt6_luna_high,114,107,0,0,0,7,,运行覆盖完整；结构异常保留为能力结果
+19,GPT-6 Luna,medium,gpt6_luna_medium,114,82,0,0,0,32,D2_without; D2_with,运行覆盖完整；结构异常保留为能力结果
+20,GPT-6 Luna,low,gpt6_luna_low,114,45,0,0,0,69,D2_without; D2_with,运行覆盖完整；结构异常保留为能力结果
+21,Claude Opus 5.5,max,claude_opus55_max,114,37,0,0,0,77,D2_without; D2_with,复核输出错误；独立重测保留原结果
+22,Claude Opus 5.5,high,claude_opus55_high,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+23,Claude Opus 5.5,low,claude_opus55_low,114,94,0,0,0,20,D1_different_new; D1_same_new,复核输出错误；独立重测保留原结果
+24,Claude Sonnet 5.5,max,claude_sonnet55_max,114,36,0,0,0,78,D2_without; D2_with,复核输出错误；独立重测保留原结果
+25,Claude Sonnet 5.5,high,claude_sonnet55_high,114,98,0,0,0,16,D1_different_new,复核输出错误；独立重测保留原结果
+26,Claude Sonnet 5.5,low,claude_sonnet55_low,114,27,0,0,0,87,D1_different_new; D2_without; D2_with,复核输出错误；独立重测保留原结果
+27,Claude Haiku 5.5,max,claude_haiku55_max,114,28,0,0,0,86,D1_same_new; D2_without; D2_with,复核输出错误；独立重测保留原结果
+28,Claude Haiku 5.5,high,claude_haiku55_high,114,105,0,0,0,9,D2_without,复核输出错误；独立重测保留原结果
+29,Claude Haiku 5.5,low,claude_haiku55_low,114,73,0,0,0,41,D2_without; D2_with,复核输出错误；独立重测保留原结果
+30,Claude Fable 5.1,high,claude_fable51_high,114,112,0,0,0,2,,复核输出错误；独立重测保留原结果
+31,Claude Fable 5.1,low,claude_fable51_low,114,101,0,0,0,13,D1_different_new; D1_same_new,复核输出错误；独立重测保留原结果
+32,Gemini 3.1 Pro,thinking,gemini31pro_thinking,114,112,0,0,0,2,,复核输出错误；独立重测保留原结果
+33,Gemini 3.1 Pro,nonthinking,gemini31pro_nonthinking,114,105,0,0,0,9,D1_different_new,复核输出错误；独立重测保留原结果
+34,GPT-5.6 Sol,max,gpt56_sol_max,114,112,0,0,0,2,,复核输出错误；独立重测保留原结果
+35,GPT-5.6 Sol,xhigh,gpt56_sol_xhigh,114,113,0,0,0,1,,复核输出错误；独立重测保留原结果
+36,GPT-5.6 Sol,high,gpt56_sol_high,114,113,0,0,0,1,,复核输出错误；独立重测保留原结果
+37,GPT-5.6 Sol,medium,gpt56_sol_medium,114,112,0,0,0,2,,复核输出错误；独立重测保留原结果
+38,GPT-5.6 Sol,low,gpt56_sol_low,114,109,0,0,0,5,,复核输出错误；独立重测保留原结果
+39,GPT-5.6 Terra,max,gpt56_terra_max,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+40,GPT-5.6 Terra,xhigh,gpt56_terra_xhigh,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+41,GPT-5.6 Terra,high,gpt56_terra_high,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+42,GPT-5.6 Terra,medium,gpt56_terra_medium,114,109,0,0,0,5,,复核输出错误；独立重测保留原结果
+43,GPT-5.6 Terra,low,gpt56_terra_low,114,101,0,0,0,13,D2_without,复核输出错误；独立重测保留原结果
+44,GPT-5.6 Luna,max,gpt56_luna_max,114,111,0,0,0,3,,运行覆盖完整；结构异常保留为能力结果
+45,GPT-5.6 Luna,xhigh,gpt56_luna_xhigh,114,114,0,0,0,0,,运行覆盖完整；无格式异常
+46,GPT-5.6 Luna,high,gpt56_luna_high,114,113,0,0,0,1,,复核输出错误；独立重测保留原结果
+47,GPT-5.6 Luna,medium,gpt56_luna_medium,114,110,0,0,0,4,,复核输出错误；独立重测保留原结果
+48,GPT-5.6 Luna,low,gpt56_luna_low,114,100,0,0,0,14,D2_without,复核输出错误；独立重测保留原结果
+49,GPT-5.5,xhigh,gpt55_xhigh,114,112,0,0,0,2,,复核输出错误；独立重测保留原结果
+50,GPT-5.5,high,gpt55_high,114,107,0,0,0,7,,复核输出错误；独立重测保留原结果
+51,GPT-5.5,medium,gpt55_medium,114,108,0,0,0,6,,复核输出错误；独立重测保留原结果
+52,GPT-5.5,low,gpt55_low,114,91,0,0,0,23,D2_without,复核输出错误；独立重测保留原结果
+53,Kimi K3.1 Pro,max,kimi_k31_pro_max,114,4,0,108,1,1,,补测缺项/API；输出错误先核查
+54,Kimi K3.1 Pro,high,kimi_k31_pro_high,114,5,0,108,1,0,,补测缺项/API；输出错误先核查
+55,Kimi K3.1 Pro,low,kimi_k31_pro_low,114,5,0,109,0,0,,补测缺项/API；输出错误先核查
+56,Kimi K3.1 Pro Highspeed,max,kimi_k31_pro_highspeed_max,114,4,0,109,0,1,,补测缺项/API；输出错误先核查
+57,Kimi K3.1 Pro Highspeed,high,kimi_k31_pro_highspeed_high,114,5,0,109,0,0,,补测缺项/API；输出错误先核查
+58,Kimi K3.1 Pro Highspeed,low,kimi_k31_pro_highspeed_low,114,4,0,109,0,1,,补测缺项/API；输出错误先核查
+59,Kimi K3,max,kimi_k3_max,114,99,0,0,0,15,D1_same_new,复核输出错误；独立重测保留原结果
+60,Kimi K3,high,kimi_k3_high,114,88,0,0,16,10,D1_same_new,补测缺项/API；输出错误先核查
+61,Kimi K3,low,kimi_k3_low,114,80,0,0,21,13,D1_same_new,补测缺项/API；输出错误先核查
+62,Kimi K2.7 Code,thinking,kimi_k27_code_thinking,114,4,0,109,0,1,,补测缺项/API；输出错误先核查
+63,Kimi K2.7 Code Highspeed,thinking,kimi_k27_code_highspeed_thinking,114,5,0,109,0,0,,补测缺项/API；输出错误先核查
+64,Kimi K2.6,thinking,kimi_k26_thinking,114,4,0,109,0,1,,补测缺项/API；输出错误先核查
+65,Kimi K2.6,nonthinking,kimi_k26_nonthinking,114,68,0,0,9,37,D1_different_new; D1_same_new; D2_without,补测缺项/API；输出错误先核查
+66,Qwen 3.8 Max,thinking,qwen38max_thinking,114,104,0,0,0,10,D2_without,运行覆盖完整；结构异常保留为能力结果
+67,Qwen 3.8 Max,nonthinking,qwen38max_nonthinking,114,77,0,0,0,37,D1_different_new; D1_same_new; D2_without; D2_with,复核输出错误；独立重测保留原结果
+68,qwen3.7-max-2026-06-08,enabled,qwen37max_thinking,114,49,0,0,0,65,D1_same_new; D1_different_new; D2_without,114题均返回；解析和结构异常保留。已纳入作图与费用队列。
+69,Qwen 3.7 Max,nonthinking,qwen37max_nonthinking,114,97,0,0,0,17,,复核输出错误；独立重测保留原结果
+70,qwen3.7-plus,enabled,qwen37_plus_thinking_64k,114,49,0,0,0,65,D1_same_new; D1_different_new; D2_without,114题均返回；解析和结构异常保留。已纳入作图与费用队列。
+71,qwen3.7-plus,disabled,qwen37_plus_nonthinking_64k,114,98,0,0,0,16,D1_same_new; D1_different_new,114题均返回；解析和结构异常保留。已纳入作图与费用队列。
+72,qwen3.7-plus,disabled,qwen_plus,114,98,0,0,0,16,D1_same_new; D1_different_new; D2_without,114题均返回；解析和结构异常保留。已纳入作图与费用队列。
+73,DeepSeek V4.1 Flash,max,deepseek_v4_1_flash_max,114,96,0,0,0,18,D2_with,复核输出错误；独立重测保留原结果
+74,DeepSeek V4.1 Flash,high,deepseek_v4_1_flash_high,114,112,0,0,0,2,,复核输出错误；独立重测保留原结果
+75,DeepSeek V4.1 Flash,low,deepseek_v4_1_flash_low,114,112,0,0,0,2,,复核输出错误；独立重测保留原结果
+76,DeepSeek V4.1 Flash,nonthinking,deepseek_v4_1_flash_nonthinking,114,84,0,0,0,30,D1_same_new; D2_without; D2_with,复核输出错误；独立重测保留原结果

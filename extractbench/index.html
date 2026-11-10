@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://aioyouko.github.io/extractbench/">
   <title>ExtractBench · Scientific Figure Extraction Benchmark</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="presentation.css?v=20261109-result-figures">
+  <link rel="stylesheet" href="presentation.css?v=20261109-motivation-figure">
   <script defer src="results.js"></script>
   <script defer src="app.js"></script>
   <script defer src="presentation.js"></script>
@@ -61,6 +61,14 @@
           <h3>Why thermoelectrics?</h3><p>The same material appears in several related panels. Its electrical and thermal properties are linked by known equations, so we can check whether the extracted values agree.</p>
           <div class="relation-line" aria-label="Power factor equals Seebeck coefficient squared times conductivity. zT equals power factor times temperature divided by total thermal conductivity."><span><var>PF</var> = <var>S</var>²<var>σ</var></span><span><var>zT</var> = <var>PF</var>·<var>T</var> / <var>κ</var><sub>tot</sub></span></div>
         </div>
+        <figure class="motivation-schematic">
+          <div class="schematic-heading"><span class="eyebrow">The same samples, across panels</span><a href="figures/motivation-schematic.svg" target="_blank" rel="noopener noreferrer">Open full size ↗</a></div>
+          <a class="schematic-image" href="figures/motivation-schematic.svg" target="_blank" rel="noopener noreferrer" aria-label="Open the thermoelectric multi-panel illustration at full size"><img src="figures/motivation-schematic.svg" width="3222" height="2455" loading="lazy" decoding="async" alt="Seebeck coefficient, electrical conductivity, total thermal conductivity and figure of merit plotted against temperature for the same six GeTe-based compositions."></a>
+          <figcaption>Each curve belongs to a sample. A reusable record must preserve that identity, together with the values and units, across all panels.</figcaption>
+        </figure>
+      </div>
+      <details class="motivation-unit-demo">
+        <summary><span>Try a unit-conversion example<small>See how a missed unit prefix changes the scientific conclusion.</small></span><span class="unit-demo-toggle" aria-hidden="true">+</span></summary>
         <figure class="unit-example" id="unitExample">
           <figcaption><span class="eyebrow">A small unit error. A large consequence.</span><h3>Read the value. Keep the unit.</h3><p>Illustrative calculation · one sample at one temperature</p></figcaption>
           <div class="example-inputs"><div><span>Seebeck panel</span><strong>0.2 <small>mV/K</small></strong></div><div><span>Conductivity panel</span><strong>100,000 <small>S/m</small></strong></div></div>
@@ -68,7 +76,7 @@
           <div class="unit-output" aria-live="polite" aria-atomic="true"><div><span>Interpreted Seebeck coefficient</span><strong id="convertedSeebeck">200 μV/K</strong></div><div><span>Calculated <var>PF</var> = <var>S</var>²<var>σ</var></span><strong id="computedPF">4 mW/(m·K²)</strong></div><p id="unitVerdict">With the units converted, the extracted values agree with the power-factor panel.</p></div>
           <p class="unit-reference">Reference power-factor panel: <strong>4 mW/(m·K²)</strong>. This is a teaching example, not a measured model result.</p>
         </figure>
-      </div>
+      </details>
     </section>
 
     <section class="benchmark-band" id="benchmark" data-chapter="Benchmark design" aria-labelledby="benchmark-title"><div class="shell section">

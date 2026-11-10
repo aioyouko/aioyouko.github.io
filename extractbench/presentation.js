@@ -89,13 +89,29 @@
   const unitMode = document.getElementById("unitMode");
   unitMode.hidden = false;
   document.getElementById("unitModeLabel").hidden = false;
-  unitMode.addEventListener("change", () => {
+  // Teaching-example values in SI units; the displayed Seebeck panel is 0.2 mV/K.
+  const example = { seebeck: 0.2e-3, conductivity: 100000, temperature: 300, thermalConductivity: 1 };
+  const formatNumber = new Intl.NumberFormat("en-US", { maximumFractionDigits: 10 });
+  const referenceZT = example.seebeck ** 2 * example.conductivity * example.temperature / example.thermalConductivity;
+  function updateUnitExample() {
     const missed = unitMode.value === "missed";
-    document.getElementById("unitExample").classList.toggle("unit-missed", missed);
-    document.getElementById("convertedSeebeck").textContent = missed ? "0.2 μV/K" : "200 μV/K";
-    document.getElementById("computedPF").textContent = missed ? "0.000004 mW/(m·K²)" : "4 mW/(m·K²)";
+    const seebeck = missed ? 0.2e-6 : example.seebeck;
+    const powerFactor = seebeck ** 2 * example.conductivity;
+    const zT = powerFactor * example.temperature / example.thermalConductivity;
+    document.getElementById("unitDemo").classList.toggle("unit-missed", missed);
+    document.getElementById("convertedSeebeck").textContent = `${formatNumber.format(seebeck * 1e6)} μV/K`;
+    document.getElementById("computedPF").textContent = `${formatNumber.format(powerFactor * 1e3)} mW/(m·K²)`;
+    document.getElementById("computedZT").textContent = formatNumber.format(zT);
+    document.getElementById("ztFactor").textContent = missed
+      ? `${formatNumber.format(Math.round(referenceZT / zT))}× too small`
+      : "Matches the correct value";
     document.getElementById("unitVerdict").textContent = missed
       ? "A missed prefix makes the calculated power factor one million times too small."
       : "With the units converted, the extracted values agree with the power-factor panel.";
-  });
+    document.getElementById("ztVerdict").textContent = missed
+      ? "The Seebeck coefficient is 1,000× too small. Squaring it makes both the power factor and the calculated figure of merit one million times too small."
+      : "Converting the Seebeck coefficient correctly restores the power factor and figure of merit. The other inputs are unchanged.";
+  }
+  unitMode.addEventListener("change", updateUnitExample);
+  updateUnitExample();
 })();

@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://aioyouko.github.io/extractbench/">
   <title>ExtractBench · Scientific Figure Extraction Benchmark</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="presentation.css?v=20261109-design">
+  <link rel="stylesheet" href="presentation.css?v=20261109-variables">
   <script defer src="results.js"></script>
   <script defer src="app.js"></script>
   <script defer src="presentation.js"></script>
@@ -59,13 +59,13 @@
           <p>Multimodal models can help read a figure. But one wrong unit or a sample mix-up can change the scientific conclusion—even when the extracted curve looks plausible.</p>
           <div class="research-question"><span>The research question</span><p>When does a figure become a numerical record we can actually reuse?</p></div>
           <h3>Why thermoelectrics?</h3><p>The same material appears in several related panels. Its electrical and thermal properties are linked by known equations, so we can check whether the extracted values agree.</p>
-          <div class="relation-line" aria-label="Power factor equals Seebeck coefficient squared times conductivity. zT equals power factor times temperature divided by total thermal conductivity."><span>PF = S²σ</span><span>zT = PF·T / κ<sub>tot</sub></span></div>
+          <div class="relation-line" aria-label="Power factor equals Seebeck coefficient squared times conductivity. zT equals power factor times temperature divided by total thermal conductivity."><span><var>PF</var> = <var>S</var>²<var>σ</var></span><span><var>zT</var> = <var>PF</var>·<var>T</var> / <var>κ</var><sub>tot</sub></span></div>
         </div>
         <figure class="unit-example" id="unitExample">
           <figcaption><span class="eyebrow">A small unit error. A large consequence.</span><h3>Read the value. Keep the unit.</h3><p>Illustrative calculation · one sample at one temperature</p></figcaption>
           <div class="example-inputs"><div><span>Seebeck panel</span><strong>0.2 <small>mV/K</small></strong></div><div><span>Conductivity panel</span><strong>100,000 <small>S/m</small></strong></div></div>
           <label id="unitModeLabel" for="unitMode" hidden>Try the extraction</label><select id="unitMode" hidden><option value="correct">Convert mV to μV correctly</option><option value="missed">Mistake mV for μV</option></select>
-          <div class="unit-output" aria-live="polite" aria-atomic="true"><div><span>Interpreted Seebeck coefficient</span><strong id="convertedSeebeck">200 μV/K</strong></div><div><span>Calculated PF = S²σ</span><strong id="computedPF">4 mW/(m·K²)</strong></div><p id="unitVerdict">With the units converted, the extracted values agree with the power-factor panel.</p></div>
+          <div class="unit-output" aria-live="polite" aria-atomic="true"><div><span>Interpreted Seebeck coefficient</span><strong id="convertedSeebeck">200 μV/K</strong></div><div><span>Calculated <var>PF</var> = <var>S</var>²<var>σ</var></span><strong id="computedPF">4 mW/(m·K²)</strong></div><p id="unitVerdict">With the units converted, the extracted values agree with the power-factor panel.</p></div>
           <p class="unit-reference">Reference power-factor panel: <strong>4 mW/(m·K²)</strong>. This is a teaching example, not a measured model result.</p>
         </figure>
       </div>
@@ -82,10 +82,10 @@
       <div class="property-combinations" aria-labelledby="combinations-title">
         <div class="combinations-heading"><div><p class="eyebrow">Properties tested together</p><h3 id="combinations-title">From individual curves to connected properties.</h3></div><p>Individual-property plots test numerical extraction. Combined figures test whether the same samples remain consistent across related panels.</p></div>
         <ul class="combination-list">
-          <li><h4>S · σ · PF</h4><p>Seebeck coefficient · Electrical conductivity · Power factor</p><div class="combination-relation">PF = S²σ</div></li>
-          <li><h4>S · ρ · PF</h4><p>Seebeck coefficient · Electrical resistivity · Power factor</p><div class="combination-relation">PF = S²/ρ</div></li>
-          <li><h4>PF · κ<sub>tot</sub> · zT</h4><p>Power factor · Total thermal conductivity · Figure of merit</p><div class="combination-relation">zT = PF·T / κ<sub>tot</sub></div></li>
-          <li><h4>S · σ · PF · κ<sub>tot</sub> · κ<sub>lat</sub> · zT</h4><p>Seebeck coefficient · Electrical conductivity · Power factor · Total &amp; lattice thermal conductivity · Figure of merit</p><div class="combination-relation">PF = S²σ <span>and</span> zT = PF·T / κ<sub>tot</sub></div></li>
+          <li><h4><var>S</var> · <var>σ</var> · <var>PF</var></h4><p>Seebeck coefficient · Electrical conductivity · Power factor</p><div class="combination-relation"><var>PF</var> = <var>S</var>²<var>σ</var></div></li>
+          <li><h4><var>S</var> · <var>ρ</var> · <var>PF</var></h4><p>Seebeck coefficient · Electrical resistivity · Power factor</p><div class="combination-relation"><var>PF</var> = <var>S</var>²/<var>ρ</var></div></li>
+          <li><h4><var>PF</var> · <var>κ</var><sub>tot</sub> · <var>zT</var></h4><p>Power factor · Total thermal conductivity · Figure of merit</p><div class="combination-relation"><var>zT</var> = <var>PF</var>·<var>T</var> / <var>κ</var><sub>tot</sub></div></li>
+          <li><h4><var>S</var> · <var>σ</var> · <var>PF</var> · <var>κ</var><sub>tot</sub> · <var>κ</var><sub>lat</sub> · <var>zT</var></h4><p>Seebeck coefficient · Electrical conductivity · Power factor · Total &amp; lattice thermal conductivity · Figure of merit</p><div class="combination-relation"><var>PF</var> = <var>S</var>²<var>σ</var> <span>and</span> <var>zT</var> = <var>PF</var>·<var>T</var> / <var>κ</var><sub>tot</sub></div></li>
         </ul>
       </div>
       <div class="test-variations" aria-labelledby="variations-title">

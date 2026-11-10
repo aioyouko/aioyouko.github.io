@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://aioyouko.github.io/extractbench/">
   <title>ExtractBench · Scientific Figure Extraction Benchmark</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="presentation.css?v=20261109-variables">
+  <link rel="stylesheet" href="presentation.css?v=20261109-result-figures">
   <script defer src="results.js"></script>
   <script defer src="app.js"></script>
   <script defer src="presentation.js"></script>
@@ -154,6 +154,17 @@
 
     <section class="section shell" id="results" data-chapter="Explore the results" aria-labelledby="results-title">
       <div class="section-heading"><div><p class="eyebrow">06 / Interactive results</p><h2 id="results-title">Look beyond a single score.</h2></div><p>Compare numerical recovery alongside point coverage and response validity. Select a condition to see the same 64 complete configurations.</p></div>
+      <div class="result-figures" aria-label="Overview of point recovery by model configuration">
+        <figure class="result-figure">
+          <figcaption><h3>Single-panel figures</h3><a href="figures/single-panel.svg" target="_blank" rel="noopener noreferrer">Open full size ↗</a></figcaption>
+          <a class="result-figure-image" href="figures/single-panel.svg" target="_blank" rel="noopener noreferrer" aria-label="Open the single-panel point-recovery figure at full size"><img src="figures/single-panel.svg" width="1655" height="2127" loading="lazy" decoding="async" alt="Stacked bars showing the percentage of points within each relative-error band and missing points for each model configuration on single-panel figures."></a>
+        </figure>
+        <figure class="result-figure">
+          <figcaption><h3>Multi-panel figures <span>Normal prompts</span></h3><a href="figures/multi-panel-without.svg" target="_blank" rel="noopener noreferrer">Open full size ↗</a></figcaption>
+          <a class="result-figure-image" href="figures/multi-panel-without.svg" target="_blank" rel="noopener noreferrer" aria-label="Open the multi-panel normal-prompt point-recovery figure at full size"><img src="figures/multi-panel-without.svg" width="1655" height="2127" loading="lazy" decoding="async" alt="Stacked bars showing the percentage of points within each relative-error band and missing points for each model configuration on multi-panel figures with normal prompts."></a>
+        </figure>
+      </div>
+      <p class="result-figures-note">The figures summarize point-error bands and missing points. Open either figure for a closer look; use the filters below to explore condition-specific results.</p>
       <div class="results-panel">
         <div class="filters">
           <div class="filter condition-filter"><label for="condition">Benchmark condition</label><select id="condition">

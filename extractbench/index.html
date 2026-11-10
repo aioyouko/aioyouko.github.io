@@ -11,10 +11,10 @@
   <link rel="canonical" href="https://aioyouko.github.io/extractbench/">
   <title>ExtractBench · Scientific Figure Extraction Benchmark</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="presentation.css?v=20261109-motivation-figure">
+  <link rel="stylesheet" href="presentation.css?v=20261109-unit-impact">
   <script defer src="results.js"></script>
   <script defer src="app.js"></script>
-  <script defer src="presentation.js"></script>
+  <script defer src="presentation.js?v=20261109-unit-impact"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -67,15 +67,28 @@
           <figcaption>Each curve belongs to a sample. A reusable record must preserve that identity, together with the values and units, across all panels.</figcaption>
         </figure>
       </div>
-      <details class="motivation-unit-demo">
-        <summary><span>Try a unit-conversion example<small>See how a missed unit prefix changes the scientific conclusion.</small></span><span class="unit-demo-toggle" aria-hidden="true">+</span></summary>
+      <details class="motivation-unit-demo" open>
+        <summary><span>One wrong value. A different performance estimate.<small>Follow a Seebeck unit error through to the calculated figure of merit.</small></span><span class="unit-demo-toggle" aria-hidden="true">+</span></summary>
+        <div class="unit-demo-grid unit-missed" id="unitDemo">
         <figure class="unit-example" id="unitExample">
-          <figcaption><span class="eyebrow">A small unit error. A large consequence.</span><h3>Read the value. Keep the unit.</h3><p>Illustrative calculation · one sample at one temperature</p></figcaption>
+          <figcaption><span class="eyebrow">The input · Seebeck coefficient</span><h3>Read the value. Keep the unit.</h3><p>Illustrative calculation · one sample at one temperature</p></figcaption>
           <div class="example-inputs"><div><span>Seebeck panel</span><strong>0.2 <small>mV/K</small></strong></div><div><span>Conductivity panel</span><strong>100,000 <small>S/m</small></strong></div></div>
-          <label id="unitModeLabel" for="unitMode" hidden>Try the extraction</label><select id="unitMode" hidden><option value="correct">Convert mV to μV correctly</option><option value="missed">Mistake mV for μV</option></select>
-          <div class="unit-output" aria-live="polite" aria-atomic="true"><div><span>Interpreted Seebeck coefficient</span><strong id="convertedSeebeck">200 μV/K</strong></div><div><span>Calculated <var>PF</var> = <var>S</var>²<var>σ</var></span><strong id="computedPF">4 mW/(m·K²)</strong></div><p id="unitVerdict">With the units converted, the extracted values agree with the power-factor panel.</p></div>
+          <label id="unitModeLabel" for="unitMode" hidden>Try the extraction</label><select id="unitMode" hidden><option value="missed" selected>Mistake mV for μV</option><option value="correct">Convert mV to μV correctly</option></select>
+          <div class="unit-output" aria-live="polite" aria-atomic="true"><div><span>Interpreted Seebeck coefficient</span><strong id="convertedSeebeck">0.2 μV/K</strong></div><div><span>Calculated <var>PF</var> = <var>S</var>²<var>σ</var></span><strong id="computedPF">0.000004 mW/(m·K²)</strong></div><p id="unitVerdict">A missed prefix makes the calculated power factor one million times too small.</p></div>
           <p class="unit-reference">Reference power-factor panel: <strong>4 mW/(m·K²)</strong>. This is a teaching example, not a measured model result.</p>
         </figure>
+        <figure class="unit-example zt-example" id="ztExample">
+          <figcaption><span class="eyebrow">The consequence · Figure of merit</span><h3>The error carries through to <var>zT</var>.</h3><p>Same sample · hold conductivity, temperature and thermal conductivity fixed</p></figcaption>
+          <div class="example-inputs"><div><span>Temperature, <var>T</var></span><strong>300 <small>K</small></strong></div><div><span>Thermal conductivity, <var>κ</var><sub>tot</sub></span><strong>1 <small>W/(m·K)</small></strong></div></div>
+          <p class="zt-equation"><var>zT</var> = <var>S</var>²<var>σT</var> / <var>κ</var><sub>tot</sub></p>
+          <div class="zt-comparison" aria-live="polite" aria-atomic="true">
+            <div class="zt-reference-value"><span>Correct <var>zT</var></span><strong>1.2</strong></div>
+            <div class="zt-extracted-value"><span><var>zT</var> from the extracted <var>S</var></span><strong id="computedZT">0.0000012</strong></div>
+            <div class="zt-impact"><strong id="ztFactor">1,000,000× too small</strong><p id="ztVerdict">The Seebeck coefficient is 1,000× too small. Squaring it makes both the power factor and the calculated figure of merit one million times too small.</p></div>
+          </div>
+          <p class="unit-reference">The material has not changed; only the extracted value is wrong. <var>zT</var> is dimensionless. These fixed values are illustrative assumptions.</p>
+        </figure>
+        </div>
       </details>
     </section>
 

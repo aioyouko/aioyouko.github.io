@@ -8,7 +8,23 @@ button{touch-action:manipulation}
 .header{gap:20px}.header nav{gap:21px;margin-left:auto}
 .present-toggle{border:1px solid #aac2b8;background:transparent;color:var(--deep);padding:9px 13px;border-radius:4px;font-size:12px;font-weight:600;white-space:nowrap;cursor:pointer}
 .present-toggle:hover{background:#e7eeea}
-.motivation-layout{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;margin-top:38px}
+.motivation-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;align-items:start;margin-top:38px}
+.motivation-schematic{min-width:0;margin:0;padding:20px;background:white;border:1px solid var(--line);border-radius:5px}
+.schematic-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.schematic-heading .eyebrow{font-size:9px;line-height:1.6}
+.schematic-heading>a{flex-shrink:0;font-size:10px;color:var(--teal);text-underline-offset:4px}
+.schematic-image{display:block;cursor:zoom-in}
+.schematic-image:focus-visible{outline:3px solid var(--teal);outline-offset:5px}
+.schematic-image img{display:block;width:100%;height:auto}
+.motivation-schematic figcaption{font-size:12px;line-height:1.8;color:var(--muted);margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.motivation-unit-demo{margin-top:30px;border-block:1px solid var(--line)}
+.motivation-unit-demo>summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:19px 0;cursor:pointer;font-size:14px;font-weight:600;color:var(--deep);list-style:none}
+.motivation-unit-demo>summary::-webkit-details-marker{display:none}
+.motivation-unit-demo summary small{display:block;font-size:11px;font-weight:400;color:var(--muted);line-height:1.7;margin-top:5px}
+.unit-demo-toggle{font-size:24px;line-height:1;font-weight:400}
+.motivation-unit-demo[open] .unit-demo-toggle{transform:rotate(45deg)}
+.motivation-unit-demo .unit-example{max-width:680px;margin:4px auto 24px}
+@media(max-width:740px){.motivation-schematic{padding:16px}.schematic-heading{gap:12px;margin-bottom:14px}.motivation-schematic figcaption{font-size:11px}.motivation-unit-demo>summary{font-size:13px}}
 .motivation-copy>p{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:17px}
 .motivation-copy .lead{font-size:19px;line-height:1.65;color:var(--ink);letter-spacing:-.2px}
 .research-question{border-left:3px solid var(--teal);padding-left:23px;margin:30px 0}

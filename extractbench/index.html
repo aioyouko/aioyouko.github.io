@@ -79,16 +79,24 @@
         <li><span>03</span><h3>Ask for a record</h3><p>Give the model an image, a fixed prompt, and a structured output contract.</p></li>
         <li><span>04</span><h3>Check the evidence</h3><p>Compare returned points with Gold and audit the applicable scientific relations.</p></li>
       </ol>
-      <div class="benchmark-grid">
-        <article class="track"><div class="track-top"><span>D1</span><p>Single-panel figures</p></div><h3>Presentation &amp; source</h3><p>Canonical single-panel figures are paired with valid unit, temperature-scale, or axis-presentation variants.</p><div class="track-counts"><div><strong>24</strong><span>different-source slots</span></div><div><strong>12</strong><span>same-source slots</span></div></div><p class="fineprint">6 properties · Same-source data connect D1 and D2. Different-source set 1 retains a provisional Gold/image binding.</p><a class="text-link" href="explorer/?difficulty=D1&amp;condition=same">Explore D1 curves ↗</a></article>
-        <article class="track"><div class="track-top"><span>D2</span><p>Multi-panel figures</p></div><h3>Context &amp; instructions</h3><p>Interrelated scientific figures are evaluated with normal and detail prompts, for both clean images and images with injected faults.</p><div class="track-counts"><div><strong>22 + 17</strong><span>clean + image-error questions</span></div><div><strong>× 2</strong><span>prompt conditions</span></div></div><p class="fineprint">7 properties · 39 normal + 39 detail slots. “Image error” describes the input figure, independently of model response failure.</p><a class="text-link" href="explorer/?difficulty=D2&amp;condition=with">Explore D2 curves ↗</a></article>
+      <div class="property-combinations" aria-labelledby="combinations-title">
+        <div class="combinations-heading"><div><p class="eyebrow">Properties tested together</p><h3 id="combinations-title">From individual curves to connected properties.</h3></div><p>Individual-property plots test numerical extraction. Combined figures test whether the same samples remain consistent across related panels.</p></div>
+        <ul class="combination-list">
+          <li><h4>S · σ · PF</h4><p>Seebeck coefficient · Electrical conductivity · Power factor</p><div class="combination-relation">PF = S²σ</div></li>
+          <li><h4>S · ρ · PF</h4><p>Seebeck coefficient · Electrical resistivity · Power factor</p><div class="combination-relation">PF = S²/ρ</div></li>
+          <li><h4>PF · κ<sub>tot</sub> · zT</h4><p>Power factor · Total thermal conductivity · Figure of merit</p><div class="combination-relation">zT = PF·T / κ<sub>tot</sub></div></li>
+          <li><h4>S · σ · PF · κ<sub>tot</sub> · κ<sub>lat</sub> · zT</h4><p>Seebeck coefficient · Electrical conductivity · Power factor · Total &amp; lattice thermal conductivity · Figure of merit</p><div class="combination-relation">PF = S²σ <span>and</span> zT = PF·T / κ<sub>tot</sub></div></li>
+        </ul>
       </div>
-      <div class="condition-matrix">
-        <div><p class="eyebrow">D2 · A paired 2 × 2 design</p><h3>What changes between tests?</h3><p>Normal prompts keep the extraction and output requirements. Detail prompts additionally supply task-specific guidance, such as a relation or fault assumption.</p></div>
-        <table><caption class="sr-only">D2 questions by image and prompt condition</caption><thead><tr><th scope="col">Input figure</th><th scope="col">Normal prompt</th><th scope="col">Detail prompt</th></tr></thead><tbody><tr><th scope="row">Clean</th><td>22 questions</td><td>Same 22 questions</td></tr><tr><th scope="row">Injected fault</th><td>17 questions</td><td>Same 17 questions</td></tr></tbody></table>
+      <div class="test-variations" aria-labelledby="variations-title">
+        <div class="variations-heading"><p class="eyebrow">Controlled variations</p><h3 id="variations-title">What changes between tests?</h3><p>The property combinations above appear with standard units, correctly converted units, or deliberately incorrect unit labels.</p></div>
+        <div class="unit-variation-grid">
+          <article class="unit-variation"><span class="variation-label">Valid unit changes</span><h4>New units. The same physical values.</h4><p>Change the unit and rescale the numerical values together, preserving the physical quantity and its dimensions. Variants also include temperature-scale conversions and logarithmic axes.</p><p class="variation-example">For example: 200 μV/K = 0.2 mV/K</p></article>
+          <article class="unit-variation unit-variation-fault"><span class="variation-label">Incorrect-unit combinations</span><h4>Related panels with an injected unit error.</h4><p>Deliberately mismatch a unit label and the plotted values in a combined figure. The model must identify the inconsistency by checking the relations between properties.</p><p class="variation-example">For example: relabel μV/K as mV/K without rescaling</p></article>
+        </div>
+        <div class="prompt-variation"><h4>Normal or detail prompts</h4><p>The same combined figure is tested with a normal extraction prompt and a detail prompt that adds a scientific relation or a fault assumption.</p></div>
+        <p class="design-note">“Image error” refers to a fault in the input figure. Detail prompts for fault cases disclose that a fault exists, so those tests assess guided diagnosis.</p>
       </div>
-      <p class="design-note"><strong>114 test slots ≠ 114 independent figures.</strong> D1 contributes 24 different-source + 12 same-source slots; D2 contributes (22 clean + 17 fault) × 2 prompts = 78. Guided fault prompts disclose that a fault exists, so that condition does not measure blind fault discovery.</p>
-      <div class="property-line"><span>Properties in D2</span><p>Seebeck coefficient · Electrical conductivity · Electrical resistivity · Power factor · Total thermal conductivity · Lattice thermal conductivity · zT</p></div>
     </div></section>
 
     <section class="section shell related-section" id="related-work" data-chapter="Where it fits" aria-labelledby="related-title">

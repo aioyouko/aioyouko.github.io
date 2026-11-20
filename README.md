@@ -59,11 +59,11 @@ The build exports every research and person page, uses `/kanatzidis-demo` as its
 
 The preview is labeled for feedback and requests that search engines do not index it. Image and publication source links are retained on the relevant pages. Keep private lab files, credentials and unpublished research out of this public repository.
 
-## ExtractBench
+## TE-PlotBench (formerly ExtractBench)
 
 - Project page: https://aioyouko.github.io/extractbench/
 - Full curve explorer: https://aioyouko.github.io/extractbench/explorer/
-- Static source: `extractbench/index.html`, `style.css`, `app.js`, and `results.js`.
+- Project page source: `extractbench/index.html` (self-contained) with figures in `extractbench/figures/`; rebuilt 2026-11-19 from the 2026-11-18 data. The explorer keeps the 2026-11-04 snapshot below.
 - Selected benchmark snapshot: 2026-11-04; public export: 2026-11-09.
 - 64 complete configurations, 76 requested configurations, 114 question slots each.
 - Scientific summaries and curves are taken from the verified archived-response export; no new benchmark requests were made.

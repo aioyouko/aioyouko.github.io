@@ -4,7 +4,7 @@ This working copy preserves the personal homepage and the Kanatzidis Group websi
 
 - Personal homepage: https://aioyouko.github.io/#home
 - Group demo: https://aioyouko.github.io/kanatzidis-demo/
-- Entry links appear on the homepage and in Current Work.
+- The group demo entry link is in the homepage "Side project" panel.
 
 ## Source of truth and branch scope
 
@@ -35,7 +35,7 @@ If a merge conflicts, resolve and commit it before continuing. Preserve the Extr
 
 ## Updating the personal homepage
 
-Edit `index.html`, `assets/styles.css`, or `assets/main.js` on `main`. The About page's CV is stored in `assets/cv/Heyang_Chen_CV.pdf`. Validate and commit the changes on `main`, then merge `main` into `demo` using the publishing workflow above. Existing homepage assets and section navigation are retained.
+Edit `index.html`, `assets/styles.css`, `assets/home.css`, or `assets/main.js` on `main`. The homepage reuses the Plastic TE design tokens (`te-system.css`, `te-dark.css`); the TE-PlotBench card on `demo` sits in the same `.home-project-grid` as the other project cards and uses `extractbench/figures/plotbench-card.svg`. Light/dark mode is site-wide: one round toggle in the header (`assets/site-theme.css`, `assets/te-theme.js`), remembered under `te-theme` and shared with TE-PlotBench. The About page's CV is stored in `assets/cv/Heyang_Chen_CV.pdf`. Validate and commit the changes on `main`, then merge `main` into `demo` using the publishing workflow above. Existing homepage assets and section navigation are retained.
 
 ## Updating the group demo
 

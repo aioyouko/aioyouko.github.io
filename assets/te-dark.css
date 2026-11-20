@@ -1,21 +1,22 @@
-/* Dark theme for the Plastic TE pages.
- * te-theme.js adds body.te-dark (saved choice, else the system preference).
- * Only the five .pt-page views and the site chrome around them change; the rest of
- * the site stays light. Figure cards (paper figures, photos, schematics and the
- * flexibility demo) stay as light "islands" so published figures keep their colours.
+/* Dark theme for the Plastic TE pages (.pt-page views, including the homepage).
+ * te-theme.js sets body.te-dark from the header toggle. The site chrome rules below apply on
+ * every page; site-dark.css covers Agent Workspace, About and Contact. Figure cards (paper
+ * figures, photos, schematics and the flexibility demo) stay as light "islands" so published
+ * figures keep their colours.
  */
 
-/* Site chrome while a Plastic TE page is open. */
-body.te-dark.plastic-te-active { background: #0f1614; color: #e3eae6; color-scheme: dark; }
-body.te-dark.plastic-te-active .site-header { background: rgba(15, 22, 20, 0.9); border-bottom-color: rgba(255, 255, 255, 0.08); }
-body.te-dark.plastic-te-active .brand { color: #e3eae6; }
-body.te-dark.plastic-te-active .brand-mark { background: #17211e; color: #8fd6c8; border-color: rgba(143, 214, 200, 0.35); box-shadow: none; }
-body.te-dark.plastic-te-active .site-nav { color: #a7b4ad; }
-body.te-dark.plastic-te-active .site-nav a:is(:hover, :focus-visible, .is-active) { background: rgba(255, 255, 255, 0.06); border-color: rgba(143, 214, 200, 0.25); color: #e3eae6; }
-body.te-dark.plastic-te-active .nav-toggle { background: #17211e; color: #e3eae6; border-color: rgba(255, 255, 255, 0.14); }
-body.te-dark.plastic-te-active .site-footer { color: #8c9b93; }
+/* Site chrome (header, nav, footer) in dark mode, on every page. */
+body.te-dark { background: #0f1614; color: #e3eae6; color-scheme: dark; }
+html:has(body.te-dark) { background: #0f1614; }
+body.te-dark .site-header { background: rgba(15, 22, 20, 0.9); border-bottom-color: rgba(255, 255, 255, 0.08); }
+body.te-dark .brand { color: #e3eae6; }
+body.te-dark .brand-mark { background: #17211e; color: #8fd6c8; border-color: rgba(143, 214, 200, 0.35); box-shadow: none; }
+body.te-dark .site-nav { color: #a7b4ad; }
+body.te-dark .site-nav a:is(:hover, :focus-visible, .is-active) { background: rgba(255, 255, 255, 0.06); border-color: rgba(143, 214, 200, 0.25); color: #e3eae6; }
+body.te-dark .nav-toggle { background: #17211e; color: #e3eae6; border-color: rgba(255, 255, 255, 0.14); }
+body.te-dark .site-footer { color: #8c9b93; }
 @media (max-width: 900px) {
-  body.te-dark.plastic-te-active .site-nav { background: rgba(15, 22, 20, 0.98); border-bottom-color: rgba(255, 255, 255, 0.08); }
+  body.te-dark .site-nav { background: rgba(15, 22, 20, 0.98); border-bottom-color: rgba(255, 255, 255, 0.08); }
 }
 
 /* Tokens. */
@@ -50,9 +51,8 @@ body.te-dark.plastic-te-active .site-footer { color: #8c9b93; }
 .te-dark .pt-page .tc-effect img { padding: 0.35rem; }
 
 /* Controls and small surfaces. */
-.te-dark .pt-page :is(.back-link, .te-theme-toggle) { background: #17211e; border-color: var(--line); color: var(--muted); }
-.te-dark .pt-page :is(.back-link, .te-theme-toggle):hover { color: var(--ink); }
-.te-dark .pt-page .te-theme-toggle[aria-pressed="true"] { color: var(--teal-deep); border-color: var(--teal); }
+.te-dark .pt-page .back-link { background: #17211e; border-color: var(--line); color: var(--muted); }
+.te-dark .pt-page .back-link:hover { color: var(--ink); }
 .te-dark .pt-page :is(.pt-contents a span, .tc-contents a) { color: var(--pt-faint); }
 .te-dark .pt-page .pt-table th { background: var(--pt-panel); }
 .te-dark .pt-page .pt-ref-list a { text-decoration-color: #3d4d47; }

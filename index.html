@@ -15,16 +15,19 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/styles.css?v=20261120" />
     <link rel="stylesheet" href="assets/mechanics.css?v=20261119" />
     <link rel="stylesheet" href="assets/te-materials.css" />
     <link rel="stylesheet" href="assets/plastic-te.css?v=20261109-merged" />
     <link rel="stylesheet" href="assets/ductility-map.css?v=20261119" />
     <link rel="stylesheet" href="assets/thermoelectric-lab.css?v=20261119e" />
     <link rel="stylesheet" href="assets/te-system.css?v=20261119b" />
-    <link rel="stylesheet" href="assets/te-dark.css?v=20261119" />
+    <link rel="stylesheet" href="assets/te-dark.css?v=20261120b" />
+    <link rel="stylesheet" href="assets/home.css?v=20261120b" />
+    <link rel="stylesheet" href="assets/site-theme.css?v=20261120" />
   </head>
   <body>
+    <script>try{var t=localStorage.getItem("te-theme")||localStorage.getItem("tepb-theme");if(t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches)document.body.classList.add("te-dark")}catch(e){}</script>
     <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="Heyang Chen homepage" data-view-link="home">
         <span class="brand-mark" aria-hidden="true">HC</span>
@@ -32,135 +35,158 @@
       </a>
       <nav class="site-nav" aria-label="Primary navigation" data-nav>
         <a href="#home" data-view-link="home">Home</a>
-        <a href="#current-work" data-view-link="current-work">Current Work</a>
         <a href="#plastic-te" data-view-link="plastic-te">Plastic TE Materials</a>
+        <a href="#agent-workspace" data-view-link="agent-workspace">Agent Workspace</a>
         <a href="#about" data-view-link="about">About</a>
         <a href="#contact" data-view-link="contact">Contact</a>
       </nav>
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="header-tools">
+        <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode" data-theme-toggle>
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.75a7.25 7.25 0 0 0 0 14.5z" fill="currentColor"/></svg>
+        </button>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
     <main id="top">
-      <section class="page-view home-view is-active" id="home" data-view="home" aria-labelledby="hero-title">
-        <section class="hero">
-          <canvas id="lattice-canvas" aria-hidden="true"></canvas>
-          <div class="hero-grid">
-            <div class="hero-inner">
-              <p class="eyebrow">Materials science | Thermoelectrics | Research software</p>
-              <img
-                class="hero-mobile-portrait"
-                src="assets/profile/heyang-chen-portrait.jpg"
-                alt=""
-                aria-hidden="true"
-                decoding="async"
-              />
+      <section class="page-view pt-page home-view is-active" id="home" data-view="home" aria-labelledby="hero-title">
+        <div class="page-shell home-shell">
+          <p class="section-kicker home-kicker">Materials science · Thermoelectrics · Research software</p>
+
+          <header class="home-hero">
+            <div class="home-hero-copy">
               <h1 id="hero-title">Heyang Chen</h1>
-              <p class="hero-copy">
-                I study how structure, transport, and mechanics shape functional semiconductors, while building local
-                tools that make materials data easier to trust, compare, and reuse.
+              <p class="home-lede">Thermoelectric semiconductors that bend, <em>and materials data you can trust.</em></p>
+              <p class="home-intro">
+                I study how structure, transport, and mechanics shape functional semiconductors, while building
+                agent workflows that make materials data easier to trust, compare, and reuse.
               </p>
-              <div class="hero-actions" aria-label="Primary links">
-                <a class="button primary" href="#current-work" data-view-link="current-work">
-                  <span>Current work</span>
-                  <span aria-hidden="true">-&gt;</span>
-                </a>
-                <a class="button secondary" href="#contact" data-view-link="contact">Contact</a>
-                <a class="button secondary" href="/kanatzidis-demo/">Group website demo ↗</a>
+              <div class="home-actions" aria-label="Primary links">
+                <a class="home-btn" href="#home" data-te-jump="home-projects">See my research <span aria-hidden="true">↓</span></a>
+                <a class="pt-link" href="assets/cv/Heyang_Chen_CV.pdf" target="_blank" rel="noopener">CV (PDF) <span aria-hidden="true">↗</span></a>
+                <a class="pt-link" href="#contact" data-view-link="contact">Get in touch <span aria-hidden="true">↗</span></a>
               </div>
             </div>
-
-            <aside class="hero-showcase hero-portrait" aria-label="Portrait of Heyang Chen">
+            <figure class="home-portrait">
               <img
                 src="assets/profile/heyang-chen-portrait.jpg"
                 alt="Heyang Chen standing in front of an ornate campus building"
+                width="1000"
+                height="1250"
                 decoding="async"
               />
-              <div class="portrait-caption">
-                <span>Visiting Postdoctoral Fellow at Northwestern</span>
-                <strong>Research Fellow at Nanyang Technological University</strong>
-              </div>
-            </aside>
-          </div>
-        </section>
+            </figure>
+          </header>
 
-        <section class="portal-section" aria-labelledby="portal-title">
-          <div class="section-inner">
-            <div class="home-signal-row" aria-label="Homepage research snapshot">
-              <article>
-                <span>Now building</span>
-                <strong>Traceable thermoelectric data workflows</strong>
-              </article>
-              <article>
-                <span>Research center</span>
-                <strong>Transport, structure, and mechanical reliability</strong>
-              </article>
-              <article>
-                <span>Visual layer</span>
-                <strong>Publication-style plotting from messy lab data</strong>
-              </article>
+          <dl class="home-facts" aria-label="Current positions and focus">
+            <div>
+              <dt>Northwestern University</dt>
+              <dd>Visiting Postdoctoral Fellow · Kanatzidis Group, Department of Chemistry</dd>
             </div>
+            <div>
+              <dt>Nanyang Technological University</dt>
+              <dd>Research Fellow · School of Materials Science and Engineering</dd>
+            </div>
+            <div>
+              <dt>Research focus</dt>
+              <dd>Transport, structure, and mechanical reliability in Ag₂(S,Se,Te) semiconductors</dd>
+            </div>
+          </dl>
 
-            <div class="section-heading compact">
+          <section class="home-section" id="home-projects" aria-labelledby="home-projects-title">
+            <div class="pt-work-heading">
               <div>
-                <p class="section-kicker">Explore</p>
-                <h2 id="portal-title">Research and personal notes</h2>
+                <p class="section-kicker">01 / Research &amp; projects</p>
+                <h2 id="home-projects-title" tabindex="-1">From ductile semiconductors <br />to trustworthy materials data</h2>
               </div>
               <p>
-                A card-based map of my current work, research themes, previous projects, and personal interests.
+                One question runs through my work: how do we make materials results reliable enough to build on,
+                in the lab, in devices, and in the data we extract from them?
               </p>
             </div>
-
-            <div class="portal-grid unified-portal-grid" aria-label="Homepage topic cards">
-              <a class="portal-card featured" href="#current-work" data-view-link="current-work">
-                <p class="meta">Current work</p>
-                <h3>TE Agent Workspace</h3>
-                <p>
-                  A local-to-public thermoelectric research stack behind TEDEX: data cleaning, metadata, TE/XRD
-                  plotting, flexible figures, SPB fitting, reference context, and report generation.
-                </p>
-                <span class="card-link" aria-hidden="true">Open -&gt;</span>
-              </a>
-              <a class="portal-card" href="#plastic-te" data-view-link="plastic-te">
-                <p class="meta">Research theme</p>
+            <div class="home-project-grid">
+              <a class="pt-work-card" href="#plastic-te" data-view-link="plastic-te">
+                <img src="assets/research/plastic-te-flexibility.svg" width="640" height="360" alt="Schematic comparing two routes to deformable electronics: rigid semiconductor islands on a bending substrate, and a continuous semiconductor ribbon that deforms by slip." loading="lazy" />
+                <span class="pt-label">Research · Materials, mechanics &amp; energy</span>
                 <h3>Plastic TE Materials</h3>
-                <p>Thermoelectric applications, semiconductor mechanics, and two routes to deformability—connected through my research on silver chalcogenides.</p>
-                <span class="card-link" aria-hidden="true">Explore the research →</span>
+                <p>Inorganic semiconductors that deform like metals: thermoelectric cooling and power, semiconductor mechanics, and my work on ductile, tough silver chalcogenides.</p>
+                <span class="pt-link">Explore the research <span aria-hidden="true">↗</span></span>
               </a>
-              <a class="portal-card" href="#about" data-view-link="about">
-                <p class="meta">Personal</p>
-                <h3>About me and astrophotography</h3>
-                <p>
-                  A personal section for background, field notes, night-sky images, and the non-lab parts of the story.
-                </p>
-                <span class="card-link" aria-hidden="true">Open -&gt;</span>
-              </a>
-              <a class="portal-card quiet" href="#contact" data-view-link="contact">
-                <p class="meta">Connect</p>
-                <h3>Contact and links</h3>
-                <p>Email, GitHub, and research-home links collected in one place.</p>
-                <span class="card-link" aria-hidden="true">Open -&gt;</span>
+              <a class="pt-work-card" href="#agent-workspace" data-view-link="agent-workspace">
+                <img src="assets/home/agent-workspace.svg" width="640" height="360" alt="Schematic: ZEM, LFA and XRD files flow into a command-line agent workspace that produces a fitted zT plot, a Markdown report and a JSON record." loading="lazy" />
+                <span class="pt-label">Software · TEDEX</span>
+                <h3>Agent Workspace for Materials Research</h3>
+                <p>A local-to-public workspace for thermoelectric data: instrument exports, lab metadata, TE/XRD plotting, SPB fitting, literature context, and traceable reports.</p>
+                <span class="pt-link">Open the workspace <span aria-hidden="true">↗</span></span>
               </a>
             </div>
-          </div>
-        </section>
+          </section>
+
+          <section class="home-section" aria-labelledby="home-side-title">
+            <div class="home-side-project">
+              <div>
+                <p class="section-kicker">02 / Side project · Feedback welcome</p>
+                <h2 id="home-side-title">Kanatzidis Group website preview</h2>
+                <p>
+                  A proposed new website for the group’s research, people, publications and news. Explore it and
+                  share suggestions on content, navigation and design.
+                </p>
+              </div>
+              <div class="home-actions">
+                <a class="home-btn" href="/kanatzidis-demo/">Open the preview <span aria-hidden="true">↗</span></a>
+                <a class="pt-link" href="mailto:heyang.chen@northwestern.edu?subject=Kanatzidis%20website%20demo%20feedback">Share feedback <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </section>
+
+          <section class="home-section" aria-labelledby="home-personal-title">
+            <div class="pt-work-heading">
+              <div>
+                <p class="section-kicker">03 / About &amp; contact</p>
+                <h2 id="home-personal-title" tabindex="-1">Beyond the lab bench</h2>
+              </div>
+              <p>Background, appointments and CV, plus the night-sky images I take when I am away from the lab.</p>
+            </div>
+            <div class="home-personal-grid">
+              <a class="pt-work-card home-about-card" href="#about" data-view-link="about">
+                <img src="assets/astro/andromeda-m31.jpg" alt="The Andromeda Galaxy (M31) from my astrophotography gallery" loading="lazy" />
+                <span class="pt-label">Personal</span>
+                <h3>About me &amp; astrophotography</h3>
+                <p>Research appointments, education, publications, and field notes from the night sky.</p>
+                <span class="pt-link">Read more <span aria-hidden="true">↗</span></span>
+              </a>
+              <a class="pt-work-card home-contact-card" href="#contact" data-view-link="contact">
+                <span class="pt-label">Connect</span>
+                <h3>Contact &amp; links</h3>
+                <p>Email is the best way to reach me. Code, notes and project updates are on GitHub.</p>
+                <ul class="home-contact-list" aria-label="Contact channels">
+                  <li>heyang.chen@northwestern.edu</li>
+                  <li>heyang.chen@ntu.edu.sg</li>
+                  <li>github.com/aioyouko</li>
+                </ul>
+                <span class="pt-link">All contact details <span aria-hidden="true">↗</span></span>
+              </a>
+            </div>
+          </section>
+        </div>
       </section>
 
-      <section class="page-view" id="current-work" data-view="current-work" hidden aria-labelledby="workspace-title">
+      <section class="page-view" id="agent-workspace" data-view="agent-workspace" data-page-title="Agent Workspace for Materials Research" hidden aria-labelledby="workspace-title">
         <div class="page-shell">
           <a class="back-link" href="#home" data-view-link="home">&larr; Overview</a>
           <div class="view-hero workspace-hero">
             <div>
-              <p class="section-kicker">Current work</p>
-              <h2 id="workspace-title">TE Agent Workspace</h2>
+              <p class="section-kicker">TEDEX · Thermoelectrics first</p>
+              <h2 id="workspace-title">Agent Workspace for Materials Research</h2>
               <p>
                 My current focus is a local-to-public research workspace for thermoelectric materials: instrument
                 exports, editable lab metadata, transport-property processing, XRD routines, SPB models, flexible
                 plotting, literature context, and Markdown/JSON assessment reports in one command-line flow.
               </p>
-              <div class="project-actions" aria-label="TE Agent Workspace project links">
+              <div class="project-actions" aria-label="Agent Workspace project links">
                 <a class="button primary" href="https://github.com/aioyouko/TEDEX" target="_blank" rel="noopener">
                   <span>TEDEX on GitHub</span>
                   <span aria-hidden="true">-&gt;</span>
@@ -191,16 +217,6 @@
               </dl>
             </aside>
           </div>
-
-          <aside class="repo-card" aria-labelledby="group-demo-title" style="margin-bottom:1.3rem">
-            <p class="meta">Website preview · Feedback welcome</p>
-            <h3 id="group-demo-title">Kanatzidis Group website demo</h3>
-            <p>A preview of the group’s research, people, publications and news. Explore the proposed website and share suggestions on its content, navigation and design.</p>
-            <div class="project-actions">
-              <a class="button primary" href="/kanatzidis-demo/">Open group demo ↗</a>
-              <a class="button secondary" href="mailto:heyang.chen@northwestern.edu?subject=Kanatzidis%20website%20demo%20feedback">Share feedback</a>
-            </div>
-          </aside>
 
           <div class="workspace-note">
             <p>
@@ -1073,7 +1089,7 @@
               </p>
               <p>
                 My work spans high-entropy thermoelectric materials, ductile inorganic semiconductors, and flexible
-                devices. I also develop <a class="profile-inline-link" href="#current-work" data-view-link="current-work">TEDEX</a>,
+                devices. I also develop <a class="profile-inline-link" href="#agent-workspace" data-view-link="agent-workspace">TEDEX</a>,
                 a workspace for experimental data management, transport modeling, scientific plotting, and
                 AI-assisted materials screening.
               </p>
@@ -1104,7 +1120,7 @@
                       conductivity, alongside TEDEX workflows for data analysis and AI-assisted materials screening.
                     </p>
                     <div class="career-links" aria-label="Research at Northwestern">
-                      <a href="#current-work" data-view-link="current-work">Current Work <span aria-hidden="true">&rarr;</span></a>
+                      <a href="#agent-workspace" data-view-link="agent-workspace">Agent Workspace <span aria-hidden="true">&rarr;</span></a>
                     </div>
                   </div>
                 </li>
@@ -1621,13 +1637,13 @@
       <p>Built with plain HTML, CSS, and JavaScript. Hosted on GitHub Pages.</p>
     </footer>
 
-    <script src="assets/main.js?v=20261109-merged"></script>
+    <script src="assets/main.js?v=20261120"></script>
     <script src="assets/mechanics.js"></script>
     <script src="assets/research/ductility-map-data.js?v=20261119"></script>
     <script src="assets/ductility-map.js?v=20261119"></script>
     <script src="assets/te-materials.js"></script>
     <script src="assets/thermoelectric-model.js?v=20261119b"></script>
     <script src="assets/thermoelectric-lab.js?v=20261119d"></script>
-    <script src="assets/te-theme.js?v=20261119"></script>
+    <script src="assets/te-theme.js?v=20261120b"></script>
   </body>
 </html>

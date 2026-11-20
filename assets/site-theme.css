@@ -1,0 +1,83 @@
+/* Site-wide theme: the shared header toggle, plus dark mode for the pages that are not
+ * .pt-page views (Agent Workspace, About, Contact). Loaded last.
+ * TE-PlotBench (extractbench/) uses the same toggle design: a 38px round button with a
+ * half-filled circle; pressed (dark) = teal ring, icon turned 180°.
+ */
+
+/* Header toggle. */
+.site-nav { margin-left: auto; }
+.header-tools { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.6rem; }
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.theme-toggle svg { width: 18px; height: 18px; transition: transform 320ms ease; }
+.theme-toggle:hover { color: var(--ink); border-color: rgba(11, 118, 107, 0.35); }
+.theme-toggle[aria-pressed="true"] { color: #8fd6c8; border-color: #4fb8a8; background: #17211e; }
+.theme-toggle[aria-pressed="true"] svg { transform: rotate(180deg); }
+.theme-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+@media (max-width: 900px) {
+  .header-tools { margin-left: auto; }
+  .theme-toggle { width: 42px; height: 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle svg { transition: none; }
+}
+
+/* Dark tokens for every page; .pt-page views refine them in te-dark.css. */
+body.te-dark {
+  --page: #0f1614;
+  --surface: #17211e;
+  --surface-strong: #141d1a;
+  --ink: #e3eae6;
+  --muted: #a7b4ad;
+  --line: rgba(255, 255, 255, 0.13);
+  --teal: #4fb8a8;
+  --teal-deep: #8fd6c8;
+  --copper: #d9925e;
+  --night: #0b1210;
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Shared surfaces. */
+body.te-dark :is(.back-link, .button.secondary) { background: var(--surface); border-color: var(--line); color: var(--muted); }
+body.te-dark :is(.back-link, .button.secondary):is(:hover, :focus-visible) { color: var(--ink); border-color: rgba(143, 214, 200, 0.3); }
+body.te-dark .button.primary { background: #e3eae6; color: #0f1614; box-shadow: none; }
+body.te-dark .meta { color: var(--teal-deep); }
+
+/* Agent Workspace. */
+body.te-dark .repo-card { background: linear-gradient(135deg, #17211e, #142a25); border-color: var(--line); box-shadow: none; }
+body.te-dark :is(.repo-facts div, .workspace-note) { background: rgba(255, 255, 255, 0.04); border-color: var(--line); }
+body.te-dark :is(.flow-card, .plot-card, .reference-panel) { background: var(--surface-strong); border-color: var(--line); box-shadow: none; }
+body.te-dark .plot-card img { background: #fff; } /* published figures stay light */
+body.te-dark .plot-card pre { background: var(--night); border: 1px solid var(--line); }
+
+/* About. */
+body.te-dark :is(.career-list, .personal-pages) { background: var(--surface-strong); border-color: var(--line); box-shadow: none; }
+body.te-dark .profile-links a { border-color: rgba(143, 214, 200, 0.3); }
+body.te-dark .profile-links a:hover { background: rgba(143, 214, 200, 0.08); }
+body.te-dark .personal-page-header p { color: var(--muted); }
+body.te-dark .personal-topic { background: var(--surface); border-color: var(--line); box-shadow: none; }
+body.te-dark .personal-topic.is-active { background: #e3eae6; border-color: #e3eae6; color: #0f1614; }
+body.te-dark .personal-page { background: #111a17; border-color: var(--line); }
+body.te-dark .astro-gallery { scrollbar-color: rgba(255, 255, 255, 0.25) transparent; }
+body.te-dark .astro-gallery figure { background: var(--surface); box-shadow: none; }
+body.te-dark .astro-gallery figcaption { border-top-color: var(--line); }
+body.te-dark .astro-gallery p { color: var(--muted); }
+body.te-dark .astro-facts div { background: rgba(143, 214, 200, 0.06); border-color: rgba(143, 214, 200, 0.18); }
+
+/* Contact: the panel is already dark; cards and logos follow the theme (logos stay on white). */
+body.te-dark .contact-panel { border-color: var(--line); }
+body.te-dark .affiliation-card { background: var(--surface-strong); border-color: var(--line); box-shadow: none; }
+body.te-dark .affiliation-card:is(:hover, :focus-visible) { border-color: rgba(143, 214, 200, 0.35); }
+
+body.te-dark :is(.contact-panel, .contact-links a) { color: #fffdf8; }

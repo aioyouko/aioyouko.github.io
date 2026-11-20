@@ -238,8 +238,3 @@
 @media (max-width: 760px) { .tc-load { padding: 1rem; } }
 
 /* Theme toggle row (added by te-theme.js). */
-.te-page-tools { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-.te-theme-toggle { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 38px; padding: 0.5rem 0.8rem; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 253, 248, 0.72); color: var(--muted); font: 700 0.8rem Inter, system-ui, sans-serif; cursor: pointer; }
-.te-theme-toggle svg { width: 16px; height: 16px; }
-.te-theme-toggle:hover { color: var(--ink); border-color: rgba(11, 118, 107, 0.28); }
-.te-theme-toggle[aria-pressed="true"] { color: var(--teal-deep); border-color: var(--teal); }

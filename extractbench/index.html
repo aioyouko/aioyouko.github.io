@@ -324,7 +324,7 @@ details.table-view thead th{position:sticky;top:0;background:var(--surface)}
 .fx-steps li{border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:7px 10px;font-size:12px;color:var(--muted);background:var(--surface-2)}
 .fx-steps li b{display:block;font-size:14px;color:var(--ink)}
 .fx-steps li b .ok{color:var(--teal)}.fx-steps li b .no{color:var(--bad)}
-.fx-code pre.code{max-height:430px;white-space:pre-wrap;overflow-wrap:anywhere}
+.fx-code pre.code{max-height:820px;white-space:pre-wrap;overflow-wrap:anywhere}
 .fx-say{font-size:14px;line-height:1.55;margin-top:12px}
 @media (max-width:980px){.fx-left,.fx-right{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:640px){.fx-steps{grid-template-columns:1fr}.band-row{grid-template-columns:100px 1fr 46px}}
@@ -348,8 +348,15 @@ figure.fig.folded .img{display:none}
 .chips-sel button[aria-pressed="true"]{background:var(--ink);color:var(--page);border-color:var(--ink)}
 /* prompt comparison */
 .pc-code{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.pc-code pre.code{max-height:340px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:11.8px}
+.pc-code pre.code{max-height:760px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:11.8px}
 pre.code mark.hl{background:rgba(237,161,0,.22);color:#ffd88a;border-radius:2px;padding:0 1px}
+pre.code mark.hl *{color:inherit}
+pre.code mark.hl.ok{background:rgba(58,157,93,.3);color:#a8ecc0}
+pre.code mark.hl.bad{background:rgba(209,73,91,.32);color:#ffb8c2}
+pre.code mark.hl.loc{background:rgba(232,123,164,.26);color:#ffc2d8}
+pre.code mark.hl.chk{background:rgba(167,139,250,.28);color:#d9ccff}
+.code-legend .mk{display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.code-legend .mk.ok{background:rgba(58,157,93,.55)}.code-legend .mk.bad{background:rgba(209,73,91,.6)}.code-legend .mk.cue{background:rgba(237,161,0,.5)}
 .blame-wrap{overflow-x:auto;margin-top:8px}
 .blame{border-collapse:separate;border-spacing:2px;font-size:12.5px;width:100%;min-width:380px}
 .blame th{font-weight:600;color:var(--muted);font-size:11.5px;padding:3px 4px}
@@ -886,7 +893,8 @@ footer a{color:var(--teal);text-decoration:none}
             <div class="code-bar"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="fname" id="fxName">task_answer.json</span></div>
             <pre class="code" id="fxCode" tabindex="0" aria-label="The model's answer, trimmed"></pre>
             <div class="code-legend"><span><i class="sw prop"></i>find: unit_verdict, presentation</span><span><i class="sw ver"></i>locate: localized_issue</span><span><i class="sw phys"></i>recover and check: verification</span></div>
-            <div class="code-note">The model&#39;s own answer, trimmed for length (… marks cuts). Scores come from the frozen grader.</div>
+            <div class="code-legend" style="border-top:0;padding-top:6px"><span><i class="mk ok"></i>right call</span><span><i class="mk bad"></i>wrong call</span><span><i class="mk cue"></i>clue or caveat</span></div>
+            <div class="code-note">The model&#39;s own answer, trimmed for length (… marks cuts). Highlights mark the lines that decide the outcome. Scores come from the frozen grader.</div>
           </div>
           <p class="fx-say" id="fxSay"></p>
         </div>
@@ -915,7 +923,8 @@ footer a{color:var(--teal);text-decoration:none}
         <div class="code-win"><div class="code-bar"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="fname">neutral prompt · all tracks (excerpt)</span></div><pre class="code" id="pcN" tabindex="0"></pre></div>
         <div class="code-win"><div class="code-bar"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="fname">detailed prompt · fault track D (excerpt)</span></div><pre class="code" id="pcD" tabindex="0"></pre></div>
       </div>
-      <p class="fnote">Highlighted: where the prompts tell the model what to expect and which equations to check. The F-track figures (3 of the 17 faults) use a similar detailed template. Full texts: <code>D2_Prompts_English.txt</code>.</p>
+      <div class="legend" style="margin-top:10px"><span><i style="background:#eda100;border-radius:2px"></i>find: is a fault expected?</span><span><i style="background:#e87ba4;border-radius:2px"></i>locate: how many issues to name</span><span><i style="background:#a78bfa;border-radius:2px"></i>check: who supplies the equations</span></div>
+      <p class="fnote">Highlighted: where the prompts tell the model what to expect and which equations to check, coloured by the step they steer (same colours as the answers above). The F-track figures (3 of the 17 faults) use a similar detailed template. Full texts: <code>D2_Prompts_English.txt</code>.</p>
       <div class="sr-block">
         <h4><b>A</b>What changes when the prompt says a fault exists</h4>
         <div class="controls"><div class="seg" role="group" aria-label="Prompt" id="pcSeg"><button type="button" data-pc="n" aria-pressed="true">Neutral</button><button type="button" data-pc="d" aria-pressed="false">Detailed</button><button type="button" data-pc="c" aria-pressed="false">Change</button></div></div>
@@ -1478,8 +1487,8 @@ footer a{color:var(--teal);text-decoration:none}
 
   // ---------- unit fault: one figure, four answers ----------
   // Built by tools/build_ring_data.py from evidence/D1_D2_fault_cases.tsv.gz and the selected raw answers.
-  const FX=/*FX-DATA*/{"q":"D2_D_02","panel":"b","fault":"unit_multiplier_mismatch","fix":"Keep the plotted numbers and use S/cm; otherwise divide them by 10 if 10^3 S/m is retained.","counts":{"n":61,"located":27,"wrong":9,"missed":25,"fixed90":7},"cases":[{"m":"GPT-6 Astra max","det":1,"loc":1,"rec":100.0,"panel":"b","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have evenly spaced ticks representing equal additive increments and are linear. The printed units imply PF values approximately one tenth of S^2σ for every sample. For example, the first Sample 1 marker gives S ≈ 205 μV K^-1, conductivity ordinate ≈ 165, and PF ≈ 6.91 μW cm^-1 K^-2. The printed conductivity multiplier gives S^2σ ≈ 0.006934 W m^-1 K^-2, whereas the independently extracted PF is 0.000691 W …"},"localized_issue":{"panel_id":"b","issue_type":"factor_of_ten_multiplier_mismatch","evidence":"The same approximately tenfold discrepancy occurs across all five samples. Correcting the conductivity multiplier to 10^2 restores agreement with the independently extracted Seebeck and power-factor markers. This localization assumes the labels in panels a and c are correct.","expected_correction":"With the units in panels a and c retained, replace σ (10^3 S m^-1) with σ (10^2 S m^-1).","numeric_transformation":"σ_canonical = 100 × extracted_panel_b_ordinate, equivalent to dividing the conductivity obtained from the printed multiplier by 10."},"verification":[{"relation_id":"power_factor_from_seebeck_and_conductivity","equation":"PF = S²σ","overall_max_relative_deviation":0.049235,"relative_tolerance":0.05,"verdict":"consistent"}]}},{"m":"GPT-6.1 Sol high","det":1,"loc":0,"rec":0.0,"panel":"c","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have uniformly spaced linear ticks. Panel a displays S in μV K^-1, panel b displays σ in 10^3 S m^-1, and panel c prints PF in μW cm^-1 K^-2. Taken literally, panel c gives power factors approximately ten times smaller than S²σ. For example, the first Sample 1 marker gives S ≈ 205 μV K^-1 and σ ≈ 165000 S m^-1, hence S²σ ≈ 0.006934 W m^-1 K^-2. Its panel-c ordinate is approximately 6.9, agreeing with mW …"},"localized_issue":{"panel_id":"c","issue_type":"power-factor unit label has a factor-of-ten mismatch","evidence":"The independently extracted Seebeck, conductivity, and power-factor markers satisfy PF = S²σ within 5% after this correction. Literal use of the printed panel-c unit produces an approximately 90% deficit.","expected_correction":"Replace μW cm^-1 K^-2 with mW m^-1 K^-2; equivalently, label the existing numerical scale as 10 μW cm^-1 K^-2.","numeric_transformation":"Canonical PF = displayed ordinate × 1e-3 W m^-1 K^-2, which is ten times the result of literal conversion using the printed unit."},"verification":[{"relation_id":"thermoelectric_power_factor","equation":"PF = S²σ","overall_max_relative_deviation":0.040558,"relative_tolerance":0.05,"verdict":"consistent"}]}},{"m":"GPT-6.1 Sol medium","det":1,"loc":1,"rec":0.0,"panel":"b","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have equally spaced linear ticks. The displayed units are individually convertible to canonical units, but their combined magnitudes violate PF = S²σ by approximately a factor of ten. For example, the first Sample 1 markers give S ≈ 205 μV K^-1, σ ≈ 165 × 10^3 S m^-1, and PF ≈ 6.9 μW cm^-1 K^-2. The first two imply PF ≈ 69.3 μW cm^-1 K^-2. The image alone does not uniquely establish which axis contains the …"},"localized_issue":{"panel_id":"b","issue_type":"factor-of-ten cross-panel inconsistency with ambiguous root localization","evidence":"The Sample 1 and Sample 2 series both show approximately the same tenfold discrepancy over their temperature ranges, making an axis-level multiplier error more likely than an isolated marker error. No independent quantity in the image resolves which multiplier is wrong.","expected_correction":"If the panel-c unit is correct, panel b should read 10^2 S m^-1 instead of 10^3 S m^-1. Alternatively, retaining panel b requires panel c to use mW m^-1 K^-2 rather than μW cm^-1 K^-2.","numeric_transformation":"The first alternative multiplies the label-based canonical conductivity by 0.1; the second multiplies the label-based canonical power factor by 10. Neither alternative is uniquely supported, so the extracted records retain the visible labels' conversions."},"verification":[{"relation_id":"thermoelectric_power_factor","equation":"PF = S²σ","overall_max_relative_deviation":10.397,"relative_tolerance":0.05,"verdict":"inconsistent"}]}},{"m":"GPT-6 Sol xhigh","det":0,"loc":0,"rec":0.0,"panel":null,"json":{"unit_verdict":"unit-consistent","presentation":{"evidence":"All axes have uniformly spaced ticks. The displayed units convert to the canonical units without a supported axis-label error. The low-conductivity series lie very close to panel b's zero baseline, limiting precise extraction."},"localized_issue":null,"verification":[{"relation_id":"power_factor","equation":"PF = S²σ","overall_max_relative_deviation":0.308,"relative_tolerance":0.05,"verdict":"inconsistent"}]}}]}/*FX-DATA*/;
-  const FX_TAB={"GPT-6 Astra max":"Fixed it","GPT-6.1 Sol high":"Blamed the <var>PF</var> panel","GPT-6.1 Sol medium":"Found it, kept it","GPT-6 Sol xhigh":"Missed it"};
+  const FX=/*FX-DATA*/{"q":"D2_D_02","panel":"b","fault":"unit_multiplier_mismatch","fix":"Keep the plotted numbers and use S/cm; otherwise divide them by 10 if 10^3 S/m is retained.","counts":{"n":61,"located":27,"wrong":9,"missed":25,"fixed90":7},"cases":[{"m":"GPT-6 Astra max","det":1,"loc":1,"rec":100,"panel":"b","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have evenly spaced ticks representing equal additive increments and are linear. The printed units imply PF values approximately one tenth of S^2σ for every sample. For example, the first Sample 1 marker gives S ≈ 205 μV K^-1, conductivity ordinate ≈ 165, and PF ≈ 6.91 μW cm^-1 K^-2. The printed conductivity multiplier gives S^2σ ≈ 0.006934 W m^-1 K^-2, whereas the independently extracted PF is 0.000691 W …"},"localized_issue":{"panel_id":"b","issue_type":"factor_of_ten_multiplier_mismatch","evidence":"The same approximately tenfold discrepancy occurs across all five samples. Correcting the conductivity multiplier to 10^2 restores agreement with the independently extracted Seebeck and power-factor markers. This localization assumes the labels in panels a and c are correct.","expected_correction":"With the units in panels a and c retained, replace σ (10^3 S m^-1) with σ (10^2 S m^-1).","numeric_transformation":"σ_canonical = 100 × extracted_panel_b_ordinate, equivalent to dividing the conductivity obtained from the printed multiplier by 10."},"verification":[{"relation_id":"power_factor_from_seebeck_and_conductivity","equation":"PF = S²σ","overall_max_relative_deviation":0.049235,"relative_tolerance":0.05,"verdict":"consistent"}]}},{"m":"GPT-6.1 Sol medium","det":1,"loc":1,"rec":0,"panel":"b","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have equally spaced linear ticks. The displayed units are individually convertible to canonical units, but their combined magnitudes violate PF = S²σ by approximately a factor of ten. For example, the first Sample 1 markers give S ≈ 205 μV K^-1, σ ≈ 165 × 10^3 S m^-1, and PF ≈ 6.9 μW cm^-1 K^-2. The first two imply PF ≈ 69.3 μW cm^-1 K^-2. The image alone does not uniquely establish which axis contains the …"},"localized_issue":{"panel_id":"b","issue_type":"factor-of-ten cross-panel inconsistency with ambiguous root localization","evidence":"The Sample 1 and Sample 2 series both show approximately the same tenfold discrepancy over their temperature ranges, making an axis-level multiplier error more likely than an isolated marker error. No independent quantity in the image resolves which multiplier is wrong.","expected_correction":"If the panel-c unit is correct, panel b should read 10^2 S m^-1 instead of 10^3 S m^-1. Alternatively, retaining panel b requires panel c to use mW m^-1 K^-2 rather than μW cm^-1 K^-2.","numeric_transformation":"The first alternative multiplies the label-based canonical conductivity by 0.1; the second multiplies the label-based canonical power factor by 10. Neither alternative is uniquely supported, so the extracted records retain the visible labels' conversions."},"verification":[{"relation_id":"thermoelectric_power_factor","equation":"PF = S²σ","overall_max_relative_deviation":10.397,"relative_tolerance":0.05,"verdict":"inconsistent"}]}},{"m":"GPT-6.1 Sol high","det":1,"loc":0,"rec":0,"panel":"c","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have uniformly spaced linear ticks. Panel a displays S in μV K^-1, panel b displays σ in 10^3 S m^-1, and panel c prints PF in μW cm^-1 K^-2. Taken literally, panel c gives power factors approximately ten times smaller than S²σ. For example, the first Sample 1 marker gives S ≈ 205 μV K^-1 and σ ≈ 165000 S m^-1, hence S²σ ≈ 0.006934 W m^-1 K^-2. Its panel-c ordinate is approximately 6.9, agreeing with mW …"},"localized_issue":{"panel_id":"c","issue_type":"power-factor unit label has a factor-of-ten mismatch","evidence":"The independently extracted Seebeck, conductivity, and power-factor markers satisfy PF = S²σ within 5% after this correction. Literal use of the printed panel-c unit produces an approximately 90% deficit.","expected_correction":"Replace μW cm^-1 K^-2 with mW m^-1 K^-2; equivalently, label the existing numerical scale as 10 μW cm^-1 K^-2.","numeric_transformation":"Canonical PF = displayed ordinate × 1e-3 W m^-1 K^-2, which is ten times the result of literal conversion using the printed unit."},"verification":[{"relation_id":"thermoelectric_power_factor","equation":"PF = S²σ","overall_max_relative_deviation":0.040558,"relative_tolerance":0.05,"verdict":"consistent"}]}},{"m":"GPT-6 Sol xhigh","det":0,"loc":0,"rec":0,"panel":null,"json":{"unit_verdict":"unit-consistent","presentation":{"evidence":"All axes have uniformly spaced ticks. The displayed units convert to the canonical units without a supported axis-label error. The low-conductivity series lie very close to panel b's zero baseline, limiting precise extraction."},"localized_issue":null,"verification":[{"relation_id":"power_factor","equation":"PF = S²σ","overall_max_relative_deviation":0.308,"relative_tolerance":0.05,"verdict":"inconsistent"}]}}]}/*FX-DATA*/;
+  const FX_TAB={"GPT-6 Astra max":"1 · Fixed it","GPT-6.1 Sol medium":"2 · Found and located","GPT-6.1 Sol high":"3 · Found, not located","GPT-6 Sol xhigh":"4 · Missed it"};
   const pct=v=>`${(100*v).toFixed(0)}%`;
   const FX_SAY={
     "GPT-6 Astra max":c=>`Checks <var>PF</var> = <var>S</var>²<var>σ</var> with the printed units, finds every sample about 10× off, keeps panels (a) and (c) as printed and moves the <var>σ</var> multiplier from 10³ to 10². Its corrected values pass the check (largest deviation ${pct(c.json.verification[0].overall_max_relative_deviation)}), and ${c.rec.toFixed(0)}% of the faulty points are recovered.`,
@@ -1487,19 +1496,42 @@ footer a{color:var(--teal);text-decoration:none}
     "GPT-6.1 Sol medium":c=>`Finds the gap and names panel (b), but decides the image cannot tell <var>σ</var> from <var>PF</var> and keeps the printed units. A careful answer, yet the stored <var>σ</var> values stay 10× too high: ${c.rec.toFixed(0)}% recovered.`,
     "GPT-6 Sol xhigh":c=>`Its own <var>PF</var> check fails by ${pct(c.json.verification[0].overall_max_relative_deviation)}, yet it reports the units as consistent and blames hard-to-read markers. The fault enters the record without a flag.`};
   const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  // Key feedback per answer: [json key, substring to mark (null = whole value), tone ok | bad | "" (clue)]
+  const FX_HL={
+    "GPT-6 Astra max":[["unit_verdict",null,"ok"],["evidence","approximately one tenth of S^2σ for every sample","ok"],["panel_id",null,"ok"],
+      ["expected_correction","replace σ (10^3 S m^-1) with σ (10^2 S m^-1)","ok"],["overall_max_relative_deviation",null,"ok"],["verdict",null,"ok"]],
+    "GPT-6.1 Sol high":[["unit_verdict",null,"ok"],["panel_id",null,"bad"],["expected_correction","Replace μW cm^-1 K^-2 with mW m^-1 K^-2","bad"],
+      ["overall_max_relative_deviation",null,""],["verdict",null,""]],
+    "GPT-6.1 Sol medium":[["unit_verdict",null,"ok"],["panel_id",null,"ok"],["issue_type","ambiguous root localization",""],
+      ["evidence","No independent quantity in the image resolves which multiplier is wrong",""],
+      ["numeric_transformation","Neither alternative is uniquely supported, so the extracted records retain the visible labels' conversions","bad"],
+      ["overall_max_relative_deviation",null,"bad"],["verdict",null,"bad"]],
+    "GPT-6 Sol xhigh":[["unit_verdict",null,"bad"],["evidence","without a supported axis-label error","bad"],["localized_issue",null,"bad"],
+      ["overall_max_relative_deviation",null,""],["verdict",null,""]]};
+  let fxHL=[];
+  const hlv=(key,html)=>{
+    for(const [k,sub,tone] of fxHL){
+      if(k!==key) continue;
+      const open=`<mark class="hl${tone?' '+tone:''}">`;
+      if(!sub) return open+html+'</mark>';
+      const e=esc(sub); if(html.includes(e)) return html.replace(e,open+e+'</mark>');
+    }
+    return html;
+  };
   function jlines(key,val,ind,g,last,out){
     const pad="  ".repeat(ind), kk=key!==null?`<span class="k">"${esc(key)}"</span><span class="p">: </span>`:"", comma=last?"":'<span class="p">,</span>';
     const gg=(key==="numeric_transformation"||key==="expected_correction")?"phys":g;
-    if(val===null) out.push([gg,pad+kk+'<span class="n">null</span>'+comma]);
+    if(val===null) out.push([gg,pad+kk+hlv(key,'<span class="n">null</span>')+comma]);
     else if(Array.isArray(val)){ out.push([gg,pad+kk+'<span class="p">[</span>']); val.forEach((v,i)=>jlines(null,v,ind+1,gg,i===val.length-1,out)); out.push([gg,pad+'<span class="p">]</span>'+comma]); }
     else if(typeof val==="object"){ const ks=Object.keys(val); out.push([gg,pad+kk+'<span class="p">{</span>']); ks.forEach((k2,i)=>jlines(k2,val[k2],ind+1,gg,i===ks.length-1,out)); out.push([gg,pad+'<span class="p">}</span>'+comma]); }
-    else if(typeof val==="number") out.push([gg,pad+kk+`<span class="n">${val}</span>`+comma]);
-    else out.push([gg,pad+kk+`<span class="s">"${esc(val)}"</span>`+comma]);
+    else if(typeof val==="number") out.push([gg,pad+kk+hlv(key,`<span class="n">${val}</span>`)+comma]);
+    else out.push([gg,pad+kk+hlv(key,`<span class="s">"${esc(val)}"</span>`)+comma]);
   }
   const FX_GROUP={unit_verdict:"prop",presentation:"prop",localized_issue:"ver",verification:"phys"};
   let fxI=0;
   function drawFx(){
     const c=FX.cases[fxI], out=[["id",'<span class="p">{</span>']], ks=Object.keys(c.json);
+    fxHL=FX_HL[c.m]||[];
     ks.forEach((k,i)=>jlines(k,c.json[k],1,FX_GROUP[k]||"id",i===ks.length-1,out));
     out.push(["id",'<span class="p">}</span>']);
     document.getElementById('fxCode').innerHTML=out.map(([g,l])=>`<span class="blk" data-k="${g}">${l}</span>`).join('');
@@ -1556,11 +1588,20 @@ footer a{color:var(--teal);text-decoration:none}
 
   // ---------- neutral vs detailed prompt ----------
   const pcTip=document.getElementById('pcTip'), pcCard=document.getElementById('prompt-compare');
-  const HL_N=/(may or may not have a wrong unit[^.]*|Do not assume in advance[^.]*|no specific verification formula is supplied by this prompt|Derive and state each applicable equation yourself)/gi;
-  const HL_D=/(contains exactly one localized root fault[^.]*|return unit_verdict = unit-inconsistent|Localize exactly one root issue|Use PF = S\^2\*sigma[^.]*|Use PF = S\^2\/rho[^.]*|Use zT = PF\*T\/kappa_tot[^.]*)/g;
-  function promptCode(id,secs,re){
-    const out=[]; secs.forEach((sec,k)=>{ if(k) out.push(['src','']); sec.forEach(l=>{ const e=esc(l), hit=re.test(l); re.lastIndex=0;
-      out.push([hit?'prop':(!/[.:]/.test(l)&&l.length<44?'id':'src'), e.replace(re,'<mark class="hl">$1</mark>')]); re.lastIndex=0; }); });
+  // Key phrases by stage, same colours as the answer card: find (amber) · locate (pink) · recover and check (purple)
+  const HL_N=[["find",/may or may not have a wrong unit[^.]*/],["find",/Do not assume in advance[^.]*/],
+    ["find",/If the evidence does not support an inconsistency, do not invent one/],["find",/do not imply that any particular presentation or inconsistency is present/],
+    ["loc",/If the evidence supports an inconsistency, localize the root issue/],
+    ["chk",/Derive and state each applicable equation yourself/],["chk",/no specific verification formula is supplied by this prompt/]];
+  const HL_D=[["find",/contains exactly one localized root fault[^.]*/],["find",/return unit_verdict = unit-inconsistent/],
+    ["loc",/Localize exactly one root issue/],
+    ["chk",/Use PF = S\^2\*sigma[^.]*/],["chk",/Use PF = S\^2\/rho[^.]*/],["chk",/Use zT = PF\*T\/kappa_tot[^.]*/],["chk",/A six-panel question requires both[^.]*/]];
+  const PC_BLK={find:'prop',loc:'ver',chk:'phys'};
+  function promptCode(id,secs,hls){
+    const out=[]; secs.forEach((sec,k)=>{ if(k) out.push(['src','']); sec.forEach(l=>{
+      let e=esc(l), first=null;
+      hls.forEach(([tone,re])=>{ if(re.test(e)){ first=first||tone; e=e.replace(re,m=>`<mark class="hl${tone==='find'?'':' '+tone}">${m}</mark>`); } });
+      out.push([first?PC_BLK[first]:(!/[.:]/.test(l)&&l.length<44?'id':'src'), e]); }); });
     document.getElementById(id).innerHTML=out.map(([g,l])=>`<span class="blk" data-k="${g}">${l||'&nbsp;'}</span>`).join('');
   }
   const BL_LAB={"S":"<var>S</var>","σ / ρ":"<var>σ</var>/<var>ρ</var>","PF":"<var>PF</var>","κ$_{tot}$":"<var>κ</var><sub>tot</sub>","κ$_{lat}$":"<var>κ</var><sub>lat</sub>","zT":"<var>zT</var>","None":"none","σ":"<var>σ</var>","ρ":"<var>ρ</var>","T axis":"<var>T</var> axis"};

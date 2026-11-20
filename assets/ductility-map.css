@@ -39,6 +39,8 @@
 .dm-point-label { fill: var(--dm-color); font-size: 13px; font-weight: 550; paint-order: stroke; stroke: #ffffffbf; stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
 .dm-point:is(:hover, :focus-visible, .is-preview, .is-selected) .dm-point-ring { opacity: 0.9; }
 .dm-point.is-selected .dm-point-dot { fill: var(--dm-color); }
+.dm-point.is-own .dm-point-dot { stroke-width: 3.2; }
+.dm-point.is-own .dm-point-label { font-weight: 700; }
 .dm-point:focus-visible .dm-point-ring { stroke: #193d2e; stroke-width: 2.5; }
 .dm-hide-labels .dm-point-label, .ductility-map .is-hidden { display: none; }
 .dm-chart figcaption { margin: 0.3rem 0 0; padding-left: 0.4rem; color: #6c7b72; font-size: 0.67rem; line-height: 1.7; }

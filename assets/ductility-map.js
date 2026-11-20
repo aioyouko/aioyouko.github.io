@@ -20,8 +20,9 @@
   const number = (value) => String(Number(value.toPrecision(3)));
   const gapLabel = (point) => point.bandGapEv === null ? "≈ 0 · separate strip" : `${approximate}${number(point.bandGapEv)} eV`;
   const strainLabel = (point) => `${approximate}${number(point.elongationPercent)}%`;
-  const name = (point) => `${point.label}${point.example ? ` · example ${point.example}` : ""}`;
-  const description = (point) => `${name(point)}. ${groups.get(point.group).label}. Band gap ${gapLabel(point)}; elongation ${strainLabel(point)}. ${data.provisional ? "Provisional image estimate." : ""}`;
+  const name = (point) => `${point.label}${point.example ? ` (${point.example})` : ""}`;
+  const groupLabel = (point) => `${groups.get(point.group).label}${point.own ? " · my work" : ""}`;
+  const description = (point) => `${name(point)}. ${groupLabel(point)}. Band gap ${gapLabel(point)}; elongation ${strainLabel(point)}.`;
   const visible = () => data.points.filter((point) => enabled.has(point.group));
 
   function element(tag, attributes = {}, text, parent = svg) {
@@ -33,7 +34,7 @@
   }
 
   element("title", { id: "dm-plot-title" }, "Band gap and elongation of inorganic materials");
-  element("desc", { id: "dm-plot-desc" }, "Provisional estimates from a supplied schematic. Both numerical axes are logarithmic. A separate near-zero-gap strip contains metals and Mg3Bi2. Tab to points or use the material selector to inspect values. Colored regions are visual guides, not fitted boundaries.");
+  element("desc", { id: "dm-plot-desc" }, "Approximate values for orientation. Both numerical axes are logarithmic. A separate near-zero-gap strip contains metals and Mg3Bi2. Tab to points or use the material selector to inspect values. Colored regions are visual guides, not fitted boundaries.");
   element("rect", { x: plot.left, y: plot.top, width: plot.right - plot.left, height: plot.bottom - plot.top, rx: 4, class: "dm-plot-bg" });
   element("rect", { x: 108, y: 57, width: 45, height: 203, rx: 23, fill: groups.get("metal").color, opacity: 0.13, "data-dm-region": "metal" });
   element("ellipse", { cx: 485, cy: 142, rx: 272, ry: 84, transform: "rotate(8 485 142)", fill: groups.get("ductile").color, opacity: 0.12, "data-dm-region": "ductile" });
@@ -67,10 +68,10 @@
     $("panel").style.setProperty("--dm-accent", point ? groups.get(point.group).color : "#727d78");
     $("state").textContent = preview ? "Preview · click to select" : "Selected material";
     $("name").textContent = point ? point.label : "No category selected";
-    $("group").textContent = point ? `${groups.get(point.group).label}${point.example ? ` · example ${point.example}` : ""}` : "Choose a category above to restore its points.";
+    $("group").textContent = point ? groupLabel(point) : "Choose a category above to restore its points.";
     $("gap").textContent = point ? gapLabel(point) : "—";
     $("elongation").textContent = point ? strainLabel(point) : "—";
-    $("point-note").textContent = point ? point.note || (point.example ? "Separate examples read from the schematic; exact compositions and test conditions await confirmation." : "Approximate position read from the supplied schematic; test conditions await confirmation.") : "";
+    $("point-note").textContent = point ? point.note || "Approximate position for orientation; elongation depends on test mode, temperature and specimen form." : "";
     marks.forEach((mark, id) => mark.classList.toggle("is-preview", preview && point?.id === id));
   }
 
@@ -93,7 +94,7 @@
   data.points.forEach((point) => {
     const group = groups.get(point.group);
     const px = x(point.bandGapEv), py = y(point.elongationPercent);
-    const mark = element("g", { class: "dm-point", transform: `translate(${px} ${py})`, tabindex: 0, role: "button", "aria-label": description(point), "aria-pressed": "false", "data-point-id": point.id, style: `--dm-color:${group.color}` });
+    const mark = element("g", { class: point.own ? "dm-point is-own" : "dm-point", transform: `translate(${px} ${py})`, tabindex: 0, role: "button", "aria-label": description(point), "aria-pressed": "false", "data-point-id": point.id, style: `--dm-color:${group.color}` });
     // Keep adjacent Fe/Cu targets from covering each other's visible centers.
     element("circle", { r: point.bandGapEv === null ? 8 : 13, class: "dm-hit" }, undefined, mark);
     element("circle", { r: 10, class: "dm-point-ring" }, undefined, mark);
@@ -163,14 +164,6 @@
     selected = initialSelection;
     $("labels").checked = true; root.classList.remove("dm-hide-labels");
     applyFilters(); $("scroll").scrollLeft = 0;
-  });
-  $("download").addEventListener("click", () => {
-    const quote = (value) => `"${String(value ?? "").replaceAll('"', '""')}"`;
-    const csv = [["material", "example", "category", "band_gap_eV", "elongation_percent", "gap_placement", "status", "source"], ...data.points.map((p) => [p.label, p.example || "", groups.get(p.group).label, p.bandGapEv, p.elongationPercent, p.bandGapEv === null ? "near-zero strip; exact gap unverified" : "logarithmic axis", data.provisional ? "provisional_image_estimate" : "confirmed", data.source])].map((row) => row.map(quote).join(",")).join("\r\n");
-    const url = URL.createObjectURL(new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" }));
-    const link = document.createElement("a"); link.href = url; link.download = "band-gap-elongation-provisional.csv";
-    document.body.append(link); link.click(); link.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
   applyFilters();
 })();

@@ -60,5 +60,44 @@
     return th * (m - 1) / (m + 1);
   }
 
-  return Object.freeze({ coolingLimit, cooler, generation, noLoadDelta });
+  // Bi2Te3-like legs near 300 K: S = +/-200 uV/K, rho = 1.0e-5 ohm m,
+  // kappa = 1.5 W/(m K) (zT ~ 0.8), and 1e-10 ohm m^2 electrical contact
+  // resistivity at each end of every leg. SI units throughout.
+  const BI2TE3 = Object.freeze({ seebeck: 200e-6, resistivity: 1.0e-5, conductivity: 1.5, contact: 1e-10 });
+
+  // A module of N identical p-n couples: electrically in series, thermally in
+  // parallel. width and length are the square leg side and leg height (m);
+  // fill is the fraction of the cold-plate footprint covered by legs.
+  function moduleProperties({ couples, width, length, fill = 0.3, material = BI2TE3 }) {
+    if (!(couples >= 1) || width <= 0 || length <= 0 || fill <= 0 || fill > 1) throw new RangeError("Invalid module geometry");
+    const area = width ** 2;
+    const legResistance = material.resistivity * length / area + 2 * material.contact / area;
+    const legConductance = material.conductivity * area / length;
+    return {
+      alpha: couples * 2 * material.seebeck,
+      resistance: couples * 2 * legResistance,
+      conductance: couples * 2 * legConductance,
+      footprint: couples * 2 * area / fill,
+    };
+  }
+
+  // Carry a fixed heat load (W) with the fewest identical modules. Each module runs
+  // at the lower current that pumps load / n, the efficient root of
+  // R I^2 / 2 - alpha Tc I + (K deltaT + q) = 0. Returns null if one module
+  // cannot hold deltaT at all.
+  function shareLoad({ alpha, resistance, conductance, th, delta }, load) {
+    const tc = th - delta;
+    if (load < 0 || tc <= 0 || delta < 0) throw new RangeError("Invalid load conditions");
+    const qMax = alpha ** 2 * tc ** 2 / (2 * resistance) - conductance * delta;
+    if (qMax <= 0) return null;
+    if (load === 0) return { qMax, modules: 0, perModule: 0, current: 0, input: 0, cop: null, rejected: 0 };
+    const modules = Math.ceil(load / qMax - 1e-9);
+    const perModule = load / modules;
+    const disc = Math.max(0, alpha ** 2 * tc ** 2 - 2 * resistance * (conductance * delta + perModule));
+    const current = (alpha * tc - Math.sqrt(disc)) / resistance;
+    const input = modules * (alpha * delta * current + resistance * current ** 2);
+    return { qMax, modules, perModule, current, input, cop: load / input, rejected: load + input };
+  }
+
+  return Object.freeze({ coolingLimit, cooler, generation, noLoadDelta, moduleProperties, shareLoad, BI2TE3 });
 });

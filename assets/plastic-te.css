@@ -41,8 +41,7 @@ body.plastic-te-active { min-width: 0; }
 .pt-work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
 .pt-work-card { display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid var(--pt-rule); background: #fafbf8; border-radius: 4px; transition: border-color 160ms ease, box-shadow 160ms ease; }
 .pt-work-card:hover { border-color: var(--teal); box-shadow: 0 8px 25px #274a3c0b; }
-.pt-work-card > img { width: 100%; height: auto; margin: -0.1rem 0 0.8rem; background: #eaf0eb; border-radius: 3px; }
-.pt-work-card:first-child > img { background: #edf1f2; }
+.pt-work-card > img { width: 100%; height: auto; margin: -0.1rem 0 0.8rem; background: #eceef1; border-radius: 3px; }
 .pt-work-card .pt-label { font-size: 0.68rem; color: var(--teal); font-weight: 700; letter-spacing: 0.03em; }
 .pt-work-card h4 { margin: 0.7rem 0; font: 600 1.7rem/1.2 var(--pt-serif); letter-spacing: -0.025em; }
 .pt-work-card p { margin-bottom: 1.2rem; color: var(--muted); font-size: 0.82rem; }

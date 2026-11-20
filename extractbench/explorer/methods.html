@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <script>try{var t=localStorage.getItem("te-theme")||localStorage.getItem("tepb-theme");document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script>
 <title>Methods · TE-PlotBench · Heyang Chen</title>
   <meta name="theme-color" content="#f6f7f5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="theme.css?v=20261109"></head>
+  <link rel="stylesheet" href="theme.css?v=20261120"></head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
@@ -15,6 +16,7 @@
       <a href="index.html">Curve Explorer</a>
       <a href="methods.html" aria-current="page">Methods</a>
       <a href="../#data">Data</a>
+      <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode" data-theme-toggle><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.75a7.25 7.25 0 0 0 0 14.5z" fill="currentColor"/></svg></button>
     </nav>
   </header>
 <main class="methods-page" id="main">
@@ -42,4 +44,5 @@
 <p>Curve datasets load on demand. The dataset ZIP download contains prediction curves, Gold reference values, question metrics, and sample stability as four CSV files. Unzip before opening in a spreadsheet application. Missing values remain distinct from zero.</p>
 <p>The public export contains scored curve data and configuration-level audits. Original model responses and operational source paths remain in the research archive. File checksums and the exact source-bundle checksum identify this release.</p>
 <p><a href="data/release.json">Release manifest and SHA-256 checksums</a> · <a href="data/build_validation.json">Build validation</a> · <a href="../#methods">Overview and metric definitions</a></p>
-</main></body></html>
+</main>  <script src="theme.js?v=20261120"></script>
+</body></html>

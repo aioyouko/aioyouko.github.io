@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{var t=localStorage.getItem("te-theme")||localStorage.getItem("tepb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <title>TE-PlotBench · Can AI turn figures into reusable data?</title>
 <meta name="description" content="TE-PlotBench tests whether 61 multimodal-model configurations can turn thermoelectric figures into reliable numerical records: reading points, keeping panels and units straight, and checking physics. Key findings from the 18 Nov 2026 data.">
 <meta property="og:title" content="TE-PlotBench · From scientific figures to reusable data">
@@ -56,7 +57,13 @@ var{font-style:italic;font-family:inherit}
 .nav{display:flex;gap:22px;font-size:13px;align-items:center}
 .nav a{text-decoration:none;color:var(--muted)}.nav a:hover{color:var(--teal)}
 .nav .ext{color:var(--deep);font-weight:650}
-.theme-btn{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer}
+/* site-wide theme toggle: same design as the homepage header (assets/site-theme.css) */
+.theme-toggle{display:inline-grid;place-items:center;width:38px;height:38px;padding:0;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--muted);cursor:pointer;transition:color .16s,border-color .16s,background .16s;flex:none}
+.theme-toggle svg{width:18px;height:18px;transition:transform .32s ease}
+.theme-toggle:hover{color:var(--ink);border-color:rgba(11,118,107,.35)}
+.theme-toggle[aria-pressed="true"]{color:#8fd6c8;border-color:#4fb8a8;background:#17211e}
+.theme-toggle[aria-pressed="true"] svg{transform:rotate(180deg)}
+@media (prefers-reduced-motion:reduce){.theme-toggle svg{transition:none}}
 
 /* database hero */
 .db-hero{padding:56px 0 28px;display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:start}
@@ -464,7 +471,7 @@ footer a{color:var(--teal);text-decoration:none}
     <nav class="nav" aria-label="Page sections">
       <a href="#main">Why</a><a href="#benchmark">How it works</a><a href="#reading">Single panels</a><a href="#panels">Multi-panel</a><a href="#units">Units</a><a href="#papers">Real papers</a><a href="#practice">In practice</a>
       <a class="ext" href="explorer/">Explorer ↗</a>
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">◐</button>
+      <button class="theme-toggle" id="themeBtn" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.75a7.25 7.25 0 0 0 0 14.5z" fill="currentColor"/></svg></button>
     </nav>
   </div>
 </header>
@@ -1000,12 +1007,17 @@ footer a{color:var(--teal);text-decoration:none}
 <script>
 (function(){
   // ---------- theme ----------
-  const root=document.documentElement, btn=document.getElementById('themeBtn');
-  try{const t=localStorage.getItem('tepb-theme'); if(t) root.dataset.theme=t;}catch(e){}
+  // Shared with the rest of the site: 'te-theme' (older 'tepb-theme' still read and mirrored).
+  const root=document.documentElement, btn=document.getElementById('themeBtn'), themeMq=matchMedia('(prefers-color-scheme: dark)');
+  const themeIsDark=()=>root.dataset.theme? root.dataset.theme==='dark' : themeMq.matches;
+  const syncThemeBtn=()=>{const d=themeIsDark(); btn.setAttribute('aria-pressed',String(d)); btn.title=d?'Switch to light mode':'Switch to dark mode';};
+  try{const t=localStorage.getItem('te-theme')||localStorage.getItem('tepb-theme'); if(t) root.dataset.theme=t;}catch(e){}
+  syncThemeBtn();
+  if(themeMq.addEventListener) themeMq.addEventListener('change',syncThemeBtn);
   btn.addEventListener('click',()=>{
-    const dark=root.dataset.theme? root.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-    root.dataset.theme=dark?'light':'dark';
-    try{localStorage.setItem('tepb-theme',root.dataset.theme);}catch(e){}
+    root.dataset.theme=themeIsDark()?'light':'dark';
+    try{localStorage.setItem('te-theme',root.dataset.theme);localStorage.setItem('tepb-theme',root.dataset.theme);}catch(e){}
+    syncThemeBtn();
   });
 
   // ---------- data (2026-11-18 refresh; Y10 %, same 20 source panel-properties) ----------

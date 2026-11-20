@@ -312,3 +312,45 @@ tbody tr.selected td:first-child { box-shadow: inset 3px 0 var(--teal); }
 }
 @media(max-width:360px) { .brand-project,.brand-divider { display: none; } .controls,.picker-groups { grid-template-columns: 1fr; } }
 @media(prefers-reduced-motion:reduce) { * { scroll-behavior: auto!important; transition: none!important; } }
+
+/* Site-wide theme toggle: same design as the homepage header and the TE-PlotBench page. */
+.theme-toggle { display: inline-grid; place-items: center; flex: none; width: 38px; height: 38px; margin-left: 6px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--muted); cursor: pointer; transition: color 160ms ease, border-color 160ms ease, background 160ms ease; }
+.theme-toggle svg { width: 18px; height: 18px; transition: transform 320ms ease; }
+.theme-toggle:hover { color: var(--ink); border-color: rgba(11,118,107,.35); }
+.theme-toggle[aria-pressed="true"] { color: #8fd6c8; border-color: #4fb8a8; background: #17211e; }
+.theme-toggle[aria-pressed="true"] svg { transform: rotate(180deg); }
+
+/* Dark theme: <html data-theme="dark">, set by theme.js from the shared "te-theme" choice
+ * (else the system preference). Same palette as the TE-PlotBench page. Plots stay light. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #11161a; --surface: #182026; --surface-strong: #182026; --ink: #e7ecef; --muted: #a3afb7;
+  --line: #2c3840; --soft: #1f2930; --teal: #4cc2b2; --teal-deep: #7fd8cb; --copper: #e39a62; --bad: #f07a84; --good: #4cc2b2;
+}
+:root[data-theme="dark"] .site-header { background: rgba(17,22,26,.94); }
+:root[data-theme="dark"] .brand-mark, :root[data-theme="dark"] .skip { background: var(--surface); border-color: rgba(127,216,203,.35); box-shadow: none; }
+:root[data-theme="dark"] .brand-divider { color: #5d6a72; }
+:root[data-theme="dark"] .model-button:hover { background: var(--soft); }
+:root[data-theme="dark"] .model-button.active { background: #16302d; border-color: #2f5f58; }
+:root[data-theme="dark"] .model-button.new-result { background: #16302d; border-color: #2f5f58; }
+:root[data-theme="dark"] .new-badge { background: #4cc2b2; color: #11161a; }
+:root[data-theme="dark"] :is(#sidebarSearch, .control select, .control button, .compare-toolbar input, .compare-toolbar select, .compare-toolbar button) { background: #11161a; border-color: var(--line); color: var(--ink); }
+:root[data-theme="dark"] .compare-toolbar button.primary { background: #4cc2b2; border-color: #4cc2b2; color: #11161a; }
+:root[data-theme="dark"] .links a:hover { background: #16302d; border-color: #2f5f58; }
+:root[data-theme="dark"] .snapshot { background: #16302d; border-color: #2a4743; border-left-color: var(--teal); }
+:root[data-theme="dark"] :is(.picker-groups, .statistics-summary, #modelList) { background: #141b20; border-color: var(--line); }
+:root[data-theme="dark"] :is(.sidebar, .picker-groups, .table-wrap, .compare-table-wrap) { scrollbar-color: #3a4a52 transparent; }
+:root[data-theme="dark"] th { background: #1f2930; color: #a9d9cf; }
+:root[data-theme="dark"] :is(th, td) { border-bottom-color: #26323a; }
+:root[data-theme="dark"] tbody tr:nth-child(even) { background: #1b242a; }
+:root[data-theme="dark"] tbody tr:hover { background: #1f2c31; }
+:root[data-theme="dark"] tbody tr.selected, :root[data-theme="dark"] .compare-table tbody tr.primary-model { background: #16302d; }
+:root[data-theme="dark"] .status-pill { background: #26323a; color: var(--ink); }
+:root[data-theme="dark"] .status-pill.ok { background: #16302d; color: var(--teal-deep); }
+:root[data-theme="dark"] .status-pill.warning { background: #3a241d; color: #f0a98a; }
+:root[data-theme="dark"] .status-pill.unit-task { background: #33291b; color: #e8c48e; }
+:root[data-theme="dark"] .plot { border-color: var(--line); } /* chart SVGs keep their white figure background */
+:root[data-theme="dark"] #datasetLoading { background: rgba(17,22,26,.96); }
+@media (max-width: 760px) {
+  .site-nav .theme-toggle { position: absolute; top: 11px; right: 18px; margin: 0; } /* sits on the brand row */
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><title>Agent workspace for materials research</title><desc>Raw instrument files (ZEM, LFA, XRD) flow into a command-line agent workspace, which returns fitted figures and traceable Markdown and JSON reports.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#52756c"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#23493f}.label{font-size:12px;letter-spacing:1.3px;font-weight:700}.small{font-size:13px;fill:#5d736b}.mono{font-family:Consolas,Menlo,monospace;font-size:12.5px;fill:#d6e2e6}.prompt{fill:#7fd8cb}.file{font-size:12px;font-weight:700}.arrow{fill:none;stroke:#52756c;stroke-width:2;marker-end:url(#arrow)}</style>
+<text x="32" y="43" class="label">RAW LAB DATA</text><text x="320" y="43" text-anchor="middle" class="label">AGENT WORKSPACE</text><text x="608" y="43" text-anchor="end" class="label">FIGURES &amp; REPORTS</text>
+<g stroke="#b8cabe" fill="#f6f9f6"><rect x="48" y="96" width="110" height="46" rx="3"/><rect x="48" y="152" width="110" height="46" rx="3"/><rect x="48" y="208" width="110" height="46" rx="3"/></g>
+<g fill="#b8cabe"><rect x="40" y="104" width="4" height="30"/><rect x="40" y="160" width="4" height="30"/><rect x="40" y="216" width="4" height="30"/></g>
+<text x="60" y="117" class="file">ZEM</text><text x="60" y="133" class="small">S, σ vs T</text>
+<text x="60" y="173" class="file">LFA</text><text x="60" y="189" class="small">κ vs T</text>
+<text x="60" y="229" class="file">XRD</text><text x="60" y="245" class="small">2θ scans</text>
+<path d="M170 175H208" class="arrow"/>
+<rect x="218" y="78" width="204" height="196" rx="8" fill="#0f1b20"/><rect x="218" y="78" width="204" height="26" rx="8" fill="#16262d"/><rect x="218" y="96" width="204" height="8" fill="#16262d"/>
+<g fill="#3a4d55"><circle cx="234" cy="91" r="4"/><circle cx="248" cy="91" r="4"/><circle cx="262" cy="91" r="4"/></g>
+<text x="232" y="130" class="mono"><tspan class="prompt">›</tspan> analyze batch-07</text>
+<text x="232" y="156" class="mono"><tspan class="prompt">›</tspan> plot-te --zT</text>
+<text x="232" y="182" class="mono"><tspan class="prompt">›</tspan> plot-xrd --norm</text>
+<text x="232" y="208" class="mono"><tspan class="prompt">›</tspan> spb --fit</text>
+<text x="232" y="234" class="mono"><tspan class="prompt">›</tspan> assess --report</text>
+<rect x="232" y="246" width="8" height="14" fill="#7fd8cb"/>
+<path d="M432 175H470" class="arrow"/>
+<rect x="480" y="78" width="128" height="120" rx="3" fill="#fbfcfa" stroke="#cad8d1"/>
+<path d="M498 92V180H598" fill="none" stroke="#52756c" stroke-width="1.5"/>
+<path d="M500 172Q540 166 562 132T596 98" fill="none" stroke="#ba8156" stroke-width="2.5"/>
+<g fill="#0b766b"><circle cx="508" cy="171" r="3.5"/><circle cx="524" cy="168" r="3.5"/><circle cx="540" cy="160" r="3.5"/><circle cx="555" cy="143" r="3.5"/><circle cx="569" cy="124" r="3.5"/><circle cx="584" cy="108" r="3.5"/></g>
+<text x="590" y="194" text-anchor="end" class="small" style="font-size:11px">zT vs T · SPB fit</text>
+<g stroke="#b8cabe" fill="#eaf0eb"><rect x="480" y="210" width="128" height="28" rx="3"/><rect x="480" y="246" width="128" height="28" rx="3"/></g>
+<text x="492" y="229" class="file">report.md</text><text x="492" y="265" class="file">record.json</text>
+<text x="320" y="320" text-anchor="middle" class="small">One command surface: every figure traces back to its raw file and processing step.</text></svg>

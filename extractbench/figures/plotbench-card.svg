@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><title>TE-PlotBench: from scientific figures to checked records</title><desc>A published thermoelectric figure is read point by point into a structured record, whose values are then checked for physical consistency, for example that the power factor equals S squared times sigma.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#52756c"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#23493f}.label{font-size:12px;letter-spacing:1.3px;font-weight:700}.small{font-size:13px;fill:#5d736b}.mono{font-family:Consolas,Menlo,monospace;font-size:12px;fill:#d6e2e6}.k{fill:#7fd8cb}.s{fill:#f2c78a}.n{fill:#9cc4ff}.arrow{fill:none;stroke:#52756c;stroke-width:2;marker-end:url(#arrow)}</style>
+<text x="32" y="43" class="label">PUBLISHED FIGURE</text><text x="320" y="43" text-anchor="middle" class="label">STRUCTURED RECORD</text><text x="608" y="43" text-anchor="end" class="label">PHYSICS CHECK</text>
+<rect x="32" y="78" width="150" height="196" rx="3" fill="#fbfcfa" stroke="#cad8d1"/>
+<path d="M52 92V236H170" fill="none" stroke="#52756c" stroke-width="1.5"/>
+<g stroke="#52756c" stroke-width="1"><path d="M52 200h-4M52 164h-4M52 128h-4M80 236v4M110 236v4M140 236v4"/></g>
+<path d="M58 222Q96 210 118 168T166 104" fill="none" stroke="#b8cabe" stroke-width="2" stroke-dasharray="4 4"/>
+<g fill="#0b766b"><circle cx="62" cy="221" r="4"/><circle cx="82" cy="215" r="4"/><circle cx="102" cy="201" r="4"/><circle cx="120" cy="174" r="4"/><circle cx="138" cy="146" r="4"/><circle cx="156" cy="116" r="4"/></g>
+<g fill="none" stroke="#ba8156" stroke-width="1.5"><circle cx="120" cy="174" r="9"/><path d="M120 174V236M52 174H120" stroke-dasharray="2 3"/></g>
+<text x="110" y="260" text-anchor="middle" class="small" style="font-size:11px">zT vs T · Sample N</text>
+<path d="M192 175H226" class="arrow"/>
+<rect x="236" y="78" width="168" height="196" rx="8" fill="#0f1b20"/>
+<rect x="236" y="96" width="3" height="76" fill="#eda100"/><rect x="236" y="186" width="3" height="58" fill="#e87ba4"/>
+<text x="250" y="104" class="mono">{</text>
+<text x="258" y="124" class="mono"><tspan class="k">"property"</tspan>: <tspan class="s">"zT"</tspan>,</text>
+<text x="258" y="144" class="mono"><tspan class="k">"T_K"</tspan>: <tspan class="n">573</tspan>,</text>
+<text x="258" y="164" class="mono"><tspan class="k">"value"</tspan>: <tspan class="n">0.82</tspan>,</text>
+<text x="258" y="200" class="mono"><tspan class="k">"unit"</tspan>: <tspan class="s">"1"</tspan>,</text>
+<text x="258" y="220" class="mono"><tspan class="k">"panel"</tspan>: <tspan class="s">"b"</tspan>,</text>
+<text x="258" y="240" class="mono"><tspan class="k">"source"</tspan>: <tspan class="s">"Fig. 3"</tspan></text>
+<text x="250" y="262" class="mono">}</text>
+<path d="M414 175H448" class="arrow"/>
+<g stroke="#b8cabe" fill="#eaf0eb"><rect x="458" y="86" width="150" height="50" rx="3"/><rect x="458" y="150" width="150" height="50" rx="3"/><rect x="458" y="214" width="150" height="50" rx="3"/></g>
+<g font-family="Georgia,serif" font-style="italic" font-size="15" fill="#23493f"><text x="472" y="117">PF = S²σ</text><text x="472" y="181">zT = PF·T/κ</text></g>
+<text x="472" y="245" class="small" style="font-size:12.5px">Units in SI</text>
+<g fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M584 110l5 5 9-10" stroke="#0b766b"/><path d="M584 174l5 5 9-10" stroke="#0b766b"/><path d="M585 233l10 10M595 233l-10 10" stroke="#b8333f"/></g>
+<text x="320" y="320" text-anchor="middle" class="small">Can multimodal models turn figures into records a materials database can trust?</text></svg>

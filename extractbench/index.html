@@ -16,16 +16,23 @@
   --bad:#b8333f;--grid:#e6eae7;
   --gpt:#2a78d6;--claude:#eda100;--gemini:#a78bfa;--kimi:#1baf7a;--qwen:#e87ba4;--deepseek:#008300;
   --bar-n:#9fb3c2;--bar-d:#1f4e79;
+  /* error bands (same ramp as the manuscript figures) + output status */
+  --b5:#1f4e8c;--b10:#4f86cc;--b15:#86b6ef;--b-bad:#b83a4b;--b-miss:#e6dcc6;--b-cut:#8d9399;--b-cut-line:#c4c8cc;
+  --s-ok:#0b766b;--s-schema:#e0a458;--s-json:#b83a4b;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --page:#11161a;--surface:#182026;--surface-2:#1f2930;--ink:#e7ecef;--muted:#a3afb7;--faint:#76828a;
   --line:#2c3840;--teal:#4cc2b2;--deep:#7fd8cb;--teal-soft:#16302d;--copper:#e39a62;--copper-soft:#33251b;
-  --bad:#f07a84;--grid:#25313a;--bar-n:#5d7385;--bar-d:#7fb0dd;color-scheme:dark}}
+  --bad:#f07a84;--grid:#25313a;--bar-n:#5d7385;--bar-d:#7fb0dd;
+  --b5:#8cbcf7;--b10:#4f86cc;--b15:#2c5688;--b-bad:#e8707c;--b-miss:#4d4637;--b-cut:#9aa1a8;--b-cut-line:#5c636a;
+  --s-ok:#4cc2b2;--s-schema:#d9a25a;--s-json:#e8707c;color-scheme:dark}}
 :root[data-theme="dark"]{
   --page:#11161a;--surface:#182026;--surface-2:#1f2930;--ink:#e7ecef;--muted:#a3afb7;--faint:#76828a;
   --line:#2c3840;--teal:#4cc2b2;--deep:#7fd8cb;--teal-soft:#16302d;--copper:#e39a62;--copper-soft:#33251b;
-  --bad:#f07a84;--grid:#25313a;--bar-n:#5d7385;--bar-d:#7fb0dd;color-scheme:dark}
+  --bad:#f07a84;--grid:#25313a;--bar-n:#5d7385;--bar-d:#7fb0dd;
+  --b5:#8cbcf7;--b10:#4f86cc;--b15:#2c5688;--b-bad:#e8707c;--b-miss:#4d4637;--b-cut:#9aa1a8;--b-cut-line:#5c636a;
+  --s-ok:#4cc2b2;--s-schema:#d9a25a;--s-json:#e8707c;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;background:var(--page);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -37,6 +44,8 @@ h1,h2,h3,h4,p{margin:0}
 .serif{font-family:Georgia,"Times New Roman",serif}
 .eyebrow{text-transform:uppercase;letter-spacing:1.6px;font-size:11px;font-weight:700;color:var(--teal)}
 .num{font-variant-numeric:tabular-nums}
+var{font-style:italic;font-family:inherit}
+.it{font-style:italic}
 
 /* header */
 .header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--page) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -210,6 +219,121 @@ details.table-view th,details.table-view td{padding:5px 8px;border-bottom:1px so
 details.table-view th:first-child,details.table-view td:first-child{text-align:left}
 details.table-view thead th{position:sticky;top:0;background:var(--surface)}
 
+/* effort rings + output format */
+.wide{margin-top:16px}
+.ring-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;align-items:flex-end}
+.ring-head > div:first-child{max-width:640px}
+.sw-b{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.hatch{background:repeating-linear-gradient(135deg,var(--b-cut) 0 3px,var(--b-cut-line) 3px 5px)}
+.mean-bar{display:flex;height:14px;border-radius:4px;overflow:hidden;margin-top:6px}
+.mean-bar > div{height:100%}
+.mean-row{margin-top:14px;font-size:12.5px;color:var(--muted)}
+.mean-row b{color:var(--ink);font-weight:600}
+.ring-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(134px,1fr));gap:10px;margin-top:16px}
+.ring-cell{border:1px solid var(--line);border-radius:10px;padding:10px 8px 8px;background:var(--surface);min-width:0;display:flex;flex-direction:column}
+.ring-cell.key{background:var(--surface-2);border-style:dashed}
+.ring-cell h4{font-size:13px;font-weight:650;line-height:1.25;display:flex;align-items:center;gap:6px;min-height:2.5em}
+.ring-cell h4 i{flex:none;width:9px;height:9px;border-radius:50%}
+.ring-cell svg{display:block;width:100%;height:auto;max-width:190px;margin:2px auto 0}
+.ring-cell .ring{cursor:pointer;transition:opacity .15s}
+.ring-cell.focus .ring:not(.on){opacity:.28}
+.ring-cell .c-big{fill:var(--ink);font-size:21px;font-weight:650;font-variant-numeric:tabular-nums}
+.ring-cell .c-small{fill:var(--muted);font-size:9.5px}
+.ring-cell .c-cut{fill:var(--muted);font-size:15px;font-weight:650}
+.ring-cell .empty{fill:none;stroke:var(--line);stroke-dasharray:2 3}
+.ring-cell .k-lab{fill:var(--muted);font-size:9.5px}
+.ring-cell .key-note{font-size:11.5px;color:var(--muted);line-height:1.4;margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:auto;padding-top:6px;min-height:22px}
+.chip{font-size:11px;line-height:1.3;padding:2px 7px;border-radius:999px;background:var(--surface-2);color:var(--ink);border:1px solid var(--b-cut)}
+.ring-head > *{min-width:0;max-width:100%}
+.ring-head .seg{max-width:100%;overflow-x:auto;scrollbar-width:none}
+.ring-head .seg button{white-space:nowrap;flex:none}
+.seg[hidden]{display:none}
+.fmt-wrap{overflow-x:auto;margin-top:14px}
+.fmt-table{border-collapse:collapse;width:100%;min-width:640px;font-size:13px}
+.fmt-table th{font-size:11.5px;color:var(--faint);font-weight:600;padding:6px 6px;border-bottom:1px solid var(--line);text-align:left}
+.fmt-table td{padding:6px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.fmt-table td:first-child{white-space:nowrap;font-weight:600}
+.fmt-table td:first-child i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.fmt-cell{display:grid;grid-template-columns:38px 1fr;gap:6px;align-items:center;cursor:default}
+.fmt-cell span{font-size:12.5px;text-align:right;font-variant-numeric:tabular-nums}
+.fmt-cell span.lo{color:var(--s-json);font-weight:650}
+.fmt-stack{display:flex;height:9px;border-radius:3px;overflow:hidden;background:var(--surface-2);min-width:46px}
+.fmt-stack > div{height:100%}
+.fmt-na{color:var(--faint);font-size:12px}
+.fnote{font-size:12px;color:var(--faint);margin-top:8px}
+.hm-legend{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);margin-top:12px;flex-wrap:wrap}
+.hm-ramp{position:relative;width:220px;height:10px;border-radius:3px}
+.hm-ramp span{position:absolute;top:13px;transform:translateX(-50%);font-size:10.5px;color:var(--faint)}
+.hm-wrap{overflow-x:auto;margin-top:26px;padding-bottom:4px}
+.hm{display:grid;grid-template-columns:150px minmax(52px,1fr) 12px repeat(3,minmax(52px,1fr)) 12px repeat(6,minmax(46px,1fr));gap:3px;min-width:760px;font-size:12.5px}
+.hm .grp{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--line);padding-bottom:4px;align-self:end}
+.hm .colh{border:0;background:transparent;color:var(--muted);font:inherit;font-size:12px;padding:4px 2px 6px;cursor:pointer;border-radius:4px;text-align:center;line-height:1.2}
+.hm .colh:hover{color:var(--ink);background:var(--surface-2)}
+.hm .colh[aria-sort="descending"]{color:var(--ink);font-weight:650}
+.hm .colh[aria-sort="descending"]::after{content:" ▾"}
+.hm .colh.hot{color:var(--ink)}
+.hm .rowh{display:flex;align-items:center;gap:6px;font-weight:600;white-space:nowrap;position:sticky;left:0;background:var(--surface);z-index:1;padding-right:6px}
+.hm .rowh i{width:8px;height:8px;border-radius:50%;flex:none}
+.hm .rowh.hot{color:var(--teal)}
+.hm .cell{display:flex;height:24px;border-radius:3px;overflow:hidden;gap:1px;background:var(--surface)}
+.hm .cell > div{flex:1;cursor:pointer}
+.hm .cell > div:hover{outline:2px solid var(--ink);outline-offset:-2px}
+.hm .sp{display:block}
+
+/* σ / ρ failure section */
+#chart-sr{--c-other:var(--copper);--c-pow:var(--b10);--c-unit:#8e6bd6;--c-none:var(--b-cut)}
+:root[data-theme="dark"] #chart-sr{--c-unit:#b39cf5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #chart-sr{--c-unit:#b39cf5}}
+.sr-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.sr-stat{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface-2)}
+.sr-stat strong{display:block;font-size:24px;font-weight:650;letter-spacing:-.6px;line-height:1.15;font-variant-numeric:tabular-nums}
+.sr-stat span{font-size:12.5px;color:var(--muted);line-height:1.35;display:block;margin-top:2px}
+.sr-stat i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:0}
+.sr-block{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);position:relative}
+.sr-block > h4{font-size:15px;font-weight:650;letter-spacing:-.1px}
+.sr-block > h4 b{color:var(--teal);margin-right:6px}
+.sr-block > .sub{max-width:820px}
+#exSeg{max-width:100%;overflow-x:auto;scrollbar-width:none}
+#exSeg button{white-space:nowrap;flex:none}
+.ex-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.7fr);gap:18px;margin-top:12px;align-items:start}
+.ex-plot svg,.sr-svg svg{display:block;width:100%;height:auto}
+.ex-card{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--surface-2);font-size:13px}
+.ex-card dl{margin:0;display:grid;gap:8px}
+.ex-card dt{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--faint)}
+.ex-card dd{margin:0;color:var(--ink)}
+.ex-card dd.bad{color:var(--c-other);font-weight:650}
+.ex-card p{margin-top:10px;color:var(--muted);line-height:1.5}
+.sr-two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:12px}
+.sr-two h5{font-size:13px;font-weight:650;margin-bottom:4px}
+.cause-bars{display:grid;gap:8px;margin-top:14px}
+.cause-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;font-size:13px}
+.cause-row .cb{display:flex;height:20px;border-radius:4px;overflow:hidden;background:var(--surface-2)}
+.cause-row .cb > div{height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:650;color:#fff;min-width:0}
+.cause-row .cb > div.none{color:var(--ink)}
+.sr-dots .dot{cursor:pointer;transition:opacity .15s}
+.sr-dots.dim .dot:not(.on){opacity:.15}
+.sr-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
+.sr-table th{text-align:left;font-size:11.5px;color:var(--faint);font-weight:600;padding:6px;border-bottom:1px solid var(--line)}
+.sr-table td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.sr-table tr.cfg{cursor:pointer}
+.sr-table tr.cfg:hover td{background:var(--surface-2)}
+.sr-table tr.cfg td:first-child{white-space:nowrap;font-weight:600}
+.sr-table tr.cfg td:first-child i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.sr-table .tw{display:inline-block;width:14px;color:var(--faint);transition:transform .15s}
+.sr-table tr.cfg[aria-expanded="true"] .tw{transform:rotate(90deg)}
+.sr-table .mini{display:flex;gap:2px;align-items:center}
+.sr-table .mini i{width:10px;height:14px;border-radius:2px;display:block}
+.sr-table .mini i.e{background:var(--surface-2)}
+.sr-table .mini span{margin-left:8px;font-variant-numeric:tabular-nums;color:var(--muted);font-size:12.5px}
+.sr-table tr.det td{background:var(--surface-2);padding:4px 6px 10px 28px;font-size:12.5px;color:var(--muted)}
+.sr-table tr.det table{width:100%;border-collapse:collapse}
+.sr-table tr.det td td{background:transparent;padding:4px 6px;border-bottom:1px dashed var(--line)}
+.sr-table .rep{color:var(--ink)}
+.sr-table .rep em{font-style:normal;color:var(--c-other);font-weight:600}
+@media (max-width:980px){.ex-grid,.sr-two{grid-template-columns:1fr}.sr-stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.cause-row{grid-template-columns:96px 1fr}}
+
 /* figures */
 .fig-list{display:grid;gap:22px}
 figure.fig{margin:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
@@ -375,7 +499,7 @@ footer a{color:var(--teal);text-decoration:none}
     <span class="pipe-arrow" aria-hidden="true">→</span>
     <div class="pipe-step"><span class="pk">Record</span><b>Sample, units, values</b></div>
     <span class="pipe-arrow" aria-hidden="true">→</span>
-    <div class="pipe-step hot"><span class="pk">Checks</span><b>PF = S²σ, zT = PF·T/κ</b><small>tested by TE-PlotBench</small></div>
+    <div class="pipe-step hot"><span class="pk">Checks</span><b>PF = <var>S</var>²<var>σ</var>, <var>zT</var> = PF·<var>T</var>/<var>κ</var></b><small>tested by TE-PlotBench</small></div>
     <span class="pipe-arrow" aria-hidden="true">→</span>
     <div class="pipe-step"><span class="pk">Database</span><b>Screening, discovery, training</b></div>
   </section>
@@ -424,7 +548,7 @@ footer a{color:var(--teal);text-decoration:none}
           <div class="big num">99.6–100<small>% Y10</small></div>
           <h4>The best models read single plots almost without loss.</h4>
           <p>GPT-6.1 Sol and GPT-6 Astra stay at 99.6–100% at every reasoning effort, from low to max. Across all 61 configurations the mean is 78.6%, and the weakest are below 20%.</p>
-          <p class="more"><a href="#fig1">See Figure 1 →</a></p>
+          <p class="more"><a href="#chart-heat">See the heat map →</a></p>
         </article>
         <article class="card warn">
           <span class="k">FINDING 2 · COMBINED PANELS</span>
@@ -457,14 +581,14 @@ footer a{color:var(--teal);text-decoration:none}
           <span class="k">FINDING 5 · SIZE OF THE ERROR</span>
           <div class="big num">10× &lt; 1000×</div>
           <h4>Small, plausible errors are the dangerous ones.</h4>
-          <p>A 1000× prefix slip on the Seebeck coefficient (mV vs μV) looks unphysical, and 59–71% of the affected points are repaired. A 10× error on σ, ρ or PF stays in a believable range, so only 28–40% are repaired.</p>
+          <p>A 1000× prefix slip on the Seebeck coefficient (mV vs μV) looks unphysical, and 59–71% of the affected points are repaired. A 10× error on <var>σ</var>, <var>ρ</var> or PF stays in a believable range, so only 28–40% are repaired.</p>
           <p class="more"><a href="#chart-faults">By fault type →</a></p>
         </article>
         <article class="card">
           <span class="k">FINDING 6 · A SECOND EQUATION</span>
           <div class="big num">30/61 → 0</div>
           <h4>One extra physical relation resolves the ambiguity.</h4>
-          <p>In a three-panel S | ρ | PF figure, a 10× PF fault was blamed on ρ by 30 of 61 configurations. In the six-panel figure, where PF also enters zT = PF·T/κ, no configuration blamed the wrong panel.</p>
+          <p>In a three-panel <var>S</var> | <var>ρ</var> | PF figure, a 10× PF fault was blamed on <var>ρ</var> by 30 of 61 configurations. In the six-panel figure, where PF also enters <var>zT</var> = PF·<var>T</var>/<var>κ</var>, no configuration blamed the wrong panel.</p>
           <p class="more"><a href="#fig4">See Figure 4 →</a></p>
         </article>
       </div>
@@ -484,7 +608,7 @@ footer a{color:var(--teal);text-decoration:none}
           <span class="k">FINDING 8 · VERIFYING ≠ READING</span>
           <div class="big num">33 → 100<small>%</small></div>
           <h4>Checking the physics needs much more reasoning than reading.</h4>
-          <p>From low to max effort, GPT-6.1 Sol's reading accuracy changes by about 3.5 points, but its exact formula checks (PF = S²σ, zT) go from 33% to 100% correct. Low-effort models often give a plausible verdict backed by wrong arithmetic.</p>
+          <p>From low to max effort, GPT-6.1 Sol's reading accuracy changes by about 3.5 points, but its exact formula checks (PF = <var>S</var>²<var>σ</var>, <var>zT</var>) go from 33% to 100% correct. Low-effort models often give a plausible verdict backed by wrong arithmetic.</p>
           <p class="more"><a href="#fig5">See panel (c) →</a></p>
         </article>
         <article class="card">
@@ -537,11 +661,11 @@ footer a{color:var(--teal);text-decoration:none}
       <div class="panel">
         <h3>Why thermoelectrics?</h3>
         <p>The same samples appear in several panels, and their properties are linked by equations. A correct record must satisfy them, so an extraction error can be caught by checking the panels against each other.</p>
-        <div class="eq"><span>PF = S²σ</span><span>zT = PF·T / κ<sub>tot</sub></span></div>
+        <div class="eq"><span>PF = <var>S</var>²<var>σ</var></span><span><var>zT</var> = PF·<var>T</var> / <var>κ</var><sub>tot</sub></span></div>
         <div class="unit-demo" aria-label="Example: a Seebeck unit slip">
-          <div class="box"><span>Axis printed in mV/K, read as μV/K</span><b class="num">S is 1,000× too small</b></div>
+          <div class="box"><span>Axis printed in mV/K, read as μV/K</span><b class="num"><var>S</var> is 1,000× too small</b></div>
           <span class="arrow" aria-hidden="true">→</span>
-          <div class="box bad"><span>Squared in PF and zT</span><b class="num">10⁶× too small</b></div>
+          <div class="box bad"><span>Squared in PF and <var>zT</var></span><b class="num">10⁶× too small</b></div>
         </div>
       </div>
       <div class="panel">
@@ -564,7 +688,7 @@ footer a{color:var(--teal);text-decoration:none}
       <p class="eyebrow">03 · Evidence</p>
       <div>
         <h2 id="evidence-title">Look at the data behind each finding.</h2>
-        <p>Two interactive views, then the full manuscript figures. Hover or tap a point for details. Colour shows the model family.</p>
+        <p>Interactive views first, then the full manuscript figures. Hover or tap a point or ring for details. Colour shows the model family.</p>
       </div>
     </div>
 
@@ -590,20 +714,98 @@ footer a{color:var(--teal);text-decoration:none}
       </div>
     </div>
 
+    <div class="chart-card wide" id="chart-rings">
+      <div class="ring-head">
+        <div>
+          <h3>Where every gold point ends up, by reasoning effort</h3>
+          <p class="sub">One donut per model series. Rings run from no thinking (inside) to max effort (outside); a dashed ring is an effort level that series does not offer. Each ring splits that configuration's gold points by relative y error. Grey hatching marks points lost because the answer hit the output-token cap.</p>
+        </div>
+        <div class="controls" style="flex-direction:column;align-items:flex-end">
+          <div class="seg" role="group" aria-label="Figure type"><button type="button" data-ds="single" aria-pressed="true">Single panel · 36 figures</button><button type="button" data-ds="multi" aria-pressed="false">Multi-panel · 78 tests</button></div>
+          <div class="seg sub" role="group" aria-label="Multi-panel condition" hidden><button type="button" data-sub="multi" aria-pressed="true">All</button><button type="button" data-sub="cn" aria-pressed="false">No fault · neutral</button><button type="button" data-sub="cd" aria-pressed="false">No fault · detailed</button><button type="button" data-sub="fn" aria-pressed="false">Fault · neutral</button><button type="button" data-sub="fd" aria-pressed="false">Fault · detailed</button></div>
+        </div>
+      </div>
+      <div class="legend" id="ringLegend"></div>
+      <div class="mean-row" id="ringMean"></div>
+      <div class="ring-grid" id="ringGrid"></div>
+      <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="ringTable"></table></div></details>
+      <div class="tooltip" id="ringTip" role="status"></div>
+    </div>
+
+    <div class="chart-card wide" id="chart-format">
+      <div class="ring-head">
+        <div>
+          <h3>Did the model return the requested JSON?</h3>
+          <p class="sub">Share of answers that parse and match the answer schema. Answers with the wrong structure are still scored, so their points stay in the rings above; unparseable and cut-off answers score nothing.</p>
+        </div>
+        <div class="controls" style="flex-direction:column;align-items:flex-end">
+          <div class="seg" role="group" aria-label="Figure type"><button type="button" data-ds="single" aria-pressed="true">Single panel · 36 figures</button><button type="button" data-ds="multi" aria-pressed="false">Multi-panel · 78 tests</button></div>
+          <div class="seg sub" role="group" aria-label="Multi-panel condition" hidden><button type="button" data-sub="multi" aria-pressed="true">All</button><button type="button" data-sub="cn" aria-pressed="false">No fault · neutral</button><button type="button" data-sub="cd" aria-pressed="false">No fault · detailed</button><button type="button" data-sub="fn" aria-pressed="false">Fault · neutral</button><button type="button" data-sub="fd" aria-pressed="false">Fault · detailed</button></div>
+        </div>
+      </div>
+      <div class="legend" id="fmtLegend"></div>
+      <div class="mean-row" id="fmtMean"></div>
+      <div class="fmt-wrap"><table class="fmt-table" id="fmtTable"></table></div>
+      <p class="fnote">Gemini 3.1 Pro and Qwen 3.8 Max have a single reasoning setting (“thinking”), shown in the high column.</p>
+      <div class="tooltip" id="fmtTip" role="status"></div>
+    </div>
+
+    <div class="chart-card wide" id="chart-heat">
+      <div class="ring-head">
+        <div>
+          <h3>Which figures and properties are hard to read? (single panel)</h3>
+          <p class="sub">One row per model series. Each cell is split into one strip per reasoning effort that series offers, lowest on the left, highest on the right. Click a column header to sort the series by their best effort level in that column.</p>
+        </div>
+        <div class="controls"><div class="seg" role="group" aria-label="Error threshold"><button type="button" data-th="0" aria-pressed="false">Y5</button><button type="button" data-th="1" aria-pressed="true">Y10</button><button type="button" data-th="2" aria-pressed="false">Y15</button></div></div>
+      </div>
+      <div class="hm-legend"><span id="hmLabel">Y10 (%)</span><div class="hm-ramp" id="hmRamp"></div></div>
+      <div class="hm-wrap"><div class="hm" id="heat" role="table" aria-label="Single-panel scores by model series, figure subset and property"></div></div>
+      <p class="fnote">Overall = official average over all 36 figures. Subsets pool gold points over their 12 figures; “shared” figures reuse the source curves of the multi-panel tests. Properties average 6 figures each. <var>σ</var> and <var>ρ</var> are hardest: wide-range linear axes squash small values, and unit conversions go wrong (see the next card).</p>
+      <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="heatTable"></table></div></details>
+      <div class="tooltip" id="heatTip" role="status"></div>
+    </div>
+
+    <div class="chart-card wide" id="chart-sr">
+      <h3>Why conductivity and resistivity fail</h3>
+      <p class="sub" id="srIntro"></p>
+      <div class="sr-stats" id="srStats"></div>
+
+      <div class="sr-block">
+        <h4><b>1</b>What a failed answer looks like</h4>
+        <p class="sub">Grey: the true curves. Coloured: the curves the model returned, plotted at face value on the same log axis. Each answer copies the curve shapes faithfully. The arrow marks how far off the numbers are.</p>
+        <div class="controls"><div class="seg" role="group" aria-label="Example" id="exSeg"></div></div>
+        <div class="ex-grid"><div class="ex-plot" id="exPlot"></div><div class="ex-card" id="exCard"></div></div>
+      </div>
+
+      <div class="sr-block">
+        <h4><b>2</b>How far off: returned value ÷ true value</h4>
+        <p class="sub">One dot per failed answer (geometric mean over its points). <var>σ</var> figures above the line, <var>ρ</var> below. Dots far from 1 with the curve shape intact mean a unit or quantity error, not a reading error. Hover a dot for details.</p>
+        <div class="legend" id="srLegend"></div>
+        <div class="sr-svg sr-dots" id="srRuler"></div>
+        <div class="cause-bars" id="srCause"></div>
+      </div>
+
+      <div class="sr-block">
+        <h4><b>3</b>Linear axes squash small values</h4>
+        <p class="sub">Each subset draws the same <var>σ</var> and <var>ρ</var> curves twice, once on a linear and once on a log y-axis. When values span two orders of magnitude, the low curves sit almost on the x-axis of a linear plot.</p>
+        <div class="sr-two">
+          <div><h5>Median Y10 across 61 configurations</h5><div class="legend"><span><i style="background:transparent;border:2px solid var(--bar-n)"></i>linear axis</span><span><i style="background:var(--bar-d)"></i>log axis</span></div><div class="sr-svg" id="srPairs"></div></div>
+          <div><h5>Y10 by size of the true value (shared figures, all models)</h5><div class="legend"><span><i style="background:var(--bar-n);border-radius:2px"></i>linear axis</span><span><i style="background:var(--bar-d);border-radius:2px"></i>log axis</span></div><div class="sr-svg" id="srBins"></div></div>
+        </div>
+      </div>
+
+      <div class="sr-block">
+        <h4><b>4</b>Which configurations fail, and what they reported</h4>
+        <p class="sub">Configurations with at least one failed <var>σ</var>/<var>ρ</var> figure, out of 12. Click a row for each case; hover a row to find its dots in chart 2.</p>
+        <div class="fmt-wrap" style="margin-top:0"><table class="sr-table" id="srTable"></table></div>
+      </div>
+      <div class="tooltip" id="srTip" role="status"></div>
+    </div>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+      <pattern id="cutHatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" style="fill:var(--b-cut)"/><rect width="1.8" height="5" style="fill:var(--b-cut-line)"/></pattern>
+    </defs></svg>
+
     <div class="fig-list" style="margin-top:22px">
-      <figure class="fig" id="fig1">
-        <div class="img"><img src="figures/fig1-single-panel.png" alt="Figure 1: single-panel Y10 by model series and reasoning effort, by figure subset and property, and error-band breakdown." loading="lazy"></div>
-        <figcaption>
-          <p class="fnum">FIGURE 1 · SINGLE PANEL</p>
-          <h3>Reading one plot: a clear frontier, and two ways to fail.</h3>
-          <ul>
-            <li><b>(a)</b> Y10 for every series and effort level. GPT-6.1 Sol and GPT-6 Astra sit at the ceiling at every effort.</li>
-            <li><b>(b, c)</b> Electrical conductivity σ and resistivity ρ are the hardest properties: log axes and unit conversions amplify small reading errors.</li>
-            <li><b>(d)</b> Low scores come from missing points (curves skipped, truncated output) or from misread points. These need different fixes.</li>
-          </ul>
-          <a class="open" href="figures/fig1-single-panel.png" target="_blank" rel="noopener">Open full size ↗</a>
-        </figcaption>
-      </figure>
 
       <figure class="fig" id="fig2">
         <div class="img"><img src="figures/fig2-multi-panel.png" alt="Figure 2: example faulty figure, single versus multi-panel Y10, error bands by condition, faulty versus companion panels." loading="lazy"></div>
@@ -611,7 +813,7 @@ footer a{color:var(--teal);text-decoration:none}
           <p class="fnum">FIGURE 2 · MULTI-PANEL</p>
           <h3>Combining panels costs more than a planted fault.</h3>
           <ul>
-            <li><b>(a)</b> A typical fault: σ is labelled 10³ S m⁻¹ but the numbers are in S cm⁻¹, so PF = S²σ fails by 10×.</li>
+            <li><b>(a)</b> A typical fault: <var>σ</var> is labelled 10³ S m⁻¹ but the numbers are in S cm⁻¹, so PF = <var>S</var>²<var>σ</var> fails by 10×.</li>
             <li><b>(b)</b> Median change from single to multi-panel: −13 points (neutral prompt), −9 (detailed).</li>
             <li><b>(c)</b> The main loss is missing points, which rise from 14% to about 31%. The fault itself adds 4–6 points of error on top.</li>
           </ul>
@@ -636,7 +838,7 @@ footer a{color:var(--teal);text-decoration:none}
           <h3>Where fault handling breaks down.</h3>
           <ul>
             <li><b>(a)</b> Detection, localization and recovery fall in steps. False alarms on clean figures are rare (7%).</li>
-            <li><b>(b)</b> When the error is in ρ, many models blame the PF panel, and the reverse also happens. Both panels are coupled through PF = S²/ρ.</li>
+            <li><b>(b)</b> When the error is in <var>ρ</var>, many models blame the PF panel, and the reverse also happens. Both panels are coupled through PF = <var>S</var>²/<var>ρ</var>.</li>
             <li><b>(d)</b> Some models find the right panel but still leave its numbers unrepaired (points far below the diagonal).</li>
           </ul>
           <a class="open" href="figures/fig4-fault-handling.png" target="_blank" rel="noopener">Open full size ↗</a>
@@ -652,7 +854,7 @@ footer a{color:var(--teal);text-decoration:none}
             <li><b>(a)</b> Visual-first models (GPT-6.1 Sol, GPT-6 Astra, GPT-6 Sol, Claude Fable 5.1) exceed 92% at low effort. Claude Sonnet 5.5 needs high effort to go from 25% to 98%.</li>
             <li><b>(b)</b> At max effort with a 64k cap, Haiku 5.5 truncates on 15/15 figures, Sonnet 5.5 on 10/15 and Opus 5.5 on 8/15. Every OpenAI max run finishes.</li>
             <li><b>(c)</b> Exact formula self-audits need far more effort than reading.</li>
-            <li><b>(d)</b> Per-figure difficulty. The checks also surfaced a real 29% PF vs S²σ discrepancy in one paper's source data.</li>
+            <li><b>(d)</b> Per-figure difficulty. The checks also surfaced a real 29% PF vs <var>S</var>²<var>σ</var> discrepancy in one paper's source data.</li>
           </ul>
           <a class="open" href="figures/fig5-published-figures.png" target="_blank" rel="noopener">Open full size ↗</a>
         </figcaption>
@@ -681,7 +883,7 @@ footer a{color:var(--teal);text-decoration:none}
     </div>
     <div class="practice">
       <div class="tip"><h3>Use a frontier extractor at a calibrated effort, not max.</h3><p>Low or medium effort already reaches the reading ceiling for the best models, at a fraction of the cost. Max effort adds little and risks truncation under fixed output caps.</p></div>
-      <div class="tip"><h3>Check physics in code, not in the model's verdict.</h3><p>Recompute PF = S²σ and zT = PF·T/κ yourself, at shared temperatures, from the extracted points. Model verdicts can look right while the arithmetic behind them is wrong.</p></div>
+      <div class="tip"><h3>Check physics in code, not in the model's verdict.</h3><p>Recompute PF = <var>S</var>²<var>σ</var> and <var>zT</var> = PF·<var>T</var>/<var>κ</var> yourself, at shared temperatures, from the extracted points. Model verdicts can look right while the arithmetic behind them is wrong.</p></div>
       <div class="tip"><h3>Treat 10× discrepancies as the highest-risk case.</h3><p>Order-of-magnitude-one errors look plausible and are most often missed or blamed on the wrong panel. Flag them for review, especially in three-panel figures with only one linking equation.</p></div>
       <div class="tip"><h3>Budget output tokens for dense figures.</h3><p>A six-panel figure means serialising 30 curves. Set output caps with headroom, and treat empty or partial responses as failures to retry, never as zeros to average in.</p></div>
     </div>
@@ -799,12 +1001,378 @@ footer a{color:var(--teal);text-decoration:none}
     <div class="f-bar" title="Detailed prompt ${f[3]}%"><div class="tr"><div class="d" style="width:${f[3]}%"></div></div><em class="num">${f[3].toFixed(1)}%</em></div></div></div>`).join('');
 
   // ---------- fault types ----------
-  const FT=[["×1000 prefix (looks unphysical)"],["Seebeck S (mV vs μV)",59.3,70.5],["Thermal conductivity κ (mW vs W)",55.8,62.1],
-    ["×10–100 multiplier (looks plausible)"],["Power factor PF",36.2,40.4],["Conductivity σ",34.1,36.0],["Resistivity ρ",27.8,31.4],
-    ["+273 K offset (°C vs K)"],["Temperature axis on zT",45.1,49.9]];
+  const FT=[["×1000 prefix (looks unphysical)"],["Seebeck <var>S</var> (mV vs μV)",59.3,70.5],["Thermal conductivity <var>κ</var> (mW vs W)",55.8,62.1],
+    ["×10–100 multiplier (looks plausible)"],["Power factor PF",36.2,40.4],["Conductivity <var>σ</var>",34.1,36.0],["Resistivity <var>ρ</var>",27.8,31.4],
+    ["+273 K offset (°C vs K)"],["Temperature axis on <var>zT</var>",45.1,49.9]];
   document.getElementById('faultTable').innerHTML='<thead><tr><th>Fault</th><th>Recovered: neutral → detailed</th></tr></thead><tbody>'+
     FT.map(r=>r.length===1?`<tr class="grp"><td colspan="2">${r[0]}</td></tr>`:
       `<tr><td>${r[0]}</td><td><div class="minibar"><div class="track-b"><i class="n" style="width:${r[1]}%"></i><i class="d" style="width:${r[2]}%"></i></div><span class="num">${r[1].toFixed(0)}% → ${r[2].toFixed(0)}%</span></div></td></tr>`).join('')+'</tbody>';
+
+  // ---------- effort rings ----------
+  // Built by tools/build_ring_data.py from D1/D2.xlsx "By question" (gold points pooled over questions).
+  // Per series: cfg[] = {effort, slot (0 none … 5 max), <condition>: {b:[≤5, 5–10, 10–15, >15, missing, cut off] (% of gold points),
+  //                                                                 s:[schema ok, wrong schema, invalid JSON, cut off] (answers)}}
+  const RING=/*RING-DATA*/[{"name":"GPT-6.1 Sol","fam":"GPT","cfg":[{"effort":"low","slot":1,"single":{"b":[98.43,1.17,0.2,0.2,0.0,0.0],"s":[36,0,0,0],"hm":[[98.59,99.63,99.82],[96.1,99.11,99.47],[99.8,99.9,100.0],[99.88,99.88,100.0],[100.0,100.0,100.0],[96.94,98.56,98.94],[98.94,99.82,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[95.69,99.41,100.0]]},"multi":{"b":[71.41,5.53,2.46,9.82,10.78,0.0],"s":[75,3,0,0]},"cn":{"b":[65.62,5.38,1.77,7.79,19.45,0.0],"s":[21,1,0,0]},"cd":{"b":[66.96,5.4,2.44,7.48,17.72,0.0],"s":[22,0,0,0]},"fn":{"b":[75.44,5.69,2.84,11.66,4.38,0.0],"s":[15,2,0,0]},"fd":{"b":[78.51,5.67,2.85,12.75,0.22,0.0],"s":[17,0,0,0]}},{"effort":"medium","slot":2,"single":{"b":[98.73,0.97,0.23,0.07,0.0,0.0],"s":[36,0,0,0],"hm":[[98.75,99.69,99.94],[97.87,99.65,99.82],[99.9,100.0,100.0],[98.47,99.41,100.0],[100.0,100.0,100.0],[98.21,99.65,99.82],[98.94,99.82,99.82],[100.0,100.0,100.0],[100.0,100.0,100.0],[95.35,98.65,100.0]]},"multi":{"b":[82.67,6.52,2.65,7.8,0.36,0.0],"s":[78,0,0,0]},"cn":{"b":[83.9,6.28,2.75,6.1,0.96,0.0],"s":[22,0,0,0]},"cd":{"b":[87.52,6.99,2.6,2.81,0.09,0.0],"s":[22,0,0,0]},"fn":{"b":[80.4,6.11,2.62,10.82,0.05,0.0],"s":[17,0,0,0]},"fd":{"b":[78.34,6.68,2.62,12.06,0.31,0.0],"s":[17,0,0,0]}},{"effort":"high","slot":3,"single":{"b":[99.03,0.67,0.2,0.1,0.0,0.0],"s":[36,0,0,0],"hm":[[99.14,99.73,99.91],[97.61,99.2,99.73],[99.8,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[98.21,99.65,99.82],[98.94,99.65,99.82],[100.0,100.0,100.0],[100.0,100.0,100.0],[97.67,99.11,99.82]]},"multi":{"b":[85.87,5.78,1.8,6.55,0.01,0.0],"s":[78,0,0,0]},"cn":{"b":[88.2,6.3,2.14,3.32,0.04,0.0],"s":[22,0,0,0]},"cd":{"b":[91.99,5.66,1.3,1.05,0.0,0.0],"s":[22,0,0,0]},"fn":{"b":[77.12,5.29,2.31,15.28,0.0,0.0],"s":[17,0,0,0]},"fd":{"b":[85.43,5.83,1.45,7.29,0.0,0.0],"s":[17,0,0,0]}},{"effort":"xhigh","slot":4,"single":{"b":[99.43,0.44,0.13,0.0,0.0,0.0],"s":[36,0,0,0],"hm":[[99.49,99.88,100.0],[98.58,99.65,100.0],[99.9,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[98.21,99.29,100.0],[99.47,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[99.29,100.0,100.0]]},"multi":{"b":[91.26,5.03,0.96,2.76,0.0,0.0],"s":[78,0,0,0]},"cn":{"b":[92.91,4.91,1.08,1.11,0.0,0.0],"s":[22,0,0,0]},"cd":{"b":[93.73,5.15,0.84,0.28,0.0,0.0],"s":[22,0,0,0]},"fn":{"b":[89.86,5.33,1.14,3.67,0.0,0.0],"s":[17,0,0,0]},"fd":{"b":[88.17,4.72,0.77,6.34,0.0,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[99.13,0.67,0.1,0.1,0.0,0.0],"s":[36,0,0,0],"hm":[[99.19,99.81,99.9],[98.49,99.82,99.91],[99.21,99.6,99.8],[99.88,100.0,100.0],[100.0,100.0,100.0],[96.64,98.85,99.43],[99.06,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[99.47,100.0,100.0]]},"multi":{"b":[93.06,4.29,0.82,1.4,0.44,0.0],"s":[78,0,0,0]},"cn":{"b":[95.29,3.79,0.61,0.31,0.0,0.0],"s":[22,0,0,0]},"cd":{"b":[96.27,3.19,0.38,0.16,0.0,0.0],"s":[22,0,0,0]},"fn":{"b":[92.55,5.24,1.05,1.16,0.0,0.0],"s":[17,0,0,0]},"fd":{"b":[87.63,5.07,1.28,4.16,1.85,0.0],"s":[17,0,0,0]}}]},{"name":"GPT-6 Astra","fam":"GPT","cfg":[{"effort":"low","slot":1,"single":{"b":[98.96,0.8,0.2,0.03,0.0,0.0],"s":[36,0,0,0],"hm":[[99.02,99.77,99.97],[97.87,99.56,99.91],[99.9,100.0,100.0],[99.3,99.77,100.0],[100.0,100.0,100.0],[97.14,99.65,99.82],[99.47,100.0,100.0],[99.82,99.82,100.0],[100.0,100.0,100.0],[97.71,99.18,100.0]]},"multi":{"b":[87.31,4.86,1.76,5.04,1.03,0.0],"s":[77,1,0,0]},"cn":{"b":[90.04,5.12,1.77,2.54,0.52,0.0],"s":[22,0,0,0]},"cd":{"b":[90.11,5.5,1.82,2.51,0.06,0.0],"s":[21,1,0,0]},"fn":{"b":[83.26,4.47,1.46,7.17,3.64,0.0],"s":[17,0,0,0]},"fd":{"b":[85.35,4.26,1.97,8.37,0.05,0.0],"s":[17,0,0,0]}},{"effort":"medium","slot":2,"single":{"b":[99.6,0.4,0.0,0.0,0.0,0.0],"s":[36,0,0,0],"hm":[[99.65,100.0,100.0],[98.94,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[99.11,100.0,100.0],[99.65,100.0,100.0],[99.82,100.0,100.0],[100.0,100.0,100.0],[99.29,100.0,100.0]]},"multi":{"b":[89.23,5.5,1.64,3.52,0.11,0.0],"s":[77,1,0,0]},"cn":{"b":[90.28,5.65,1.9,2.04,0.13,0.0],"s":[22,0,0,0]},"cd":{"b":[90.04,5.94,1.46,2.31,0.24,0.0],"s":[22,0,0,0]},"fn":{"b":[87.74,5.41,1.8,5.0,0.05,0.0],"s":[16,1,0,0]},"fd":{"b":[88.68,4.93,1.4,4.96,0.02,0.0],"s":[17,0,0,0]}},{"effort":"high","slot":3,"single":{"b":[99.1,0.64,0.17,0.07,0.03,0.0],"s":[36,0,0,0],"hm":[[99.2,99.76,99.91],[97.78,99.29,99.73],[99.8,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[98.54,99.65,99.65],[98.05,99.29,100.0],[100.0,100.0,100.0],[99.82,99.82,99.82],[98.76,99.82,100.0]]},"multi":{"b":[92.41,4.07,1.15,2.35,0.01,0.0],"s":[78,0,0,0]},"cn":{"b":[94.98,3.66,0.81,0.54,0.01,0.0],"s":[22,0,0,0]},"cd":{"b":[94.98,3.16,0.96,0.89,0.0,0.0],"s":[22,0,0,0]},"fn":{"b":[85.92,5.32,1.56,7.18,0.02,0.0],"s":[17,0,0,0]},"fd":{"b":[93.32,4.27,1.33,1.05,0.03,0.0],"s":[17,0,0,0]}},{"effort":"xhigh","slot":4,"single":{"b":[99.63,0.3,0.07,0.0,0.0,0.0],"s":[36,0,0,0],"hm":[[99.67,99.94,100.0],[99.02,99.82,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[99.11,99.82,100.0],[99.29,99.82,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[99.65,100.0,100.0]]},"multi":{"b":[95.26,2.39,0.5,1.85,0.0,0.0],"s":[78,0,0,0]},"cn":{"b":[97.12,2.47,0.26,0.16,0.0,0.0],"s":[22,0,0,0]},"cd":{"b":[98.16,1.49,0.3,0.06,0.0,0.0],"s":[22,0,0,0]},"fn":{"b":[92.4,3.47,0.77,3.36,0.0,0.0],"s":[17,0,0,0]},"fd":{"b":[92.94,2.19,0.72,4.15,0.0,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[99.7,0.23,0.07,0.0,0.0,0.0],"s":[36,0,0,0],"hm":[[99.73,99.94,100.0],[99.2,99.82,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[99.65,99.82,100.0],[98.94,99.82,100.0],[100.0,100.0,100.0],[100.0,100.0,100.0],[99.82,100.0,100.0]]},"multi":{"b":[97.33,2.2,0.34,0.13,0.0,0.0],"s":[78,0,0,0]},"cn":{"b":[97.7,1.96,0.31,0.03,0.0,0.0],"s":[22,0,0,0]},"cd":{"b":[97.99,1.7,0.2,0.11,0.0,0.0],"s":[22,0,0,0]},"fn":{"b":[97.1,2.53,0.29,0.08,0.0,0.0],"s":[17,0,0,0]},"fd":{"b":[96.45,2.67,0.59,0.29,0.0,0.0],"s":[17,0,0,0]}}]},{"name":"GPT-6 Sol","fam":"GPT","cfg":[{"effort":"low","slot":1,"single":{"b":[54.55,3.11,0.37,30.15,11.81,0.0],"s":[35,1,0,0],"hm":[[55.6,58.54,58.87],[38.48,44.59,45.48],[65.77,66.37,66.47],[62.56,64.67,64.67],[98.47,98.83,98.83],[32.2,32.63,32.63],[21.05,25.3,26.37],[64.54,66.13,66.31],[43.0,49.4,49.6],[74.36,78.97,79.5]]},"multi":{"b":[42.25,6.83,3.39,14.4,33.13,0.0],"s":[64,14,0,0]},"cn":{"b":[50.38,7.39,3.8,14.5,23.93,0.0],"s":[19,3,0,0]},"cd":{"b":[45.59,7.43,3.43,13.65,29.9,0.0],"s":[18,4,0,0]},"fn":{"b":[35.23,6.52,3.16,11.13,43.96,0.0],"s":[13,4,0,0]},"fd":{"b":[36.82,5.86,3.13,18.39,35.8,0.0],"s":[14,3,0,0]}},{"effort":"medium","slot":2,"single":{"b":[87.08,2.71,1.34,8.7,0.17,0.0],"s":[36,0,0,0],"hm":[[87.38,89.95,91.16],[82.98,87.68,90.87],[89.48,90.87,91.17],[89.67,91.31,91.43],[100.0,100.0,100.0],[87.94,91.14,94.22],[58.02,62.71,64.13],[96.99,98.4,99.47],[98.58,100.0,100.0],[82.74,87.47,89.13]]},"multi":{"b":[49.82,6.58,3.57,15.85,24.18,0.0],"s":[70,8,0,0]},"cn":{"b":[52.62,7.21,3.91,14.45,21.8,0.0],"s":[20,2,0,0]},"cd":{"b":[50.28,6.84,3.59,13.53,25.76,0.0],"s":[18,4,0,0]},"fn":{"b":[45.04,5.24,2.7,19.16,27.86,0.0],"s":[16,1,0,0]},"fd":{"b":[51.05,6.97,4.05,16.56,21.37,0.0],"s":[16,1,0,0]}},{"effort":"high","slot":3,"single":{"b":[85.51,2.98,1.07,8.0,2.44,0.0],"s":[36,0,0,0],"hm":[[85.34,88.13,89.11],[84.57,90.16,92.64],[89.98,91.37,91.47],[81.46,82.86,83.22],[99.57,99.77,99.77],[71.84,76.2,78.35],[62.94,64.01,65.43],[93.79,98.4,99.29],[99.03,99.8,99.8],[84.85,90.61,92.02]]},"multi":{"b":[55.2,8.68,4.31,16.16,15.65,0.0],"s":[73,5,0,0]},"cn":{"b":[64.95,9.56,5.89,13.04,6.57,0.0],"s":[22,0,0,0]},"cd":{"b":[52.67,9.19,4.21,9.99,23.94,0.0],"s":[19,3,0,0]},"fn":{"b":[55.78,8.11,3.53,19.73,12.84,0.0],"s":[16,1,0,0]},"fd":{"b":[46.76,7.72,3.5,22.68,19.33,0.0],"s":[16,1,0,0]}},{"effort":"xhigh","slot":4,"single":{"b":[87.65,3.08,1.0,8.23,0.03,0.0],"s":[36,0,0,0],"hm":[[87.91,90.79,91.7],[83.87,89.8,92.2],[90.18,91.37,91.47],[89.67,91.2,91.43],[100.0,100.0,100.0],[73.43,76.71,78.5],[76.15,80.5,82.03],[96.1,99.82,100.0],[100.0,100.0,100.0],[81.75,87.71,89.66]]},"multi":{"b":[58.48,9.16,4.51,17.54,10.31,0.0],"s":[75,3,0,0]},"cn":{"b":[68.1,9.83,4.95,12.62,4.5,0.0],"s":[22,0,0,0]},"cd":{"b":[67.93,10.11,4.82,16.38,0.75,0.0],"s":[22,0,0,0]},"fn":{"b":[45.56,7.49,3.53,20.09,23.33,0.0],"s":[15,2,0,0]},"fd":{"b":[50.68,9.05,4.66,21.6,14.01,0.0],"s":[16,1,0,0]}},{"effort":"max","slot":5,"single":{"b":[90.73,2.95,1.1,5.05,0.17,0.0],"s":[36,0,0,0],"hm":[[91.25,94.03,95.04],[86.35,91.67,94.24],[89.88,91.37,91.47],[97.54,99.06,99.41],[100.0,100.0,100.0],[89.76,93.91,95.35],[77.83,79.73,80.44],[96.28,98.76,99.82],[98.56,100.0,100.0],[85.1,91.79,94.62]]},"multi":{"b":[67.58,10.77,4.54,14.17,2.93,0.0],"s":[78,0,0,0]},"cn":{"b":[70.87,11.16,5.18,10.31,2.48,0.0],"s":[22,0,0,0]},"cd":{"b":[71.66,9.4,4.45,11.32,3.16,0.0],"s":[22,0,0,0]},"fn":{"b":[64.29,11.39,4.52,14.52,5.27,0.0],"s":[17,0,0,0]},"fd":{"b":[62.87,11.21,3.96,21.12,0.83,0.0],"s":[17,0,0,0]}}]},{"name":"GPT-6 Luna","fam":"GPT","cfg":[{"effort":"low","slot":1,"single":{"b":[11.41,3.65,1.87,43.74,39.32,0.0],"s":[34,1,1,0],"hm":[[12.37,16.12,18.03],[1.95,4.52,6.47],[12.4,16.27,17.56],[22.77,27.58,30.05],[15.73,15.73,15.73],[9.19,14.31,17.81],[0.0,0.0,0.0],[0.0,0.0,0.0],[25.18,35.16,37.91],[24.15,31.54,36.71]]},"multi":{"b":[0.55,0.24,0.1,1.18,97.94,0.0],"s":[11,67,0,0]},"cn":{"b":[0.92,0.3,0.23,1.5,97.05,0.0],"s":[3,19,0,0]},"cd":{"b":[0.03,0.01,0.01,1.33,98.61,0.0],"s":[4,18,0,0]},"fn":{"b":[1.25,0.65,0.17,1.19,96.75,0.0],"s":[2,15,0,0]},"fd":{"b":[0.0,0.0,0.0,0.65,99.35,0.0],"s":[2,15,0,0]}},{"effort":"medium","slot":2,"single":{"b":[26.51,4.89,2.24,36.38,29.99,0.0],"s":[36,0,0,0],"hm":[[26.71,31.34,33.46],[11.88,18.53,21.37],[49.11,55.06,58.23],[19.13,20.42,20.77],[13.38,13.62,13.62],[17.39,23.84,29.27],[0.0,0.0,0.0],[33.81,40.74,42.55],[51.07,57.9,58.69],[44.59,51.93,56.62]]},"multi":{"b":[9.58,2.59,1.43,15.27,71.13,0.0],"s":[46,32,0,0]},"cn":{"b":[7.77,2.16,1.46,15.06,73.55,0.0],"s":[9,13,0,0]},"cd":{"b":[14.68,3.93,1.8,18.28,61.3,0.0],"s":[18,4,0,0]},"fn":{"b":[5.57,1.37,0.93,13.77,78.37,0.0],"s":[9,8,0,0]},"fd":{"b":[10.01,2.82,1.51,13.71,71.95,0.0],"s":[10,7,0,0]}},{"effort":"high","slot":3,"single":{"b":[37.78,5.39,2.74,25.84,28.25,0.0],"s":[36,0,0,0],"hm":[[37.96,43.2,45.88],[27.04,33.69,37.15],[53.87,59.42,62.0],[32.98,36.5,38.5],[14.89,15.25,15.25],[33.37,39.83,42.6],[0.0,0.0,0.0],[79.69,88.76,91.83],[53.32,58.81,60.82],[46.51,56.59,64.79]]},"multi":{"b":[19.24,6.07,3.62,31.0,40.08,0.0],"s":[71,7,0,0]},"cn":{"b":[20.82,7.06,3.77,37.42,30.92,0.0],"s":[20,2,0,0]},"cd":{"b":[23.59,6.77,3.8,28.82,37.02,0.0],"s":[20,2,0,0]},"fn":{"b":[12.04,3.78,2.94,32.92,48.32,0.0],"s":[17,0,0,0]},"fd":{"b":[19.98,6.52,3.92,24.47,45.11,0.0],"s":[14,3,0,0]}},{"effort":"xhigh","slot":4,"single":{"b":[52.84,4.32,2.41,16.67,23.76,0.0],"s":[36,0,0,0],"hm":[[53.15,57.35,59.73],[32.54,37.85,41.4],[83.83,88.29,89.19],[43.08,45.89,48.59],[81.62,82.2,82.2],[48.35,53.02,56.83],[13.1,15.28,15.48],[57.01,60.97,63.92],[57.77,63.41,65.38],[61.04,69.21,74.56]]},"multi":{"b":[18.75,5.92,3.38,29.4,42.55,0.0],"s":[65,10,3,0]},"cn":{"b":[13.89,3.36,1.87,41.12,39.76,0.0],"s":[20,1,1,0]},"cd":{"b":[24.47,8.3,4.89,28.07,34.27,0.0],"s":[19,2,1,0]},"fn":{"b":[11.79,4.19,3.22,24.65,56.14,0.0],"s":[11,5,1,0]},"fd":{"b":[24.76,7.86,3.52,22.86,41.0,0.0],"s":[15,2,0,0]}},{"effort":"max","slot":5,"single":{"b":[55.62,5.69,2.98,16.8,18.91,0.0],"s":[36,0,0,0],"hm":[[55.85,61.46,64.42],[42.55,49.47,53.81],[75.1,79.76,80.65],[49.88,55.16,58.8],[97.06,97.59,97.59],[53.52,62.87,66.94],[0.0,0.0,0.0],[71.86,77.62,79.55],[50.22,58.78,62.02],[62.41,71.93,80.45]]},"multi":{"b":[26.01,9.1,5.86,37.76,21.27,0.0],"s":[75,3,0,0]},"cn":{"b":[24.03,8.48,5.18,45.39,16.92,0.0],"s":[22,0,0,0]},"cd":{"b":[33.79,10.79,6.75,31.77,16.89,0.0],"s":[22,0,0,0]},"fn":{"b":[20.77,8.94,5.41,36.71,28.17,0.0],"s":[15,2,0,0]},"fd":{"b":[24.95,8.09,6.09,37.02,23.85,0.0],"s":[16,1,0,0]}}]},{"name":"Claude Opus 5.5","fam":"Claude","cfg":[{"effort":"low","slot":1,"single":{"b":[81.86,2.21,1.54,1.74,12.65,0.0],"s":[25,10,1,0],"hm":[[83.12,85.29,86.69],[70.3,73.4,76.95],[81.75,82.94,83.23],[97.3,99.53,99.88],[83.33,83.33,83.33],[78.91,81.74,84.04],[75.46,80.81,81.89],[73.88,73.88,73.88],[100.0,100.0,100.0],[87.11,91.98,96.99]]},"multi":{"b":[57.95,3.64,1.23,2.2,34.99,0.0],"s":[69,8,1,0]},"cn":{"b":[55.33,3.49,0.96,1.29,38.92,0.0],"s":[18,4,0,0]},"cd":{"b":[65.53,3.67,0.99,1.15,28.65,0.0],"s":[19,2,1,0]},"fn":{"b":[34.63,1.99,0.68,2.9,59.81,0.0],"s":[16,1,0,0]},"fd":{"b":[75.86,5.41,2.33,3.62,12.78,0.0],"s":[16,1,0,0]}},{"effort":"high","slot":3,"single":{"b":[95.05,2.44,1.17,1.34,0.0,0.0],"s":[36,0,0,0],"hm":[[95.44,97.72,98.8],[89.63,94.41,96.81],[98.12,99.11,99.6],[98.59,99.65,100.0],[100.0,100.0,100.0],[92.48,95.6,97.3],[93.06,96.23,97.65],[99.11,100.0,100.0],[100.0,100.0,100.0],[88.02,94.51,97.87]]},"multi":{"b":[92.8,4.81,1.2,1.19,0.0,0.0],"s":[78,0,0,0]},"cn":{"b":[94.72,4.18,0.78,0.31,0.0,0.0],"s":[22,0,0,0]},"cd":{"b":[94.31,4.34,0.81,0.54,0.0,0.0],"s":[22,0,0,0]},"fn":{"b":[94.11,4.5,0.89,0.49,0.0,0.0],"s":[17,0,0,0]},"fd":{"b":[87.76,6.31,2.39,3.53,0.02,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[95.68,2.04,1.07,1.2,0.0,0.0],"s":[36,0,0,0],"hm":[[96.02,97.97,98.93],[91.05,94.41,97.07],[98.31,99.6,99.7],[98.71,99.88,100.0],[100.0,100.0,100.0],[93.6,96.28,97.7],[93.61,96.37,98.16],[99.65,100.0,100.0],[99.8,100.0,100.0],[89.48,95.16,97.7]]},"multi":{"b":[0.98,0.06,0.0,0.0,0.0,98.96],"s":[1,0,0,77]},"cn":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,22]},"cd":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,22]},"fn":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,17]},"fd":{"b":[4.09,0.23,0.02,0.02,0.0,95.65],"s":[1,0,0,16]}}]},{"name":"Claude Sonnet 5.5","fam":"Claude","cfg":[{"effort":"low","slot":1,"single":{"b":[56.86,1.37,0.33,7.23,34.2,0.0],"s":[23,13,0,0],"hm":[[57.85,59.21,59.55],[29.34,30.23,30.32],[89.38,91.77,92.46],[54.81,55.63,55.87],[62.74,62.74,62.74],[75.12,79.01,80.18],[41.18,41.77,41.77],[54.87,55.76,55.76],[64.31,64.51,64.51],[48.86,51.47,52.34]]},"multi":{"b":[0.23,0.0,0.0,0.03,99.74,0.0],"s":[4,69,5,0]},"cn":{"b":[0.54,0.0,0.0,0.0,99.46,0.0],"s":[2,20,0,0]},"cd":{"b":[0.0,0.0,0.0,0.0,100.0,0.0],"s":[0,21,1,0]},"fn":{"b":[0.0,0.0,0.0,0.0,100.0,0.0],"s":[0,17,0,0]},"fd":{"b":[0.37,0.0,0.0,0.12,99.51,0.0],"s":[2,11,4,0]}},{"effort":"high","slot":3,"single":{"b":[79.95,2.61,0.84,3.92,12.68,0.0],"s":[26,10,0,0],"hm":[[79.7,82.2,82.96],[76.51,80.32,82.18],[90.28,92.56,92.76],[72.3,73.71,73.94],[99.53,99.53,99.53],[77.27,83.13,85.12],[81.4,82.7,82.7],[62.03,64.51,64.51],[73.51,73.51,73.51],[84.42,89.79,92.39]]},"multi":{"b":[80.22,4.08,1.66,5.71,8.33,0.0],"s":[72,0,6,0]},"cn":{"b":[76.89,4.09,1.15,1.87,16.0,0.0],"s":[19,0,3,0]},"cd":{"b":[93.48,3.99,1.19,1.35,0.0,0.0],"s":[22,0,0,0]},"fn":{"b":[66.73,3.44,1.59,10.85,17.39,0.0],"s":[14,0,3,0]},"fd":{"b":[82.9,4.83,2.79,9.48,0.0,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[94.75,1.94,1.14,2.18,0.0,0.0],"s":[36,0,0,0],"hm":[[95.14,96.99,98.05],[89.1,92.55,94.68],[98.21,99.11,99.7],[98.12,99.3,99.77],[99.82,100.0,100.0],[92.82,95.88,97.52],[90.54,94.04,95.86],[100.0,100.0,100.0],[100.0,100.0,100.0],[87.68,91.99,94.92]]},"multi":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,78]},"cn":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,22]},"cd":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,22]},"fn":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,17]},"fd":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,17]}}]},{"name":"Claude Haiku 5.5","fam":"Claude","cfg":[{"effort":"low","slot":1,"single":{"b":[76.51,4.38,1.37,3.78,13.96,0.0],"s":[30,1,5,0],"hm":[[76.49,80.76,82.06],[66.93,72.34,74.47],[93.75,98.21,99.4],[68.78,71.71,72.3],[81.26,81.46,81.46],[84.64,89.75,92.34],[45.08,48.24,49.6],[76.95,81.21,82.09],[92.73,98.66,98.86],[78.27,85.23,87.99]]},"multi":{"b":[38.1,6.53,2.97,11.37,41.03,0.0],"s":[43,16,19,0]},"cn":{"b":[55.08,8.17,3.99,9.06,23.7,0.0],"s":[8,11,3,0]},"cd":{"b":[36.06,6.77,3.38,5.67,48.13,0.0],"s":[14,1,7,0]},"fn":{"b":[31.11,6.57,2.76,16.16,43.4,0.0],"s":[8,3,6,0]},"fd":{"b":[28.85,4.46,1.63,15.29,49.77,0.0],"s":[13,1,3,0]}},{"effort":"high","slot":3,"single":{"b":[89.63,4.92,1.94,3.48,0.03,0.0],"s":[36,0,0,0],"hm":[[90.26,94.98,96.83],[81.12,88.92,91.84],[94.35,97.32,99.01],[95.31,98.71,99.65],[100.0,100.0,100.0],[85.3,91.39,94.24],[84.72,91.56,95.28],[94.15,99.29,99.82],[95.84,99.6,100.0],[81.52,88.05,91.65]]},"multi":{"b":[67.86,10.54,4.19,9.62,7.79,0.0],"s":[69,9,0,0]},"cn":{"b":[73.33,13.65,5.12,6.52,1.38,0.0],"s":[13,9,0,0]},"cd":{"b":[75.49,10.27,3.9,5.57,4.77,0.0],"s":[22,0,0,0]},"fn":{"b":[68.92,9.57,4.38,16.53,0.6,0.0],"s":[17,0,0,0]},"fd":{"b":[52.57,8.42,3.28,10.47,25.25,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[69.71,2.28,1.04,3.35,0.0,23.63],"s":[28,0,0,8],"hm":[[71.55,73.78,74.77],[37.68,40.51,42.02],[96.33,98.31,99.31],[80.63,82.51,82.98],[66.67,66.67,66.67],[70.45,73.02,75.65],[47.74,49.4,49.6],[82.09,83.33,83.33],[79.84,82.94,83.33],[82.49,87.32,90.03]]},"multi":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,78]},"cn":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,22]},"cd":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,22]},"fn":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,17]},"fd":{"b":[0.0,0.0,0.0,0.0,0.0,100.0],"s":[0,0,0,17]}}]},{"name":"Claude Fable 5.1","fam":"Claude","cfg":[{"effort":"low","slot":1,"single":{"b":[77.88,8.63,2.95,4.99,5.56,0.0],"s":[23,12,1,0],"hm":[[78.72,87.09,89.86],[69.95,82.36,87.77],[78.08,84.42,85.91],[88.15,94.48,95.89],[98.59,98.83,98.83],[78.03,90.14,92.71],[66.46,82.47,90.16],[68.79,76.24,78.19],[95.22,99.6,99.8],[65.24,75.25,79.46]]},"multi":{"b":[57.05,16.18,7.06,12.39,7.32,0.0],"s":[78,0,0,0]},"cn":{"b":[60.13,15.49,6.87,10.48,7.04,0.0],"s":[22,0,0,0]},"cd":{"b":[59.21,16.75,7.67,11.36,5.01,0.0],"s":[22,0,0,0]},"fn":{"b":[52.02,16.4,6.94,14.25,10.39,0.0],"s":[17,0,0,0]},"fd":{"b":[56.4,16.08,6.72,13.74,7.06,0.0],"s":[17,0,0,0]}},{"effort":"high","slot":3,"single":{"b":[83.2,8.5,2.78,5.12,0.4,0.0],"s":[36,0,0,0],"hm":[[83.96,92.22,94.83],[74.91,85.02,89.63],[85.42,94.94,97.22],[91.55,96.71,97.65],[97.92,98.12,98.12],[78.98,89.71,93.21],[68.78,87.27,91.2],[89.78,96.1,99.11],[91.47,98.57,100.0],[76.81,83.57,87.36]]},"multi":{"b":[63.24,16.34,6.91,9.9,3.61,0.0],"s":[76,1,1,0]},"cn":{"b":[62.24,15.45,6.43,8.28,7.6,0.0],"s":[21,0,1,0]},"cd":{"b":[65.66,16.54,6.96,8.28,2.55,0.0],"s":[22,0,0,0]},"fn":{"b":[61.93,16.22,7.02,11.47,3.36,0.0],"s":[17,0,0,0]},"fd":{"b":[63.01,17.21,7.28,11.86,0.65,0.0],"s":[16,1,0,0]}}]},{"name":"Gemini 3.1 Pro","fam":"Gemini","cfg":[{"effort":"nonthinking","slot":0,"single":{"b":[73.63,8.84,3.75,5.96,7.83,0.0],"s":[28,8,0,0],"hm":[[74.3,82.87,86.57],[59.49,70.74,75.8],[87.6,96.53,98.71],[75.82,81.34,85.21],[95.46,95.46,95.46],[71.96,83.7,86.31],[52.58,77.69,90.53],[91.32,95.22,97.35],[63.59,66.31,66.31],[70.91,78.83,83.47]]},"multi":{"b":[36.14,9.99,6.21,20.99,26.66,0.0],"s":[77,1,0,0]},"cn":{"b":[36.74,10.16,5.63,21.48,26.0,0.0],"s":[21,1,0,0]},"cd":{"b":[40.06,12.0,8.01,16.4,23.53,0.0],"s":[22,0,0,0]},"fn":{"b":[34.26,8.16,4.63,27.57,25.39,0.0],"s":[17,0,0,0]},"fd":{"b":[33.13,9.47,6.46,18.89,32.05,0.0],"s":[17,0,0,0]}},{"effort":"thinking","slot":3,"single":{"b":[72.82,10.64,3.82,3.35,9.37,0.0],"s":[36,0,0,0],"hm":[[74.35,84.54,88.18],[51.68,67.73,74.2],[85.22,93.65,95.73],[86.15,92.25,94.6],[88.84,93.8,93.8],[70.47,86.65,91.51],[56.54,79.05,89.63],[92.26,95.74,98.23],[71.85,80.77,81.16],[66.15,71.26,74.74]]},"multi":{"b":[44.34,11.93,6.81,20.09,16.82,0.0],"s":[76,2,0,0]},"cn":{"b":[39.89,10.34,6.35,21.67,21.74,0.0],"s":[21,1,0,0]},"cd":{"b":[52.16,14.11,7.93,13.96,11.84,0.0],"s":[22,0,0,0]},"fn":{"b":[36.34,8.23,5.03,27.44,22.96,0.0],"s":[16,1,0,0]},"fd":{"b":[48.69,15.0,7.86,17.7,10.75,0.0],"s":[17,0,0,0]}}]},{"name":"GPT-5.6 Sol","fam":"GPT","cfg":[{"effort":"low","slot":1,"single":{"b":[79.15,8.6,2.64,6.12,3.48,0.0],"s":[35,1,0,0],"hm":[[80.11,88.54,91.03],[68.53,78.19,82.36],[82.14,91.77,94.25],[89.67,95.66,96.48],[94.1,94.1,94.1],[69.51,80.53,83.4],[68.83,82.86,89.77],[90.61,94.45,95.51],[85.18,96.66,97.45],[72.46,82.63,85.94]]},"multi":{"b":[45.39,8.75,5.08,19.78,20.99,0.0],"s":[74,4,0,0]},"cn":{"b":[43.18,8.85,5.01,13.42,29.55,0.0],"s":[19,3,0,0]},"cd":{"b":[52.28,10.65,6.55,18.72,11.79,0.0],"s":[22,0,0,0]},"fn":{"b":[36.76,8.23,4.55,16.79,33.67,0.0],"s":[16,1,0,0]},"fd":{"b":[48.95,7.09,4.1,30.85,9.0,0.0],"s":[17,0,0,0]}},{"effort":"medium","slot":2,"single":{"b":[84.1,6.99,2.88,5.22,0.8,0.0],"s":[36,0,0,0],"hm":[[84.83,91.64,94.37],[75.62,84.4,88.65],[87.2,94.05,96.92],[91.67,96.48,97.54],[98.31,98.9,98.9],[79.26,90.34,93.34],[74.57,85.77,92.2],[88.73,93.93,96.41],[93.3,98.66,99.06],[74.81,82.25,86.32]]},"multi":{"b":[46.08,10.89,5.87,18.12,19.05,0.0],"s":[76,2,0,0]},"cn":{"b":[51.63,12.31,7.13,12.09,16.84,0.0],"s":[22,0,0,0]},"cd":{"b":[44.61,10.17,4.57,16.4,24.26,0.0],"s":[20,2,0,0]},"fn":{"b":[38.54,9.7,5.6,17.58,28.58,0.0],"s":[17,0,0,0]},"fd":{"b":[49.17,11.33,6.17,27.09,6.24,0.0],"s":[17,0,0,0]}},{"effort":"high","slot":3,"single":{"b":[83.94,7.5,2.78,5.29,0.5,0.0],"s":[36,0,0,0],"hm":[[84.86,92.03,94.64],[73.23,83.33,88.3],[87.8,96.03,97.62],[93.54,96.71,98.0],[99.77,99.77,99.77],[75.7,86.56,90.67],[75.32,88.25,92.51],[91.76,95.48,97.08],[91.2,98.03,98.63],[75.4,84.07,89.19]]},"multi":{"b":[49.31,11.81,6.15,19.01,13.72,0.0],"s":[77,1,0,0]},"cn":{"b":[50.71,13.49,6.34,10.37,19.09,0.0],"s":[22,0,0,0]},"cd":{"b":[53.57,11.59,6.18,19.86,8.79,0.0],"s":[22,0,0,0]},"fn":{"b":[46.22,12.64,6.57,15.42,19.15,0.0],"s":[17,0,0,0]},"fd":{"b":[46.22,9.39,5.5,31.07,7.82,0.0],"s":[16,1,0,0]}},{"effort":"xhigh","slot":4,"single":{"b":[85.21,6.79,2.98,4.45,0.57,0.0],"s":[36,0,0,0],"hm":[[86.0,92.55,95.35],[75.98,85.11,90.07],[88.49,95.24,97.62],[93.54,97.3,98.36],[99.0,99.59,99.59],[79.95,89.04,93.03],[73.13,84.88,90.86],[89.5,94.11,96.59],[93.37,98.66,99.06],[81.08,89.02,92.97]]},"multi":{"b":[57.19,12.32,6.02,16.51,7.95,0.0],"s":[77,1,0,0]},"cn":{"b":[60.48,11.74,5.87,11.97,9.93,0.0],"s":[21,1,0,0]},"cd":{"b":[61.22,13.23,5.5,13.87,6.17,0.0],"s":[22,0,0,0]},"fn":{"b":[57.17,13.61,5.89,16.62,6.71,0.0],"s":[17,0,0,0]},"fd":{"b":[49.26,10.67,6.89,24.21,8.97,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[87.78,3.82,1.07,3.38,3.95,0.0],"s":[36,0,0,0],"hm":[[88.28,91.99,92.98],[82.71,88.48,90.6],[88.69,90.77,91.27],[93.43,96.71,97.07],[100.0,100.0,100.0],[90.17,95.04,96.37],[76.84,79.93,81.35],[96.63,99.47,100.0],[92.34,96.15,96.35],[73.68,81.33,83.81]]},"multi":{"b":[59.48,13.05,5.85,13.12,8.5,0.0],"s":[76,2,0,0]},"cn":{"b":[64.51,13.04,5.8,10.47,6.18,0.0],"s":[21,1,0,0]},"cd":{"b":[65.69,12.33,5.49,10.07,6.43,0.0],"s":[22,0,0,0]},"fn":{"b":[49.49,12.43,5.92,16.76,15.4,0.0],"s":[16,1,0,0]},"fd":{"b":[57.26,14.48,6.21,15.66,6.38,0.0],"s":[17,0,0,0]}}]},{"name":"GPT-5.6 Terra","fam":"GPT","cfg":[{"effort":"low","slot":1,"single":{"b":[66.13,8.0,1.77,14.59,9.5,0.0],"s":[36,0,0,0],"hm":[[67.1,74.93,76.65],[49.91,59.66,61.7],[78.97,86.61,88.79],[72.42,78.52,79.46],[96.95,98.12,98.12],[71.06,86.53,90.68],[52.85,64.46,66.82],[61.66,65.25,65.78],[54.46,63.68,65.07],[65.62,71.54,73.43]]},"multi":{"b":[20.12,5.35,2.75,21.05,50.74,0.0],"s":[65,13,0,0]},"cn":{"b":[25.22,6.27,2.94,18.28,47.29,0.0],"s":[15,7,0,0]},"cd":{"b":[20.91,5.94,3.39,28.43,41.33,0.0],"s":[21,1,0,0]},"fn":{"b":[16.25,3.98,2.13,12.66,64.99,0.0],"s":[15,2,0,0]},"fd":{"b":[17.58,5.07,2.47,24.42,50.46,0.0],"s":[14,3,0,0]}},{"effort":"medium","slot":2,"single":{"b":[65.43,8.6,2.84,15.83,7.3,0.0],"s":[36,0,0,0],"hm":[[67.75,76.19,78.94],[36.97,47.43,50.53],[77.78,85.71,89.68],[88.5,95.42,96.6],[63.91,64.79,64.79],[63.84,79.0,84.17],[55.89,65.52,68.73],[87.37,94.99,97.83],[70.2,79.18,82.27],[65.28,73.64,75.83]]},"multi":{"b":[23.67,6.99,3.54,21.97,43.84,0.0],"s":[73,5,0,0]},"cn":{"b":[31.76,8.0,4.01,15.67,40.55,0.0],"s":[22,0,0,0]},"cd":{"b":[18.0,4.87,3.02,29.18,44.94,0.0],"s":[19,3,0,0]},"fn":{"b":[19.53,6.07,2.33,14.72,57.34,0.0],"s":[16,1,0,0]},"fd":{"b":[25.16,9.11,4.78,28.21,32.73,0.0],"s":[16,1,0,0]}},{"effort":"high","slot":3,"single":{"b":[76.64,9.24,3.15,6.12,4.85,0.0],"s":[36,0,0,0],"hm":[[78.17,87.12,90.06],[56.03,68.71,74.47],[88.1,95.83,97.72],[90.38,96.83,98.0],[98.47,99.77,100.0],[72.57,83.02,86.78],[61.48,71.25,73.94],[90.57,96.96,98.21],[73.45,92.04,96.64],[72.47,79.69,84.82]]},"multi":{"b":[32.81,9.97,5.31,20.7,31.21,0.0],"s":[78,0,0,0]},"cn":{"b":[38.87,9.83,4.24,8.3,38.77,0.0],"s":[22,0,0,0]},"cd":{"b":[28.81,10.54,5.99,28.7,25.97,0.0],"s":[22,0,0,0]},"fn":{"b":[30.79,7.97,4.96,8.73,47.55,0.0],"s":[17,0,0,0]},"fd":{"b":[32.61,11.52,6.09,37.45,12.33,0.0],"s":[17,0,0,0]}},{"effort":"xhigh","slot":4,"single":{"b":[75.94,7.43,2.31,7.1,7.23,0.0],"s":[36,0,0,0],"hm":[[77.46,84.74,86.94],[55.94,64.54,68.0],[86.41,94.25,96.23],[90.02,95.42,96.6],[97.24,98.12,98.12],[67.31,78.07,81.4],[58.86,65.89,69.68],[86.96,93.4,96.77],[84.63,97.26,98.83],[69.74,75.68,76.86]]},"multi":{"b":[33.5,9.44,4.61,20.39,32.06,0.0],"s":[78,0,0,0]},"cn":{"b":[42.67,9.86,4.64,6.33,36.51,0.0],"s":[22,0,0,0]},"cd":{"b":[29.96,10.18,6.21,32.55,21.09,0.0],"s":[22,0,0,0]},"fn":{"b":[27.88,6.86,2.54,5.89,56.83,0.0],"s":[17,0,0,0]},"fd":{"b":[33.02,10.76,4.9,36.94,14.37,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[80.12,6.59,2.34,4.38,6.56,0.0],"s":[36,0,0,0],"hm":[[80.83,87.24,89.44],[66.31,75.53,79.7],[92.86,97.82,99.4],[83.33,88.38,89.2],[100.0,100.0,100.0],[57.29,62.75,64.5],[77.69,89.5,93.3],[89.98,95.21,96.45],[84.93,91.83,93.87],[75.12,84.16,88.49]]},"multi":{"b":[37.09,13.91,6.85,33.33,8.82,0.0],"s":[78,0,0,0]},"cn":{"b":[40.75,13.06,6.51,29.43,10.24,0.0],"s":[22,0,0,0]},"cd":{"b":[40.2,15.12,6.75,31.96,5.97,0.0],"s":[22,0,0,0]},"fn":{"b":[35.66,13.86,6.68,36.12,7.68,0.0],"s":[17,0,0,0]},"fd":{"b":[31.17,13.55,7.49,36.25,11.53,0.0],"s":[17,0,0,0]}}]},{"name":"GPT-5.6 Luna","fam":"GPT","cfg":[{"effort":"low","slot":1,"single":{"b":[45.82,7.03,3.01,26.17,17.97,0.0],"s":[35,1,0,0],"hm":[[47.77,54.73,57.63],[29.08,36.52,40.25],[43.45,50.89,54.37],[70.77,76.76,78.29],[52.98,54.15,54.15],[31.96,38.57,42.99],[49.23,63.02,71.16],[26.64,28.1,29.29],[73.64,84.57,85.36],[52.16,59.95,62.84]]},"multi":{"b":[7.35,2.45,1.5,30.96,57.73,0.0],"s":[65,13,0,0]},"cn":{"b":[11.16,3.32,1.66,38.27,45.59,0.0],"s":[17,5,0,0]},"cd":{"b":[3.38,1.77,1.21,27.67,65.97,0.0],"s":[20,2,0,0]},"fn":{"b":[12.33,3.02,1.63,34.3,48.7,0.0],"s":[12,5,0,0]},"fd":{"b":[2.54,1.68,1.51,23.25,71.01,0.0],"s":[16,1,0,0]}},{"effort":"medium","slot":2,"single":{"b":[52.41,7.43,3.61,25.2,11.35,0.0],"s":[36,0,0,0],"hm":[[53.16,60.51,63.97],[44.68,53.72,58.95],[53.77,59.62,62.9],[61.03,68.19,70.07],[63.46,64.61,64.61],[21.96,26.22,32.27],[46.87,62.15,68.97],[72.71,79.14,81.45],[64.28,70.87,72.81],[49.69,60.08,63.74]]},"multi":{"b":[15.94,5.13,3.66,35.23,40.04,0.0],"s":[74,4,0,0]},"cn":{"b":[25.29,6.6,4.21,32.96,30.94,0.0],"s":[21,1,0,0]},"cd":{"b":[6.88,3.26,3.21,38.96,47.69,0.0],"s":[20,2,0,0]},"fn":{"b":[25.3,7.79,4.83,35.32,26.77,0.0],"s":[17,0,0,0]},"fd":{"b":[6.26,2.93,2.37,33.53,54.9,0.0],"s":[16,1,0,0]}},{"effort":"high","slot":3,"single":{"b":[63.72,8.2,3.71,15.26,9.1,0.0],"s":[36,0,0,0],"hm":[[64.61,72.57,76.08],[62.06,74.29,80.32],[52.08,57.14,60.12],[79.69,86.27,87.79],[81.4,82.2,82.39],[49.95,56.18,59.65],[63.68,79.8,86.97],[77.35,85.78,88.26],[59.66,67.29,71.14],[55.63,64.16,68.05]]},"multi":{"b":[31.82,9.39,5.83,24.5,28.46,0.0],"s":[77,1,0,0]},"cn":{"b":[47.39,12.51,6.43,11.97,21.7,0.0],"s":[22,0,0,0]},"cd":{"b":[19.69,5.55,5.06,33.36,36.34,0.0],"s":[22,0,0,0]},"fn":{"b":[41.26,11.98,6.46,18.7,21.6,0.0],"s":[17,0,0,0]},"fd":{"b":[18.66,7.57,5.37,34.29,34.12,0.0],"s":[16,1,0,0]}},{"effort":"xhigh","slot":4,"single":{"b":[67.1,7.93,2.88,13.09,9.0,0.0],"s":[36,0,0,0],"hm":[[67.42,75.09,77.91],[65.51,76.24,79.7],[64.68,71.92,74.8],[72.07,77.11,79.23],[96.75,98.12,98.12],[42.58,50.16,52.22],[61.36,76.11,84.14],[87.37,94.27,96.22],[65.01,70.49,71.68],[51.44,61.4,65.08]]},"multi":{"b":[32.59,10.26,5.76,24.6,26.8,0.0],"s":[78,0,0,0]},"cn":{"b":[41.56,10.52,4.79,12.03,31.09,0.0],"s":[22,0,0,0]},"cd":{"b":[27.56,8.78,5.05,27.89,30.72,0.0],"s":[22,0,0,0]},"fn":{"b":[35.08,11.44,6.98,22.65,23.85,0.0],"s":[17,0,0,0]},"fd":{"b":[25.81,10.39,6.34,36.65,20.81,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[39.66,5.69,2.54,15.76,36.35,0.0],"s":[34,0,2,0],"hm":[[40.84,46.67,49.24],[28.99,34.22,36.7],[39.19,43.45,45.63],[54.34,62.32,65.38],[91.92,95.64,95.64],[20.65,26.01,28.93],[10.8,12.91,13.15],[41.17,45.05,46.23],[41.51,54.67,59.02],[38.99,45.71,52.46]]},"multi":{"b":[26.1,9.74,6.39,30.83,26.94,0.0],"s":[77,1,0,0]},"cn":{"b":[31.69,9.82,6.89,24.47,27.13,0.0],"s":[22,0,0,0]},"cd":{"b":[25.4,9.53,5.05,26.55,33.46,0.0],"s":[22,0,0,0]},"fn":{"b":[21.34,9.33,6.01,42.28,21.05,0.0],"s":[17,0,0,0]},"fd":{"b":[25.55,10.3,7.68,30.96,25.52,0.0],"s":[16,1,0,0]}}]},{"name":"GPT-5.5","fam":"GPT","cfg":[{"effort":"low","slot":1,"single":{"b":[80.96,8.0,2.54,5.35,3.15,0.0],"s":[36,0,0,0],"hm":[[82.06,89.89,92.23],[66.67,76.06,81.03],[88.19,96.43,98.02],[91.31,97.18,97.65],[98.21,98.4,98.4],[70.29,85.13,89.74],[69.5,84.21,87.52],[93.22,98.01,99.07],[92.37,95.32,95.51],[68.77,78.28,83.14]]},"multi":{"b":[35.48,8.04,4.24,18.7,33.54,0.0],"s":[55,23,0,0]},"cn":{"b":[36.47,8.62,4.95,12.91,37.05,0.0],"s":[15,7,0,0]},"cd":{"b":[36.96,8.44,3.99,26.26,24.35,0.0],"s":[20,2,0,0]},"fn":{"b":[29.2,7.03,3.38,14.28,46.11,0.0],"s":[7,10,0,0]},"fd":{"b":[39.08,7.99,4.59,21.21,27.12,0.0],"s":[13,4,0,0]}},{"effort":"medium","slot":2,"single":{"b":[82.3,7.4,2.01,3.88,4.42,0.0],"s":[36,0,0,0],"hm":[[83.11,90.33,92.22],[70.57,80.05,83.24],[89.68,96.33,98.12],[89.08,94.6,95.31],[96.38,98.35,98.35],[76.85,86.85,90.4],[72.35,85.23,89.12],[89.5,94.82,95.88],[92.06,94.93,94.93],[71.54,81.79,84.64]]},"multi":{"b":[40.17,9.68,5.03,19.36,25.75,0.0],"s":[72,6,0,0]},"cn":{"b":[41.79,10.77,4.95,7.09,35.4,0.0],"s":[22,0,0,0]},"cd":{"b":[40.64,8.44,5.65,26.65,18.62,0.0],"s":[20,2,0,0]},"fn":{"b":[36.96,9.99,4.73,15.77,32.55,0.0],"s":[17,0,0,0]},"fd":{"b":[41.13,9.54,4.73,28.37,16.22,0.0],"s":[13,4,0,0]}},{"effort":"high","slot":3,"single":{"b":[79.95,8.6,2.61,4.18,4.65,0.0],"s":[36,0,0,0],"hm":[[81.02,89.34,91.79],[65.78,77.3,81.56],[87.5,95.54,97.92],[89.79,95.19,95.89],[97.71,98.17,98.17],[72.76,87.8,92.91],[72.29,86.34,90.25],[87.35,93.2,95.15],[85.15,87.97,88.37],[70.89,82.56,85.89]]},"multi":{"b":[41.85,10.03,4.83,14.27,29.03,0.0],"s":[71,7,0,0]},"cn":{"b":[47.63,10.58,4.74,6.96,30.09,0.0],"s":[22,0,0,0]},"cd":{"b":[42.09,9.96,5.25,18.34,24.37,0.0],"s":[19,3,0,0]},"fn":{"b":[39.93,10.3,4.67,9.3,35.8,0.0],"s":[17,0,0,0]},"fd":{"b":[37.22,9.22,4.63,22.74,26.19,0.0],"s":[13,4,0,0]}},{"effort":"xhigh","slot":4,"single":{"b":[79.55,7.8,2.51,5.59,4.55,0.0],"s":[36,0,0,0],"hm":[[80.52,88.22,90.59],[64.72,74.29,78.63],[89.88,96.23,97.82],[86.97,94.13,95.31],[99.06,99.06,99.06],[73.45,84.8,89.2],[67.9,81.94,85.26],[85.76,91.37,93.86],[84.56,87.78,87.97],[72.41,84.36,88.16]]},"multi":{"b":[53.93,13.34,6.89,16.39,9.46,0.0],"s":[76,2,0,0]},"cn":{"b":[58.34,14.43,6.77,13.02,7.45,0.0],"s":[22,0,0,0]},"cd":{"b":[56.2,13.83,7.33,15.4,7.23,0.0],"s":[21,1,0,0]},"fn":{"b":[51.83,13.44,5.77,21.85,7.11,0.0],"s":[17,0,0,0]},"fd":{"b":[48.77,11.52,7.65,15.65,16.42,0.0],"s":[16,1,0,0]}}]},{"name":"Kimi K3","fam":"Kimi","cfg":[{"effort":"low","slot":1,"single":{"b":[31.06,7.9,4.89,25.5,30.66,0.0],"s":[28,7,1,0],"hm":[[31.97,39.91,44.67],[18.53,24.56,30.59],[38.29,48.81,53.67],[39.08,46.36,49.77],[67.34,73.38,73.58],[33.31,44.1,51.8],[19.93,34.72,46.49],[31.27,36.2,37.79],[19.61,24.67,26.33],[20.35,26.38,32.05]]},"multi":{"b":[21.73,8.8,4.82,24.21,40.43,0.0],"s":[68,9,1,0]},"cn":{"b":[21.28,7.6,4.48,25.42,41.22,0.0],"s":[16,5,1,0]},"cd":{"b":[22.51,8.7,5.05,21.3,42.44,0.0],"s":[21,1,0,0]},"fn":{"b":[19.16,10.16,5.3,30.23,35.14,0.0],"s":[15,2,0,0]},"fd":{"b":[23.96,8.87,4.47,20.03,42.68,0.0],"s":[16,1,0,0]}},{"effort":"high","slot":3,"single":{"b":[39.83,9.94,5.66,15.96,28.61,0.0],"s":[30,5,1,0],"hm":[[41.15,51.13,56.78],[26.15,33.95,39.27],[42.26,55.36,61.71],[55.05,64.08,69.37],[57.39,67.57,69.21],[35.55,49.63,57.93],[21.5,31.19,39.77],[59.06,68.1,72.89],[55.37,67.35,72.48],[18.05,22.95,28.42]]},"multi":{"b":[22.5,9.19,5.76,26.19,36.35,0.0],"s":[74,4,0,0]},"cn":{"b":[22.99,9.5,6.6,28.17,32.74,0.0],"s":[18,4,0,0]},"cd":{"b":[23.25,8.26,4.95,20.45,43.09,0.0],"s":[22,0,0,0]},"fn":{"b":[21.18,9.77,5.24,33.06,30.74,0.0],"s":[17,0,0,0]},"fd":{"b":[22.48,9.3,6.26,23.42,38.54,0.0],"s":[17,0,0,0]}},{"effort":"max","slot":5,"single":{"b":[31.09,10.54,5.86,24.36,28.15,0.0],"s":[28,7,1,0],"hm":[[31.75,42.34,48.14],[23.14,32.89,38.39],[34.33,45.54,52.98],[37.79,48.59,53.05],[50.43,63.7,66.28],[22.88,34.91,43.4],[17.74,33.11,43.95],[27.78,33.06,35.55],[30.99,37.29,40.86],[40.7,51.97,58.8]]},"multi":{"b":[23.46,11.52,6.77,32.21,26.03,0.0],"s":[71,7,0,0]},"cn":{"b":[22.07,10.99,5.39,34.7,26.85,0.0],"s":[16,6,0,0]},"cd":{"b":[21.48,10.57,7.79,34.3,25.87,0.0],"s":[22,0,0,0]},"fn":{"b":[26.07,12.87,7.11,29.45,24.5,0.0],"s":[16,1,0,0]},"fd":{"b":[24.53,11.79,6.83,30.02,26.83,0.0],"s":[17,0,0,0]}}]},{"name":"Qwen 3.8 Max","fam":"Qwen","cfg":[{"effort":"nonthinking","slot":0,"single":{"b":[44.48,7.93,2.48,30.72,14.39,0.0],"s":[19,17,0,0],"hm":[[46.21,53.94,56.23],[24.38,34.31,39.27],[51.59,59.42,60.52],[62.68,68.08,68.9],[65.32,70.64,73.83],[58.43,70.13,73.2],[24.69,32.03,33.1],[38.21,42.17,43.41],[35.62,41.18,41.57],[55.02,67.47,72.25]]},"multi":{"b":[19.56,6.43,3.88,25.91,44.22,0.0],"s":[58,20,0,0]},"cn":{"b":[17.35,5.76,3.52,29.55,43.83,0.0],"s":[16,6,0,0]},"cd":{"b":[24.6,8.58,4.95,21.04,40.84,0.0],"s":[14,8,0,0]},"fn":{"b":[16.94,5.4,3.24,29.69,44.73,0.0],"s":[12,5,0,0]},"fd":{"b":[19.12,5.86,3.75,23.48,47.8,0.0],"s":[16,1,0,0]}},{"effort":"thinking","slot":3,"single":{"b":[77.11,10.01,4.38,5.86,2.64,0.0],"s":[36,0,0,0],"hm":[[78.22,88.02,92.17],[63.12,74.02,81.56],[83.63,95.44,98.02],[87.91,94.6,96.95],[98.77,99.57,99.77],[64.91,81.2,87.49],[62.16,82.05,89.33],[90.2,95.45,98.4],[82.61,90.36,95.74],[70.67,79.49,82.32]]},"multi":{"b":[33.47,9.25,5.87,27.71,23.7,0.0],"s":[68,7,3,0]},"cn":{"b":[22.2,6.27,3.38,31.16,36.99,0.0],"s":[17,3,2,0]},"cd":{"b":[54.17,13.46,8.34,15.09,8.94,0.0],"s":[22,0,0,0]},"fn":{"b":[18.73,4.55,2.62,44.26,29.83,0.0],"s":[14,2,1,0]},"fd":{"b":[37.96,12.61,9.13,21.14,19.16,0.0],"s":[15,2,0,0]}}]},{"name":"DeepSeek V4.1 Flash","fam":"DeepSeek","cfg":[{"effort":"nonthinking","slot":0,"single":{"b":[36.71,9.71,5.02,26.51,22.05,0.0],"s":[27,9,0,0],"hm":[[37.59,47.04,51.91],[27.48,39.8,46.54],[38.69,48.02,52.38],[46.6,53.29,56.81],[53.12,56.95,57.3],[33.42,48.43,58.26],[26.43,40.94,50.04],[35.27,40.58,43.42],[45.98,55.14,57.2],[31.33,40.17,45.25]]},"multi":{"b":[13.66,4.85,2.74,18.86,59.89,0.0],"s":[57,19,2,0]},"cn":{"b":[19.82,6.45,3.84,12.94,56.95,0.0],"s":[16,5,1,0]},"cd":{"b":[16.44,5.67,2.78,27.73,47.38,0.0],"s":[18,4,0,0]},"fn":{"b":[9.37,3.98,2.65,17.84,66.16,0.0],"s":[12,5,0,0]},"fd":{"b":[8.23,3.07,1.59,16.68,70.43,0.0],"s":[11,5,1,0]}},{"effort":"low","slot":1,"single":{"b":[56.16,12.68,6.86,11.28,13.02,0.0],"s":[36,0,0,0],"hm":[[57.73,70.24,76.88],[36.7,51.77,59.4],[64.78,76.19,85.32],[71.71,82.75,85.92],[83.01,89.21,89.79],[41.86,60.39,70.59],[37.85,55.68,71.21],[76.39,84.23,86.89],[57.19,69.62,76.16],[50.11,62.29,66.63]]},"multi":{"b":[19.19,7.57,3.97,11.08,58.19,0.0],"s":[76,2,0,0]},"cn":{"b":[23.23,9.26,4.41,10.14,52.95,0.0],"s":[22,0,0,0]},"cd":{"b":[23.93,9.36,5.69,11.06,49.96,0.0],"s":[22,0,0,0]},"fn":{"b":[15.34,5.97,2.61,10.19,65.9,0.0],"s":[16,1,0,0]},"fd":{"b":[13.49,5.4,2.99,13.01,65.11,0.0],"s":[16,1,0,0]}},{"effort":"high","slot":3,"single":{"b":[52.01,9.87,6.76,16.83,14.52,0.0],"s":[36,0,0,0],"hm":[[53.39,63.04,69.62],[32.0,43.88,51.86],[64.78,74.7,82.24],[63.38,70.54,74.77],[78.15,83.28,84.52],[35.83,48.94,61.85],[28.51,40.87,50.34],[77.92,83.76,87.13],[56.94,68.14,74.6],[42.99,53.26,59.31]]},"multi":{"b":[19.49,7.37,4.13,10.79,56.14,2.08],"s":[76,1,0,1]},"cn":{"b":[23.86,9.05,4.99,11.43,42.67,8.0],"s":[21,0,0,1]},"cd":{"b":[23.55,8.74,5.38,10.16,52.18,0.0],"s":[22,0,0,0]},"fn":{"b":[15.37,6.0,3.02,10.3,65.31,0.0],"s":[17,0,0,0]},"fd":{"b":[14.43,5.43,2.96,11.27,65.91,0.0],"s":[16,1,0,0]}},{"effort":"max","slot":5,"single":{"b":[49.7,10.51,4.99,15.03,17.4,2.38],"s":[35,0,0,1],"hm":[[50.69,61.05,65.92],[32.98,44.77,50.09],[63.0,73.71,80.06],[56.1,64.67,67.61],[82.36,87.04,87.68],[39.35,56.28,63.25],[25.35,38.62,50.4],[55.82,62.24,64.6],[54.03,63.11,66.21],[47.24,59.01,63.36]]},"multi":{"b":[17.63,7.22,4.21,8.35,38.63,23.96],"s":[61,2,0,15]},"cn":{"b":[22.06,9.66,5.66,9.93,40.7,12.0],"s":[20,0,0,2]},"cd":{"b":[21.01,7.48,3.9,7.4,32.21,28.0],"s":[17,0,0,5]},"fn":{"b":[13.61,6.43,3.87,8.23,33.07,34.78],"s":[12,0,0,5]},"fd":{"b":[13.17,5.07,3.31,7.77,48.94,21.74],"s":[12,2,0,3]}}]}]/*RING-DATA*/;
+  const BANDS=[["≤5%","var(--b5)"],["5–10%","var(--b10)"],["10–15%","var(--b15)"],[">15% (misread)","var(--b-bad)"],["Missing","var(--b-miss)"],["Cut off at output cap","url(#cutHatch)"]];
+  const STAT=[["Schema valid","var(--s-ok)"],["Wrong structure","var(--s-schema)"],["Invalid JSON","var(--s-json)"],["Cut off at output cap",null]];
+  const EFF=["No thinking","low","medium","high","xhigh","max"];
+  const effLabel=e=>e==="nonthinking"?"no thinking":e;
+  const famVar=f=>`var(${FAM.find(x=>x[0]===f)[1]})`;
+  const COND_LABEL={single:"single panel, 36 figures",multi:"multi-panel, all 78 tests",cn:"multi-panel, no fault, neutral prompt",cd:"multi-panel, no fault, detailed prompt",fn:"multi-panel, planted fault, neutral prompt",fd:"multi-panel, planted fault, detailed prompt"};
+  // each card has its own Single / Multi-panel switch (+ multi-panel condition); cb(conditionKey) redraws that card
+  function figToggle(card,cb){
+    let ds="single", sub="multi";
+    const subSeg=card.querySelector('.seg.sub'), key=()=>ds==="single"?"single":sub;
+    card.querySelectorAll('[data-ds]').forEach(b=>b.addEventListener('click',()=>{
+      ds=b.dataset.ds; subSeg.hidden=ds!=="multi";
+      card.querySelectorAll('[data-ds]').forEach(o=>o.setAttribute('aria-pressed',o===b)); cb(key());
+    }));
+    card.querySelectorAll('[data-sub]').forEach(b=>b.addEventListener('click',()=>{
+      sub=b.dataset.sub;
+      card.querySelectorAll('[data-sub]').forEach(o=>o.setAttribute('aria-pressed',o===b)); cb(key());
+    }));
+    return key;
+  }
+  const cond=figToggle(document.getElementById('chart-rings'),()=>drawRings());
+  const swatch=c=>c.startsWith("url")?`<i class="sw-b hatch"></i>`:`<i class="sw-b" style="background:${c}"></i>`;
+  document.getElementById('ringLegend').innerHTML=BANDS.map(b=>`<span>${swatch(b[1])}${b[0]}</span>`).join('');
+  document.getElementById('fmtLegend').innerHTML=STAT.map(b=>`<span>${b[1]?`<i class="sw-b" style="background:${b[1]}"></i>`:'<i class="sw-b hatch"></i>'}${b[0]}</span>`).join('');
+
+  const R0=24, R1=77, SL=(R1-R0)/6, GAP=1.6, C=80;
+  const pol=(r,f)=>[C+r*Math.sin(2*Math.PI*f), C-r*Math.cos(2*Math.PI*f)];
+  function sector(ri,ro,f0,f1){
+    if(f1-f0>=0.9999) return sector(ri,ro,0,0.5)+sector(ri,ro,0.5,1);
+    const lg=(f1-f0)>0.5?1:0, [a,b]=pol(ro,f0), [c,d]=pol(ro,f1), [e,g]=pol(ri,f1), [h,k]=pol(ri,f0);
+    return `M${a.toFixed(2)} ${b.toFixed(2)}A${ro} ${ro} 0 ${lg} 1 ${c.toFixed(2)} ${d.toFixed(2)}L${e.toFixed(2)} ${g.toFixed(2)}A${ri} ${ri} 0 ${lg} 0 ${h.toFixed(2)} ${k.toFixed(2)}Z`;
+  }
+  const y10=b=>b[0]+b[1];
+  const nAns=s=>s.reduce((a,v)=>a+v,0);
+
+  function centre(svg,c,k){
+    const big=svg.querySelector('.c-num'), sm=svg.querySelector('.c-small');
+    const d=c[k], allCut=d.b[5]>=50;  // most gold points lost to the output cap: say so instead of a near-zero score
+    big.textContent=allCut?"cut off":y10(d.b).toFixed(0);
+    big.setAttribute('class',allCut?'c-num c-cut':'c-num c-big');
+    sm.textContent=effLabel(c.effort);
+  }
+
+  function keyCell(){
+    // enlarged quarter of a donut so each ring has room for its label
+    const kc=[12,150], k0=14, kw=22, kp=(r,f)=>[kc[0]+r*Math.sin(Math.PI/2*f), kc[1]-r*Math.cos(Math.PI/2*f)];
+    let s=`<svg viewBox="0 0 160 160" role="img" aria-label="Ring key: inner ring no thinking, outer ring max effort">`;
+    ["none","low","medium","high","xhigh","max"].forEach((lab,i)=>{
+      const ri=k0+kw*i+1, ro=k0+kw*(i+1)-1, [a,b]=kp(ro,0), [c,d]=kp(ro,1), [e,g]=kp(ri,1), [h,k]=kp(ri,0), [tx,ty]=kp((ri+ro)/2,.5);
+      s+=`<path d="M${a} ${b}A${ro} ${ro} 0 0 1 ${c} ${d}L${e} ${g}A${ri} ${ri} 0 0 0 ${h} ${k}Z" style="fill:var(--b10);opacity:${.14+.13*i}"/>`;
+      s+=`<text class="k-lab" x="${tx}" y="${ty}" text-anchor="middle" dominant-baseline="middle" transform="rotate(45 ${tx} ${ty})" style="fill:var(--ink)">${lab}</text>`;
+    });
+    s+=`</svg>`;
+    return `<div class="ring-cell key"><h4>How to read</h4>${s}<p class="key-note">Inner → outer: more reasoning effort. Centre: Y10 (%) of the outer ring. Hover or tap a ring for its full split.</p></div>`;
+  }
+
+  function drawRings(){
+    const k=cond(), grid=document.getElementById('ringGrid');
+    let html=keyCell();
+    RING.forEach((ser,si)=>{
+      let s=`<svg viewBox="0 0 160 160" role="img" aria-label="${ser.name}: gold-point split by reasoning effort">`;
+      const used=new Set(ser.cfg.map(c=>c.slot));
+      for(let i=0;i<6;i++) if(!used.has(i)) s+=`<circle class="empty" cx="${C}" cy="${C}" r="${R0+SL*(i+.5)}" stroke-width="1"/>`;
+      ser.cfg.forEach((c,ci)=>{
+        const ri=R0+SL*c.slot+GAP/2, ro=R0+SL*(c.slot+1)-GAP/2;
+        let f=0, segs='';
+        c[k].b.forEach((v,bi)=>{ if(v<=0.05) return; const f1=Math.min(1,f+v/100); segs+=`<path d="${sector(ri,ro,f,f1)}" fill="${BANDS[bi][1]}"/>`; f=f1; });
+        s+=`<g class="ring" data-s="${si}" data-c="${ci}"><path d="${sector(ri-GAP/2,ro+GAP/2,0,1)}" fill="transparent"/>${segs}</g>`;
+      });
+      s+=`<text class="c-num c-big" x="${C}" y="${C+5}" text-anchor="middle"></text><text class="c-small" x="${C}" y="${C+17}" text-anchor="middle"></text></svg>`;
+      const chips=ser.cfg.filter(c=>c[k].s[3]>0).map(c=>`<span class="chip" title="Answers that hit the output-token cap">✂ ${effLabel(c.effort)} cut off ${c[k].s[3]}/${nAns(c[k].s)}</span>`).join('');
+      html+=`<div class="ring-cell" data-s="${si}"><h4><i style="background:${famVar(ser.fam)}"></i>${ser.name}</h4>${s}<div class="chips">${chips}</div></div>`;
+    });
+    grid.innerHTML=html;
+    grid.querySelectorAll('.ring-cell[data-s]').forEach(cell=>{
+      const ser=RING[+cell.dataset.s], svg=cell.querySelector('svg'), top=ser.cfg[ser.cfg.length-1];
+      centre(svg,top,k);
+      cell.querySelectorAll('.ring').forEach(g=>{
+        const c=ser.cfg[+g.dataset.c];
+        const on=()=>{cell.classList.add('focus');cell.querySelectorAll('.ring').forEach(o=>o.classList.toggle('on',o===g));centre(svg,c,k);ringTip(g,ser,c,k)};
+        g.addEventListener('mouseenter',on); g.addEventListener('click',on);
+      });
+      cell.addEventListener('mouseleave',()=>{cell.classList.remove('focus');centre(svg,top,k);rtip.style.opacity=0});
+    });
+    meanBar(k); ringTable(k);
+  }
+
+  const rtip=document.getElementById('ringTip'), rcard=document.getElementById('chart-rings');
+  function place(tipEl,cardEl,target){
+    const cb=cardEl.getBoundingClientRect(), gb=target.getBoundingClientRect();
+    tipEl.style.opacity=1;
+    const tw=tipEl.offsetWidth, th=tipEl.offsetHeight;
+    let left=gb.right-cb.left+8, top=gb.top-cb.top;
+    if(left+tw>cb.width-8) left=gb.left-cb.left-tw-8;
+    if(left<8){left=Math.max(8,Math.min(cb.width-tw-8,gb.left-cb.left)); top=gb.bottom-cb.top+6;}
+    tipEl.style.left=left+'px'; tipEl.style.top=Math.max(4,top)+'px';
+  }
+  function ringTip(g,ser,c,k){
+    const d=c[k];
+    rtip.innerHTML=`<b>${ser.name} ${effLabel(c.effort)}</b>`+
+      BANDS.map((b,i)=>d.b[i]>0.05||i<4?`<div>${swatch(b[1])}${b[0]}: ${d.b[i].toFixed(1)}%</div>`:'').join('')+
+      `<div style="margin-top:4px;opacity:.8">${d.s[0]}/${nAns(d.s)} answers schema-valid</div>`;
+    place(rtip,rcard,g.closest('svg'));
+  }
+
+  function meanBar(k){
+    const all=RING.flatMap(s=>s.cfg.map(c=>c[k].b)), n=all.length;
+    const m=BANDS.map((_,i)=>all.reduce((a,b)=>a+b[i],0)/n);
+    document.getElementById('ringMean').innerHTML=`Mean over ${n} configurations (${COND_LABEL[k]}): <b>${(m[0]+m[1]).toFixed(0)}%</b> within 10%, <b>${m[3].toFixed(0)}%</b> misread, <b>${m[4].toFixed(0)}%</b> missing, <b>${m[5].toFixed(1)}%</b> cut off`+
+      `<div class="mean-bar" role="img" aria-label="Mean split">${m.map((v,i)=>`<div class="${i===5?'hatch':''}" style="width:${v}%;${i===5?'':`background:${BANDS[i][1]}`}" title="${BANDS[i][0]} ${v.toFixed(1)}%"></div>`).join('')}</div>`;
+  }
+
+  function ringTable(k){
+    document.getElementById('ringTable').innerHTML='<thead><tr><th>Configuration</th><th>≤5%</th><th>5–10%</th><th>10–15%</th><th>&gt;15%</th><th>Missing</th><th>Cut off</th><th>Schema valid</th></tr></thead><tbody>'+
+      RING.flatMap(s=>s.cfg.slice().reverse().map(c=>`<tr><td>${s.name} ${effLabel(c.effort)}</td>${c[k].b.map(v=>`<td>${v.toFixed(1)}</td>`).join('')}<td>${c[k].s[0]}/${nAns(c[k].s)}</td></tr>`)).join('')+'</tbody>';
+  }
+
+  // ---------- output format matrix ----------
+  const ftip=document.getElementById('fmtTip'), fcard=document.getElementById('chart-format');
+  function drawFormat(k){
+    ftip.style.opacity=0;
+    const t=document.getElementById('fmtTable');
+    // pooled over all answers of all configurations
+    const tot=[0,0,0,0]; RING.forEach(s=>s.cfg.forEach(c=>c[k].s.forEach((v,i)=>tot[i]+=v)));
+    const N=nAns(tot), pc=tot.map(v=>100*v/N), ncfg=RING.reduce((a,s)=>a+s.cfg.length,0);
+    document.getElementById('fmtMean').innerHTML=`All ${N.toLocaleString('en')} answers from ${ncfg} configurations (${COND_LABEL[k]}): <b>${pc[0].toFixed(1)}%</b> schema valid, <b>${pc[1].toFixed(1)}%</b> wrong structure, <b>${pc[2].toFixed(1)}%</b> invalid JSON, <b>${pc[3].toFixed(1)}%</b> cut off`+
+      `<div class="mean-bar" role="img" aria-label="Answer status split">${pc.map((v,i)=>`<div class="${i===3?'hatch':''}" style="width:${v}%;${i===3?'':`background:${STAT[i][1]}`}" title="${STAT[i][0]} ${v.toFixed(1)}%"></div>`).join('')}</div>`;
+    t.innerHTML=`<thead><tr><th>Model series</th>${EFF.map(e=>`<th>${e}</th>`).join('')}</tr></thead><tbody>`+
+      RING.map((ser,si)=>`<tr><td><i style="background:${famVar(ser.fam)}"></i>${ser.name}</td>`+EFF.map((_,slot)=>{
+        const ci=ser.cfg.findIndex(c=>c.slot===slot); if(ci<0) return '<td><span class="fmt-na">–</span></td>';
+        const s=ser.cfg[ci][k].s, n=nAns(s), p=100*s[0]/n;
+        return `<td><div class="fmt-cell" data-s="${si}" data-c="${ci}" tabindex="0"><span class="${p<80?'lo':''}">${p.toFixed(0)}%</span><div class="fmt-stack">${s.map((v,i)=>v?`<div class="${i===3?'hatch':''}" style="width:${100*v/n}%;${i===3?'':`background:${STAT[i][1]}`}"></div>`:'').join('')}</div></div></td>`;
+      }).join('')+'</tr>').join('')+'</tbody>';
+    t.querySelectorAll('.fmt-cell').forEach(el=>{
+      const ser=RING[+el.dataset.s], c=ser.cfg[+el.dataset.c], s=c[k].s, n=nAns(s);
+      const show=()=>{ftip.innerHTML=`<b>${ser.name} ${effLabel(c.effort)}</b>`+STAT.map((st,i)=>`<div>${st[1]?`<i class="sw-b" style="background:${st[1]}"></i>`:'<i class="sw-b hatch"></i>'}${st[0]}: ${s[i]}/${n}</div>`).join('');place(ftip,fcard,el)};
+      el.addEventListener('mouseenter',show); el.addEventListener('focus',show); el.addEventListener('click',show);
+      el.addEventListener('mouseleave',()=>ftip.style.opacity=0); el.addEventListener('blur',()=>ftip.style.opacity=0);
+    });
+  }
+
+  figToggle(fcard,drawFormat);
+  if(RING.length){ drawRings(); drawFormat("single"); }
+
+  // ---------- Fig. 1 heat map: series × (overall, subsets, properties), strips = effort ----------
+  // column order matches "hm" written by tools/build_ring_data.py
+  const HM_COLS=[["Overall","All 36 figures"],["Shared","Shared with multi-panel"],["Set 1","Independent set 1"],["Set 2","Independent set 2"],
+    ["<var>S</var>","Seebeck coefficient <var>S</var>"],["<var>σ</var>","Electrical conductivity <var>σ</var>"],["<var>ρ</var>","Electrical resistivity <var>ρ</var>"],["PF","Power factor PF"],["<var>κ</var><sub>tot</sub>","Total thermal conductivity <var>κ</var><sub>tot</sub>"],["<var>zT</var>","Figure of merit <var>zT</var>"]];
+  // same diverging ramp as the manuscript: red (0) → neutral (75) → blue (100); the neutral point sits at 75
+  const RAMP_LIGHT=[[0,"#e9898b"],[25,"#f3b9b5"],[50,"#f7e3df"],[75,"#f3f1ee"],[83.3,"#d6e5f5"],[91.7,"#a9cbee"],[100,"#74a9e2"]];
+  const RAMP_DARK=[[0,"#e46f7a"],[25,"#a84a54"],[50,"#5e3a3e"],[75,"#323a40"],[83.3,"#2f4f72"],[91.7,"#4178b8"],[100,"#6aa8f0"]];
+  const isDark=()=>root.dataset.theme?root.dataset.theme==="dark":matchMedia('(prefers-color-scheme: dark)').matches;
+  const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+  function ramp(v){
+    const R=isDark()?RAMP_DARK:RAMP_LIGHT; v=Math.max(0,Math.min(100,v));
+    let i=0; while(i<R.length-2&&v>R[i+1][0]) i++;
+    const [v0,c0]=R[i],[v1,c1]=R[i+1], t=(v-v0)/(v1-v0), a=hex(c0), b=hex(c1);
+    return `rgb(${a.map((x,j)=>Math.round(x+(b[j]-x)*t)).join(',')})`;
+  }
+  let hmTh=1, hmSort=null;
+  const hmHost=document.getElementById('heat'), htip=document.getElementById('heatTip'), hcard=document.getElementById('chart-heat');
+  const TH=["Y5","Y10","Y15"];
+  const hmVal=(c,j)=>c.single.hm[j][hmTh];
+  function drawHeat(){
+    htip.style.opacity=0;
+    const R=isDark()?RAMP_DARK:RAMP_LIGHT;
+    document.getElementById('hmRamp').style.background=`linear-gradient(90deg,${R.map(([v,c])=>`${c} ${v}%`).join(',')})`;
+    document.getElementById('hmRamp').innerHTML=[0,25,50,75,100].map(v=>`<span style="left:${v}%">${v}</span>`).join('');
+    document.getElementById('hmLabel').textContent=`${TH[hmTh]} (%)`;
+    let rows=RING.map((s,i)=>i);
+    if(hmSort!==null) rows.sort((a,b)=>Math.max(...RING[b].cfg.map(c=>hmVal(c,hmSort)))-Math.max(...RING[a].cfg.map(c=>hmVal(c,hmSort))));
+    const colh=j=>`<button type="button" class="colh" data-j="${j}" title="${HM_COLS[j][1].replace(/<[^>]+>/g,'')}: sort" aria-sort="${hmSort===j?'descending':'none'}">${HM_COLS[j][0]}</button>`;
+    let h=`<span></span><span class="grp">Overall</span><span></span><span class="grp" style="grid-column:span 3">Figure subset · 12 each</span><span></span><span class="grp" style="grid-column:span 6">Property · 6 figures each</span>`;
+    h+=`<span></span>${colh(0)}<span></span>${[1,2,3].map(colh).join('')}<span></span>${[4,5,6,7,8,9].map(colh).join('')}`;
+    rows.forEach(si=>{
+      const s=RING[si];
+      const cell=j=>`<div class="cell" role="cell">${s.cfg.map((c,ci)=>`<div data-s="${si}" data-c="${ci}" data-j="${j}" style="background:${ramp(hmVal(c,j))}"></div>`).join('')}</div>`;
+      h+=`<div class="rowh" role="rowheader" data-s="${si}"><i style="background:${famVar(s.fam)}"></i>${s.name}</div>${cell(0)}<span></span>${[1,2,3].map(cell).join('')}<span></span>${[4,5,6,7,8,9].map(cell).join('')}`;
+    });
+    hmHost.innerHTML=h;
+    hmHost.querySelectorAll('.colh').forEach(b=>b.addEventListener('click',()=>{const j=+b.dataset.j; hmSort=hmSort===j?null:j; drawHeat();}));
+    hmHost.querySelectorAll('.cell > div').forEach(el=>{
+      const show=()=>{
+        const s=RING[+el.dataset.s], c=s.cfg[+el.dataset.c], j=+el.dataset.j, v=c.single.hm[j];
+        htip.innerHTML=`<b>${s.name} ${effLabel(c.effort)}</b>${HM_COLS[j][1]}<div style="margin-top:3px">${TH.map((t,i)=>i===hmTh?`<b style="display:inline">${t} ${v[i].toFixed(1)}%</b>`:`${t} ${v[i].toFixed(1)}%`).join(' · ')}</div>`;
+        hmHost.querySelectorAll('.hot').forEach(x=>x.classList.remove('hot'));
+        hmHost.querySelector(`.rowh[data-s="${el.dataset.s}"]`).classList.add('hot');
+        hmHost.querySelector(`.colh[data-j="${j}"]`).classList.add('hot');
+        place(htip,hcard,el);
+      };
+      el.addEventListener('mouseenter',show); el.addEventListener('click',show);
+    });
+    document.getElementById('heatTable').innerHTML=`<thead><tr><th>Configuration (${TH[hmTh]}, %)</th>${HM_COLS.map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead><tbody>`+
+      RING.flatMap(s=>s.cfg.map(c=>`<tr><td>${s.name} ${effLabel(c.effort)}</td>${c.single.hm.map(v=>`<td>${v[hmTh].toFixed(1)}</td>`).join('')}</tr>`)).join('')+'</tbody>';
+  }
+  document.querySelectorAll('[data-th]').forEach(b=>b.addEventListener('click',()=>{
+    hmTh=+b.dataset.th; document.querySelectorAll('[data-th]').forEach(o=>o.setAttribute('aria-pressed',o===b)); drawHeat();
+  }));
+  hmHost.addEventListener('mouseleave',()=>{htip.style.opacity=0;hmHost.querySelectorAll('.hot').forEach(x=>x.classList.remove('hot'))});
+  if(RING.length){
+    drawHeat();
+    new MutationObserver(drawHeat).observe(root,{attributes:true,attributeFilter:['data-theme']});
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawHeat);
+  }
+
+  // ---------- σ / ρ failures ----------
+  // Built by tools/build_ring_data.py from fig1x_sigma_rho_failures.csv, fig1x_linlog_*.csv and the raw responses.
+  // fails[]: one zero-score answer on a σ/ρ single-panel figure; cat = other (claimed another quantity) | pow (right quantity,
+  // off by 10^k) | unit (no or unclear unit) | none (no usable answer); r = log10(returned ÷ true), geometric mean.
+  const SR=/*SR-DATA*/{"tot":{"ρ":366,"σ":366},"fails":[{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.977},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.113},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.905},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient (S)","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-1.957},{"m":"GPT-5.6 Terra max","ser":"GPT-5.6 Terra","eff":"max","o":39,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.023},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck Coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.031},{"m":"Kimi K3 low","ser":"Kimi K3","eff":"low","o":55,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.981},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ (S cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.988},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.963},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":4.935},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ (S cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.006},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.943},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.005},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.032},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (S/cm)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.014},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.027},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.001},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"Electrical conductivity","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.027},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.03},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":1.991},{"m":"Kimi K3 high","ser":"Kimi K3","eff":"high","o":54,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.002},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.994},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.564},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.008},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.004},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ (S m⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.019},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.988},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"unit","claim":"?","lab":"mfp","unit":"cm","st":"schema_ok","fail":"no point matched","why":"","r":4.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.996},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.086},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"PF","lab":"Power factor","unit":"W m^-1 K^-2","st":"schema_ok","fail":"no point matched","why":"","r":0.995},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.995},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"no point matched","why":"answer has no data points","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_07","sub":"ind1","p":"σ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"answer has no data points","r":null},{"m":"GPT-5.6 Luna xhigh","ser":"GPT-5.6 Luna","eff":"xhigh","o":45,"q":"set1/D1_07","sub":"ind1","p":"σ","sc":"log","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.993},{"m":"GPT-6 Sol max","ser":"GPT-6 Sol","eff":"max","o":11,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.995},{"m":"GPT-6 Sol xhigh","ser":"GPT-6 Sol","eff":"xhigh","o":12,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"Electrical resistivity","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.0},{"m":"GPT-6 Sol medium","ser":"GPT-6 Sol","eff":"medium","o":14,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"unit","claim":"?","lab":"10^-8 C_p","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":5.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"PF","lab":"Power factor","unit":"W m^-1 K^-2","st":"schema_ok","fail":"no point matched","why":"","r":2.007},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (Ω·m)⁻¹","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.999},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"κ_tot","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.029},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"Total thermal conductivity","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.036},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"Electrical resistivity","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":6.034},{"m":"Claude Opus 5.5 low","ser":"Claude Opus 5.5","eff":"low","o":23,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"no point matched","why":"answer has no data points","r":null},{"m":"GPT-6 Sol xhigh","ser":"GPT-6 Sol","eff":"xhigh","o":12,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"S","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"S","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.007},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.0},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.004},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ (S m⁻¹)","unit":"S m⁻¹","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.004},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient (S)","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-2.004},{"m":"GPT-5.6 Terra max","ser":"GPT-5.6 Terra","eff":"max","o":39,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":-4.436},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":-4.394},{"m":"GPT-5.6 Luna medium","ser":"GPT-5.6 Luna","eff":"medium","o":47,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"Zₜ","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.443},{"m":"Kimi K3 max","ser":"Kimi K3","eff":"max","o":53,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"unit","claim":"?","lab":"Q","unit":"mm² cm","st":"schema_ok","fail":"no point matched","why":"","r":4.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"pow","claim":"ρ","lab":"ρ (μΩ cm)","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.989},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-0.987},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-0.995},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.984},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.996},{"m":"Claude Sonnet 5.5 low","ser":"Claude Sonnet 5.5","eff":"low","o":26,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-0.986},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"Qwen 3.8 Max nonthinking","ser":"Qwen 3.8 Max","eff":"nonthinking","o":57,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"zT","lab":"zT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":3.462},{"m":"DeepSeek V4.1 Flash high","ser":"DeepSeek V4.1 Flash","eff":"high","o":59,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"DeepSeek V4.1 Flash nonthinking","ser":"DeepSeek V4.1 Flash","eff":"nonthinking","o":61,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-5.998},{"m":"GPT-5.6 Luna xhigh","ser":"GPT-5.6 Luna","eff":"xhigh","o":45,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"Z_T","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.472},{"m":"GPT-5.6 Luna high","ser":"GPT-5.6 Luna","eff":"high","o":46,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"Z_T","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.453},{"m":"GPT-5.6 Luna medium","ser":"GPT-5.6 Luna","eff":"medium","o":47,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"other","claim":"zT","lab":"Zₜ","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.443},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"T_Z","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.472},{"m":"GPT-6 Sol medium","ser":"GPT-6 Sol","eff":"medium","o":14,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.996},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.0},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.012},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":8.002},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (Ω⁻¹ cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":8.623},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"(σ)⁻¹","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":5.964},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"Electrical conductivity (S m⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.016},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":3.503}],"pairs":[{"sub":"same","p":"σ","span":112.9,"lin":56.4,"log":87.2},{"sub":"same","p":"ρ","span":112.9,"lin":58.5,"log":86.2},{"sub":"ind1","p":"σ","span":75.0,"lin":85.7,"log":100.0},{"sub":"ind1","p":"ρ","span":74.8,"lin":83.3,"log":98.8},{"sub":"ind2","p":"σ","span":7.9,"lin":100.0,"log":95.8},{"sub":"ind2","p":"ρ","span":7.9,"lin":91.5,"log":97.2}],"byval":[{"bin":"<2","n":22,"lin":24.5,"log":73.2},{"bin":"2–5","n":40,"lin":37.3,"log":68.9},{"bin":"5–10","n":34,"lin":45.7,"log":65.1},{"bin":"10–25","n":53,"lin":64.3,"log":65.3},{"bin":"25–50","n":18,"lin":70.5,"log":64.8},{"bin":"50–100","n":21,"lin":78.7,"log":71.7}],"ex":[{"m":"GPT-6 Luna high","q":"D1_01","axis":"σ (S cm⁻¹), linear axis","gold":{"lab":"Electrical conductivity","unit":"S m^-1","c":[["Sample",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[16480.0,17530.0,17180.0,16230.0,14590.0,14070.0,14230.0,15900.0,19250.0,18930.0,17250.0]],["Sample",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[4993.0,4227.0,4241.0,3916.0,3379.0,3258.0,3187.0,2983.0,3070.0,2575.0,2550.0,2460.0,2439.0,2891.0,3108.0,3625.0,4103.0,4524.0,4970.0,5699.0]],["Sample",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[889.7,818.1,916.4,805.1,959.2,851.0,918.7,1072.0,1047.0,1078.0,1054.0,1245.0,1394.0,1612.0,1904.0,2177.0,2788.0,2996.0,3560.0,4327.0,5628.0]],["Sample",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[562.3,532.2,496.4,455.5,496.4,410.8,413.0,459.3,434.3,496.4,550.6,679.0,923.9,1074.0,1468.0,1760.0,2088.0,2755.0,3617.0,4388.0,4608.0]],["Sample",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[317.6,299.0,330.9,265.6,244.4,170.6,202.6,203.0,231.2,303.9,364.8,494.0,741.4,872.0,1273.0,1440.0,1992.0,2434.0,3052.0,3490.0,3773.0]]]},"ret":{"lab":"Seebeck coefficient","unit":"V K^-1","c":[["Sample",[313.0,354.0,403.0,452.0,500.0,549.0,598.0,646.0,695.0,743.0,791.0],[0.000165,0.000175,0.000172,0.000161,0.000146,0.000141,0.000142,0.000159,0.000193,0.000189,0.000172]],["Sample",[310.0,335.0,358.0,383.0,407.0,431.0,455.0,484.0,503.0,527.0,553.0,576.0,600.0,624.0,648.0,672.0,696.0,719.0,743.0,767.0],[5e-05,4.3e-05,4.2e-05,3.9e-05,3.4e-05,3.3e-05,3.2e-05,3e-05,3.1e-05,2.6e-05,2.6e-05,2.5e-05,2.9e-05,3.1e-05,3.6e-05,4.1e-05,4.5e-05,5e-05,5.5e-05,5.7e-05]],["Sample",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[1.1e-05,1.1e-05,1.1e-05,1e-05,1.2e-05,1.1e-05,1.1e-05,1.3e-05,1.2e-05,1.3e-05,1.3e-05,1.4e-05,1.6e-05,1.8e-05,2.2e-05,2.7e-05,3.2e-05,3.8e-05,4.3e-05,5.2e-05,5.7e-05]],["Sample",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[8e-06,7e-06,8e-06,7e-06,7e-06,6e-06,7e-06,7e-06,8e-06,8e-06,9e-06,1e-05,1.2e-05,1.3e-05,1.7e-05,2.2e-05,2.7e-05,4.1e-05,4.7e-05,4.7e-05,4.9e-05]],["Sample",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[5e-06,4e-06,5e-06,4e-06,4e-06,4e-06,4e-06,4e-06,5e-06,6e-06,7e-06,8e-06,1e-05,1.2e-05,1.6e-05,2e-05,2.5e-05,3.1e-05,3.6e-05,3.8e-05,3.8e-05]]]}},{"m":"GPT-6 Luna max","q":"D1_07","axis":"ρ (mΩ cm), log axis","gold":{"lab":"Electrical resistivity","unit":"ohm m","c":[["Sample",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[6.067e-05,5.705e-05,5.82e-05,6.163e-05,6.855e-05,7.109e-05,7.028e-05,6.288e-05,5.194e-05,5.283e-05,5.796e-05]],["Sample",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[0.0002003,0.0002366,0.0002358,0.0002554,0.000296,0.000307,0.0003138,0.0003352,0.0003257,0.0003884,0.0003922,0.0004065,0.00041,0.0003459,0.0003217,0.0002759,0.0002437,0.000221,0.0002012,0.0001755]],["Sample",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[0.001124,0.001222,0.001091,0.001242,0.001043,0.001175,0.001088,0.0009329,0.0009554,0.0009279,0.0009488,0.0008032,0.0007176,0.0006202,0.0005253,0.0004593,0.0003587,0.0003338,0.0002809,0.0002311,0.0001777]],["Sample",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[0.001778,0.001879,0.002014,0.002195,0.002014,0.002435,0.002422,0.002177,0.002302,0.002015,0.001816,0.001473,0.001082,0.0009312,0.000681,0.0005683,0.000479,0.000363,0.0002765,0.0002279,0.000217]],["Sample",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[0.003149,0.003344,0.003022,0.003765,0.004092,0.005862,0.004937,0.004925,0.004325,0.003291,0.002741,0.002024,0.001349,0.001147,0.0007854,0.0006947,0.000502,0.0004108,0.0003277,0.0002865,0.000265]]]},"ret":{"lab":"σ","unit":"S m^-1","c":[["Sample",[313.0,354.0,403.0,452.0,500.0,548.0,598.0,646.0,695.0,743.0,791.0],[610.0,573.0,582.0,616.0,687.0,710.0,701.0,624.0,520.0,528.0,582.0]],["Sample",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[2000.0,2360.0,2350.0,2530.0,2900.0,3070.0,3150.0,3370.0,3310.0,3870.0,3930.0,4100.0,4150.0,3480.0,3290.0,2730.0,2460.0,2170.0,2010.0,1750.0]],["Sample",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[11600.0,12500.0,11300.0,12700.0,10800.0,12100.0,10800.0,9260.0,9480.0,9340.0,9690.0,8280.0,7290.0,6920.0,6150.0,5180.0,4550.0,3660.0,2580.0,1900.0]],["Sample + 0.04Bi",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[17300.0,18600.0,20300.0,22200.0,20500.0,24600.0,24100.0,21600.0,23400.0,21600.0,19100.0,17600.0,15000.0,12100.0,10600.0,9140.0,7480.0,5570.0,4620.0,2210.0]],["Sample + 5% Bi",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[31300.0,33500.0,30300.0,37600.0,40900.0,58600.0,49900.0,50100.0,43000.0,33000.0,27400.0,20000.0,13500.0,11400.0,7780.0,6920.0,5030.0,4160.0,3330.0,2660.0]]]}},{"m":"GPT-6 Sol max","q":"set1/D1_08","axis":"ρ (10⁻⁶ Ω m), log axis","gold":{"lab":"Electrical resistivity","unit":"ohm m","c":[["GeTe",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.28e-06,1.38e-06,1.66e-06,1.99e-06,2.43e-06,3e-06,3.73e-06,4.82e-06,5.62e-06,6.22e-06,5.84e-06,5.68e-06,5.77e-06,5.87e-06]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[2.58e-06,3.02e-06,3.55e-06,4.21e-06,5.15e-06,6.63e-06,8.94e-06,9.31e-06,8.76e-06,7.29e-06,7.77e-06,8.15e-06,8.13e-06,8.15e-06]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[5.68e-06,6.1e-06,7.09e-06,8.43e-06,1.03e-05,1.44e-05,1.77e-05,1.53e-05,1.23e-05,9.23e-06,8.67e-06,9.21e-06,9.45e-06,9.34e-06]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[8.46e-06,8.94e-06,1.05e-05,1.24e-05,1.53e-05,2.15e-05,2.54e-05,1.97e-05,1.5e-05,1.13e-05,1.07e-05,1.13e-05,1.14e-05,1.12e-05]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.649e-05,1.771e-05,2.074e-05,2.468e-05,3.079e-05,4.611e-05,4.526e-05,2.862e-05,1.876e-05,1.535e-05,1.453e-05,1.583e-05,1.57e-05,1.519e-05]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[3.832e-05,4.026e-05,4.514e-05,5.189e-05,6.697e-05,9.578e-05,7.043e-05,3.832e-05,2.571e-05,2.044e-05,1.867e-05,2.007e-05,1.995e-05,1.926e-05]]]},"ret":{"lab":"ρ","unit":"ohm m","c":[["GeTe",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.28e-08,1.39e-08,1.65e-08,2e-08,2.44e-08,3.01e-08,3.75e-08,4.83e-08,5.65e-08,6.26e-08,5.86e-08,5.7e-08,5.8e-08,5.89e-08]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[2.58e-08,3.01e-08,3.53e-08,4.22e-08,5.14e-08,6.62e-08,8.94e-08,9.32e-08,8.73e-08,7.27e-08,7.76e-08,8.14e-08,8.14e-08,8.14e-08]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[5.76e-08,6.15e-08,7.11e-08,8.47e-08,1.01e-07,1.46e-07,1.78e-07,1.77e-07,1.55e-07,1.26e-07,9.34e-08,9.32e-08,9.46e-08,9.36e-08]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[8.4e-08,8.9e-08,1.07e-07,1.25e-07,1.53e-07,2.18e-07,2.54e-07,1.88e-07,1.55e-07,1.09e-07,1.03e-07,1.12e-07,1.12e-07,1.09e-07]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.65e-07,1.78e-07,2.08e-07,2.48e-07,3.1e-07,4.61e-07,4.55e-07,2.87e-07,1.87e-07,1.57e-07,1.48e-07,1.61e-07,1.59e-07,1.52e-07]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[3.83e-07,4.05e-07,4.56e-07,5.2e-07,6.75e-07,9.63e-07,7.1e-07,3.86e-07,2.57e-07,2.1e-07,1.91e-07,2.03e-07,2e-07,1.96e-07]]]}}]}/*SR-DATA*/;
+  const CAT={other:["Reported as another property","var(--c-other)"],pow:["Right property, off by 10ᵏ","var(--c-pow)"],
+             unit:["No or unclear unit","var(--c-unit)"],none:["No usable answer","var(--c-none)"]};
+  const QN={S:"Seebeck coefficient <var>S</var>",κ:"thermal conductivity <var>κ</var>",PF:"power factor PF",zT:"figure of merit <var>zT</var>",σ:"conductivity <var>σ</var>",ρ:"resistivity <var>ρ</var>"};
+  const sym=t=>(t||"").replace(/(^|[^\w>])([σρκ])(?![\w<])/g,"$1<var>$2</var>");  // italic σ ρ κ in free text
+  const symSvg=t=>t.replace(/([σρκ])/g,'<tspan font-style="italic">$1</tspan>');
+  const SUBN={same:"Shared",ind1:"Set 1",ind2:"Set 2"};
+  const pu=u=>(u||"").replace(/\^-1/g,"⁻¹").replace(/\^-2/g,"⁻²").replace(/ohm/g,"Ω");
+  const pw=k=>`10<sup>${k<0?"−":""}${Math.abs(k)}</sup>`;
+  const pwSvg=k=>`10<tspan dy="-5" style="font-size:.75em">${k<0?"−":""}${Math.abs(k)}</tspan>`;
+  const figName=f=>`${SUBN[f.sub]} · <var>${f.p}</var> · ${f.sc}`;
+  function reported(f){
+    if(f.cat==="other") return `<em>${QN[f.claim]}</em> (${pu(f.unit)||"no unit"})`;
+    if(f.cat==="pow") return `<var>${f.p}</var> in ${pu(f.unit)}, ×${pw(Math.round(f.r))}`;
+    if(f.cat==="unit") return `unit “${pu(f.unit)}”${f.lab?` · label “${sym(f.lab)}”`:""}`;
+    return f.why;
+  }
+  const srTip=document.getElementById('srTip'), srCard=document.getElementById('chart-sr');
+  function svgW(el,max){return Math.max(280,Math.min(el.clientWidth||600,max))}
+
+  function srIntro(){
+    const F=SR.fails, n=k=>F.filter(f=>f.cat===k).length, att=SR.tot["σ"]+SR.tot["ρ"];
+    const np=p=>F.filter(f=>f.p===p).length;
+    document.getElementById('srIntro').innerHTML=`Across 12 single-panel <var>σ</var> and <var>ρ</var> figures × 61 configurations (${att} answers), ${F.length} answers scored nothing: either no point matched the true curves, or every point matched but none was within 10%. <var>ρ</var> fails more often (${np("ρ")}) than <var>σ</var> (${np("σ")}).`;
+    document.getElementById('srStats').innerHTML=[["other","reported <var>σ</var> or <var>ρ</var> as another property (Seebeck, <var>κ</var>, PF, <var>zT</var>, or <var>σ</var> ↔ <var>ρ</var>)"],["pow","kept the right property and curve, but every value is off by an exact power of ten"],["unit","gave no unit or one that cannot be read"],["none","returned no usable answer (cut off, invalid JSON, no points)"]]
+      .map(([k,t])=>`<div class="sr-stat"><strong>${n(k)}</strong><span><i style="background:${CAT[k][1]}"></i>${t}</span></div>`).join('');
+  }
+
+  // 1 · worked examples
+  let exI=0;
+  const EX_TXT=[
+    f=>`The axis reads <var>σ</var> in S cm⁻¹ (pristine sample ≈ 165). The model copied those numbers but called the plot a <b>Seebeck coefficient</b> and converted 165 “μV K⁻¹” to 1.65 × 10⁻⁴ V K⁻¹. The shapes are right; the quantity is wrong.`,
+    f=>`A resistivity plot in mΩ cm came back as <b>conductivity <var>σ</var> in S m⁻¹</b>. The curve shapes follow the figure, but as <var>ρ</var> the numbers are about ${pw(Math.round(f.r))} times too large, and the property is mislabelled.`,
+    f=>`Right property, right unit, all ${SR.ex[2].gold.c.reduce((a,c)=>a+c[1].length,0)} points found, yet Y10 = 0 even at <b>max effort</b>: the axis multiplier 10⁻⁶ Ω m became 10⁻⁸ Ω m, so every value is ${pw(-Math.round(f.r))}× too small.`];
+  function drawExample(){
+    const ex=SR.ex[exI], f=SR.fails.find(x=>x.m===ex.m&&x.q===ex.q), col=CAT[f.cat][1];
+    const host=document.getElementById('exPlot'), W=svgW(host,720), H=Math.round(Math.min(330,W*0.62)), m={l:56,r:64,t:14,b:38};
+    const iw=W-m.l-m.r, ih=H-m.t-m.b;
+    const all=[...ex.gold.c,...ex.ret.c], ys=all.flatMap(c=>c[2]).filter(v=>v>0), xs=all.flatMap(c=>c[1]);
+    const y0=Math.floor(Math.log10(Math.min(...ys))), y1=Math.ceil(Math.log10(Math.max(...ys))), x0=Math.min(...xs), x1=Math.max(...xs);
+    const X=v=>m.l+(v-x0)/(x1-x0)*iw, Y=v=>m.t+ih-(Math.log10(v)-y0)/(y1-y0)*ih;
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="True curves and returned curves for ${ex.m}, ${ex.q}">`;
+    const step=Math.max(1,Math.ceil((y1-y0)/6));
+    for(let k=y0;k<=y1;k+=step) s+=`<line class="grid" x1="${m.l}" x2="${m.l+iw}" y1="${Y(10**k)}" y2="${Y(10**k)}"/><text x="${m.l-8}" y="${Y(10**k)+4}" text-anchor="end">${pwSvg(k)}</text>`;
+    for(let t=Math.ceil(x0/100)*100;t<=x1;t+=100) s+=`<text x="${X(t)}" y="${H-m.b+16}" text-anchor="middle">${t}</text>`;
+    s+=`<text class="axis-title" x="${m.l+iw/2}" y="${H-4}" text-anchor="middle">Temperature (K)</text>`;
+    s+=`<text class="axis-title" transform="translate(12 ${m.t+ih/2}) rotate(-90)" text-anchor="middle">Value as given (SI number)</text>`;
+    const path=c=>c[1].map((x,i)=>c[2][i]>0?`${i?'L':'M'}${X(x).toFixed(1)} ${Y(c[2][i]).toFixed(1)}`:'').join('');
+    ex.gold.c.forEach(c=>{s+=`<path d="${path(c)}" fill="none" style="stroke:var(--faint)" stroke-width="1.6"/>`+c[1].map((x,i)=>`<circle cx="${X(x)}" cy="${Y(c[2][i])}" r="2" style="fill:var(--faint)"/>`).join('')});
+    ex.ret.c.forEach(c=>{s+=`<path d="${path(c)}" fill="none" stroke="${col}" stroke-width="1.8" stroke-dasharray="5 3"/>`+c[1].map((x,i)=>c[2][i]>0?`<circle cx="${X(x)}" cy="${Y(c[2][i])}" r="2.6" fill="${col}"/>`:'').join('')});
+    // arrow between the first sample's last true point and its returned value
+    const g=ex.gold.c[0], rc=ex.ret.c[0], gy=Y(g[2][g[2].length-1]), ry=Y(rc[2][rc[2].length-1]), ax=m.l+iw+16;
+    s+=`<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--ink)"/></marker></defs>`;
+    s+=`<line x1="${ax}" x2="${ax}" y1="${gy}" y2="${ry}" style="stroke:var(--ink)" stroke-width="1.4" marker-end="url(#arr)"/>`;
+    s+=`<text x="${ax+6}" y="${(gy+ry)/2+4}" style="fill:var(--ink);font-weight:650">×${pwSvg(Math.round(f.r))}</text>`;
+    s+=`<text x="${ax+6}" y="${gy+4}" style="font-size:10.5px">true</text>`;
+    s+=`<text x="${ax+6}" y="${ry+4}" style="font-size:10.5px;fill:${col}">returned</text></svg>`;
+    host.innerHTML=s;
+    document.getElementById('exCard').innerHTML=`<dl><dt>Configuration</dt><dd>${ex.m} · ${figName(f)}</dd><dt>Figure axis</dt><dd>${sym(ex.axis)}</dd>
+      <dt>True values</dt><dd>${ex.gold.lab}, ${pu(ex.gold.unit)}</dd><dt>Model reported</dt><dd class="${f.cat==='pow'?'':'bad'}">${sym(ex.ret.lab)}, ${pu(ex.ret.unit)}</dd>
+      <dt>Returned ÷ true</dt><dd>≈ ${pw(Math.round(f.r))} (Y10 = 0%)</dd></dl><p>${EX_TXT[exI](f)}</p>`;
+  }
+  function exTabs(){
+    const lab=["Called it Seebeck","<var>ρ</var> returned as <var>σ</var>","Off by 10², max effort"];
+    const seg=document.getElementById('exSeg');
+    seg.innerHTML=lab.map((l,i)=>`<button type="button" data-ex="${i}" aria-pressed="${i===exI}">${l}</button>`).join('');
+    seg.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{exI=+b.dataset.ex;seg.querySelectorAll('button').forEach(o=>o.setAttribute('aria-pressed',o===b));drawExample()}));
+  }
+
+  // 2 · ruler of returned ÷ true, σ above the axis, ρ below
+  function drawRuler(){
+    document.getElementById('srLegend').innerHTML=Object.entries(CAT).filter(([k])=>k!=="none").map(([,v])=>`<span><i style="background:${v[1]}"></i>${v[0]}</span>`).join('')+`<span style="color:var(--faint)">“No usable answer” has no value and appears only in the bars below.</span>`;
+    const host=document.getElementById('srRuler'), W=svgW(host,1100), m={l:34,r:14}, iw=W-m.l-m.r, lo=-9, hi=9;
+    const X=v=>m.l+(v-lo)/(hi-lo)*iw, dr=Math.max(3,Math.min(4.6,iw/190)), dy=dr*2+1.2;
+    const F=SR.fails.filter(f=>f.r!==null), stack={};
+    const pos=F.map(f=>{const b=Math.round(f.r/(dr*2.1/iw*(hi-lo)))+(f.p==="σ"?"u":"d"); stack[b]=(stack[b]||0)+1; return [f,stack[b],f.p==="σ"?-1:1]});
+    const up=Math.max(1,...Object.entries(stack).filter(([k])=>k.endsWith('u')).map(([,v])=>v)), dn=Math.max(1,...Object.entries(stack).filter(([k])=>k.endsWith('d')).map(([,v])=>v));
+    const mid=26+up*dy, H=mid+dn*dy+40;
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Returned value divided by true value for each failed answer">`;
+    s+=`<rect x="${X(-0.04)}" y="8" width="${X(0.04)-X(-0.04)}" height="${H-30}" style="fill:var(--teal);opacity:.25"/><text x="${X(0)}" y="18" text-anchor="middle" style="fill:var(--teal);font-size:10.5px;font-weight:650">correct</text>`;
+    for(let k=lo;k<=hi;k++){ const big=k%3===0; s+=`<line x1="${X(k)}" x2="${X(k)}" y1="${mid-(big?6:3)}" y2="${mid+(big?6:3)}" style="stroke:var(--faint)"/>`; if(big) s+=`<line class="grid" x1="${X(k)}" x2="${X(k)}" y1="26" y2="${H-30}" style="stroke-dasharray:2 4"/><text x="${X(k)}" y="${H-12}" text-anchor="middle">${pwSvg(k)}</text>`; }
+    s+=`<line x1="${m.l}" x2="${m.l+iw}" y1="${mid}" y2="${mid}" style="stroke:var(--muted)"/>`;
+    s+=`<text x="${m.l-6}" y="${mid-8}" text-anchor="end" style="font-weight:650;font-style:italic">σ</text><text x="${m.l-6}" y="${mid+16}" text-anchor="end" style="font-weight:650;font-style:italic">ρ</text>`;
+    s+=`<text x="${X(lo)}" y="${H-1}" style="font-size:10.5px">← too small</text><text x="${X(hi)}" y="${H-1}" text-anchor="end" style="font-size:10.5px">too large →</text>`;
+    pos.forEach(([f,i,dir],j)=>{ s+=`<circle class="dot" data-j="${SR.fails.indexOf(f)}" data-m="${f.m}" cx="${X(f.r).toFixed(1)}" cy="${(mid+dir*(i-.5)*dy+dir*2).toFixed(1)}" r="${dr}" fill="${CAT[f.cat][1]}" style="stroke:var(--surface)" stroke-width="1"/>`; });
+    host.innerHTML=s+'</svg>';
+    host.querySelectorAll('.dot').forEach(d=>{
+      const show=()=>{const f=SR.fails[+d.dataset.j]; srTip.innerHTML=`<b>${f.m}</b>${figName(f)} (${f.q})<div>Reported: ${reported(f)}</div><div>Returned ÷ true ≈ ${pw(Math.round(f.r))} (10<sup>${f.r.toFixed(2)}</sup>)</div>`; place(srTip,srCard,d)};
+      d.addEventListener('mouseenter',show); d.addEventListener('click',show); d.addEventListener('mouseleave',()=>srTip.style.opacity=0);
+    });
+    // cause bars per property
+    document.getElementById('srCause').innerHTML=["σ","ρ"].map(p=>{
+      const F=SR.fails.filter(f=>f.p===p), tot=SR.tot[p];
+      return `<div class="cause-row"><span><b><var>${p}</var></b> · ${F.length} of ${tot} answers</span><div class="cb" role="img" aria-label="${p} failures by cause">${Object.keys(CAT).map(k=>{const n=F.filter(f=>f.cat===k).length; return n?`<div class="${k==='none'?'none':''}" style="flex:${n};background:${CAT[k][1]}" title="${CAT[k][0]}: ${n}">${n}</div>`:''}).join('')}</div></div>`;
+    }).join('')+`<p class="fnote">Each bar splits that property's failed answers by cause; numbers are counts. ${SR.tot["σ"]} answers per property = 6 figures × 61 configurations.</p>`;
+  }
+
+  // 3 · linear vs log
+  function drawLinLog(){
+    const host=document.getElementById('srPairs'), W=svgW(host,900), rh=34, m={l:118,r:52,t:6,b:30}, P=SR.pairs, H=m.t+P.length*rh+m.b, iw=W-m.l-m.r;
+    const X=v=>m.l+v/100*iw;
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Median Y10 on linear versus log axes">`;
+    for(const v of [0,25,50,75,100]) s+=`<line class="grid" x1="${X(v)}" x2="${X(v)}" y1="${m.t}" y2="${H-m.b}"/><text x="${X(v)}" y="${H-m.b+16}" text-anchor="middle">${v}</text>`;
+    P.forEach((p,i)=>{const y=m.t+i*rh+rh/2, gain=p.log-p.lin;
+      s+=`<text x="${m.l-10}" y="${y}" text-anchor="end" style="fill:var(--ink)">${SUBN[p.sub]} · ${symSvg(p.p)}</text><text x="${m.l-10}" y="${y+12}" text-anchor="end" style="font-size:10px">values span ${p.span>=10?Math.round(p.span):p.span}×</text>`;
+      s+=`<line x1="${X(p.lin)}" x2="${X(p.log)}" y1="${y}" y2="${y}" style="stroke:var(--bar-d);opacity:.45" stroke-width="3"/>`;
+      s+=`<circle cx="${X(p.lin)}" cy="${y}" r="5.5" style="fill:var(--surface);stroke:var(--bar-n)" stroke-width="2.2"><title>linear ${p.lin}%</title></circle><circle cx="${X(p.log)}" cy="${y}" r="5.5" style="fill:var(--bar-d)"><title>log ${p.log}%</title></circle>`;
+      s+=`<text x="${X(Math.max(p.lin,p.log))+10}" y="${y+4}" style="fill:${gain>=0?'var(--ink)':'var(--muted)'};font-weight:${Math.abs(gain)>=10?650:400}">${gain>=0?'+':'−'}${Math.abs(gain).toFixed(0)}</text>`;
+    });
+    s+=`<text class="axis-title" x="${m.l+iw/2}" y="${H-2}" text-anchor="middle">Median Y10 (%)</text></svg>`;
+    host.innerHTML=s;
+    const hb=document.getElementById('srBins'), W2=svgW(hb,900), H2=240, n={l:36,r:8,t:16,b:44}, B=SR.byval, iw2=W2-n.l-n.r, ih2=H2-n.t-n.b, gw=iw2/B.length, bw=Math.min(22,gw*0.34);
+    const Y=v=>n.t+ih2-v/100*ih2;
+    let t=`<svg viewBox="0 0 ${W2} ${H2}" role="img" aria-label="Y10 by size of the true value, linear versus log axis">`;
+    for(const v of [0,25,50,75,100]) t+=`<line class="grid" x1="${n.l}" x2="${n.l+iw2}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${n.l-6}" y="${Y(v)+4}" text-anchor="end">${v}</text>`;
+    B.forEach((b,i)=>{const cx=n.l+gw*(i+.5);
+      t+=`<rect x="${cx-bw-1}" y="${Y(b.lin)}" width="${bw}" height="${Y(0)-Y(b.lin)}" rx="2" style="fill:var(--bar-n)"><title>linear ${b.lin}% (${b.n} points)</title></rect><rect x="${cx+1}" y="${Y(b.log)}" width="${bw}" height="${Y(0)-Y(b.log)}" rx="2" style="fill:var(--bar-d)"><title>log ${b.log}% (${b.n} points)</title></rect>`;
+      t+=`<text x="${cx-bw/2-1}" y="${Y(b.lin)-4}" text-anchor="middle" style="font-size:10px">${b.lin.toFixed(0)}</text><text x="${cx+bw/2+1}" y="${Y(b.log)-4}" text-anchor="middle" style="font-size:10px">${b.log.toFixed(0)}</text>`;
+      t+=`<text x="${cx}" y="${H2-n.b+16}" text-anchor="middle">${b.bin}</text>`;
+    });
+    t+=`<text class="axis-title" x="${n.l+iw2/2}" y="${H2-6}" text-anchor="middle">True value, % of the figure's largest value</text></svg>`;
+    hb.innerHTML=t;
+  }
+
+  // 4 · table by configuration
+  function drawSrTable(){
+    const by={}; SR.fails.forEach(f=>(by[f.m]=by[f.m]||[]).push(f));
+    const rows=Object.entries(by).sort((a,b)=>b[1].length-a[1].length||a[1][0].o-b[1][0].o);
+    const famOfSer=n=>(RING.find(s=>s.name===n)||{fam:"GPT"}).fam;
+    const summary=F=>{const c={}; F.forEach(f=>{const k=reported(f).replace(/, ×.*$/,'').replace(/ \(.*$/, '');c[k]=(c[k]||0)+1}); return Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k,n])=>`${k}${n>1?` ×${n}`:''}`).join('; ')};
+    const t=document.getElementById('srTable');
+    t.innerHTML=`<thead><tr><th>Configuration</th><th>Failed <var>σ</var>/<var>ρ</var> figures (of 12)</th><th>Most often reported</th></tr></thead>`+rows.map(([m,F],i)=>{
+      const order=["other","pow","unit","none"], sorted=F.slice().sort((a,b)=>order.indexOf(a.cat)-order.indexOf(b.cat));
+      const mini=sorted.map(f=>`<i style="background:${CAT[f.cat][1]}" title="${CAT[f.cat][0]}"></i>`).join('')+'<i class="e"></i>'.repeat(12-F.length);
+      return `<tbody><tr class="cfg" data-m="${m}" tabindex="0" aria-expanded="false" data-i="${i}"><td><span class="tw">▸</span><i style="background:${famVar(famOfSer(F[0].ser))}"></i>${m}</td><td><div class="mini">${mini}<span>${F.length}</span></div></td><td class="rep">${summary(F)}</td></tr>`+
+        `<tr class="det" hidden><td colspan="3"><table>${F.map(f=>`<tr><td>${figName(f)}</td><td class="rep">${reported(f)}</td><td>${f.r===null?'–':`returned ÷ true ≈ ${pw(Math.round(f.r))}`}</td></tr>`).join('')}</table></td></tr></tbody>`;
+    }).join('');
+    const dots=document.getElementById('srRuler');
+    t.querySelectorAll('tr.cfg').forEach(tr=>{
+      const tog=()=>{const open=tr.getAttribute('aria-expanded')!=="true"; tr.setAttribute('aria-expanded',open); tr.nextElementSibling.hidden=!open};
+      tr.addEventListener('click',tog); tr.addEventListener('keydown',e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tog()}});
+      tr.addEventListener('mouseenter',()=>{dots.classList.add('dim'); dots.querySelectorAll('.dot').forEach(d=>d.classList.toggle('on',d.dataset.m===tr.dataset.m))});
+      tr.addEventListener('mouseleave',()=>dots.classList.remove('dim'));
+    });
+  }
+
+  function drawSR(){ drawExample(); drawRuler(); drawLinLog(); }
+  if(SR.fails){
+    srIntro(); exTabs(); drawSR(); drawSrTable();
+    let srt; addEventListener('resize',()=>{clearTimeout(srt);srt=setTimeout(drawSR,150)});
+  }
 
   // ---------- JSON highlight ----------
   const hb=document.getElementById('hlBtn'), cw=hb.closest('.code-win');

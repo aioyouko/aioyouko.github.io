@@ -105,6 +105,36 @@
 .tc-assumptions { margin-top: 1.5rem; }
 .tc-assumption-copy { margin-top: 1rem; columns: 2; column-gap: 2rem; }
 .tc-assumption-copy p { font-size: .75rem; color: var(--muted); break-inside: avoid; margin-bottom: .8rem; }
+/* Chip thermal management. */
+.tc-chip { padding-bottom: 3.2rem; scroll-margin-top: 90px; }
+.tc-chip-figure { margin: 0; }
+.tc-chip-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.tc-chip-panel { min-width: 0; padding: 1rem 1.1rem 0.8rem; background: #fff; border: 1px solid var(--pt-rule); border-radius: 6px; }
+.tc-chip-label { margin-bottom: 0.4rem; color: var(--teal-deep); font-size: 0.74rem; font-weight: 600; }
+.tc-chip-label b { margin-right: 0.45rem; font: 600 1rem var(--pt-serif); color: var(--teal); }
+.tc-chip-svg { display: block; width: 100%; height: auto; }
+.tc-chip-svg text { font: 11px Arial, Helvetica, sans-serif; fill: #3f5549; }
+.tc-chip-svg .tc-chip-strong { font-weight: 650; }
+.tc-chip-svg .tc-chip-small { font-size: 9.5px; fill: #66766d; }
+.tc-chip-leader path { stroke: #9fb1a5; stroke-width: 1; }
+.tc-chip-figure figcaption { margin-top: 0.7rem; }
+.tc-chip-needs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 1.8rem; padding-top: 1.4rem; border-top: 1px solid var(--pt-rule); }
+.tc-chip-needs h4 { margin: 0.4rem 0 0.55rem; font: 600 1.3rem/1.25 var(--pt-serif); letter-spacing: -0.02em; }
+.tc-chip-needs p:not(.tc-eyebrow) { color: var(--muted); font-size: 0.8rem; }
+.tc-swatch { display: inline-block; width: 16px; height: 10px; margin-right: 0.4rem; background: #e3eee6; border: 1px solid #c9dccf; vertical-align: middle; }
+
+/* Module designer. */
+.tc-designs { margin: 0; padding: 0; border: 0; min-width: 0; }
+.tc-designs legend { padding: 0; margin-bottom: 0.45rem; font-size: 0.72rem; font-weight: 500; color: #394e41; }
+.tc-design-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem; }
+.tc-designs label { position: relative; display: block; cursor: pointer; }
+.tc-designs input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.tc-designs span { display: block; height: 100%; padding: 0.45rem 0.4rem; border: 1px solid #c4d3c8; border-radius: 4px; background: #fafcf6; color: #345e45; font-size: 0.7rem; font-weight: 600; line-height: 1.3; text-align: center; }
+.tc-designs small { display: block; margin-top: 0.2rem; color: var(--pt-faint, #66766d); font-size: 0.56rem; font-weight: 400; }
+.tc-designs input:checked + span { border-color: var(--teal); background: #e3eee6; color: var(--teal-deep); box-shadow: inset 0 0 0 1px var(--teal); }
+.tc-designs input:focus-visible + span { outline: 2px solid var(--teal); outline-offset: 2px; }
+.tc-module-summary { margin: 0; padding: 0.85rem 1.5rem; border-top: 1px solid #dde4d9; background: #f5f6ef; color: #4d6156; font-size: 0.7rem; line-height: 1.7; font-variant-numeric: tabular-nums; }
+
 .tc-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 @media (max-width: 1000px) {
@@ -115,6 +145,10 @@
   .tc-derivation-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px) {
+  .tc-chip-panels, .tc-chip-needs { grid-template-columns: 1fr; }
+  .tc-chip-needs { gap: 1.2rem; }
+  .tc-module-summary { padding: 0.8rem 1rem; }
+  .tc-controls .tc-designs { grid-column: 1 / -1; }
   .tc-contents { grid-template-columns: 1fr 1fr; gap: .7rem 1rem; }
   .tc-effect { padding: 1.2rem; }
   .tc-effect h4 { font-size: 1.5rem; }
@@ -164,3 +198,48 @@
   .tc-context > div { grid-template-columns: 1fr; gap: 1rem; }
   .tc-assumption-copy { columns: 1; }
 }
+.tc-chip-svg .tc-chip-white { fill: #fff; }
+.tc-chip-svg .tc-chip-hot { fill: #9c5b36; }
+.tc-chip-svg .tc-chip-tec { fill: #2f6b5c; }
+.tc-chip-svg .tc-chip-sub { font-size: 8px; }
+.tc-equation .tc-math-italic { font-style: italic; }
+
+/* Plot palette as custom properties, so the dark theme can restyle every chart. */
+.te-lab {
+  --tc-plot-bg: #fffefa; --tc-grid: #e4e8e1; --tc-grid-zero: #b2bcb5; --tc-tick: #aab7ae;
+  --tc-band-off: #f1e8de; --tc-band-today: #e3eee6; --tc-band-neg: #f3ede5;
+  --tc-c-teal: #08796c; --tc-c-copper: #b06132; --tc-c-blue: #517d99; --tc-c-gray: #65716c;
+  --tc-c-purple: #806082; --tc-c-load: #b3382c; --tc-c-ref: #5e6d78;
+}
+.tc-plot-bg { fill: var(--tc-plot-bg); }
+.tc-grid { stroke: var(--tc-grid); }
+.tc-grid-zero, .tc-tick { stroke: var(--tc-grid-zero); }
+.tc-band-off { fill: var(--tc-band-off); }
+.tc-band-today { fill: var(--tc-band-today); }
+.tc-band-neg { fill: var(--tc-band-neg); }
+.tc-point-ring { stroke: var(--tc-plot-bg); }
+.tc-chart .tc-line-label { font-size: 10.5px; font-weight: 650; paint-order: stroke; stroke: var(--tc-plot-bg); stroke-width: 3px; stroke-linejoin: round; }
+.tc-chart-tools { display: grid; gap: 0.35rem; }
+
+/* Working-environment table. */
+.tc-load { padding: 1.2rem 1.5rem 1.3rem; border-top: 1px solid #dde4d9; }
+.tc-load-title { margin-bottom: 0.7rem; color: var(--teal-deep); font-size: 0.8rem; font-weight: 650; }
+.pt-page .tc-load-wrap { margin-top: 0; }
+.tc-load-table { width: 100%; min-width: 660px; border-collapse: collapse; font-size: 0.74rem; font-variant-numeric: tabular-nums; }
+.tc-load-table th, .tc-load-table td { padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--pt-rule); text-align: right; vertical-align: top; line-height: 1.45; }
+.tc-load-table thead th { color: var(--pt-faint, #66766d); font-size: 0.66rem; font-weight: 600; vertical-align: bottom; }
+.tc-load-table thead th:first-child, .tc-load-table tbody th { text-align: left; }
+.tc-load-table tbody th { color: var(--ink); font-weight: 600; }
+.tc-load-table td { color: var(--muted); }
+.tc-load-table small { display: block; margin-top: 0.15rem; color: var(--pt-faint, #66766d); font-size: 0.62rem; font-weight: 400; }
+.tc-load-table tr.is-selected { background: var(--pt-panel, #ecf2ed); }
+.tc-load-table tr.is-selected th { color: var(--teal-deep); }
+.tc-load-note { margin-top: 0.7rem; color: var(--pt-faint, #66766d); font-size: 0.68rem; line-height: 1.65; }
+@media (max-width: 760px) { .tc-load { padding: 1rem; } }
+
+/* Theme toggle row (added by te-theme.js). */
+.te-page-tools { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.te-theme-toggle { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 38px; padding: 0.5rem 0.8rem; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 253, 248, 0.72); color: var(--muted); font: 700 0.8rem Inter, system-ui, sans-serif; cursor: pointer; }
+.te-theme-toggle svg { width: 16px; height: 16px; }
+.te-theme-toggle:hover { color: var(--ink); border-color: rgba(11, 118, 107, 0.28); }
+.te-theme-toggle[aria-pressed="true"] { color: var(--teal-deep); border-color: var(--teal); }

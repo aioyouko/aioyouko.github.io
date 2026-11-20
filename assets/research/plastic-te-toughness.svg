@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><title>High fracture toughness in Ag2Se-based semiconductors</title><desc>Left: a black-silver notched beam in three-point bending; as the load presses, the crack tip blunts inside a growing plastic zone with dislocations instead of running through the beam. Right: fracture toughness of silicon (about 0.9), Bi2Te3-based alloys (about 1) and Ag2Se0.9Te0.1 (4.5 MPa m^1/2). Conceptual schematic; reference values are approximate. With reduced motion a single loaded frame is shown.</desc>
+<defs>
+<linearGradient id="bg" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#f5f6f8"/><stop offset="1" stop-color="#e3e6ea"/></linearGradient>
+<linearGradient id="metal" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#eef1f4"/><stop offset=".1" stop-color="#b4bcc5"/><stop offset=".42" stop-color="#58616b"/><stop offset=".8" stop-color="#181c21"/><stop offset="1" stop-color="#3a424b"/></linearGradient>
+<linearGradient id="fixture" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#dfe3e7"/><stop offset="1" stop-color="#aab1b9"/></linearGradient>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b4632a"/></marker>
+<radialGradient id="zone"><stop offset="0" stop-color="#ffb877" stop-opacity=".95"/><stop offset=".5" stop-color="#e58a45" stop-opacity=".6"/><stop offset="1" stop-color="#e58a45" stop-opacity="0"/></radialGradient>
+<linearGradient id="own" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#262c33"/><stop offset=".2" stop-color="#aeb6bf"/><stop offset=".3" stop-color="#e8ecf0"/><stop offset=".48" stop-color="#59626c"/><stop offset=".8" stop-color="#171b20"/><stop offset="1" stop-color="#2f363e"/></linearGradient>
+<linearGradient id="ref" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#b3bac2"/><stop offset=".35" stop-color="#d7dce1"/><stop offset="1" stop-color="#aab1b9"/></linearGradient>
+<clipPath id="beamclip"><rect x="40" y="140" width="280" height="80"/></clipPath>
+<clipPath id="ownclip"><rect x="536" y="120" width="46" height="150" rx="2"/></clipPath>
+</defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#20262c}.label{font-size:12px;letter-spacing:1.3px;font-weight:700;fill:#20262c}.small{font-size:13px;fill:#4a525a}.tiny{font-size:11px;fill:#68717a}.value{font-size:13px;font-weight:700}.metal{fill:url(#metal);stroke:#0c0f12;stroke-width:1.2;stroke-linejoin:round}.fixture{fill:url(#fixture);stroke:#7c858e}.load{fill:none;stroke:#b4632a;stroke-width:2.5;marker-end:url(#arrow)}.axis{fill:none;stroke:#8e969e;stroke-width:1.3}.still{display:none}@media (prefers-reduced-motion:reduce){.motion{display:none}.still{display:inline}}.disl{fill:none;stroke:#fff6ea;stroke-width:1.9;stroke-linecap:round}</style>
+<rect width="640" height="360" fill="url(#bg)"/>
+<text x="35" y="42" class="label">Ag₂Se-BASED MATERIALS</text>
+<path d="M76 223L86 205L96 223Z M264 223L274 205L284 223Z" class="fixture"/>
+<g class="motion">
+<g clip-path="url(#beamclip)">
+  <path class="metal" d="M50 148Q180 148 310 148V204Q180 204 50 204Z"><animate attributeName="d" dur="5s" repeatCount="indefinite" keyTimes="0;0.4;0.58;0.88;1" values="M50 148Q180 148 310 148V204Q180 204 50 204Z;M50 148Q180 154 310 148V204Q180 210 50 204Z;M50 148Q180 154 310 148V204Q180 210 50 204Z;M50 148Q180 148 310 148V204Q180 204 50 204Z;M50 148Q180 148 310 148V204Q180 204 50 204Z"/></path>
+  <path d="M58 152Q180 152 302 152" fill="none" stroke="#fff" stroke-width="1.3" opacity=".5"><animate attributeName="d" dur="5s" repeatCount="indefinite" keyTimes="0;0.4;0.58;0.88;1" values="M58 152Q180 152 302 152;M58 152Q180 158 302 152;M58 152Q180 158 302 152;M58 152Q180 152 302 152;M58 152Q180 152 302 152"/></path>
+  <path d="M0 140L26 140L-2 212L-28 212Z" fill="#fff" opacity=".2"><animateTransform attributeName="transform" type="translate" dur="5s" repeatCount="indefinite" keyTimes="0;0.55;1" values="20 0;20 0;350 0"/></path>
+</g>
+<g transform="translate(0 0)"><animateTransform attributeName="transform" type="translate" dur="5s" repeatCount="indefinite" keyTimes="0;0.4;0.58;0.88;1" values="0 0;0 3;0 3;0 0;0 0"/>
+  <circle cx="180" cy="170" r="13" fill="url(#zone)" opacity="0.45"><animate attributeName="r" dur="5s" repeatCount="indefinite" keyTimes="0;0.4;0.58;0.88;1" values="13;30;30;13;13"/><animate attributeName="opacity" dur="5s" repeatCount="indefinite" keyTimes="0;0.4;0.58;0.88;1" values="0.45;1;1;0.45;0.45"/></circle>
+  <path d="M171.5 205L180 186L188.5 205Z" fill="#eceef1" stroke="#0c0f12" stroke-linejoin="round"/>
+  <path d="M180 188V172" stroke="#eceef1" stroke-width="2.4"/><circle cx="180" cy="171" r="3.3" fill="#eceef1" stroke="#0c0f12" stroke-width=".8"/>
+  <path d="M172 204.6H188" stroke="#eceef1" stroke-width="2.2"/>
+  <path class="disl" d="M155 166h10M160 166v-8 M195 161h10M200 161v-8 M159 187h10M164 187v-8 M193 185h10M198 185v-8 M175 154h10M180 154v-8" opacity="0"><animate attributeName="opacity" dur="5s" repeatCount="indefinite" keyTimes="0;0.4;0.58;0.88;1" values="0;1;1;0;0"/></path>
+</g>
+<g transform="translate(0 -6)"><animateTransform attributeName="transform" type="translate" dur="5s" repeatCount="indefinite" keyTimes="0;0.4;0.58;0.88;1" values="0 -6;0 3;0 3;0 -6;0 -6"/>
+  <path d="M180 86V141" class="load"/><text x="192" y="104" class="tiny" style="fill:#96501f">F</text>
+</g></g>
+<g class="still">
+<g clip-path="url(#beamclip)">
+  <path class="metal" d="M50 148Q180 154 310 148V204Q180 210 50 204Z"></path>
+  <path d="M58 152Q180 158 302 152" fill="none" stroke="#fff" stroke-width="1.3" opacity=".5"></path>
+  
+</g>
+<g transform="translate(0 3)">
+  <circle cx="180" cy="170" r="30" fill="url(#zone)" opacity="1"></circle>
+  <path d="M171.5 205L180 186L188.5 205Z" fill="#eceef1" stroke="#0c0f12" stroke-linejoin="round"/>
+  <path d="M180 188V172" stroke="#eceef1" stroke-width="2.4"/><circle cx="180" cy="171" r="3.3" fill="#eceef1" stroke="#0c0f12" stroke-width=".8"/>
+  <path d="M172 204.6H188" stroke="#eceef1" stroke-width="2.2"/>
+  <path class="disl" d="M155 166h10M160 166v-8 M195 161h10M200 161v-8 M159 187h10M164 187v-8 M193 185h10M198 185v-8 M175 154h10M180 154v-8" opacity="1"></path>
+</g>
+<g transform="translate(0 3)">
+  <path d="M180 86V141" class="load"/><text x="192" y="104" class="tiny" style="fill:#96501f">F</text>
+</g></g>
+<text x="180" y="250" text-anchor="middle" class="small">Notched beam: the crack tip blunts</text>
+<text x="180" y="268" text-anchor="middle" class="tiny">a plastic zone with dislocations absorbs energy</text>
+<text x="372" y="92" class="small"><tspan font-style="italic">K</tspan><tspan baseline-shift="sub" font-size="10">IC</tspan> (MPa m<tspan baseline-shift="super" font-size="10">1/2</tspan>)</text>
+<path d="M368 237H612M368 204H612M368 170H612M368 137H612" stroke="#d3d8dd" stroke-width="1"/>
+<path d="M372 104V270H612" class="axis"/>
+<text x="364" y="274" text-anchor="end" class="tiny">0</text><text x="364" y="208" text-anchor="end" class="tiny">2</text><text x="364" y="141" text-anchor="end" class="tiny">4</text>
+<rect x="392" y="240" width="46" height="30" rx="2" fill="url(#ref)" stroke="#8e969e" stroke-width=".8"/>
+<rect x="464" y="237" width="46" height="33" rx="2" fill="url(#ref)" stroke="#8e969e" stroke-width=".8"/>
+<rect x="536" y="120" width="46" height="150" rx="2" fill="url(#own)" stroke="#0c0f12" stroke-width="1"/>
+<g clip-path="url(#ownclip)" class="motion"><path d="M530 0L600 0L600 26L530 60Z" fill="#fff" opacity=".22"><animateTransform attributeName="transform" type="translate" dur="5s" repeatCount="indefinite" keyTimes="0;0.55;1" values="0 40;0 40;0 300"/></path></g>
+<text x="415" y="232" text-anchor="middle" class="value">≈ 0.9</text><text x="487" y="229" text-anchor="middle" class="value">≈ 1</text><text x="559" y="112" text-anchor="middle" class="value" style="fill:#96501f">4.5</text>
+<text x="415" y="290" text-anchor="middle" class="tiny">Si</text><text x="487" y="290" text-anchor="middle" class="tiny">Bi₂Te₃ alloys</text><text x="559" y="290" text-anchor="middle" class="tiny" font-weight="700" style="fill:#96501f">Ag₂Se₀.₉Te₀.₁</text>
+<text x="320" y="329" text-anchor="middle" class="small">High fracture toughness: cracks blunt instead of running through</text>
+</svg>

@@ -1,14 +1,15 @@
-/* Provisional coordinates estimated from the user's reference image (2026-11-09).
- * Edit this file when measured values and references are supplied. No fetching is
- * required, so the chart also works when index.html is opened with file://.
+/* Band gap vs elongation map data.
+ * Most coordinates are approximate, read from a band-gap–elongation schematic
+ * (2026-11-09); replace them as sourced values become available. Points marked
+ * `own: true` are measured values from Heyang Chen's own work; their note names the source.
+ * No fetching is required, so the chart also works when opened with file://.
  * bandGapEv: null means the separate near-zero-gap strip, NOT a log-axis value.
- * Multiple points with the same material label are separate, unidentified
- * examples in the reference; they are not replicate measurements or error bars.
+ * `example` distinguishes separate samples that share a material label.
  */
 ((root) => {
   const data = {
     provisional: true,
-    source: "User-supplied band-gap–elongation schematic, 2026-11-09; visually estimated, not verified measurements.",
+    source: "Approximate values for orientation; Ag2(S,Se,Te) tensile elongation from Chen et al., Adv. Energy Mater. 14, 2303473 (2024).",
     groups: [
       { id: "ductile", label: "Ductile inorganic materials", color: "#c25249" },
       { id: "semiconductor", label: "Brittle semiconductors", color: "#397ba4" },
@@ -16,14 +17,12 @@
       { id: "metal", label: "Metals · reference", color: "#727d78" }
     ],
     points: [
-      { id: "mg3bi2", label: "Mg₃Bi₂", group: "ductile", bandGapEv: null, elongationPercent: 100, labelOffset: [14, -12], note: "Near-zero-gap placement follows the schematic; electronic classification and phase await confirmation." },
+      { id: "mg3bi2", label: "Mg₃Bi₂", group: "ductile", bandGapEv: null, elongationPercent: 100, labelOffset: [14, -12], note: "A ductile compound with a near-zero (semimetal-like) band gap, so it sits in the separate strip beside the metals." },
       { id: "fe", label: "Fe", group: "metal", bandGapEv: null, elongationPercent: 70, labelOffset: [14, 0] },
       { id: "cu", label: "Cu", group: "metal", bandGapEv: null, elongationPercent: 55, labelOffset: [14, 14] },
       { id: "mg", label: "Mg", group: "metal", bandGapEv: null, elongationPercent: 6, labelOffset: [14, 5] },
-      { id: "ag2-alloy-1", label: "Ag₂(S,Se,Te)", example: "A", group: "ductile", bandGapEv: 0.11, elongationPercent: 105, labelOffset: [16, -10] },
-      { id: "ag2-alloy-2", label: "Ag₂(S,Se,Te)", example: "B", group: "ductile", bandGapEv: 0.11, elongationPercent: 75 },
-      { id: "ag2-alloy-3", label: "Ag₂(S,Se,Te)", example: "C", group: "ductile", bandGapEv: 0.12, elongationPercent: 52 },
-      { id: "ag2-alloy-4", label: "Ag₂(S,Se,Te)", example: "D", group: "ductile", bandGapEv: 0.30, elongationPercent: 95 },
+      { id: "ag2-alloy-1", label: "Ag₂S₁/₃Se₁/₃Te₁/₃", shortLabel: "Ag₂(S,Se,Te)", group: "ductile", bandGapEv: 0.11, elongationPercent: 97, labelOffset: [16, -10], own: true, note: "My work: ≈ 97% tensile elongation in the equimolar cubic alloy (Adv. Energy Mater. 2024). Band-gap position is approximate." },
+      { id: "ag2-alloy-2", label: "Ag₁.₉₈S₁/₃Se₁/₃Te₁/₃", group: "ductile", bandGapEv: 0.12, elongationPercent: 60, own: true, note: "My work: ≈ 60% tensile elongation with a small Ag deficiency, the composition with zT = 0.8 at 460 K (Adv. Energy Mater. 2024). Band-gap position is approximate." },
       { id: "agcu-alloy-1", label: "AgCuS₀.₀₈Se₀.₂₂Te₀.₇", shortLabel: "AgCu(S,Se,Te)", example: "A", group: "ductile", bandGapEv: 0.22, elongationPercent: 15, labelOffset: [-13, -17], labelAnchor: "end" },
       { id: "agcu-alloy-2", label: "AgCuS₀.₀₈Se₀.₂₂Te₀.₇", shortLabel: "AgCu(S,Se,Te)", example: "B", group: "ductile", bandGapEv: 0.28, elongationPercent: 25 },
       { id: "bi2te3", label: "Defective Bi₂Te₃", group: "ductile", bandGapEv: 0.15, elongationPercent: 8, labelOffset: [0, 24], labelAnchor: "middle" },

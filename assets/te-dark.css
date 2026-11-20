@@ -1,0 +1,115 @@
+/* Dark theme for the Plastic TE pages.
+ * te-theme.js adds body.te-dark (saved choice, else the system preference).
+ * Only the five .pt-page views and the site chrome around them change; the rest of
+ * the site stays light. Figure cards (paper figures, photos, schematics and the
+ * flexibility demo) stay as light "islands" so published figures keep their colours.
+ */
+
+/* Site chrome while a Plastic TE page is open. */
+body.te-dark.plastic-te-active { background: #0f1614; color: #e3eae6; color-scheme: dark; }
+body.te-dark.plastic-te-active .site-header { background: rgba(15, 22, 20, 0.9); border-bottom-color: rgba(255, 255, 255, 0.08); }
+body.te-dark.plastic-te-active .brand { color: #e3eae6; }
+body.te-dark.plastic-te-active .brand-mark { background: #17211e; color: #8fd6c8; border-color: rgba(143, 214, 200, 0.35); box-shadow: none; }
+body.te-dark.plastic-te-active .site-nav { color: #a7b4ad; }
+body.te-dark.plastic-te-active .site-nav a:is(:hover, :focus-visible, .is-active) { background: rgba(255, 255, 255, 0.06); border-color: rgba(143, 214, 200, 0.25); color: #e3eae6; }
+body.te-dark.plastic-te-active .nav-toggle { background: #17211e; color: #e3eae6; border-color: rgba(255, 255, 255, 0.14); }
+body.te-dark.plastic-te-active .site-footer { color: #8c9b93; }
+@media (max-width: 900px) {
+  body.te-dark.plastic-te-active .site-nav { background: rgba(15, 22, 20, 0.98); border-bottom-color: rgba(255, 255, 255, 0.08); }
+}
+
+/* Tokens. */
+.te-dark .pt-page {
+  --ink: #e3eae6;
+  --muted: #a7b4ad;
+  --line: rgba(255, 255, 255, 0.13);
+  --teal: #4fb8a8;
+  --teal-deep: #8fd6c8;
+  --copper: #d9925e;
+  --pt-rule: #2a3833;
+  --pt-panel: #18231f;
+  --pt-paper: #141d1a;
+  --pt-faint: #8c9b93;
+  --pt-own: #e0a676;
+  --tc-paper: #141d1a;
+  color: var(--ink);
+}
+.te-dark .te-lab {
+  --tc-plot-bg: #111a17; --tc-grid: #24312c; --tc-grid-zero: #4a5a53; --tc-tick: #4a5a53;
+  --tc-band-off: #2b2119; --tc-band-today: #163029; --tc-band-neg: #241c17;
+  --tc-c-teal: #4fc1af; --tc-c-copper: #e0935f; --tc-c-blue: #7fb0cf; --tc-c-gray: #9aa8a0;
+  --tc-c-purple: #b79ad6; --tc-c-load: #f07563; --tc-c-ref: #a9b8c4;
+}
+
+/* Light islands: figures keep their published colours and dark text. */
+.te-dark .pt-page :is(.pm-paper-figure, .te-figure-button, .tc-chip-panel, .at-timeline .at-photo, .flex-demo, .mechanics-literature) {
+  --ink: #172026; --muted: #5b6670; --pt-faint: #66766d; --teal: #0b766b; --teal-deep: #064d49; --pt-rule: #d3ddd5; --line: rgba(23, 32, 38, 0.14);
+  color: #172026;
+}
+.te-dark .pt-page :is(.pt-diagram img, .tc-effect img, .pt-work-card > img) { border-radius: 5px; background: #eef3ef; }
+.te-dark .pt-page .tc-effect img { padding: 0.35rem; }
+
+/* Controls and small surfaces. */
+.te-dark .pt-page :is(.back-link, .te-theme-toggle) { background: #17211e; border-color: var(--line); color: var(--muted); }
+.te-dark .pt-page :is(.back-link, .te-theme-toggle):hover { color: var(--ink); }
+.te-dark .pt-page .te-theme-toggle[aria-pressed="true"] { color: var(--teal-deep); border-color: var(--teal); }
+.te-dark .pt-page :is(.pt-contents a span, .tc-contents a) { color: var(--pt-faint); }
+.te-dark .pt-page .pt-table th { background: var(--pt-panel); }
+.te-dark .pt-page .pt-ref-list a { text-decoration-color: #3d4d47; }
+.te-dark .pt-page .at-year { background: var(--pt-paper); border-color: #3e544b; }
+.te-dark .pt-page .at-own .at-year { background: #2a2018; border-color: #7b5a3c; color: #e0a676; }
+.te-dark .pt-page .at-own-link { color: #e0a676; }
+.te-dark .pt-page :is(.pm-check strong, .tc-context strong, .tc-gen-plots h4, .tc-control label) { color: var(--ink); }
+
+/* Application sketches drawn straight on the page. */
+.te-dark .pt-page .pm-applications .pm-app-base { fill: #22302b; }
+.te-dark .pt-page .pm-applications .pm-app-device { fill: #2f5249; stroke: #7fc0ae; }
+.te-dark .pt-page .pm-applications .pm-app-line { stroke: #7fc0ae; }
+.te-dark .pt-page .pm-applications .pm-app-sun { fill: #5a4330; stroke: #d9a273; }
+
+/* Ductility map. */
+.te-dark .pt-page .dm-plot-bg { fill: #111a17; }
+.te-dark .pt-page .dm-grid { stroke: #26332e; }
+.te-dark .pt-page .dm-grid-vertical { stroke: #222e2a; }
+.te-dark .pt-page .dm-axis { stroke: #6f8178; }
+.te-dark .pt-page .dm-strip-divider { stroke: #3a4a43; }
+.te-dark .pt-page .dm-tick { fill: #a7b4ad; }
+.te-dark .pt-page .dm-axis-title { fill: #d5ded9; }
+.te-dark .pt-page .dm-axis-note { fill: #7f8e86; }
+.te-dark .pt-page .dm-direction { stroke: #3a4a43; }
+.te-dark .pt-page .dm-point-dot { fill: #111a17; }
+.te-dark .pt-page .dm-point.is-selected .dm-point-dot { fill: var(--dm-color); }
+.te-dark .pt-page .dm-point-label { stroke: rgba(17, 26, 23, 0.85); }
+.te-dark .pt-page .dm-point:focus-visible .dm-point-ring { stroke: #8fd6c8; }
+.te-dark .pt-page .dm-filters button { background: #17211e; border-color: #2f3d38; color: #a7b4ad; }
+.te-dark .pt-page .dm-selector select { background: #17211e; border-color: #35463f; color: var(--ink); }
+.te-dark .pt-page .dm-estimate { background: #2a2218; border-color: #5a4630; color: #e0b07a; }
+.te-dark .pt-page .dm-panel dd { color: var(--ink); }
+.te-dark .pt-page :is(.dm-panel dl > div, .dm-selector, .dm-data) { border-color: var(--pt-rule); }
+
+/* Thermoelectric lab. */
+.te-dark .pt-page .tc-effect-generation { background: #221c16; border-color: #3a3026; }
+.te-dark .pt-page .tc-effect-generation .tc-eyebrow { color: #e0a676; }
+.te-dark .pt-page :is(.tc-controls, .tc-gen-controls, .tc-module-summary) { background: #111a17; border-color: var(--pt-rule); color: var(--muted); }
+.te-dark .pt-page :is(.tc-metrics, .tc-balance, .tc-balance > div, .tc-gen-metrics, .tc-gen-plots > figure + figure, .tc-load, .tc-derivation) { border-color: var(--pt-rule); }
+.te-dark .pt-page .tc-balance > div:last-child { background: #1b2a24; }
+.te-dark .pt-page .tc-balance strong { color: #7fb0cf; }
+.te-dark .pt-page .tc-balance-conduction strong { color: #9aa8a0; }
+.te-dark .pt-page .tc-balance-joule strong { color: #e0935f; }
+.te-dark .pt-page .tc-balance-net strong { color: var(--teal-deep); }
+.te-dark .pt-page .tc-formula-row { background: #121b18; border-color: var(--pt-rule); }
+.te-dark .pt-page .tc-equation math { color: #dfe8e3; }
+.te-dark .pt-page .tc-chart text { fill: #9aa8a0; }
+.te-dark .pt-page .tc-chart .tc-axis-title { fill: #d5ded9; }
+.te-dark .pt-page :is(.tc-legend, .tc-chart-tools, .tc-reset) { color: var(--muted); }
+.te-dark .pt-page .tc-control input[type="range"], .te-dark .pt-page .tc-chart-tools input { accent-color: #4fc1af; }
+.te-dark .pt-page :is(.tc-presets button, .tc-designs span) { background: #17211e; border-color: #35463f; color: #b9dcd2; }
+.te-dark .pt-page .tc-presets button:hover { background: #1d2a26; }
+.te-dark .pt-page .tc-designs input:checked + span { background: #1d3330; color: var(--teal-deep); border-color: var(--teal); box-shadow: inset 0 0 0 1px var(--teal); }
+.te-dark .pt-page .tc-swatch { background: var(--tc-band-today); border-color: #2c5248; }
+.te-dark .pt-page .tc-line { border-top-color: var(--tc-c-teal); }
+.te-dark .pt-page :is(.tc-line-carnot, .tc-line-conduction) { border-top-color: var(--tc-c-gray); }
+.te-dark .pt-page .tc-line-opt { border-top-color: var(--tc-c-purple); }
+.te-dark .pt-page :is(.tc-line-q, .tc-line-generation, .tc-line-joule) { border-top-color: var(--tc-c-copper); }
+.te-dark .pt-page .tc-line-peltier { border-top-color: var(--tc-c-blue); }
+.te-dark .pt-page .tc-dot { background: var(--tc-c-teal); }

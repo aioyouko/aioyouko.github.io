@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict');
-const { coolingLimit, cooler, generation, noLoadDelta } = require('../assets/thermoelectric-model.js');
+const { coolingLimit, cooler, generation, noLoadDelta, moduleProperties, shareLoad } = require('../assets/thermoelectric-model.js');
 const close = (actual, expected, tolerance = 1e-9) => assert.ok(Math.abs(actual - expected) <= tolerance * Math.max(1, Math.abs(expected)), `${actual} != ${expected}`);
 
 // An independently calculated energy balance for the illustrative module.
@@ -68,4 +68,42 @@ const deltaMax = noLoadDelta(sample.z, 300);
 const atLimit = cooler({ ...base, delta: deltaMax, current: 0 });
 close(cooler({ ...base, delta: deltaMax, current: atLimit.iMaxQ }).qc, 0);
 assert.throws(() => coolingLimit(1, 300, 300), RangeError);
+// Module builder: the 127-couple bulk design reproduces a typical 40 x 40 mm module.
+const bulk = moduleProperties({ couples: 127, width: 1.4e-3, length: 1.6e-3 });
+close(bulk.alpha, 0.0508);
+close(bulk.resistance, 254 * (1e-5 * 1.6e-3 / 1.96e-6 + 2e-10 / 1.96e-6));
+close(bulk.conductance, 254 * 1.5 * 1.96e-6 / 1.6e-3);
+close(bulk.footprint, 254 * 1.96e-6 / 0.3);
+close(bulk.alpha ** 2 * 300 ** 2 / (2 * bulk.resistance), 55.31, 1e-3);
+close(noLoadDelta(bulk.alpha ** 2 / (bulk.resistance * bulk.conductance), 300), 69.79, 1e-3);
+// alpha, R and K scale linearly with N, so currents and ZT do not depend on N.
+const one = moduleProperties({ couples: 1, width: 1.4e-3, length: 1.6e-3 });
+close(bulk.resistance / one.resistance, 127);
+close(cooler({ ...bulk, th: 300, delta: 20, current: 3 }).zt, cooler({ alpha: one.alpha, resistance: one.resistance, conductance: one.conductance, th: 300, delta: 20, current: 3 }).zt);
+assert.throws(() => moduleProperties({ couples: 0, width: 1e-3, length: 1e-3 }), RangeError);
+// Hot-side range used by the page (300-400 K): optima stay consistent with the energy balance.
+for (const th of [300, 350, 373, 400]) {
+  for (const delta of [5, 20, 50]) {
+    const p = { ...bulk, th, delta, current: 1 };
+    const state = cooler(p);
+    close(cooler({ ...p, current: state.iMaxQ }).qc, state.qMax);
+    if (state.iMaxCOP !== null) close(cooler({ ...p, current: state.iMaxCOP }).cop, state.maxCOP);
+  }
+}
+// Working-environment check: the fewest modules carry the load, each at the lower
+// current that pumps exactly its share, and the energy balance closes.
+for (const th of [300, 373]) {
+  for (const load of [50, 150, 300]) {
+    const env = { ...bulk, th, delta: 20 };
+    const share = shareLoad(env, load);
+    assert.ok(share.modules >= 1 && share.modules * share.qMax >= load - 1e-9 && (share.modules - 1) * share.qMax < load);
+    const each = cooler({ ...env, current: share.current });
+    close(each.qc, load / share.modules, 1e-7);
+    assert.ok(share.current <= each.iMaxQ + 1e-9);
+    close(share.input, share.modules * each.input, 1e-9);
+    close(share.rejected, load + share.input, 1e-9);
+  }
+}
+assert.equal(shareLoad({ ...bulk, th: 300, delta: 90 }, 150), null);
+close(shareLoad({ ...bulk, th: 300, delta: 20 }, 0).input, 0);
 console.log('Thermoelectric model: energy balances, optima, Carnot bounds, zero-current and no-load limits passed.');

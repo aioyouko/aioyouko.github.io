@@ -281,6 +281,71 @@ details.table-view thead th{position:sticky;top:0;background:var(--surface)}
 .hm .cell > div:hover{outline:2px solid var(--ink);outline-offset:-2px}
 .hm .sp{display:block}
 
+/* chapters: findings followed by their data */
+.chapter{margin-top:60px;scroll-margin-top:84px}
+.chapter > .theme-title h3{font-size:24px;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}
+.ch-n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--teal-soft);color:var(--deep);font-size:15px;font-weight:700;letter-spacing:0}
+.chapter .cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.chart-grid.wide,.fig-list.wide{margin-top:16px}
+.bands{display:grid;gap:12px;margin-top:16px}
+.band-row{display:grid;grid-template-columns:160px 1fr 56px;gap:10px;align-items:center;font-size:13px}
+.band-row .mean-bar{height:20px;margin:0}
+.band-row .mean-bar > div{display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:650;color:#fff;overflow:hidden}
+.band-row .mean-bar > div.lt{color:var(--ink)}
+.band-row em{font-style:normal;font-size:12.5px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.band-gap{height:4px}
+/* unit-fault worked example */
+.fx-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:14px}
+.fx-left{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,.8fr);gap:20px;align-items:center}
+.fx-right{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(240px,.75fr);gap:18px;align-items:start}
+.fx-right > .controls,.fx-right > .fx-steps{grid-column:1 / -1}
+.fx-right .fx-say{margin-top:0;align-self:start;background:var(--surface-2);border-radius:10px;padding:14px}
+.fx-fig{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.fx-fig img{width:100%;display:block;cursor:zoom-in}
+.fx-fig figcaption{background:var(--surface-2);padding:8px 10px;font-size:12px;color:var(--muted)}
+.fx-counts{margin-top:14px;font-size:13px;color:var(--muted)}
+.fx-counts b{color:var(--ink)}
+.fx-counts .mean-bar{height:22px;margin-top:8px}
+.fx-counts .mean-bar > div{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:650;color:#fff}
+.fx-steps{list-style:none;padding:0;margin:12px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fx-steps li{border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:7px 10px;font-size:12px;color:var(--muted);background:var(--surface-2)}
+.fx-steps li b{display:block;font-size:14px;color:var(--ink)}
+.fx-steps li b .ok{color:var(--teal)}.fx-steps li b .no{color:var(--bad)}
+.fx-code pre.code{max-height:430px;white-space:pre-wrap;overflow-wrap:anywhere}
+.fx-say{font-size:14px;line-height:1.55;margin-top:12px}
+@media (max-width:980px){.fx-left,.fx-right{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.fx-steps{grid-template-columns:1fr}.band-row{grid-template-columns:100px 1fr 46px}}
+
+
+/* fold / unfold */
+#findings .chart-card,#findings figure.fig{position:relative}
+.fold-btn{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;font:inherit;font-size:16px;line-height:1;display:grid;place-items:center;z-index:3;padding:0}
+.fold-btn:hover{color:var(--ink);border-color:var(--muted)}
+.chart-card > h3,.chart-card > .ring-head > div:first-child{padding-right:38px}
+.chart-card.folded > :not(.fold-keep):not(.fold-btn){display:none !important}
+.chart-card.folded .fold-keep .controls{display:none}
+figure.fig.folded .img{display:none}
+.ch-tools{margin-left:auto;display:flex;gap:6px}
+.ch-tools button{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:3px 10px;font:inherit;font-size:12px;cursor:pointer}
+.ch-tools button:hover{color:var(--ink);border-color:var(--muted)}
+/* robustness chips */
+.chips-sel{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chips-sel button{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:3px 10px;font:inherit;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chips-sel button i{width:8px;height:8px;border-radius:50%}
+.chips-sel button[aria-pressed="true"]{background:var(--ink);color:var(--page);border-color:var(--ink)}
+/* prompt comparison */
+.pc-code{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.pc-code pre.code{max-height:340px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:11.8px}
+pre.code mark.hl{background:rgba(237,161,0,.22);color:#ffd88a;border-radius:2px;padding:0 1px}
+.blame-wrap{overflow-x:auto;margin-top:8px}
+.blame{border-collapse:separate;border-spacing:2px;font-size:12.5px;width:100%;min-width:380px}
+.blame th{font-weight:600;color:var(--muted);font-size:11.5px;padding:3px 4px}
+.blame th.r{text-align:right;white-space:nowrap}
+.blame td{text-align:center;padding:7px 2px;border-radius:3px;font-variant-numeric:tabular-nums;min-width:34px}
+.blame td.ok{box-shadow:inset 0 0 0 2px var(--ink);font-weight:650}
+.fx-fig > div{background:var(--surface);padding:8px 4px 6px}
+.fx-fig{background:var(--surface)}
+@media (max-width:980px){.pc-code{grid-template-columns:1fr}}
 /* σ / ρ failure section */
 #chart-sr{--c-other:var(--copper);--c-pow:var(--b10);--c-unit:#8e6bd6;--c-none:var(--b-cut)}
 :root[data-theme="dark"] #chart-sr{--c-unit:#b39cf5}
@@ -294,8 +359,8 @@ details.table-view thead th{position:sticky;top:0;background:var(--surface)}
 .sr-block > h4{font-size:15px;font-weight:650;letter-spacing:-.1px}
 .sr-block > h4 b{color:var(--teal);margin-right:6px}
 .sr-block > .sub{max-width:820px}
-#exSeg{max-width:100%;overflow-x:auto;scrollbar-width:none}
-#exSeg button{white-space:nowrap;flex:none}
+#exSeg,#fxSeg{max-width:100%;overflow-x:auto;scrollbar-width:none}
+#exSeg button,#fxSeg button{white-space:nowrap;flex:none}
 .ex-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.7fr);gap:18px;margin-top:12px;align-items:start}
 .ex-plot svg,.sr-svg svg{display:block;width:100%;height:auto}
 .ex-card{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--surface-2);font-size:13px}
@@ -304,7 +369,7 @@ details.table-view thead th{position:sticky;top:0;background:var(--surface)}
 .ex-card dd{margin:0;color:var(--ink)}
 .ex-card dd.bad{color:var(--c-other);font-weight:650}
 .ex-card p{margin-top:10px;color:var(--muted);line-height:1.5}
-.sr-two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:12px}
+.sr-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-top:12px}
 .sr-two h5{font-size:13px;font-weight:650;margin-bottom:4px}
 .cause-bars{display:grid;gap:8px;margin-top:14px}
 .cause-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;font-size:13px}
@@ -331,7 +396,7 @@ details.table-view thead th{position:sticky;top:0;background:var(--surface)}
 .sr-table tr.det td td{background:transparent;padding:4px 6px;border-bottom:1px dashed var(--line)}
 .sr-table .rep{color:var(--ink)}
 .sr-table .rep em{font-style:normal;color:var(--c-other);font-weight:600}
-@media (max-width:980px){.ex-grid,.sr-two{grid-template-columns:1fr}.sr-stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:980px){.ex-grid,.sr-two{grid-template-columns:minmax(0,1fr)}.sr-stats{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:640px){.cause-row{grid-template-columns:96px 1fr}}
 
 /* figures */
@@ -397,7 +462,7 @@ footer a{color:var(--teal);text-decoration:none}
   <div class="shell">
     <a class="brand" href="../#home"><span class="brand-mark">HC</span><span><span class="full">Heyang Chen<span class="sep">/</span></span><strong>TE-PlotBench</strong></span></a>
     <nav class="nav" aria-label="Page sections">
-      <a href="#main">Why</a><a href="#findings">Key findings</a><a href="#benchmark">Benchmark</a><a href="#evidence">Evidence</a><a href="#practice">In practice</a>
+      <a href="#main">Why</a><a href="#reading">Single panels</a><a href="#panels">Multi-panel</a><a href="#units">Units</a><a href="#papers">Real papers</a><a href="#benchmark">Benchmark</a><a href="#practice">In practice</a>
       <a class="ext" href="explorer/">Explorer ↗</a>
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">◐</button>
     </nav>
@@ -499,7 +564,7 @@ footer a{color:var(--teal);text-decoration:none}
     <span class="pipe-arrow" aria-hidden="true">→</span>
     <div class="pipe-step"><span class="pk">Record</span><b>Sample, units, values</b></div>
     <span class="pipe-arrow" aria-hidden="true">→</span>
-    <div class="pipe-step hot"><span class="pk">Checks</span><b>PF = <var>S</var>²<var>σ</var>, <var>zT</var> = PF·<var>T</var>/<var>κ</var></b><small>tested by TE-PlotBench</small></div>
+    <div class="pipe-step hot"><span class="pk">Checks</span><b><var>PF</var> = <var>S</var>²<var>σ</var>, <var>zT</var> = <var>PF</var>·<var>T</var>/<var>κ</var></b><small>tested by TE-PlotBench</small></div>
     <span class="pipe-arrow" aria-hidden="true">→</span>
     <div class="pipe-step"><span class="pk">Database</span><b>Screening, discovery, training</b></div>
   </section>
@@ -531,95 +596,317 @@ footer a{color:var(--teal);text-decoration:none}
   </div>
 
   <!-- ============ FINDINGS ============ -->
+  <span id="evidence" aria-hidden="true"></span><span id="data" aria-hidden="true"></span>
   <section class="block" id="findings" aria-labelledby="findings-title">
     <div class="sec-head">
       <p class="eyebrow">01 · Key findings</p>
       <div>
-        <h2 id="findings-title">Nine results, in three questions.</h2>
-        <p>Can models read the points? Can they reason about units across panels? What does it take to deploy them on real papers? Every number comes from the 18 November 2026 data. <b>Y10</b> = share of all gold points recovered within 10% of the true value; missing points count as failures.</p>
+        <h2 id="findings-title">Nine results, in four parts.</h2>
+        <p>Can models read the points? Can they reason about units across panels? What does it take to deploy them on real papers? Every number comes from the 18 November 2026 data. <b>Y10</b> = share of all gold points recovered within 10% of the true value; missing points count as failures. Each part opens with its findings and continues with the data behind them: hover or tap any chart for details; colour shows the model family.</p>
       </div>
     </div>
 
-    <div class="theme">
-      <div class="theme-title"><h3>Reading the points</h3><span>single panels, then combined figures</span></div>
+    <div class="chapter" id="reading">
+      <div class="theme-title"><h3><span class="ch-n">1</span>Reading the points</h3><span>36 single-panel figures, 2,988 gold points</span></div>
       <div class="cards">
         <article class="card">
           <span class="k">FINDING 1 · SINGLE PANELS</span>
           <div class="big num">99.6–100<small>% Y10</small></div>
           <h4>The best models read single plots almost without loss.</h4>
           <p>GPT-6.1 Sol and GPT-6 Astra stay at 99.6–100% at every reasoning effort, from low to max. Across all 61 configurations the mean is 78.6%, and the weakest are below 20%.</p>
-          <p class="more"><a href="#chart-heat">See the heat map →</a></p>
+          <p class="more"><a href="#chart-heat">See the heat map ↓</a></p>
         </article>
+      </div>
+
+<div class="chart-card wide ring-card" id="chart-rings" data-init="single">
+      <div class="ring-head">
+        <div>
+          <h3>Where every gold point ends up, by reasoning effort</h3>
+          <p class="sub">One donut per model series. Rings run from no thinking (inside) to max effort (outside); a dashed ring is an effort level that series does not offer. Each ring splits that configuration&#39;s gold points by relative <i>y</i> error. Grey hatching marks points lost because the answer hit the output-token cap.</p>
+        </div>
+        <div class="controls" style="flex-direction:column;align-items:flex-end">
+          <div class="seg" role="group" aria-label="Figure type"><button type="button" data-ds="single" aria-pressed="true">Single panel · 36 figures</button><button type="button" data-ds="multi" aria-pressed="false">Multi-panel · 78 tests</button></div>
+          <div class="seg sub" role="group" aria-label="Multi-panel condition" hidden><button type="button" data-sub="multi" aria-pressed="true">All</button><button type="button" data-sub="cn" aria-pressed="false">No fault · neutral</button><button type="button" data-sub="cd" aria-pressed="false">No fault · detailed</button><button type="button" data-sub="fn" aria-pressed="false">Fault · neutral</button><button type="button" data-sub="fd" aria-pressed="false">Fault · detailed</button></div>
+        </div>
+      </div>
+      <div class="legend r-legend"></div>
+      <div class="mean-row r-mean"></div>
+      <div class="ring-grid"></div>
+      <details class="table-view"><summary>Show as table</summary><div class="scroll"><table class="r-table"></table></div></details>
+      <div class="tooltip r-tip" role="status"></div>
+    </div>
+
+<div class="chart-card wide" id="chart-format">
+      <div class="ring-head">
+        <div>
+          <h3>Did the model return the requested JSON?</h3>
+          <p class="sub">Share of answers that parse and match the answer schema. Answers with the wrong structure are still scored, so their points stay in the rings above; unparseable and cut-off answers score nothing.</p>
+        </div>
+        <div class="controls" style="flex-direction:column;align-items:flex-end">
+          <div class="seg" role="group" aria-label="Figure type"><button type="button" data-ds="single" aria-pressed="true">Single panel · 36 figures</button><button type="button" data-ds="multi" aria-pressed="false">Multi-panel · 78 tests</button></div>
+          <div class="seg sub" role="group" aria-label="Multi-panel condition" hidden><button type="button" data-sub="multi" aria-pressed="true">All</button><button type="button" data-sub="cn" aria-pressed="false">No fault · neutral</button><button type="button" data-sub="cd" aria-pressed="false">No fault · detailed</button><button type="button" data-sub="fn" aria-pressed="false">Fault · neutral</button><button type="button" data-sub="fd" aria-pressed="false">Fault · detailed</button></div>
+        </div>
+      </div>
+      <div class="legend" id="fmtLegend"></div>
+      <div class="mean-row" id="fmtMean"></div>
+      <div class="fmt-wrap"><table class="fmt-table" id="fmtTable"></table></div>
+      <p class="fnote">Gemini 3.1 Pro and Qwen 3.8 Max have a single reasoning setting (“thinking”), shown in the high column.</p>
+      <div class="tooltip" id="fmtTip" role="status"></div>
+    </div>
+
+<div class="chart-card wide" id="chart-heat">
+      <div class="ring-head">
+        <div>
+          <h3>Which figures and properties are hard to read? (single panel)</h3>
+          <p class="sub">One row per model series. Each cell is split into one strip per reasoning effort that series offers, lowest on the left, highest on the right. Click a column header to sort the series by their best effort level in that column.</p>
+        </div>
+        <div class="controls"><div class="seg" role="group" aria-label="Error threshold"><button type="button" data-th="0" aria-pressed="false">Y5</button><button type="button" data-th="1" aria-pressed="true">Y10</button><button type="button" data-th="2" aria-pressed="false">Y15</button></div></div>
+      </div>
+      <div class="hm-legend"><span id="hmLabel">Y10 (%)</span><div class="hm-ramp" id="hmRamp"></div></div>
+      <div class="hm-wrap"><div class="hm" id="heat" role="table" aria-label="Single-panel scores by model series, figure subset and property"></div></div>
+      <p class="fnote">Overall = official average over all 36 figures. Subsets pool gold points over their 12 figures; “shared” figures reuse the source curves of the multi-panel tests. Properties average 6 figures each. <var>σ</var> and <var>ρ</var> are hardest: wide-range linear axes squash small values, and unit conversions go wrong (see the next card).</p>
+      <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="heatTable"></table></div></details>
+      <div class="tooltip" id="heatTip" role="status"></div>
+    </div>
+
+<div class="chart-card wide" id="chart-sr">
+      <h3>Why conductivity and resistivity fail</h3>
+      <p class="sub" id="srIntro"></p>
+      <div class="sr-stats" id="srStats"></div>
+
+      <div class="sr-block">
+        <h4><b>1</b>What a failed answer looks like</h4>
+        <p class="sub">Grey: the true curves. Coloured: the curves the model returned, plotted at face value on the same log axis. Each answer copies the curve shapes faithfully. The arrow marks how far off the numbers are.</p>
+        <div class="controls"><div class="seg" role="group" aria-label="Example" id="exSeg"></div></div>
+        <div class="ex-grid"><div class="ex-plot" id="exPlot"></div><div class="ex-card" id="exCard"></div></div>
+      </div>
+
+      <div class="sr-block">
+        <h4><b>2</b>How far off: returned value ÷ true value</h4>
+        <p class="sub">One dot per failed answer (geometric mean over its points). <var>σ</var> figures above the line, <var>ρ</var> below. Dots far from 1 with the curve shape intact mean a unit or quantity error, not a reading error. Hover a dot for details.</p>
+        <div class="legend" id="srLegend"></div>
+        <div class="sr-svg sr-dots" id="srRuler"></div>
+        <div class="cause-bars" id="srCause"></div>
+      </div>
+
+      <div class="sr-block">
+        <h4><b>3</b>Linear axes squash small values</h4>
+        <p class="sub">Each subset draws the same <var>σ</var> and <var>ρ</var> curves twice, once on a linear and once on a log y-axis. When values span two orders of magnitude, the low curves sit almost on the x-axis of a linear plot.</p>
+        <div class="sr-two">
+          <div><h5>Median Y10 across 61 configurations</h5><div class="legend"><span><i style="background:transparent;border:2px solid var(--bar-n)"></i>linear axis</span><span><i style="background:var(--bar-d)"></i>log axis</span></div><div class="sr-svg" id="srPairs"></div></div>
+          <div><h5>Y10 by size of the true value (shared figures, all models)</h5><div class="legend"><span><i style="background:var(--bar-n);border-radius:2px"></i>linear axis</span><span><i style="background:var(--bar-d);border-radius:2px"></i>log axis</span></div><div class="sr-svg" id="srBins"></div></div>
+        </div>
+      </div>
+
+      <div class="sr-block">
+        <h4><b>4</b>Which configurations fail, and what they reported</h4>
+        <p class="sub">Configurations with at least one failed <var>σ</var>/<var>ρ</var> figure, out of 12. Click a row for each case; hover a row to find its dots in chart 2.</p>
+        <div class="fmt-wrap" style="margin-top:0"><table class="sr-table" id="srTable"></table></div>
+      </div>
+      <div class="tooltip" id="srTip" role="status"></div>
+    </div>
+
+    <div class="chart-card wide" id="chart-robust">
+      <h3>Does a model read the same point the same way twice?</h3>
+      <p class="sub">The same 564 gold points recur in 24–80 separate questions. Each dot is one configuration: how often its temperature readings (x) and property readings (y) disagree with its own median reading of that point. Lower left is better. Pick model series to trace them across reasoning effort; bars are 95% intervals.</p>
+      <div class="chips-sel" id="robChips" role="group" aria-label="Highlight model series"></div>
+      <div class="sr-svg" id="robPlot"></div>
+      <p class="fnote" id="robNote"></p>
+      <div class="tooltip" id="robTip" role="status"></div>
+    </div>
+    </div>
+
+    <div class="chapter" id="panels">
+      <div class="theme-title"><h3><span class="ch-n">2</span>Combining panels</h3><span>the same curves in 3- and 6-panel figures</span></div>
+      <div class="cards">
         <article class="card warn">
           <span class="k">FINDING 2 · COMBINED PANELS</span>
           <div class="big num">−17<small>points</small></div>
           <h4>Putting the same curves into one multi-panel figure costs the average model 17 points.</h4>
           <p>Mean Y10 drops from 69% to 52% on identical source curves, and missing points double. GPT-6 Astra (high to max) and Claude Opus 5.5 high lose under 1 point.</p>
-          <p class="more"><a href="#chart-sm">Explore per model →</a></p>
+          <p class="more"><a href="#chart-sm">Explore per model ↓</a></p>
         </article>
         <article class="card warn">
           <span class="k">FINDING 3 · TOKEN BUDGET</span>
           <div class="big num">0<small>% at max</small></div>
           <h4>More thinking can produce no answer at all.</h4>
           <p>With a 64k output cap, Claude Opus, Sonnet and Haiku 5.5 at max effort ran out of tokens on every multi-panel figure, even though their high-effort runs reached 79–99%.</p>
-          <p class="more"><a href="#fig5">See published-figure truncations →</a></p>
+          <p class="more"><a href="#chart-rings-multi">See the cut-off rings ↓</a></p>
         </article>
+      </div>
+
+    <div class="chart-grid wide">
+<div class="chart-card" id="chart-sm">
+        <h3 id="smTitle">Same curves, single vs combined panels</h3>
+        <p class="sub" id="smSub"></p>
+        <div class="controls"><div class="seg" role="group" aria-label="View"><button type="button" data-smv="sm" aria-pressed="true">Single → multi</button><button type="button" data-smv="fc" aria-pressed="false">Faulty vs other panels</button></div><div class="seg" role="group" aria-label="Prompt"><button type="button" data-prompt="n" aria-pressed="true">Neutral prompt</button><button type="button" data-prompt="d" aria-pressed="false">Detailed prompt</button></div></div>
+        <div class="legend" id="smLegend"></div>
+        <div id="smChart"></div>
+        <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="smTable"></table></div></details>
+        <div class="tooltip" id="smTip" role="status"></div>
+      </div>
+
+      <div class="chart-card" id="chart-bands">
+        <h3>Same source curves, five conditions</h3>
+        <p class="sub">Mean share of gold points over 61 configurations. Moving curves into a multi-panel figure mainly adds missing points; the planted fault adds misreads on top.</p>
+        <div class="legend" id="bandLegend"></div>
+        <div class="bands" id="bands"></div>
       </div>
     </div>
 
-    <div class="theme">
-      <div class="theme-title"><h3>Reasoning about units</h3><span>17 figures with one planted unit error each</span></div>
+<div class="chart-card wide ring-card" id="chart-rings-multi" data-init="multi">
+      <div class="ring-head">
+        <div>
+          <h3>Multi-panel figures: where the gold points go</h3>
+          <p class="sub">Same view for the 78 multi-panel tests. Note the hatched outer rings: the Claude 5.5 models at max effort ran out of output tokens. Rings run from no thinking (inside) to max effort (outside); a dashed ring is an effort level that series does not offer. Each ring splits that configuration&#39;s gold points by relative <i>y</i> error. Grey hatching marks points lost because the answer hit the output-token cap.</p>
+        </div>
+        <div class="controls" style="flex-direction:column;align-items:flex-end">
+          <div class="seg" role="group" aria-label="Figure type"><button type="button" data-ds="single" aria-pressed="true">Single panel · 36 figures</button><button type="button" data-ds="multi" aria-pressed="false">Multi-panel · 78 tests</button></div>
+          <div class="seg sub" role="group" aria-label="Multi-panel condition" hidden><button type="button" data-sub="multi" aria-pressed="true">All</button><button type="button" data-sub="cn" aria-pressed="false">No fault · neutral</button><button type="button" data-sub="cd" aria-pressed="false">No fault · detailed</button><button type="button" data-sub="fn" aria-pressed="false">Fault · neutral</button><button type="button" data-sub="fd" aria-pressed="false">Fault · detailed</button></div>
+        </div>
+      </div>
+      <div class="legend r-legend"></div>
+      <div class="mean-row r-mean"></div>
+      <div class="ring-grid"></div>
+      <details class="table-view"><summary>Show as table</summary><div class="scroll"><table class="r-table"></table></div></details>
+      <div class="tooltip r-tip" role="status"></div>
+    </div>
+    </div>
+
+    <div class="chapter" id="units">
+      <div class="theme-title"><h3><span class="ch-n">3</span>Units and physical consistency</h3><span>17 figures with one planted unit error each</span></div>
       <div class="cards">
         <article class="card warn">
           <span class="k">FINDING 4 · DETECT ≠ FIX</span>
           <div class="big num">65 → 56 → 42<small>%</small></div>
           <h4>Unit faults are detected more often than they are corrected.</h4>
           <p>With a neutral prompt, models flag 65% of faults, name the right panel in 56% and repair 42% of the faulty points. When the prompt says a fault exists, detection rises to 92% but repair rises only to 47%.</p>
-          <p class="more"><a href="#chart-funnel">See the funnel →</a></p>
+          <p class="more"><a href="#chart-funnel">See the funnel ↓</a></p>
         </article>
         <article class="card">
           <span class="k">FINDING 5 · SIZE OF THE ERROR</span>
           <div class="big num">10× &lt; 1000×</div>
           <h4>Small, plausible errors are the dangerous ones.</h4>
-          <p>A 1000× prefix slip on the Seebeck coefficient (mV vs μV) looks unphysical, and 59–71% of the affected points are repaired. A 10× error on <var>σ</var>, <var>ρ</var> or PF stays in a believable range, so only 28–40% are repaired.</p>
-          <p class="more"><a href="#chart-faults">By fault type →</a></p>
+          <p>A 1000× prefix slip on the Seebeck coefficient (mV vs μV) looks unphysical, and 59–71% of the affected points are repaired. A 10× error on <var>σ</var>, <var>ρ</var> or <var>PF</var> stays in a believable range, so only 28–40% are repaired.</p>
+          <p class="more"><a href="#chart-faults">By fault type ↓</a></p>
         </article>
         <article class="card">
           <span class="k">FINDING 6 · A SECOND EQUATION</span>
           <div class="big num">30/61 → 0</div>
           <h4>One extra physical relation resolves the ambiguity.</h4>
-          <p>In a three-panel <var>S</var> | <var>ρ</var> | PF figure, a 10× PF fault was blamed on <var>ρ</var> by 30 of 61 configurations. In the six-panel figure, where PF also enters <var>zT</var> = PF·<var>T</var>/<var>κ</var>, no configuration blamed the wrong panel.</p>
-          <p class="more"><a href="#fig4">See Figure 4 →</a></p>
+          <p>In a three-panel <var>S</var> | <var>ρ</var> | <var>PF</var> figure, a 10× <var>PF</var> fault was blamed on <var>ρ</var> by 30 of 61 configurations. In the six-panel figure, where <var>PF</var> also enters <var>zT</var> = <var>PF</var>·<var>T</var>/<var>κ</var>, no configuration blamed the wrong panel.</p>
+          <p class="more"><a href="#fault-example">One figure, four answers ↓</a></p>
         </article>
+      </div>
+
+    <div class="chart-card wide" id="fault-example">
+      <h3>One faulty figure, four answers: find → locate → recover</h3>
+      <p class="sub" id="fxIntro"></p>
+      <div class="fx-grid">
+        <div class="fx-left">
+          <figure class="fx-fig"><div id="fxFig"></div><figcaption>Redrawn from the figure&#39;s true values, with the axis labels it printed. The planted fault is the <var>σ</var> axis label of panel (b), marked in red.</figcaption></figure>
+          <div class="fx-counts" id="fxCounts"></div>
+        </div>
+        <div class="fx-right">
+          <div class="controls"><div class="seg" role="group" aria-label="Answer" id="fxSeg"></div></div>
+          <ol class="fx-steps" id="fxSteps"></ol>
+          <div class="code-win fx-code">
+            <div class="code-bar"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="fname" id="fxName">task_answer.json</span></div>
+            <pre class="code" id="fxCode" tabindex="0" aria-label="The model's answer, trimmed"></pre>
+            <div class="code-legend"><span><i class="sw prop"></i>find: unit_verdict, presentation</span><span><i class="sw ver"></i>locate: localized_issue</span><span><i class="sw phys"></i>recover and check: verification</span></div>
+            <div class="code-note">The model&#39;s own answer, trimmed for length (… marks cuts). Scores come from the frozen grader.</div>
+          </div>
+          <p class="fx-say" id="fxSay"></p>
+        </div>
       </div>
     </div>
 
-    <div class="theme">
-      <div class="theme-title"><h3>Deploying on real papers</h3><span>15 figures from Nature Materials and Nature Communications</span></div>
+    <div class="chart-grid wide">
+<div class="chart-card" id="chart-funnel">
+        <h3>From noticing a unit fault to fixing it</h3>
+        <p class="sub">All 61 configurations × 17 fault figures. The detailed prompt tells the model that a fault exists, so its detection rate measures instruction-following.</p>
+        <div class="legend"><span><i style="background:var(--bar-n);border-radius:2px"></i>Neutral prompt</span><span><i style="background:var(--bar-d);border-radius:2px"></i>Detailed prompt</span></div>
+        <div class="funnel" id="funnel"></div>
+      </div>
+
+      <div class="chart-card" id="chart-faults">
+        <h3>Repair rate by fault type</h3>
+        <p class="sub">Share of faulty-panel points recovered. Thick bar: neutral prompt. Thin bar: detailed prompt.</p>
+        <table class="fault-table" id="faultTable"></table>
+      </div>
+    </div>
+
+    <div class="chart-card wide" id="prompt-compare">
+      <h3>Neutral vs detailed prompt</h3>
+      <p class="sub">All 39 multi-panel figures were run twice. The neutral prompt asks the model to judge the units itself and to derive its own checks. On the 14 track-D fault figures, the detailed prompt states that exactly one fault exists and names the equations to use. The parts of the two prompts that differ:</p>
+      <div class="pc-code">
+        <div class="code-win"><div class="code-bar"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="fname">neutral prompt · all tracks (excerpt)</span></div><pre class="code" id="pcN" tabindex="0"></pre></div>
+        <div class="code-win"><div class="code-bar"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><span class="fname">detailed prompt · fault track D (excerpt)</span></div><pre class="code" id="pcD" tabindex="0"></pre></div>
+      </div>
+      <p class="fnote">Highlighted: where the prompts tell the model what to expect and which equations to check. The F-track figures (3 of the 17 faults) use a similar detailed template. Full texts: <code>D2_Prompts_English.txt</code>.</p>
+      <div class="sr-block">
+        <h4><b>A</b>What changes when the prompt says a fault exists</h4>
+        <div class="controls"><div class="seg" role="group" aria-label="Prompt" id="pcSeg"><button type="button" data-pc="n" aria-pressed="true">Neutral</button><button type="button" data-pc="d" aria-pressed="false">Detailed</button><button type="button" data-pc="c" aria-pressed="false">Change</button></div></div>
+        <div class="sr-two">
+          <div><h5 id="blameTitle">Which panel was blamed (% of answers)</h5><div class="blame-wrap"><table class="blame" id="blame"></table></div><p class="fnote">Rows: property carrying the planted fault (number of figures). Outlined: the correct panel. <var>σ</var> and <var>ρ</var> share one column.</p></div>
+          <div><h5 id="locTitle">Per configuration: panel found vs points repaired</h5><div class="sr-svg" id="locPlot"></div></div>
+        </div>
+      </div>
+      <div class="sr-block">
+        <h4><b>B</b>Does the detailed prompt raise the scores? Paired change per configuration</h4>
+        <p class="sub">Detailed minus neutral, percentage points, one dot per configuration (configurations without output under either prompt are left out). Diamond: median.</p>
+        <div class="sr-svg" id="pairPlot"></div>
+      </div>
+      <div class="tooltip" id="pcTip" role="status"></div>
+    </div>
+    </div>
+
+    <div class="chapter" id="papers">
+      <div class="theme-title"><h3><span class="ch-n">4</span>Deploying on real papers</h3><span>15 figures from <i>Nature Materials</i> and <i>Nature Communications</i></span></div>
       <div class="cards">
         <article class="card">
           <span class="k">FINDING 7 · PUBLISHED FIGURES</span>
           <div class="big num">95–99<small>% at low effort</small></div>
           <h4>Frontier reading transfers to real journal figures.</h4>
           <p>Scored against publisher source data, GPT-6 Astra and GPT-6.1 Sol reach 95–99% Y10 even at low effort. Remaining errors cluster in five figure formats: compressed linear ranges, insets, unmarked curves, mixed °C/K axes and duplicate legend labels.</p>
-          <p class="more"><a href="#fig5">See Figure 5 →</a></p>
+          <p class="more"><a href="#fig5">See Figure 5 ↓</a></p>
         </article>
         <article class="card warn">
           <span class="k">FINDING 8 · VERIFYING ≠ READING</span>
           <div class="big num">33 → 100<small>%</small></div>
           <h4>Checking the physics needs much more reasoning than reading.</h4>
-          <p>From low to max effort, GPT-6.1 Sol's reading accuracy changes by about 3.5 points, but its exact formula checks (PF = <var>S</var>²<var>σ</var>, <var>zT</var>) go from 33% to 100% correct. Low-effort models often give a plausible verdict backed by wrong arithmetic.</p>
-          <p class="more"><a href="#fig5">See panel (c) →</a></p>
+          <p>From low to max effort, GPT-6.1 Sol's reading accuracy changes by about 3.5 points, but its exact formula checks (<var>PF</var> = <var>S</var>²<var>σ</var>, <var>zT</var>) go from 33% to 100% correct. Low-effort models often give a plausible verdict backed by wrong arithmetic.</p>
+          <p class="more"><a href="#fig5">See panel (c) ↓</a></p>
         </article>
         <article class="card">
           <span class="k">FINDING 9 · COST</span>
           <div class="big num">$0.03<small>per figure</small></div>
           <h4>Reasoning effort shows steep diminishing returns.</h4>
           <p>GPT-6.1 Sol low reaches 99.6% single-panel Y10 for about $0.03 per figure. GPT-6 Astra max costs about 25× more ($0.74) for +0.3 points. Claude Haiku 5.5 high reaches 95% for $0.004.</p>
-          <p class="more"><a href="#practice">What this means →</a></p>
+          <p class="more"><a href="#practice">What this means ↓</a></p>
         </article>
       </div>
+
+      <div class="fig-list wide">
+<figure class="fig" id="fig5">
+        <div class="img"><img src="figures/fig5-published-figures.png" alt="Figure 5: Y10 on 15 published figures by effort, max-effort truncations, formula self-audit accuracy, and per-figure difficulty." loading="lazy"></div>
+        <figcaption>
+          <p class="fnum">FIGURE 5 · PUBLISHED FIGURES (DRAFT)</p>
+          <h3>Real papers: reading transfers, token budgets and formula checks do not.</h3>
+          <ul>
+            <li><b>(a)</b> Visual-first models (GPT-6.1 Sol, GPT-6 Astra, GPT-6 Sol, Claude Fable 5.1) exceed 92% at low effort. Claude Sonnet 5.5 needs high effort to go from 25% to 98%.</li>
+            <li><b>(b)</b> At max effort with a 64k cap, Haiku 5.5 truncates on 15/15 figures, Sonnet 5.5 on 10/15 and Opus 5.5 on 8/15. Every OpenAI max run finishes.</li>
+            <li><b>(c)</b> Exact formula self-audits need far more effort than reading.</li>
+            <li><b>(d)</b> Per-figure difficulty. The checks also surfaced a real 29% <var>PF</var> vs <var>S</var>²<var>σ</var> discrepancy in one paper's source data.</li>
+          </ul>
+          <a class="open" href="figures/fig5-published-figures.png" target="_blank" rel="noopener">Open full size ↗</a>
+        </figcaption>
+      </figure>
+      </div>
     </div>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+      <pattern id="cutHatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" style="fill:var(--b-cut)"/><rect width="1.8" height="5" style="fill:var(--b-cut-line)"/></pattern>
+    </defs></svg>
   </section>
 
   <!-- ============ BENCHMARK ============ -->
@@ -661,11 +948,11 @@ footer a{color:var(--teal);text-decoration:none}
       <div class="panel">
         <h3>Why thermoelectrics?</h3>
         <p>The same samples appear in several panels, and their properties are linked by equations. A correct record must satisfy them, so an extraction error can be caught by checking the panels against each other.</p>
-        <div class="eq"><span>PF = <var>S</var>²<var>σ</var></span><span><var>zT</var> = PF·<var>T</var> / <var>κ</var><sub>tot</sub></span></div>
+        <div class="eq"><span><var>PF</var> = <var>S</var>²<var>σ</var></span><span><var>zT</var> = <var>PF</var>·<var>T</var> / <var>κ</var><sub>tot</sub></span></div>
         <div class="unit-demo" aria-label="Example: a Seebeck unit slip">
           <div class="box"><span>Axis printed in mV/K, read as μV/K</span><b class="num"><var>S</var> is 1,000× too small</b></div>
           <span class="arrow" aria-hidden="true">→</span>
-          <div class="box bad"><span>Squared in PF and <var>zT</var></span><b class="num">10⁶× too small</b></div>
+          <div class="box bad"><span>Squared in <var>PF</var> and <var>zT</var></span><b class="num">10⁶× too small</b></div>
         </div>
       </div>
       <div class="panel">
@@ -681,201 +968,10 @@ footer a{color:var(--teal);text-decoration:none}
     </div>
   </section>
 
-  <!-- ============ EVIDENCE ============ -->
-  <span id="data" aria-hidden="true"></span>
-  <section class="block" id="evidence" aria-labelledby="evidence-title">
-    <div class="sec-head">
-      <p class="eyebrow">03 · Evidence</p>
-      <div>
-        <h2 id="evidence-title">Look at the data behind each finding.</h2>
-        <p>Interactive views first, then the full manuscript figures. Hover or tap a point or ring for details. Colour shows the model family.</p>
-      </div>
-    </div>
-
-    <div class="chart-grid">
-      <div class="chart-card" id="chart-sm">
-        <h3>Same curves, single vs combined panels</h3>
-        <p class="sub">Each dot is one configuration. Below the diagonal means the model loses accuracy when the curves move into a multi-panel figure.</p>
-        <div class="controls"><div class="seg" role="group" aria-label="Prompt"><button type="button" data-prompt="n" aria-pressed="true">Neutral prompt</button><button type="button" data-prompt="d" aria-pressed="false">Detailed prompt</button></div></div>
-        <div class="legend" id="smLegend"></div>
-        <div id="smChart"></div>
-        <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="smTable"></table></div></details>
-        <div class="tooltip" id="smTip" role="status"></div>
-      </div>
-
-      <div class="chart-card" id="chart-funnel">
-        <h3>From noticing a unit fault to fixing it</h3>
-        <p class="sub">All 61 configurations × 17 fault figures. The detailed prompt tells the model that a fault exists, so its detection rate measures instruction-following.</p>
-        <div class="legend"><span><i style="background:var(--bar-n);border-radius:2px"></i>Neutral prompt</span><span><i style="background:var(--bar-d);border-radius:2px"></i>Detailed prompt</span></div>
-        <div class="funnel" id="funnel"></div>
-        <h3 id="chart-faults" style="margin-top:26px">Repair rate by fault type</h3>
-        <p class="sub">Share of faulty-panel points recovered. Thick bar: neutral prompt. Thin bar: detailed prompt.</p>
-        <table class="fault-table" id="faultTable"></table>
-      </div>
-    </div>
-
-    <div class="chart-card wide" id="chart-rings">
-      <div class="ring-head">
-        <div>
-          <h3>Where every gold point ends up, by reasoning effort</h3>
-          <p class="sub">One donut per model series. Rings run from no thinking (inside) to max effort (outside); a dashed ring is an effort level that series does not offer. Each ring splits that configuration's gold points by relative y error. Grey hatching marks points lost because the answer hit the output-token cap.</p>
-        </div>
-        <div class="controls" style="flex-direction:column;align-items:flex-end">
-          <div class="seg" role="group" aria-label="Figure type"><button type="button" data-ds="single" aria-pressed="true">Single panel · 36 figures</button><button type="button" data-ds="multi" aria-pressed="false">Multi-panel · 78 tests</button></div>
-          <div class="seg sub" role="group" aria-label="Multi-panel condition" hidden><button type="button" data-sub="multi" aria-pressed="true">All</button><button type="button" data-sub="cn" aria-pressed="false">No fault · neutral</button><button type="button" data-sub="cd" aria-pressed="false">No fault · detailed</button><button type="button" data-sub="fn" aria-pressed="false">Fault · neutral</button><button type="button" data-sub="fd" aria-pressed="false">Fault · detailed</button></div>
-        </div>
-      </div>
-      <div class="legend" id="ringLegend"></div>
-      <div class="mean-row" id="ringMean"></div>
-      <div class="ring-grid" id="ringGrid"></div>
-      <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="ringTable"></table></div></details>
-      <div class="tooltip" id="ringTip" role="status"></div>
-    </div>
-
-    <div class="chart-card wide" id="chart-format">
-      <div class="ring-head">
-        <div>
-          <h3>Did the model return the requested JSON?</h3>
-          <p class="sub">Share of answers that parse and match the answer schema. Answers with the wrong structure are still scored, so their points stay in the rings above; unparseable and cut-off answers score nothing.</p>
-        </div>
-        <div class="controls" style="flex-direction:column;align-items:flex-end">
-          <div class="seg" role="group" aria-label="Figure type"><button type="button" data-ds="single" aria-pressed="true">Single panel · 36 figures</button><button type="button" data-ds="multi" aria-pressed="false">Multi-panel · 78 tests</button></div>
-          <div class="seg sub" role="group" aria-label="Multi-panel condition" hidden><button type="button" data-sub="multi" aria-pressed="true">All</button><button type="button" data-sub="cn" aria-pressed="false">No fault · neutral</button><button type="button" data-sub="cd" aria-pressed="false">No fault · detailed</button><button type="button" data-sub="fn" aria-pressed="false">Fault · neutral</button><button type="button" data-sub="fd" aria-pressed="false">Fault · detailed</button></div>
-        </div>
-      </div>
-      <div class="legend" id="fmtLegend"></div>
-      <div class="mean-row" id="fmtMean"></div>
-      <div class="fmt-wrap"><table class="fmt-table" id="fmtTable"></table></div>
-      <p class="fnote">Gemini 3.1 Pro and Qwen 3.8 Max have a single reasoning setting (“thinking”), shown in the high column.</p>
-      <div class="tooltip" id="fmtTip" role="status"></div>
-    </div>
-
-    <div class="chart-card wide" id="chart-heat">
-      <div class="ring-head">
-        <div>
-          <h3>Which figures and properties are hard to read? (single panel)</h3>
-          <p class="sub">One row per model series. Each cell is split into one strip per reasoning effort that series offers, lowest on the left, highest on the right. Click a column header to sort the series by their best effort level in that column.</p>
-        </div>
-        <div class="controls"><div class="seg" role="group" aria-label="Error threshold"><button type="button" data-th="0" aria-pressed="false">Y5</button><button type="button" data-th="1" aria-pressed="true">Y10</button><button type="button" data-th="2" aria-pressed="false">Y15</button></div></div>
-      </div>
-      <div class="hm-legend"><span id="hmLabel">Y10 (%)</span><div class="hm-ramp" id="hmRamp"></div></div>
-      <div class="hm-wrap"><div class="hm" id="heat" role="table" aria-label="Single-panel scores by model series, figure subset and property"></div></div>
-      <p class="fnote">Overall = official average over all 36 figures. Subsets pool gold points over their 12 figures; “shared” figures reuse the source curves of the multi-panel tests. Properties average 6 figures each. <var>σ</var> and <var>ρ</var> are hardest: wide-range linear axes squash small values, and unit conversions go wrong (see the next card).</p>
-      <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="heatTable"></table></div></details>
-      <div class="tooltip" id="heatTip" role="status"></div>
-    </div>
-
-    <div class="chart-card wide" id="chart-sr">
-      <h3>Why conductivity and resistivity fail</h3>
-      <p class="sub" id="srIntro"></p>
-      <div class="sr-stats" id="srStats"></div>
-
-      <div class="sr-block">
-        <h4><b>1</b>What a failed answer looks like</h4>
-        <p class="sub">Grey: the true curves. Coloured: the curves the model returned, plotted at face value on the same log axis. Each answer copies the curve shapes faithfully. The arrow marks how far off the numbers are.</p>
-        <div class="controls"><div class="seg" role="group" aria-label="Example" id="exSeg"></div></div>
-        <div class="ex-grid"><div class="ex-plot" id="exPlot"></div><div class="ex-card" id="exCard"></div></div>
-      </div>
-
-      <div class="sr-block">
-        <h4><b>2</b>How far off: returned value ÷ true value</h4>
-        <p class="sub">One dot per failed answer (geometric mean over its points). <var>σ</var> figures above the line, <var>ρ</var> below. Dots far from 1 with the curve shape intact mean a unit or quantity error, not a reading error. Hover a dot for details.</p>
-        <div class="legend" id="srLegend"></div>
-        <div class="sr-svg sr-dots" id="srRuler"></div>
-        <div class="cause-bars" id="srCause"></div>
-      </div>
-
-      <div class="sr-block">
-        <h4><b>3</b>Linear axes squash small values</h4>
-        <p class="sub">Each subset draws the same <var>σ</var> and <var>ρ</var> curves twice, once on a linear and once on a log y-axis. When values span two orders of magnitude, the low curves sit almost on the x-axis of a linear plot.</p>
-        <div class="sr-two">
-          <div><h5>Median Y10 across 61 configurations</h5><div class="legend"><span><i style="background:transparent;border:2px solid var(--bar-n)"></i>linear axis</span><span><i style="background:var(--bar-d)"></i>log axis</span></div><div class="sr-svg" id="srPairs"></div></div>
-          <div><h5>Y10 by size of the true value (shared figures, all models)</h5><div class="legend"><span><i style="background:var(--bar-n);border-radius:2px"></i>linear axis</span><span><i style="background:var(--bar-d);border-radius:2px"></i>log axis</span></div><div class="sr-svg" id="srBins"></div></div>
-        </div>
-      </div>
-
-      <div class="sr-block">
-        <h4><b>4</b>Which configurations fail, and what they reported</h4>
-        <p class="sub">Configurations with at least one failed <var>σ</var>/<var>ρ</var> figure, out of 12. Click a row for each case; hover a row to find its dots in chart 2.</p>
-        <div class="fmt-wrap" style="margin-top:0"><table class="sr-table" id="srTable"></table></div>
-      </div>
-      <div class="tooltip" id="srTip" role="status"></div>
-    </div>
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
-      <pattern id="cutHatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" style="fill:var(--b-cut)"/><rect width="1.8" height="5" style="fill:var(--b-cut-line)"/></pattern>
-    </defs></svg>
-
-    <div class="fig-list" style="margin-top:22px">
-
-      <figure class="fig" id="fig2">
-        <div class="img"><img src="figures/fig2-multi-panel.png" alt="Figure 2: example faulty figure, single versus multi-panel Y10, error bands by condition, faulty versus companion panels." loading="lazy"></div>
-        <figcaption>
-          <p class="fnum">FIGURE 2 · MULTI-PANEL</p>
-          <h3>Combining panels costs more than a planted fault.</h3>
-          <ul>
-            <li><b>(a)</b> A typical fault: <var>σ</var> is labelled 10³ S m⁻¹ but the numbers are in S cm⁻¹, so PF = <var>S</var>²<var>σ</var> fails by 10×.</li>
-            <li><b>(b)</b> Median change from single to multi-panel: −13 points (neutral prompt), −9 (detailed).</li>
-            <li><b>(c)</b> The main loss is missing points, which rise from 14% to about 31%. The fault itself adds 4–6 points of error on top.</li>
-          </ul>
-          <a class="open" href="figures/fig2-multi-panel.png" target="_blank" rel="noopener">Open full size ↗</a>
-        </figcaption>
-      </figure>
-
-      <figure class="fig" id="fig3">
-        <div class="img"><img src="figures/fig3-prompt-effect.png" alt="Figure 3: paired comparison of detailed versus neutral prompts for Y10, coverage and valid output." loading="lazy"></div>
-        <figcaption>
-          <p class="fnum">FIGURE 3 · PROMPTS</p>
-          <h3>A detailed prompt is not a universal fix.</h3>
-          <p>Across configurations, the median paired change in Y10 is −0.2 points on clean figures and +1.6 on faulty ones, and neither is statistically significant. Individual models move a lot in both directions. Qwen 3.8 Max (thinking) and Claude Opus 5.5 low gain strongly, while GPT-5.6 Luna high loses. Test prompts for each model rather than assuming more instructions help.</p>
-          <a class="open" href="figures/fig3-prompt-effect.png" target="_blank" rel="noopener">Open full size ↗</a>
-        </figcaption>
-      </figure>
-
-      <figure class="fig" id="fig4">
-        <div class="img"><img src="figures/fig4-fault-handling.png" alt="Figure 4: fault-handling funnel, panel-blame matrices, localization and recovery by fault type, per-configuration localization versus recovery." loading="lazy"></div>
-        <figcaption>
-          <p class="fnum">FIGURE 4 · UNIT FAULTS</p>
-          <h3>Where fault handling breaks down.</h3>
-          <ul>
-            <li><b>(a)</b> Detection, localization and recovery fall in steps. False alarms on clean figures are rare (7%).</li>
-            <li><b>(b)</b> When the error is in <var>ρ</var>, many models blame the PF panel, and the reverse also happens. Both panels are coupled through PF = <var>S</var>²/<var>ρ</var>.</li>
-            <li><b>(d)</b> Some models find the right panel but still leave its numbers unrepaired (points far below the diagonal).</li>
-          </ul>
-          <a class="open" href="figures/fig4-fault-handling.png" target="_blank" rel="noopener">Open full size ↗</a>
-        </figcaption>
-      </figure>
-
-      <figure class="fig" id="fig5">
-        <div class="img"><img src="figures/fig5-published-figures.png" alt="Figure 5: Y10 on 15 published figures by effort, max-effort truncations, formula self-audit accuracy, and per-figure difficulty." loading="lazy"></div>
-        <figcaption>
-          <p class="fnum">FIGURE 5 · PUBLISHED FIGURES (DRAFT)</p>
-          <h3>Real papers: reading transfers, token budgets and formula checks do not.</h3>
-          <ul>
-            <li><b>(a)</b> Visual-first models (GPT-6.1 Sol, GPT-6 Astra, GPT-6 Sol, Claude Fable 5.1) exceed 92% at low effort. Claude Sonnet 5.5 needs high effort to go from 25% to 98%.</li>
-            <li><b>(b)</b> At max effort with a 64k cap, Haiku 5.5 truncates on 15/15 figures, Sonnet 5.5 on 10/15 and Opus 5.5 on 8/15. Every OpenAI max run finishes.</li>
-            <li><b>(c)</b> Exact formula self-audits need far more effort than reading.</li>
-            <li><b>(d)</b> Per-figure difficulty. The checks also surfaced a real 29% PF vs <var>S</var>²<var>σ</var> discrepancy in one paper's source data.</li>
-          </ul>
-          <a class="open" href="figures/fig5-published-figures.png" target="_blank" rel="noopener">Open full size ↗</a>
-        </figcaption>
-      </figure>
-
-      <figure class="fig" id="figR">
-        <div class="img"><img src="figures/figR2-stability-map.png" alt="Robustness map: share of temperature and property readings off each model's own consensus." loading="lazy"></div>
-        <figcaption>
-          <p class="fnum">ROBUSTNESS · REPEATED READINGS</p>
-          <h3>Does a model read the same point the same way twice?</h3>
-          <p>The same 564 gold points recur in 24–80 separate questions. GPT-6.1 Sol max, GPT-6 Astra max/xhigh and Claude Opus 5.5 high reproduce more than 98% of readings. The median configuration reproduces only 41%. Most temperature disagreements come from rounding readings onto a 5 K grid, which real measurement temperatures never follow.</p>
-          <a class="open" href="figures/figR2-stability-map.png" target="_blank" rel="noopener">Open full size ↗</a>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-
   <!-- ============ PRACTICE ============ -->
   <section class="block" id="practice" aria-labelledby="practice-title">
     <div class="sec-head">
-      <p class="eyebrow">04 · In practice</p>
+      <p class="eyebrow">03 · In practice</p>
       <div>
         <h2 id="practice-title">What this means for building a database.</h2>
         <p>Four recommendations for anyone automating literature data extraction.</p>
@@ -883,7 +979,7 @@ footer a{color:var(--teal);text-decoration:none}
     </div>
     <div class="practice">
       <div class="tip"><h3>Use a frontier extractor at a calibrated effort, not max.</h3><p>Low or medium effort already reaches the reading ceiling for the best models, at a fraction of the cost. Max effort adds little and risks truncation under fixed output caps.</p></div>
-      <div class="tip"><h3>Check physics in code, not in the model's verdict.</h3><p>Recompute PF = <var>S</var>²<var>σ</var> and <var>zT</var> = PF·<var>T</var>/<var>κ</var> yourself, at shared temperatures, from the extracted points. Model verdicts can look right while the arithmetic behind them is wrong.</p></div>
+      <div class="tip"><h3>Check physics in code, not in the model's verdict.</h3><p>Recompute <var>PF</var> = <var>S</var>²<var>σ</var> and <var>zT</var> = <var>PF</var>·<var>T</var>/<var>κ</var> yourself, at shared temperatures, from the extracted points. Model verdicts can look right while the arithmetic behind them is wrong.</p></div>
       <div class="tip"><h3>Treat 10× discrepancies as the highest-risk case.</h3><p>Order-of-magnitude-one errors look plausible and are most often missed or blamed on the wrong panel. Flag them for review, especially in three-panel figures with only one linking equation.</p></div>
       <div class="tip"><h3>Budget output tokens for dense figures.</h3><p>A six-panel figure means serialising 30 curves. Set output caps with headroom, and treat empty or partial responses as failures to retry, never as zeros to average in.</p></div>
     </div>
@@ -938,60 +1034,63 @@ footer a{color:var(--teal);text-decoration:none}
   const FAM=[["GPT","--gpt"],["Claude","--claude"],["Gemini","--gemini"],["Kimi","--kimi"],["Qwen","--qwen"],["DeepSeek","--deepseek"]];
   const famOf=n=>FAM.find(f=>n.startsWith(f[0]))||FAM[0];
 
-  // ---------- scatter: single vs multi ----------
+  // ---------- scatter: single → multi, or faulty panel vs the other panels of the same figure ----------
+  // EX is filled by tools/build_ring_data.py (replotted manuscript panels, prompts, robustness map, fault figure)
+  const EX=/*EXTRA-DATA*/{"fig2d":{"Claude Fable 5.1 high":[0.7656,0.7648,0.7824,0.7714],"Claude Fable 5.1 low":[0.678,0.6033,0.6816,0.7374],"Claude Haiku 5.5 high":[0.7705,0.6974,0.56,0.6882],"Claude Haiku 5.5 low":[0.3691,0.2561,0.3099,0.3834],"Claude Haiku 5.5 max":[0.0,0.0,0.0,0.0],"Claude Opus 5.5 high":[0.979,0.9925,0.9227,0.9348],"Claude Opus 5.5 low":[0.307,0.3859,0.7764,0.8165],"Claude Opus 5.5 max":[0.0,0.0,0.0344,0.0556],"Claude Sonnet 5.5 high":[0.7183,0.6058,0.8379,0.8059],"Claude Sonnet 5.5 low":[0.0,0.0,0.002,0.0071],"Claude Sonnet 5.5 max":[0.0,0.0,0.0,0.0],"DeepSeek V4.1 Flash high":[0.1974,0.2032,0.1732,0.2206],"DeepSeek V4.1 Flash low":[0.1952,0.2202,0.1492,0.2265],"DeepSeek V4.1 Flash max":[0.183,0.2233,0.1618,0.2321],"DeepSeek V4.1 Flash nonthinking":[0.1491,0.0,0.1143,0.0575],"GPT-5.5 high":[0.4652,0.5115,0.4491,0.4239],"GPT-5.5 low":[0.3356,0.2702,0.4244,0.4229],"GPT-5.5 medium":[0.4614,0.4215,0.4744,0.4356],"GPT-5.5 xhigh":[0.6485,0.5892,0.5878,0.5907],"GPT-5.6 Luna high":[0.5385,0.4173,0.2364,0.2679],"GPT-5.6 Luna low":[0.1857,0.1117,0.0396,0.0591],"GPT-5.6 Luna max":[0.2728,0.4019,0.3295,0.375],"GPT-5.6 Luna medium":[0.3749,0.2101,0.066,0.1303],"GPT-5.6 Luna xhigh":[0.4219,0.503,0.3264,0.322],"GPT-5.6 Sol high":[0.5685,0.5857,0.5321,0.4743],"GPT-5.6 Sol low":[0.4507,0.4053,0.544,0.4464],"GPT-5.6 Sol max":[0.6358,0.5697,0.6871,0.7017],"GPT-5.6 Sol medium":[0.4449,0.4687,0.5934,0.5536],"GPT-5.6 Sol xhigh":[0.6527,0.7388,0.5955,0.5149],"GPT-5.6 Terra high":[0.3621,0.4037,0.4463,0.3771],"GPT-5.6 Terra low":[0.1826,0.1399,0.1989,0.199],"GPT-5.6 Terra max":[0.5077,0.4931,0.4429,0.4629],"GPT-5.6 Terra medium":[0.2954,0.1475,0.316,0.2976],"GPT-5.6 Terra xhigh":[0.3266,0.3642,0.4317,0.3778],"GPT-6 Astra high":[0.8856,0.8271,0.9664,0.9787],"GPT-6 Astra low":[0.8368,0.8255,0.8623,0.8475],"GPT-6 Astra max":[0.9956,0.9991,0.9896,0.9978],"GPT-6 Astra medium":[0.881,0.9295,0.9361,0.9335],"GPT-6 Astra xhigh":[0.9193,0.9317,0.9094,0.9362],"GPT-6 Luna high":[0.1517,0.1856,0.236,0.2451],"GPT-6 Luna low":[0.0191,0.012,0.0,0.0],"GPT-6 Luna max":[0.283,0.2629,0.304,0.3639],"GPT-6 Luna medium":[0.063,0.0573,0.1294,0.1198],"GPT-6 Luna xhigh":[0.1422,0.1206,0.3146,0.3437],"GPT-6 Sol high":[0.6413,0.4876,0.5547,0.4424],"GPT-6 Sol low":[0.4024,0.3852,0.3959,0.4458],"GPT-6 Sol max":[0.7325,0.7651,0.7318,0.699],"GPT-6 Sol medium":[0.4885,0.4363,0.5521,0.4934],"GPT-6 Sol xhigh":[0.5108,0.4962,0.6327,0.4826],"GPT-6.1 Sol high":[0.8284,0.6973,0.8858,0.8524],"GPT-6.1 Sol low":[0.8471,0.7305,0.8156,0.7841],"GPT-6.1 Sol max":[0.9808,0.9756,0.8851,0.9255],"GPT-6.1 Sol medium":[0.848,0.7815,0.8299,0.7442],"GPT-6.1 Sol xhigh":[0.9665,0.9016,0.9058,0.8989],"Gemini 3.1 Pro nonthinking":[0.4733,0.2159,0.3637,0.3944],"Gemini 3.1 Pro thinking":[0.4582,0.2314,0.6138,0.6085],"Kimi K3 high":[0.3311,0.1619,0.3063,0.2491],"Kimi K3 low":[0.3085,0.1343,0.325,0.2782],"Kimi K3 max":[0.3683,0.41,0.345,0.2872],"Qwen 3.8 Max nonthinking":[0.2459,0.1749,0.3032,0.1014],"Qwen 3.8 Max thinking":[0.2827,0.0811,0.4884,0.499]},"blame":{"n":[["S",[55.2,0.5,1.1,0.0,0.0,0.0,43.2]],["κ$_{tot}$",[0.8,0.0,2.5,53.3,0.0,0.0,43.4]],["σ",[0.4,54.1,6.1,0.0,0.0,0.0,39.3]],["ρ",[0.0,44.3,21.3,0.0,0.0,0.0,34.4]],["PF",[0.0,13.9,54.5,0.0,0.0,0.0,31.6]],["T axis",[0.8,0.0,0.8,0.0,0.0,82.0,16.4]]],"d":[["S",[64.5,8.7,18.0,0.0,0.0,0.5,8.2]],["κ$_{tot}$",[1.6,1.6,17.2,68.0,1.6,2.5,7.4]],["σ",[2.9,60.7,26.6,0.4,0.4,0.4,8.6]],["ρ",[0.8,59.8,28.7,0.0,0.0,0.0,10.7]],["PF",[0.8,20.9,69.7,1.2,0.0,0.8,6.6]],["T axis",[0.0,0.0,0.8,0.8,0.0,91.8,6.6]]]},"blameCols":["S","σ / ρ","PF","κ$_{tot}$","κ$_{lat}$","zT","None"],"fig4d":{"Claude Fable 5.1 high":[0.9412,0.7904,false,1.0,0.7653,false],"Claude Fable 5.1 low":[0.8235,0.6721,false,1.0,0.7459,false],"Claude Haiku 5.5 high":[0.8235,0.7297,false,0.8824,0.7184,false],"Claude Haiku 5.5 low":[0.4118,0.2935,false,0.5294,0.4212,false],"Claude Haiku 5.5 max":[0.0,0.0,true,0.0,0.0,true],"Claude Opus 5.5 high":[1.0,0.9944,false,1.0,0.9637,false],"Claude Opus 5.5 low":[0.7059,0.3849,false,1.0,0.8673,false],"Claude Opus 5.5 max":[0.0,0.0,true,0.0588,0.0588,false],"Claude Sonnet 5.5 high":[0.6471,0.632,false,0.8824,0.8429,false],"Claude Sonnet 5.5 low":[0.0,0.0,true,0.5294,0.0038,false],"Claude Sonnet 5.5 max":[0.0,0.0,true,0.0,0.0,true],"DeepSeek V4.1 Flash high":[0.8235,0.2203,false,0.8824,0.2121,false],"DeepSeek V4.1 Flash low":[0.8235,0.2259,false,0.7647,0.2046,false],"DeepSeek V4.1 Flash max":[0.6471,0.2303,false,0.7059,0.2134,false],"DeepSeek V4.1 Flash nonthinking":[0.0588,0.0,false,0.2353,0.0676,false],"GPT-5.5 high":[0.9412,0.4499,false,0.5882,0.4293,false],"GPT-5.5 low":[0.5294,0.2453,false,0.7647,0.428,false],"GPT-5.5 medium":[0.7059,0.378,false,0.8235,0.4537,false],"GPT-5.5 xhigh":[0.7059,0.5601,false,1.0,0.5832,false],"GPT-5.6 Luna high":[0.7059,0.3824,false,0.4118,0.271,false],"GPT-5.6 Luna low":[0.1176,0.092,false,0.5294,0.0657,false],"GPT-5.6 Luna max":[0.1176,0.4249,false,0.3529,0.3736,false],"GPT-5.6 Luna medium":[0.4706,0.1896,false,0.1765,0.1696,false],"GPT-5.6 Luna xhigh":[0.6471,0.4531,false,0.4118,0.3392,false],"GPT-5.6 Sol high":[0.8235,0.4981,false,0.5882,0.4844,false],"GPT-5.6 Sol low":[0.4118,0.3492,false,0.5882,0.4349,false],"GPT-5.6 Sol max":[0.5294,0.6045,false,0.8824,0.6715,false],"GPT-5.6 Sol medium":[0.7647,0.4462,false,0.7647,0.5319,false],"GPT-5.6 Sol xhigh":[0.6471,0.7046,false,0.7059,0.5056,false],"GPT-5.6 Terra high":[0.7059,0.3723,false,0.5882,0.3755,false],"GPT-5.6 Terra low":[0.2353,0.1496,false,0.3529,0.2228,false],"GPT-5.6 Terra max":[0.3529,0.4831,false,0.7647,0.4768,false],"GPT-5.6 Terra medium":[0.2941,0.1483,false,0.5882,0.3179,false],"GPT-5.6 Terra xhigh":[0.8235,0.3354,false,0.5882,0.4043,false],"GPT-6 Astra high":[0.8824,0.8529,false,1.0,0.9912,false],"GPT-6 Astra low":[0.8824,0.8273,false,0.8824,0.8548,false],"GPT-6 Astra max":[1.0,0.9969,false,1.0,0.9981,false],"GPT-6 Astra medium":[0.9412,0.9205,false,0.9412,0.9149,false],"GPT-6 Astra xhigh":[0.9412,0.9324,false,0.9412,0.9355,false],"GPT-6 Luna high":[0.1176,0.184,false,0.4118,0.2647,false],"GPT-6 Luna low":[0.0,0.0,false,0.2941,0.0,false],"GPT-6 Luna max":[0.1765,0.291,false,0.5294,0.3874,false],"GPT-6 Luna medium":[0.0,0.025,false,0.4706,0.1295,false],"GPT-6 Luna xhigh":[0.2353,0.1514,false,0.5294,0.3717,false],"GPT-6 Sol high":[0.4706,0.5594,false,0.7059,0.4975,false],"GPT-6 Sol low":[0.5882,0.3411,false,0.5294,0.403,false],"GPT-6 Sol max":[0.8824,0.7416,false,0.7647,0.704,false],"GPT-6 Sol medium":[0.3529,0.4205,false,0.7647,0.5695,false],"GPT-6 Sol xhigh":[0.7059,0.5138,false,0.7647,0.562,false],"GPT-6.1 Sol high":[0.7059,0.7441,false,0.9412,0.8636,false],"GPT-6.1 Sol low":[0.8824,0.7309,false,0.8235,0.7879,false],"GPT-6.1 Sol max":[1.0,0.9844,false,0.9412,0.9099,false],"GPT-6.1 Sol medium":[0.8235,0.7885,false,0.8235,0.7947,false],"GPT-6.1 Sol xhigh":[0.9412,0.9274,false,0.8824,0.8698,false],"Gemini 3.1 Pro nonthinking":[0.7059,0.1959,false,0.4118,0.4105,false],"Gemini 3.1 Pro thinking":[0.6471,0.2247,false,0.9412,0.5857,false],"Kimi K3 high":[0.7647,0.1696,false,0.9412,0.2309,false],"Kimi K3 low":[0.2353,0.1277,false,0.7059,0.2866,false],"Kimi K3 max":[0.7647,0.3905,false,0.9412,0.2966,false],"Qwen 3.8 Max nonthinking":[0.1765,0.1283,false,0.6471,0.1008,false],"Qwen 3.8 Max thinking":[0.3529,0.0939,false,0.9412,0.4981,false]},"fig3":{"Claude Fable 5.1 high":[8.1206,8.7851,4.5455,2.4293,3.3667,-5.8824],"Claude Fable 5.1 low":[1.8644,3.1302,0.0,5.6024,4.1211,0.0],"Claude Haiku 5.5 high":[-1.926,-4.0927,40.9091,-16.0361,-26.4576,0.0],"Claude Haiku 5.5 low":[-19.5979,-23.8653,27.2727,-3.9004,-7.5496,29.4118],"Claude Haiku 5.5 max":[null,null,null,null,null,null],"Claude Opus 5.5 high":[-0.2051,0.0,0.0,-5.3748,-0.0169,0.0],"Claude Opus 5.5 low":[11.5849,11.3416,4.5455,45.5485,49.5055,0.0],"Claude Opus 5.5 max":[null,null,null,3.2652,3.2893,5.8824],"Claude Sonnet 5.5 high":[18.6229,17.7004,13.6364,16.3952,17.5664,17.6471],"Claude Sonnet 5.5 low":[-0.3651,-0.3651,-9.0909,0.2935,0.415,11.7647],"Claude Sonnet 5.5 max":[null,null,null,null,null,null],"DeepSeek V4.1 Flash high":[0.5955,0.1955,4.5455,-0.8882,-0.2432,-5.8824],"DeepSeek V4.1 Flash low":[1.0606,3.9589,0.0,-2.3142,-0.9021,0.0],"DeepSeek V4.1 Flash max":[-1.8441,-6.3341,-13.6364,-0.6313,-1.1876,0.0],"DeepSeek V4.1 Flash nonthinking":[-3.7985,10.8486,9.0909,-1.2956,-4.0383,-5.8824],"GPT-5.5 high":[-8.3165,7.5695,-13.6364,-4.1936,7.0828,-23.5294],"GPT-5.5 low":[1.5188,14.2632,22.7273,11.8018,15.1018,35.2941],"GPT-5.5 medium":[-8.339,16.6526,-9.0909,1.5778,12.4163,-23.5294],"GPT-5.5 xhigh":[-3.6212,0.102,-4.5455,-5.2039,-9.7468,-5.8824],"GPT-5.6 Luna high":[-40.1942,-18.6846,0.0,-28.8923,-13.9023,-5.8824],"GPT-5.6 Luna low":[-9.34,-17.0213,13.6364,-12.1841,-24.9213,23.5294],"GPT-5.6 Luna max":[-7.7119,-7.2405,0.0,3.6816,-7.1068,-5.8824],"GPT-5.6 Luna medium":[-21.7636,-15.4614,-4.5455,-27.3989,-30.9239,-5.8824],"GPT-5.6 Luna xhigh":[-17.3705,1.8318,0.0,-12.5242,0.2734,0.0],"GPT-5.6 Sol high":[-0.3696,10.8186,0.0,-3.742,10.9371,-5.8824],"GPT-5.6 Sol low":[12.9285,18.4393,13.6364,9.786,22.6529,5.8824],"GPT-5.6 Sol max":[1.1859,-0.6329,4.5455,11.3283,9.3638,5.8824],"GPT-5.6 Sol medium":[-10.4365,-11.1278,-9.0909,15.6003,22.415,0.0],"GPT-5.6 Sol xhigh":[3.37,4.5558,4.5455,-11.5761,-2.6778,0.0],"GPT-5.6 Terra high":[-5.0616,18.6253,0.0,7.1647,34.6892,0.0],"GPT-5.6 Terra low":[1.138,7.9861,27.2727,3.1126,15.9524,-5.8824],"GPT-5.6 Terra max":[0.4034,3.0358,0.0,-5.5406,-4.1982,0.0],"GPT-5.6 Terra medium":[-13.2518,-4.8644,-13.6364,7.0831,18.4329,0.0],"GPT-5.6 Terra xhigh":[-9.4846,18.7891,0.0,9.7042,40.8203,0.0],"GPT-6 Astra high":[-0.5443,0.019,0.0,9.7503,-0.0253,0.0],"GPT-6 Astra low":[-0.2303,0.3904,-4.5455,2.873,3.6451,0.0],"GPT-6 Astra max":[0.0371,0.0,0.0,-0.4802,0.0,0.0],"GPT-6 Astra medium":[-0.2058,0.0328,0.0,2.1783,0.0422,5.8824],"GPT-6 Astra xhigh":[0.1522,0.0,0.0,-0.5526,0.0,0.0],"GPT-6 Luna high":[-1.3478,-8.5439,0.0,8.9097,5.1885,-17.6471],"GPT-6 Luna low":[-1.5767,-1.9204,4.5455,-1.7298,-2.6337,0.0],"GPT-6 Luna max":[4.2972,-1.5918,0.0,3.6668,10.0364,5.8824],"GPT-6 Luna medium":[6.8706,10.4012,40.9091,6.0246,6.7748,5.8824],"GPT-6 Luna xhigh":[13.5114,10.0015,-4.5455,16.5721,19.2467,23.5294],"GPT-6 Sol high":[-17.5067,-21.9904,-13.6364,-8.9428,-6.7513,0.0],"GPT-6 Sol low":[-4.5804,-5.7181,-4.5455,3.3374,10.4137,5.8824],"GPT-6 Sol max":[-2.447,-1.8427,0.0,-3.0086,3.8444,0.0],"GPT-6 Sol medium":[-2.5082,-4.3749,-9.0909,5.8784,5.6814,0.0],"GPT-6 Sol xhigh":[0.9948,4.5011,0.0,7.6704,10.0201,5.8824],"GPT-6.1 Sol high":[3.6623,0.0207,0.0,9.4519,0.0,0.0],"GPT-6.1 Sol low":[0.8254,1.7737,4.5455,1.0616,4.1538,11.7647],"GPT-6.1 Sol max":[0.358,0.0,0.0,-6.5881,-1.8819,0.0],"GPT-6.1 Sol medium":[3.9176,0.4404,0.0,-3.1335,-0.2654,0.0],"GPT-6.1 Sol xhigh":[1.2276,0.0,0.0,-1.6357,0.0,0.0],"Gemini 3.1 Pro nonthinking":[5.5461,4.6021,4.5455,-4.5072,-6.8148,0.0],"Gemini 3.1 Pro thinking":[14.0436,10.3664,4.5455,20.7907,12.5559,5.8824],"Kimi K3 high":[0.3514,-9.5624,18.1818,-1.112,-7.0735,0.0],"Kimi K3 low":[-0.7955,-2.0739,22.7273,3.6689,-7.3898,5.8824],"Kimi K3 max":[-0.4532,4.3364,27.2727,-3.519,-2.7244,5.8824],"Qwen 3.8 Max nonthinking":[5.8975,3.2389,-9.0909,3.3606,-2.5746,23.5294],"Qwen 3.8 Max thinking":[35.3099,28.2061,22.7273,22.9949,10.3561,5.8824]},"fig3sum":[["Y10 rate","Clean",-0.2,0.56,10,13],["Y10 rate","Fault",1.6,0.19,19,11],["Coverage rate","Clean",0.1,0.18,16,11],["Coverage rate","Fault",0.3,0.05,22,11],["valid_rate","Clean",0.0,0.08,13,9],["valid_rate","Fault",0.0,0.14,20,12]],"robust":[["GPT-6.1 Sol max","GPT-6.1 Sol","max",true,0.0119,0.0,0.0301,0.7414,0.4089,1.0783,99.2467],["GPT-6.1 Sol xhigh","GPT-6.1 Sol","xhigh",true,0.0475,0.0195,0.0831,2.0177,1.1033,2.8707,97.936],["GPT-6.1 Sol high","GPT-6.1 Sol","high",true,0.5392,0.4,0.7284,4.6157,2.8299,6.3377,94.8657],["GPT-6.1 Sol medium","GPT-6.1 Sol","medium",true,1.1034,0.857,1.3144,7.8847,5.5265,10.0483,91.0677],["GPT-6.1 Sol low","GPT-6.1 Sol","low",true,13.387,12.4795,14.12,10.6334,8.586,12.3999,67.4775],["GPT-6 Astra max","GPT-6 Astra","max",true,0.1975,0.0742,0.3379,0.3415,0.1568,0.5227,99.461],["GPT-6 Astra xhigh","GPT-6 Astra","xhigh",true,0.0476,0.0152,0.0909,0.3903,0.1959,0.5915,99.5621],["GPT-6 Astra high","GPT-6 Astra","high",true,0.058,0.0,0.1552,2.0022,1.2186,2.7305,97.9217],["GPT-6 Astra medium","GPT-6 Astra","medium",true,0.7815,0.5245,1.0862,4.2535,2.6241,5.7224,94.9373],["GPT-6 Astra low","GPT-6 Astra","low",true,0.7901,0.5784,0.9573,4.5346,2.7865,6.2656,94.6172],["GPT-6 Sol max","GPT-6 Sol","max",true,8.5649,7.9128,9.0519,13.9012,9.176,18.4029,78.7625],["GPT-6 Sol xhigh","GPT-6 Sol","xhigh",true,10.6087,9.8066,11.3341,19.3743,13.518,24.5666,72.3174],["GPT-6 Sol high","GPT-6 Sol","high",true,18.5183,17.2062,19.5925,17.7132,12.6252,22.2682,61.0173],["GPT-6 Sol medium","GPT-6 Sol","medium",true,31.1316,29.9817,32.1187,23.715,18.5858,28.1939,45.096],["GPT-6 Sol low","GPT-6 Sol","low",true,30.4078,28.3999,32.5587,27.7453,23.4937,31.8689,42.8905],["GPT-6 Luna max","GPT-6 Luna","max",true,36.792,34.9409,38.237,54.9216,50.5969,58.9468,25.862],["GPT-6 Luna xhigh","GPT-6 Luna","xhigh",true,35.552,33.4117,37.2452,53.9001,48.9324,58.3715,19.0144],["GPT-6 Luna high","GPT-6 Luna","high",true,42.3755,39.7977,44.2675,52.6148,47.8143,57.2484,18.4092],["GPT-6 Luna medium","GPT-6 Luna","medium",true,38.2939,36.6841,40.2092,56.06,49.8861,61.2495,8.828],["GPT-6 Luna low","GPT-6 Luna","low",false,22.0149,18.5892,24.9328,47.619,42.394,51.6006,1.188],["Claude Opus 5.5 max","Claude Opus 5.5","max",false,null,null,null,null,null,null,0.0],["Claude Opus 5.5 high","Claude Opus 5.5","high",true,0.0794,0.0,0.1896,1.6199,0.8928,2.3694,98.3036],["Claude Opus 5.5 low","Claude Opus 5.5","low",true,1.502,1.0974,1.7899,5.0622,2.7782,7.3778,62.8263],["Claude Sonnet 5.5 max","Claude Sonnet 5.5","max",false,null,null,null,null,null,null,0.0],["Claude Sonnet 5.5 high","Claude Sonnet 5.5","high",true,0.2343,0.033,0.5353,4.7477,2.9322,6.4289,87.7102],["Claude Sonnet 5.5 low","Claude Sonnet 5.5","low",false,0.0,0.0,0.0,6.6667,0.0,21.25,0.4868],["Claude Haiku 5.5 max","Claude Haiku 5.5","max",false,null,null,null,null,null,null,0.0],["Claude Haiku 5.5 high","Claude Haiku 5.5","high",true,2.4459,1.8827,3.1656,12.3311,8.479,15.8824,82.8835],["Claude Haiku 5.5 low","Claude Haiku 5.5","low",true,2.471,1.958,3.1027,18.8432,14.0817,23.4521,52.1568],["Claude Fable 5.1 high","Claude Fable 5.1","high",true,14.1693,12.0977,15.891,13.3925,9.895,16.7087,71.9272],["Claude Fable 5.1 low","Claude Fable 5.1","low",true,16.7594,14.9958,18.1348,16.3085,12.5353,19.981,67.6507],["Gemini 3.1 Pro thinking","Gemini 3.1 Pro","thinking",true,35.0709,32.9228,36.8178,28.0394,23.0146,33.0509,42.8833],["Gemini 3.1 Pro nonthinking","Gemini 3.1 Pro","nonthinking",true,36.2267,34.0744,38.1734,29.7103,25.4355,33.8567,39.4604],["GPT-5.6 Sol max","GPT-5.6 Sol","max",true,28.3831,26.3093,30.0896,16.2736,11.7207,20.6374,59.4721],["GPT-5.6 Sol xhigh","GPT-5.6 Sol","xhigh",true,35.106,34.1732,35.9018,20.2486,15.7035,24.2841,50.0219],["GPT-5.6 Sol high","GPT-5.6 Sol","high",true,37.0612,35.6658,38.3184,24.568,19.1876,29.524,43.5877],["GPT-5.6 Sol medium","GPT-5.6 Sol","medium",true,42.2434,41.153,43.2628,24.4147,19.6885,28.6242,37.4663],["GPT-5.6 Sol low","GPT-5.6 Sol","low",true,42.0101,40.5145,43.4388,28.211,23.984,32.2636,36.2204],["GPT-5.6 Terra max","GPT-5.6 Terra","max",true,28.1837,27.0229,29.0766,37.7182,31.2132,43.4948,42.9933],["GPT-5.6 Terra xhigh","GPT-5.6 Terra","xhigh",true,38.2758,36.3388,39.8599,35.3678,29.1107,40.9905,31.495],["GPT-5.6 Terra high","GPT-5.6 Terra","high",true,36.8667,35.4764,38.2707,37.4337,30.8114,43.2448,30.6636],["GPT-5.6 Terra medium","GPT-5.6 Terra","medium",true,33.0209,30.7578,35.1895,47.334,41.9571,52.7097,22.0898],["GPT-5.6 Terra low","GPT-5.6 Terra","low",true,36.4854,35.0903,38.1839,46.3745,42.6032,50.0076,20.9081],["GPT-5.6 Luna max","GPT-5.6 Luna","max",true,13.257,11.8721,14.6577,43.4785,36.9944,49.6052,35.1795],["GPT-5.6 Luna xhigh","GPT-5.6 Luna","xhigh",true,19.7319,18.2627,21.0304,39.2274,33.1905,44.5498,38.028],["GPT-5.6 Luna high","GPT-5.6 Luna","high",true,28.4835,27.5477,29.3809,41.1703,36.2399,45.4955,34.5983],["GPT-5.6 Luna medium","GPT-5.6 Luna","medium",true,28.1537,26.5753,29.8448,67.7254,63.3501,71.7795,16.1558],["GPT-5.6 Luna low","GPT-5.6 Luna","low",true,21.928,20.5872,23.5341,70.3363,66.217,74.2116,12.2075],["GPT-5.5 xhigh","GPT-5.5","xhigh",true,22.4604,20.0304,24.2541,19.7536,14.4061,24.7561,60.605],["GPT-5.5 high","GPT-5.5","high",true,38.205,36.0916,40.0175,24.6713,18.72,30.059,38.5549],["GPT-5.5 medium","GPT-5.5","medium",true,36.0948,34.6507,37.6135,32.9738,27.3813,38.2715,34.841],["GPT-5.5 low","GPT-5.5","low",true,38.4104,37.5581,39.3389,37.7552,32.444,42.7194,31.0929],["Kimi K3 max","Kimi K3","max",true,25.1645,20.9951,30.3265,48.2973,43.8124,52.3419,30.9167],["Kimi K3 high","Kimi K3","high",true,27.3138,24.6731,30.3226,45.9383,41.5267,50.1426,26.4112],["Kimi K3 low","Kimi K3","low",true,20.3936,18.7226,22.311,45.1904,40.8685,49.3214,27.5964],["Qwen 3.8 Max thinking","Qwen 3.8 Max","thinking",true,31.9718,30.3148,33.5266,34.0433,28.7707,38.8361,39.1955],["Qwen 3.8 Max nonthinking","Qwen 3.8 Max","nonthinking",true,22.7786,20.6764,25.4745,47.398,42.5669,51.9388,25.0782],["DeepSeek V4.1 Flash max","DeepSeek V4.1 Flash","max",true,28.2294,26.4027,30.1579,27.6369,21.9109,33.2433,24.8968],["DeepSeek V4.1 Flash high","DeepSeek V4.1 Flash","high",true,30.6337,27.9749,33.564,31.3006,25.3457,36.6652,26.0117],["DeepSeek V4.1 Flash low","DeepSeek V4.1 Flash","low",true,24.0007,22.4474,25.6713,29.5386,24.0967,34.5815,29.2506],["DeepSeek V4.1 Flash nonthinking","DeepSeek V4.1 Flash","nonthinking",true,42.156,40.9041,43.5709,48.5745,43.8014,53.117,17.5154]],"prompts":{"n":[["Independent assessment rules","1. The figure may or may not have a wrong unit or another axis-semantic inconsistency. Determine this independently from the visible evidence. A non-canonical but equivalent presentation is not necessarily an error.","2. Do not assume in advance which axes use which scale, whether a displayed unit is equivalent or inconsistent, or whether an issue exists.","3. If the evidence supports an inconsistency, localize the root issue, derive the correction, and apply it to the visible marker coordinates before storing canonical values in plot_records. If the evidence does not support an inconsistency, do not invent one and set localized_issue to null.","4. Independently identify any physical or dimensional consistency relations supported by the visible quantities. Derive and state each applicable equation yourself; no specific verification formula is supplied by this prompt.","5. Match the same sample across panels using the legend name. Compare only exact marker temperatures shared by all quantities required for a check. Do not interpolate.","6. For each applicable check, use relative_tolerance = 0.05. Report the maximum relative deviation for each sample and the overall maximum. Use an empty verification array only when no cross-panel relation can be assessed from the visible quantities.","7. A relation may diagnose or verify an interpretation, but it must never replace a visible marker value or be used to force plot_records to pass a check."],["Neutral D2 task","Extract and canonicalize the visible data, independently assess the axis presentation and unit semantics, and perform every physical or dimensional consistency check that you identify from the visible quantities. The task description and output template do not imply that any particular presentation or inconsistency is present."]],"d":[["Verification rules","- Match the same sample across panels using the legend name.","- Compare only exact marker temperatures shared by all required panels. Do not interpolate.","- Use PF = S^2*sigma for Seebeck + conductivity + power factor.","- Use PF = S^2/rho for Seebeck + resistivity + power factor.","- Use zT = PF*T/kappa_tot for power factor + total thermal conductivity + zT. Never substitute lattice thermal conductivity for kappa_tot.","- A six-panel question requires both PF = S^2*sigma and zT = PF*T/kappa_tot.","- Use relative_tolerance = 0.05. For each sample report the maximum relative deviation over shared markers, then report the overall maximum.","- Do not change plot_records to force a relation to pass."],["Category-specific task","D2-D — Wrong unit detection","The figure contains exactly one localized root fault in an axis unit declaration, multiplier, exponent, quantity label, or temperature offset. Audit the visible semantics and return unit_verdict = unit-inconsistent. Localize exactly one root issue and derive the correction factor or offset. Check the corrected interpretation using dimensional consistency and the applicable visible thermoelectric relation. Record the check and its passing result in localized_issue.evidence, record the applied factor or offset in localized_issue.numeric_transformation, and record the resulting canonical unit in localized_issue.expected_correction. Apply that checked correction to the visible marker coordinates and store the corrected canonical-unit values in plot_records. Do not store values based on the wrong printed semantics, and never replace marker values with relation-calculated values. task_answer must contain only unit_verdict and localized_issue."]]},"faultFig":{"a":[["Sample 1",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[204.854,204.369,216.835,233.524,261.265,266.421,261.73,251.994,245.717,245.794,250.265]],["Sample 2",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[316.84,309.877,323.422,335.953,340.925,340.327,324.793,348.024,348.838,358.018,387.238,369.656,393.616,374.453,369.23,360.573,351.85,335.241,336.868,328.64]],["Sample 3",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[413.291,416.255,410.229,427.971,435.668,438.667,436.809,436.495,442.695,465.617,451.151,450.333,430.757,433.146,407.662,407.84,393.551,382.048,372.629,353.727,325.23]],["Sample 4",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[468.916,474.629,495.714,478.594,471.96,487.595,492.652,476.312,484.771,492.278,479.581,467.698,455.848,439.669,420.161,407.988,392.828,378.776,357.552,342.64,334.553]],["Sample 5",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[498.626,487.717,485.938,504.873,520.746,522.028,545.817,592.737,565.92,575.062,562.581,526.199,504.813,477.868,461.159,446.16,415.881,409.765,390.335,373.554,362.321]]],"b":[["Sample 1",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[164.832,175.284,171.819,162.253,145.873,140.676,142.282,159.028,192.536,189.28,172.523]],["Sample 2",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[49.933,42.268,42.412,39.156,33.785,32.576,31.872,29.829,30.698,25.748,25.495,24.6,24.389,28.913,31.084,36.247,41.032,45.241,49.705,56.993]],["Sample 3",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[8.897,8.181,9.164,8.051,9.592,8.51,9.187,10.719,10.466,10.777,10.54,12.45,13.935,16.124,19.036,21.771,27.881,29.962,35.596,43.27,56.279]],["Sample 4",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[5.623,5.322,4.964,4.555,4.964,4.108,4.13,4.593,4.343,4.964,5.506,6.79,9.239,10.739,14.684,17.597,20.875,27.552,36.17,43.876,46.076]],["Sample 5",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[3.176,2.99,3.309,2.656,2.444,1.706,2.026,2.03,2.312,3.039,3.648,4.94,7.414,8.72,12.733,14.395,19.92,24.341,30.515,34.902,37.731]]],"c":[["Sample 1",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[6.917,7.321,8.078,8.848,9.957,9.985,9.747,10.098,11.625,11.435,10.806]],["Sample 2",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[5.013,4.059,4.436,4.419,3.927,3.773,3.362,3.613,3.736,3.3,3.823,3.362,3.779,4.054,4.238,4.713,5.08,5.084,5.64,6.156]],["Sample 3",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[1.52,1.417,1.542,1.475,1.821,1.638,1.753,2.042,2.051,2.336,2.145,2.525,2.586,3.025,3.164,3.621,4.318,4.373,4.943,5.414,5.953]],["Sample 4",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[1.236,1.199,1.22,1.043,1.106,0.977,1.002,1.042,1.021,1.203,1.266,1.485,1.92,2.076,2.592,2.929,3.221,3.953,4.624,5.151,5.157]],["Sample 5",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[0.79,0.711,0.781,0.677,0.663,0.465,0.603,0.713,0.74,1.005,1.155,1.368,1.889,1.991,2.708,2.866,3.445,4.087,4.649,4.87,4.953]]]},"faultTruth":{"panel_id":"b","axis":"y","semantic_field":"multiplier","issue_type":"unit_multiplier_mismatch","expected_correction":"sigma (S cm^-1)","numeric_transformation":"Keep the plotted numbers and use S/cm; otherwise divide them by 10 if 10^3 S/m is retained.","evidence":"PF = S^2*sigma requires a tick value v to mean v S/cm = 100v S/m, whereas the printed multiplier means 1000v S/m."}}/*EXTRA-DATA*/;
   const legend=document.getElementById('smLegend');
   legend.innerHTML=FAM.map(f=>`<span><i style="background:var(${f[1]})"></i>${f[0]}</span>`).join('')+`<span><em class="x">×</em>no output (truncated)</span>`;
   const host=document.getElementById('smChart'), tip=document.getElementById('smTip'), card=document.getElementById('chart-sm');
-  let prompt='n';
+  let prompt='n', smView='sm';
+  const SM_VIEW={
+    sm:{title:"Same curves, single vs combined panels", sub:"Each dot is one configuration. Below the diagonal means the model loses accuracy when the same curves move into a multi-panel figure.",
+        xl:"Single panel, Y10 (%)", yl:"Multi-panel, Y10 (%)", aria:"single-panel versus multi-panel Y10",
+        rows:()=>SM.map(r=>({n:r[0],x:r[1],y:prompt==='n'?r[2]:r[3],no:prompt==='n'?r[4]:r[5]})),
+        tipf:d=>`Single ${d.x.toFixed(1)}% → multi ${d.no?'no output':d.y.toFixed(1)+'%'}${d.no?'':` (${d.y-d.x>=0?'+':''}${(d.y-d.x).toFixed(1)} pts)`}`},
+    fc:{title:"Faulty panel vs the other panels of the same figure", sub:"17 figures with one planted unit fault. Each dot is one configuration: Y10 on the faulty panel against Y10 on the clean panels around it. The dots hug the diagonal, so the fault barely changes how well the points are read; the damage is in the units.",
+        xl:"Other panels, Y10 (%)", yl:"Faulty panel, Y10 (%)", aria:"faulty-panel versus companion-panel Y10",
+        rows:()=>Object.entries(EX.fig2d||{}).map(([m,v])=>{const c=prompt==='n'?v[0]:v[2], f=prompt==='n'?v[1]:v[3]; return {n:m,x:c===null?null:100*c,y:f===null?null:100*f,no:c===null||f===null}}).filter(d=>!d.no),
+        tipf:d=>`Other panels ${d.x.toFixed(1)}% · faulty panel ${d.y.toFixed(1)}% (${d.y-d.x>=0?'+':''}${(d.y-d.x).toFixed(1)} pts)`}};
+  let SMROWS=[];
   function draw(){
     tip.style.opacity=0;
+    const V=SM_VIEW[smView]; SMROWS=V.rows();
+    document.getElementById('smTitle').textContent=V.title; document.getElementById('smSub').textContent=V.sub;
     const W=Math.min(host.clientWidth||460,520), H=W*0.86, m={l:46,r:12,t:12,b:40};
     const iw=W-m.l-m.r, ih=H-m.t-m.b, x=v=>m.l+v/100*iw, y=v=>m.t+ih-v/100*ih;
-    let s=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Scatter of single-panel versus multi-panel Y10 for 61 configurations">`;
+    let s=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Scatter of ${V.aria} for each configuration">`;
     for(const v of [0,25,50,75,100]){
       s+=`<line class="grid" x1="${x(0)}" x2="${x(100)}" y1="${y(v)}" y2="${y(v)}"/><line class="grid" x1="${x(v)}" x2="${x(v)}" y1="${y(0)}" y2="${y(100)}"/>`;
       s+=`<text x="${m.l-8}" y="${y(v)+4}" text-anchor="end">${v}</text><text x="${x(v)}" y="${H-m.b+16}" text-anchor="middle">${v}</text>`;
     }
     s+=`<line class="diag" x1="${x(0)}" y1="${y(0)}" x2="${x(100)}" y2="${y(100)}"/>`;
     s+=`<text x="${x(97)}" y="${y(99)+16}" text-anchor="end" style="font-size:11px">no change</text>`;
-    s+=`<text class="axis-title" x="${m.l+iw/2}" y="${H-4}" text-anchor="middle">Single panel, Y10 (%)</text>`;
-    s+=`<text class="axis-title" transform="translate(12 ${m.t+ih/2}) rotate(-90)" text-anchor="middle">Multi-panel, Y10 (%)</text>`;
-    SM.forEach((r,i)=>{
-      const mv=prompt==='n'?r[2]:r[3], trunc=prompt==='n'?r[4]:r[5], col=`var(${famOf(r[0])[1]})`;
-      const cx=x(r[1]), cy=y(mv);
-      if(trunc){
-        s+=`<g class="pt" data-i="${i}"><circle cx="${cx}" cy="${cy}" r="10" fill="transparent"/><path d="M${cx-4} ${cy-4}L${cx+4} ${cy+4}M${cx+4} ${cy-4}L${cx-4} ${cy+4}" stroke="${col}" stroke-width="2.2"/></g>`;
-      }else{
-        s+=`<g class="pt" data-i="${i}"><circle cx="${cx}" cy="${cy}" r="10" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="4.6" fill="${col}" stroke="var(--surface)" stroke-width="1.5"/></g>`;
-      }
+    s+=`<text class="axis-title" x="${m.l+iw/2}" y="${H-4}" text-anchor="middle">${V.xl}</text>`;
+    s+=`<text class="axis-title" transform="translate(12 ${m.t+ih/2}) rotate(-90)" text-anchor="middle">${V.yl}</text>`;
+    SMROWS.forEach((d,i)=>{
+      const col=`var(${famOf(d.n)[1]})`, cx=x(d.x), cy=y(d.no?0:d.y);
+      s+=d.no?`<g class="pt" data-i="${i}"><circle cx="${cx}" cy="${cy}" r="10" fill="transparent"/><path d="M${cx-4} ${cy-4}L${cx+4} ${cy+4}M${cx+4} ${cy-4}L${cx-4} ${cy+4}" stroke="${col}" stroke-width="2.2"/></g>`
+             :`<g class="pt" data-i="${i}"><circle cx="${cx}" cy="${cy}" r="10" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="4.6" fill="${col}" stroke="var(--surface)" stroke-width="1.5"/></g>`;
     });
-    s+='</svg>';
-    host.innerHTML=s;
+    host.innerHTML=s+'</svg>';
     host.querySelectorAll('.pt').forEach(g=>{
-      const show=ev=>{
-        const r=SM[+g.dataset.i], mv=prompt==='n'?r[2]:r[3], tr=prompt==='n'?r[4]:r[5];
-        tip.innerHTML=`<b>${r[0]}</b>Single ${r[1].toFixed(1)}% → multi ${tr?'no output':mv.toFixed(1)+'%'}${tr?'':` (${(mv-r[1]>=0?'+':'')}${(mv-r[1]).toFixed(1)} pts)`}`;
-        const cb=card.getBoundingClientRect(), gb=g.getBoundingClientRect();
-        let left=gb.left-cb.left+gb.width/2+10, top=gb.top-cb.top-8;
-        tip.style.opacity=1; const tw=tip.offsetWidth;
-        if(left+tw>cb.width-8) left=gb.left-cb.left-tw-6;
-        tip.style.left=left+'px'; tip.style.top=top+'px';
-      };
+      const show=()=>{const d=SMROWS[+g.dataset.i]; tip.innerHTML=`<b>${d.n}</b>${V.tipf(d)}`; place(tip,card,g)};
       g.addEventListener('mouseenter',show); g.addEventListener('click',show);
       g.addEventListener('mouseleave',()=>tip.style.opacity=0);
     });
+    table();
   }
   function table(){
-    const t=document.getElementById('smTable');
-    t.innerHTML='<thead><tr><th>Configuration</th><th>Single</th><th>Multi (neutral)</th><th>Multi (detailed)</th></tr></thead><tbody>'+
-      SM.map(r=>`<tr><td>${r[0]}</td><td>${r[1].toFixed(1)}</td><td>${r[4]?'no output':r[2].toFixed(1)}</td><td>${r[5]?'no output':r[3].toFixed(1)}</td></tr>`).join('')+'</tbody>';
+    const V=SM_VIEW[smView], t=document.getElementById('smTable'), pl=prompt==='n'?'neutral':'detailed';
+    t.innerHTML=`<thead><tr><th>Configuration (${pl} prompt)</th><th>${V.xl}</th><th>${V.yl}</th></tr></thead><tbody>`+
+      SMROWS.map(d=>`<tr><td>${d.n}</td><td>${d.x.toFixed(1)}</td><td>${d.no?'no output':d.y.toFixed(1)}</td></tr>`).join('')+'</tbody>';
   }
   document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{
-    prompt=b.dataset.prompt;
-    document.querySelectorAll('[data-prompt]').forEach(o=>o.setAttribute('aria-pressed',o===b));
-    draw();
+    prompt=b.dataset.prompt; document.querySelectorAll('[data-prompt]').forEach(o=>o.setAttribute('aria-pressed',o===b)); draw();
   }));
-  draw(); table();
+  document.querySelectorAll('[data-smv]').forEach(b=>b.addEventListener('click',()=>{
+    smView=b.dataset.smv; document.querySelectorAll('[data-smv]').forEach(o=>o.setAttribute('aria-pressed',o===b)); draw();
+  }));
+  draw();
   let rt; addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(draw,120)});
 
   // ---------- funnel ----------
@@ -1002,7 +1101,7 @@ footer a{color:var(--teal);text-decoration:none}
 
   // ---------- fault types ----------
   const FT=[["×1000 prefix (looks unphysical)"],["Seebeck <var>S</var> (mV vs μV)",59.3,70.5],["Thermal conductivity <var>κ</var> (mW vs W)",55.8,62.1],
-    ["×10–100 multiplier (looks plausible)"],["Power factor PF",36.2,40.4],["Conductivity <var>σ</var>",34.1,36.0],["Resistivity <var>ρ</var>",27.8,31.4],
+    ["×10–100 multiplier (looks plausible)"],["Power factor <var>PF</var>",36.2,40.4],["Conductivity <var>σ</var>",34.1,36.0],["Resistivity <var>ρ</var>",27.8,31.4],
     ["+273 K offset (°C vs K)"],["Temperature axis on <var>zT</var>",45.1,49.9]];
   document.getElementById('faultTable').innerHTML='<thead><tr><th>Fault</th><th>Recovered: neutral → detailed</th></tr></thead><tbody>'+
     FT.map(r=>r.length===1?`<tr class="grp"><td colspan="2">${r[0]}</td></tr>`:
@@ -1020,9 +1119,11 @@ footer a{color:var(--teal);text-decoration:none}
   const famVar=f=>`var(${FAM.find(x=>x[0]===f)[1]})`;
   const COND_LABEL={single:"single panel, 36 figures",multi:"multi-panel, all 78 tests",cn:"multi-panel, no fault, neutral prompt",cd:"multi-panel, no fault, detailed prompt",fn:"multi-panel, planted fault, neutral prompt",fd:"multi-panel, planted fault, detailed prompt"};
   // each card has its own Single / Multi-panel switch (+ multi-panel condition); cb(conditionKey) redraws that card
-  function figToggle(card,cb){
-    let ds="single", sub="multi";
+  function figToggle(card,cb,init){
+    let ds=init||"single", sub="multi";
     const subSeg=card.querySelector('.seg.sub'), key=()=>ds==="single"?"single":sub;
+    subSeg.hidden=ds!=="multi";
+    card.querySelectorAll('[data-ds]').forEach(o=>o.setAttribute('aria-pressed',o.dataset.ds===ds));
     card.querySelectorAll('[data-ds]').forEach(b=>b.addEventListener('click',()=>{
       ds=b.dataset.ds; subSeg.hidden=ds!=="multi";
       card.querySelectorAll('[data-ds]').forEach(o=>o.setAttribute('aria-pressed',o===b)); cb(key());
@@ -1033,9 +1134,7 @@ footer a{color:var(--teal);text-decoration:none}
     }));
     return key;
   }
-  const cond=figToggle(document.getElementById('chart-rings'),()=>drawRings());
   const swatch=c=>c.startsWith("url")?`<i class="sw-b hatch"></i>`:`<i class="sw-b" style="background:${c}"></i>`;
-  document.getElementById('ringLegend').innerHTML=BANDS.map(b=>`<span>${swatch(b[1])}${b[0]}</span>`).join('');
   document.getElementById('fmtLegend').innerHTML=STAT.map(b=>`<span>${b[1]?`<i class="sw-b" style="background:${b[1]}"></i>`:'<i class="sw-b hatch"></i>'}${b[0]}</span>`).join('');
 
   const R0=24, R1=77, SL=(R1-R0)/6, GAP=1.6, C=80;
@@ -1069,38 +1168,56 @@ footer a{color:var(--teal);text-decoration:none}
     return `<div class="ring-cell key"><h4>How to read</h4>${s}<p class="key-note">Inner → outer: more reasoning effort. Centre: Y10 (%) of the outer ring. Hover or tap a ring for its full split.</p></div>`;
   }
 
-  function drawRings(){
-    const k=cond(), grid=document.getElementById('ringGrid');
-    let html=keyCell();
-    RING.forEach((ser,si)=>{
-      let s=`<svg viewBox="0 0 160 160" role="img" aria-label="${ser.name}: gold-point split by reasoning effort">`;
-      const used=new Set(ser.cfg.map(c=>c.slot));
-      for(let i=0;i<6;i++) if(!used.has(i)) s+=`<circle class="empty" cx="${C}" cy="${C}" r="${R0+SL*(i+.5)}" stroke-width="1"/>`;
-      ser.cfg.forEach((c,ci)=>{
-        const ri=R0+SL*c.slot+GAP/2, ro=R0+SL*(c.slot+1)-GAP/2;
-        let f=0, segs='';
-        c[k].b.forEach((v,bi)=>{ if(v<=0.05) return; const f1=Math.min(1,f+v/100); segs+=`<path d="${sector(ri,ro,f,f1)}" fill="${BANDS[bi][1]}"/>`; f=f1; });
-        s+=`<g class="ring" data-s="${si}" data-c="${ci}"><path d="${sector(ri-GAP/2,ro+GAP/2,0,1)}" fill="transparent"/>${segs}</g>`;
+  // one ring card = .ring-card element with data-init="single|multi"; several cards can coexist
+  function ringCard(card){
+    const grid=card.querySelector('.ring-grid'), tip=card.querySelector('.r-tip');
+    card.querySelector('.r-legend').innerHTML=BANDS.map(b=>`<span>${swatch(b[1])}${b[0]}</span>`).join('');
+    function ringTip(g,ser,c,k){
+      const d=c[k];
+      tip.innerHTML=`<b>${ser.name} ${effLabel(c.effort)}</b>`+
+        BANDS.map((b,i)=>d.b[i]>0.05||i<4?`<div>${swatch(b[1])}${b[0]}: ${d.b[i].toFixed(1)}%</div>`:'').join('')+
+        `<div style="margin-top:4px;opacity:.8">${d.s[0]}/${nAns(d.s)} answers schema-valid</div>`;
+      place(tip,card,g.closest('svg'));
+    }
+    function draw(k){
+      tip.style.opacity=0;
+      let html=keyCell();
+      RING.forEach((ser,si)=>{
+        let s=`<svg viewBox="0 0 160 160" role="img" aria-label="${ser.name}: gold-point split by reasoning effort">`;
+        const used=new Set(ser.cfg.map(c=>c.slot));
+        for(let i=0;i<6;i++) if(!used.has(i)) s+=`<circle class="empty" cx="${C}" cy="${C}" r="${R0+SL*(i+.5)}" stroke-width="1"/>`;
+        ser.cfg.forEach((c,ci)=>{
+          const ri=R0+SL*c.slot+GAP/2, ro=R0+SL*(c.slot+1)-GAP/2;
+          let f=0, segs='';
+          c[k].b.forEach((v,bi)=>{ if(v<=0.05) return; const f1=Math.min(1,f+v/100); segs+=`<path d="${sector(ri,ro,f,f1)}" fill="${BANDS[bi][1]}"/>`; f=f1; });
+          s+=`<g class="ring" data-s="${si}" data-c="${ci}"><path d="${sector(ri-GAP/2,ro+GAP/2,0,1)}" fill="transparent"/>${segs}</g>`;
+        });
+        s+=`<text class="c-num c-big" x="${C}" y="${C+5}" text-anchor="middle"></text><text class="c-small" x="${C}" y="${C+17}" text-anchor="middle"></text></svg>`;
+        const chips=ser.cfg.filter(c=>c[k].s[3]>0).map(c=>`<span class="chip" title="Answers that hit the output-token cap">✂ ${effLabel(c.effort)} cut off ${c[k].s[3]}/${nAns(c[k].s)}</span>`).join('');
+        html+=`<div class="ring-cell" data-s="${si}"><h4><i style="background:${famVar(ser.fam)}"></i>${ser.name}</h4>${s}<div class="chips">${chips}</div></div>`;
       });
-      s+=`<text class="c-num c-big" x="${C}" y="${C+5}" text-anchor="middle"></text><text class="c-small" x="${C}" y="${C+17}" text-anchor="middle"></text></svg>`;
-      const chips=ser.cfg.filter(c=>c[k].s[3]>0).map(c=>`<span class="chip" title="Answers that hit the output-token cap">✂ ${effLabel(c.effort)} cut off ${c[k].s[3]}/${nAns(c[k].s)}</span>`).join('');
-      html+=`<div class="ring-cell" data-s="${si}"><h4><i style="background:${famVar(ser.fam)}"></i>${ser.name}</h4>${s}<div class="chips">${chips}</div></div>`;
-    });
-    grid.innerHTML=html;
-    grid.querySelectorAll('.ring-cell[data-s]').forEach(cell=>{
-      const ser=RING[+cell.dataset.s], svg=cell.querySelector('svg'), top=ser.cfg[ser.cfg.length-1];
-      centre(svg,top,k);
-      cell.querySelectorAll('.ring').forEach(g=>{
-        const c=ser.cfg[+g.dataset.c];
-        const on=()=>{cell.classList.add('focus');cell.querySelectorAll('.ring').forEach(o=>o.classList.toggle('on',o===g));centre(svg,c,k);ringTip(g,ser,c,k)};
-        g.addEventListener('mouseenter',on); g.addEventListener('click',on);
+      grid.innerHTML=html;
+      grid.querySelectorAll('.ring-cell[data-s]').forEach(cell=>{
+        const ser=RING[+cell.dataset.s], svg=cell.querySelector('svg'), top=ser.cfg[ser.cfg.length-1];
+        centre(svg,top,k);
+        cell.querySelectorAll('.ring').forEach(g=>{
+          const c=ser.cfg[+g.dataset.c];
+          const on=()=>{cell.classList.add('focus');cell.querySelectorAll('.ring').forEach(o=>o.classList.toggle('on',o===g));centre(svg,c,k);ringTip(g,ser,c,k)};
+          g.addEventListener('mouseenter',on); g.addEventListener('click',on);
+        });
+        cell.addEventListener('mouseleave',()=>{cell.classList.remove('focus');centre(svg,top,k);tip.style.opacity=0});
       });
-      cell.addEventListener('mouseleave',()=>{cell.classList.remove('focus');centre(svg,top,k);rtip.style.opacity=0});
-    });
-    meanBar(k); ringTable(k);
+      // mean split over all configurations
+      const all=RING.flatMap(s=>s.cfg.map(c=>c[k].b)), n=all.length, m=BANDS.map((_,i)=>all.reduce((a,b)=>a+b[i],0)/n);
+      card.querySelector('.r-mean').innerHTML=`Mean over ${n} configurations (${COND_LABEL[k]}): <b>${(m[0]+m[1]).toFixed(0)}%</b> within 10%, <b>${m[3].toFixed(0)}%</b> misread, <b>${m[4].toFixed(0)}%</b> missing, <b>${m[5].toFixed(1)}%</b> cut off`+
+        `<div class="mean-bar" role="img" aria-label="Mean split">${m.map((v,i)=>`<div class="${i===5?'hatch':''}" style="width:${v}%;${i===5?'':`background:${BANDS[i][1]}`}" title="${BANDS[i][0]} ${v.toFixed(1)}%"></div>`).join('')}</div>`;
+      card.querySelector('.r-table').innerHTML='<thead><tr><th>Configuration</th><th>≤5%</th><th>5–10%</th><th>10–15%</th><th>&gt;15%</th><th>Missing</th><th>Cut off</th><th>Schema valid</th></tr></thead><tbody>'+
+        RING.flatMap(s=>s.cfg.slice().reverse().map(c=>`<tr><td>${s.name} ${effLabel(c.effort)}</td>${c[k].b.map(v=>`<td>${v.toFixed(1)}</td>`).join('')}<td>${c[k].s[0]}/${nAns(c[k].s)}</td></tr>`)).join('')+'</tbody>';
+    }
+    const key=figToggle(card,draw,card.dataset.init);
+    draw(key());
   }
 
-  const rtip=document.getElementById('ringTip'), rcard=document.getElementById('chart-rings');
   function place(tipEl,cardEl,target){
     const cb=cardEl.getBoundingClientRect(), gb=target.getBoundingClientRect();
     tipEl.style.opacity=1;
@@ -1110,26 +1227,6 @@ footer a{color:var(--teal);text-decoration:none}
     if(left<8){left=Math.max(8,Math.min(cb.width-tw-8,gb.left-cb.left)); top=gb.bottom-cb.top+6;}
     tipEl.style.left=left+'px'; tipEl.style.top=Math.max(4,top)+'px';
   }
-  function ringTip(g,ser,c,k){
-    const d=c[k];
-    rtip.innerHTML=`<b>${ser.name} ${effLabel(c.effort)}</b>`+
-      BANDS.map((b,i)=>d.b[i]>0.05||i<4?`<div>${swatch(b[1])}${b[0]}: ${d.b[i].toFixed(1)}%</div>`:'').join('')+
-      `<div style="margin-top:4px;opacity:.8">${d.s[0]}/${nAns(d.s)} answers schema-valid</div>`;
-    place(rtip,rcard,g.closest('svg'));
-  }
-
-  function meanBar(k){
-    const all=RING.flatMap(s=>s.cfg.map(c=>c[k].b)), n=all.length;
-    const m=BANDS.map((_,i)=>all.reduce((a,b)=>a+b[i],0)/n);
-    document.getElementById('ringMean').innerHTML=`Mean over ${n} configurations (${COND_LABEL[k]}): <b>${(m[0]+m[1]).toFixed(0)}%</b> within 10%, <b>${m[3].toFixed(0)}%</b> misread, <b>${m[4].toFixed(0)}%</b> missing, <b>${m[5].toFixed(1)}%</b> cut off`+
-      `<div class="mean-bar" role="img" aria-label="Mean split">${m.map((v,i)=>`<div class="${i===5?'hatch':''}" style="width:${v}%;${i===5?'':`background:${BANDS[i][1]}`}" title="${BANDS[i][0]} ${v.toFixed(1)}%"></div>`).join('')}</div>`;
-  }
-
-  function ringTable(k){
-    document.getElementById('ringTable').innerHTML='<thead><tr><th>Configuration</th><th>≤5%</th><th>5–10%</th><th>10–15%</th><th>&gt;15%</th><th>Missing</th><th>Cut off</th><th>Schema valid</th></tr></thead><tbody>'+
-      RING.flatMap(s=>s.cfg.slice().reverse().map(c=>`<tr><td>${s.name} ${effLabel(c.effort)}</td>${c[k].b.map(v=>`<td>${v.toFixed(1)}</td>`).join('')}<td>${c[k].s[0]}/${nAns(c[k].s)}</td></tr>`)).join('')+'</tbody>';
-  }
-
   // ---------- output format matrix ----------
   const ftip=document.getElementById('fmtTip'), fcard=document.getElementById('chart-format');
   function drawFormat(k){
@@ -1155,12 +1252,12 @@ footer a{color:var(--teal);text-decoration:none}
   }
 
   figToggle(fcard,drawFormat);
-  if(RING.length){ drawRings(); drawFormat("single"); }
+  if(RING.length){ document.querySelectorAll('.ring-card').forEach(ringCard); drawFormat("single"); }
 
   // ---------- Fig. 1 heat map: series × (overall, subsets, properties), strips = effort ----------
   // column order matches "hm" written by tools/build_ring_data.py
   const HM_COLS=[["Overall","All 36 figures"],["Shared","Shared with multi-panel"],["Set 1","Independent set 1"],["Set 2","Independent set 2"],
-    ["<var>S</var>","Seebeck coefficient <var>S</var>"],["<var>σ</var>","Electrical conductivity <var>σ</var>"],["<var>ρ</var>","Electrical resistivity <var>ρ</var>"],["PF","Power factor PF"],["<var>κ</var><sub>tot</sub>","Total thermal conductivity <var>κ</var><sub>tot</sub>"],["<var>zT</var>","Figure of merit <var>zT</var>"]];
+    ["<var>S</var>","Seebeck coefficient <var>S</var>"],["<var>σ</var>","Electrical conductivity <var>σ</var>"],["<var>ρ</var>","Electrical resistivity <var>ρ</var>"],["<var>PF</var>","Power factor <var>PF</var>"],["<var>κ</var><sub>tot</sub>","Total thermal conductivity <var>κ</var><sub>tot</sub>"],["<var>zT</var>","Figure of merit <var>zT</var>"]];
   // same diverging ramp as the manuscript: red (0) → neutral (75) → blue (100); the neutral point sits at 75
   const RAMP_LIGHT=[[0,"#e9898b"],[25,"#f3b9b5"],[50,"#f7e3df"],[75,"#f3f1ee"],[83.3,"#d6e5f5"],[91.7,"#a9cbee"],[100,"#74a9e2"]];
   const RAMP_DARK=[[0,"#e46f7a"],[25,"#a84a54"],[50,"#5e3a3e"],[75,"#323a40"],[83.3,"#2f4f72"],[91.7,"#4178b8"],[100,"#6aa8f0"]];
@@ -1222,12 +1319,12 @@ footer a{color:var(--teal);text-decoration:none}
   // Built by tools/build_ring_data.py from fig1x_sigma_rho_failures.csv, fig1x_linlog_*.csv and the raw responses.
   // fails[]: one zero-score answer on a σ/ρ single-panel figure; cat = other (claimed another quantity) | pow (right quantity,
   // off by 10^k) | unit (no or unclear unit) | none (no usable answer); r = log10(returned ÷ true), geometric mean.
-  const SR=/*SR-DATA*/{"tot":{"ρ":366,"σ":366},"fails":[{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.977},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.113},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.905},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient (S)","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-1.957},{"m":"GPT-5.6 Terra max","ser":"GPT-5.6 Terra","eff":"max","o":39,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.023},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck Coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.031},{"m":"Kimi K3 low","ser":"Kimi K3","eff":"low","o":55,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.981},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ (S cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.988},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.963},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":4.935},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ (S cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.006},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.943},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.005},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.032},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (S/cm)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.014},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.027},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.001},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"Electrical conductivity","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.027},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.03},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":1.991},{"m":"Kimi K3 high","ser":"Kimi K3","eff":"high","o":54,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.002},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.994},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.564},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.008},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.004},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ (S m⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.019},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.988},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"unit","claim":"?","lab":"mfp","unit":"cm","st":"schema_ok","fail":"no point matched","why":"","r":4.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.996},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.086},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"PF","lab":"Power factor","unit":"W m^-1 K^-2","st":"schema_ok","fail":"no point matched","why":"","r":0.995},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.995},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"no point matched","why":"answer has no data points","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_07","sub":"ind1","p":"σ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"answer has no data points","r":null},{"m":"GPT-5.6 Luna xhigh","ser":"GPT-5.6 Luna","eff":"xhigh","o":45,"q":"set1/D1_07","sub":"ind1","p":"σ","sc":"log","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.993},{"m":"GPT-6 Sol max","ser":"GPT-6 Sol","eff":"max","o":11,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.995},{"m":"GPT-6 Sol xhigh","ser":"GPT-6 Sol","eff":"xhigh","o":12,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"Electrical resistivity","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.0},{"m":"GPT-6 Sol medium","ser":"GPT-6 Sol","eff":"medium","o":14,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"unit","claim":"?","lab":"10^-8 C_p","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":5.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"PF","lab":"Power factor","unit":"W m^-1 K^-2","st":"schema_ok","fail":"no point matched","why":"","r":2.007},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (Ω·m)⁻¹","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.999},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"κ_tot","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.029},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"Total thermal conductivity","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.036},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"Electrical resistivity","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":6.034},{"m":"Claude Opus 5.5 low","ser":"Claude Opus 5.5","eff":"low","o":23,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"no point matched","why":"answer has no data points","r":null},{"m":"GPT-6 Sol xhigh","ser":"GPT-6 Sol","eff":"xhigh","o":12,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"S","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"S","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.007},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.0},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.004},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ (S m⁻¹)","unit":"S m⁻¹","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.004},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient (S)","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-2.004},{"m":"GPT-5.6 Terra max","ser":"GPT-5.6 Terra","eff":"max","o":39,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":-4.436},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":-4.394},{"m":"GPT-5.6 Luna medium","ser":"GPT-5.6 Luna","eff":"medium","o":47,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"Zₜ","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.443},{"m":"Kimi K3 max","ser":"Kimi K3","eff":"max","o":53,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"unit","claim":"?","lab":"Q","unit":"mm² cm","st":"schema_ok","fail":"no point matched","why":"","r":4.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"pow","claim":"ρ","lab":"ρ (μΩ cm)","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.989},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-0.987},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-0.995},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.984},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.996},{"m":"Claude Sonnet 5.5 low","ser":"Claude Sonnet 5.5","eff":"low","o":26,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-0.986},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"Qwen 3.8 Max nonthinking","ser":"Qwen 3.8 Max","eff":"nonthinking","o":57,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"zT","lab":"zT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":3.462},{"m":"DeepSeek V4.1 Flash high","ser":"DeepSeek V4.1 Flash","eff":"high","o":59,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"DeepSeek V4.1 Flash nonthinking","ser":"DeepSeek V4.1 Flash","eff":"nonthinking","o":61,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-5.998},{"m":"GPT-5.6 Luna xhigh","ser":"GPT-5.6 Luna","eff":"xhigh","o":45,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"Z_T","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.472},{"m":"GPT-5.6 Luna high","ser":"GPT-5.6 Luna","eff":"high","o":46,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"Z_T","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.453},{"m":"GPT-5.6 Luna medium","ser":"GPT-5.6 Luna","eff":"medium","o":47,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"other","claim":"zT","lab":"Zₜ","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.443},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"T_Z","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.472},{"m":"GPT-6 Sol medium","ser":"GPT-6 Sol","eff":"medium","o":14,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.996},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.0},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.012},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":8.002},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (Ω⁻¹ cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":8.623},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"(σ)⁻¹","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":5.964},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"Electrical conductivity (S m⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.016},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":3.503}],"pairs":[{"sub":"same","p":"σ","span":112.9,"lin":56.4,"log":87.2},{"sub":"same","p":"ρ","span":112.9,"lin":58.5,"log":86.2},{"sub":"ind1","p":"σ","span":75.0,"lin":85.7,"log":100.0},{"sub":"ind1","p":"ρ","span":74.8,"lin":83.3,"log":98.8},{"sub":"ind2","p":"σ","span":7.9,"lin":100.0,"log":95.8},{"sub":"ind2","p":"ρ","span":7.9,"lin":91.5,"log":97.2}],"byval":[{"bin":"<2","n":22,"lin":24.5,"log":73.2},{"bin":"2–5","n":40,"lin":37.3,"log":68.9},{"bin":"5–10","n":34,"lin":45.7,"log":65.1},{"bin":"10–25","n":53,"lin":64.3,"log":65.3},{"bin":"25–50","n":18,"lin":70.5,"log":64.8},{"bin":"50–100","n":21,"lin":78.7,"log":71.7}],"ex":[{"m":"GPT-6 Luna high","q":"D1_01","axis":"σ (S cm⁻¹), linear axis","gold":{"lab":"Electrical conductivity","unit":"S m^-1","c":[["Sample",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[16480.0,17530.0,17180.0,16230.0,14590.0,14070.0,14230.0,15900.0,19250.0,18930.0,17250.0]],["Sample",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[4993.0,4227.0,4241.0,3916.0,3379.0,3258.0,3187.0,2983.0,3070.0,2575.0,2550.0,2460.0,2439.0,2891.0,3108.0,3625.0,4103.0,4524.0,4970.0,5699.0]],["Sample",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[889.7,818.1,916.4,805.1,959.2,851.0,918.7,1072.0,1047.0,1078.0,1054.0,1245.0,1394.0,1612.0,1904.0,2177.0,2788.0,2996.0,3560.0,4327.0,5628.0]],["Sample",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[562.3,532.2,496.4,455.5,496.4,410.8,413.0,459.3,434.3,496.4,550.6,679.0,923.9,1074.0,1468.0,1760.0,2088.0,2755.0,3617.0,4388.0,4608.0]],["Sample",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[317.6,299.0,330.9,265.6,244.4,170.6,202.6,203.0,231.2,303.9,364.8,494.0,741.4,872.0,1273.0,1440.0,1992.0,2434.0,3052.0,3490.0,3773.0]]]},"ret":{"lab":"Seebeck coefficient","unit":"V K^-1","c":[["Sample",[313.0,354.0,403.0,452.0,500.0,549.0,598.0,646.0,695.0,743.0,791.0],[0.000165,0.000175,0.000172,0.000161,0.000146,0.000141,0.000142,0.000159,0.000193,0.000189,0.000172]],["Sample",[310.0,335.0,358.0,383.0,407.0,431.0,455.0,484.0,503.0,527.0,553.0,576.0,600.0,624.0,648.0,672.0,696.0,719.0,743.0,767.0],[5e-05,4.3e-05,4.2e-05,3.9e-05,3.4e-05,3.3e-05,3.2e-05,3e-05,3.1e-05,2.6e-05,2.6e-05,2.5e-05,2.9e-05,3.1e-05,3.6e-05,4.1e-05,4.5e-05,5e-05,5.5e-05,5.7e-05]],["Sample",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[1.1e-05,1.1e-05,1.1e-05,1e-05,1.2e-05,1.1e-05,1.1e-05,1.3e-05,1.2e-05,1.3e-05,1.3e-05,1.4e-05,1.6e-05,1.8e-05,2.2e-05,2.7e-05,3.2e-05,3.8e-05,4.3e-05,5.2e-05,5.7e-05]],["Sample",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[8e-06,7e-06,8e-06,7e-06,7e-06,6e-06,7e-06,7e-06,8e-06,8e-06,9e-06,1e-05,1.2e-05,1.3e-05,1.7e-05,2.2e-05,2.7e-05,4.1e-05,4.7e-05,4.7e-05,4.9e-05]],["Sample",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[5e-06,4e-06,5e-06,4e-06,4e-06,4e-06,4e-06,4e-06,5e-06,6e-06,7e-06,8e-06,1e-05,1.2e-05,1.6e-05,2e-05,2.5e-05,3.1e-05,3.6e-05,3.8e-05,3.8e-05]]]}},{"m":"GPT-6 Luna max","q":"D1_07","axis":"ρ (mΩ cm), log axis","gold":{"lab":"Electrical resistivity","unit":"ohm m","c":[["Sample",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[6.067e-05,5.705e-05,5.82e-05,6.163e-05,6.855e-05,7.109e-05,7.028e-05,6.288e-05,5.194e-05,5.283e-05,5.796e-05]],["Sample",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[0.0002003,0.0002366,0.0002358,0.0002554,0.000296,0.000307,0.0003138,0.0003352,0.0003257,0.0003884,0.0003922,0.0004065,0.00041,0.0003459,0.0003217,0.0002759,0.0002437,0.000221,0.0002012,0.0001755]],["Sample",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[0.001124,0.001222,0.001091,0.001242,0.001043,0.001175,0.001088,0.0009329,0.0009554,0.0009279,0.0009488,0.0008032,0.0007176,0.0006202,0.0005253,0.0004593,0.0003587,0.0003338,0.0002809,0.0002311,0.0001777]],["Sample",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[0.001778,0.001879,0.002014,0.002195,0.002014,0.002435,0.002422,0.002177,0.002302,0.002015,0.001816,0.001473,0.001082,0.0009312,0.000681,0.0005683,0.000479,0.000363,0.0002765,0.0002279,0.000217]],["Sample",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[0.003149,0.003344,0.003022,0.003765,0.004092,0.005862,0.004937,0.004925,0.004325,0.003291,0.002741,0.002024,0.001349,0.001147,0.0007854,0.0006947,0.000502,0.0004108,0.0003277,0.0002865,0.000265]]]},"ret":{"lab":"σ","unit":"S m^-1","c":[["Sample",[313.0,354.0,403.0,452.0,500.0,548.0,598.0,646.0,695.0,743.0,791.0],[610.0,573.0,582.0,616.0,687.0,710.0,701.0,624.0,520.0,528.0,582.0]],["Sample",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[2000.0,2360.0,2350.0,2530.0,2900.0,3070.0,3150.0,3370.0,3310.0,3870.0,3930.0,4100.0,4150.0,3480.0,3290.0,2730.0,2460.0,2170.0,2010.0,1750.0]],["Sample",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[11600.0,12500.0,11300.0,12700.0,10800.0,12100.0,10800.0,9260.0,9480.0,9340.0,9690.0,8280.0,7290.0,6920.0,6150.0,5180.0,4550.0,3660.0,2580.0,1900.0]],["Sample + 0.04Bi",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[17300.0,18600.0,20300.0,22200.0,20500.0,24600.0,24100.0,21600.0,23400.0,21600.0,19100.0,17600.0,15000.0,12100.0,10600.0,9140.0,7480.0,5570.0,4620.0,2210.0]],["Sample + 5% Bi",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[31300.0,33500.0,30300.0,37600.0,40900.0,58600.0,49900.0,50100.0,43000.0,33000.0,27400.0,20000.0,13500.0,11400.0,7780.0,6920.0,5030.0,4160.0,3330.0,2660.0]]]}},{"m":"GPT-6 Sol max","q":"set1/D1_08","axis":"ρ (10⁻⁶ Ω m), log axis","gold":{"lab":"Electrical resistivity","unit":"ohm m","c":[["GeTe",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.28e-06,1.38e-06,1.66e-06,1.99e-06,2.43e-06,3e-06,3.73e-06,4.82e-06,5.62e-06,6.22e-06,5.84e-06,5.68e-06,5.77e-06,5.87e-06]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[2.58e-06,3.02e-06,3.55e-06,4.21e-06,5.15e-06,6.63e-06,8.94e-06,9.31e-06,8.76e-06,7.29e-06,7.77e-06,8.15e-06,8.13e-06,8.15e-06]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[5.68e-06,6.1e-06,7.09e-06,8.43e-06,1.03e-05,1.44e-05,1.77e-05,1.53e-05,1.23e-05,9.23e-06,8.67e-06,9.21e-06,9.45e-06,9.34e-06]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[8.46e-06,8.94e-06,1.05e-05,1.24e-05,1.53e-05,2.15e-05,2.54e-05,1.97e-05,1.5e-05,1.13e-05,1.07e-05,1.13e-05,1.14e-05,1.12e-05]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.649e-05,1.771e-05,2.074e-05,2.468e-05,3.079e-05,4.611e-05,4.526e-05,2.862e-05,1.876e-05,1.535e-05,1.453e-05,1.583e-05,1.57e-05,1.519e-05]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[3.832e-05,4.026e-05,4.514e-05,5.189e-05,6.697e-05,9.578e-05,7.043e-05,3.832e-05,2.571e-05,2.044e-05,1.867e-05,2.007e-05,1.995e-05,1.926e-05]]]},"ret":{"lab":"ρ","unit":"ohm m","c":[["GeTe",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.28e-08,1.39e-08,1.65e-08,2e-08,2.44e-08,3.01e-08,3.75e-08,4.83e-08,5.65e-08,6.26e-08,5.86e-08,5.7e-08,5.8e-08,5.89e-08]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[2.58e-08,3.01e-08,3.53e-08,4.22e-08,5.14e-08,6.62e-08,8.94e-08,9.32e-08,8.73e-08,7.27e-08,7.76e-08,8.14e-08,8.14e-08,8.14e-08]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[5.76e-08,6.15e-08,7.11e-08,8.47e-08,1.01e-07,1.46e-07,1.78e-07,1.77e-07,1.55e-07,1.26e-07,9.34e-08,9.32e-08,9.46e-08,9.36e-08]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[8.4e-08,8.9e-08,1.07e-07,1.25e-07,1.53e-07,2.18e-07,2.54e-07,1.88e-07,1.55e-07,1.09e-07,1.03e-07,1.12e-07,1.12e-07,1.09e-07]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.65e-07,1.78e-07,2.08e-07,2.48e-07,3.1e-07,4.61e-07,4.55e-07,2.87e-07,1.87e-07,1.57e-07,1.48e-07,1.61e-07,1.59e-07,1.52e-07]],["Sample",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[3.83e-07,4.05e-07,4.56e-07,5.2e-07,6.75e-07,9.63e-07,7.1e-07,3.86e-07,2.57e-07,2.1e-07,1.91e-07,2.03e-07,2e-07,1.96e-07]]]}}]}/*SR-DATA*/;
+  const SR=/*SR-DATA*/{"tot":{"ρ":366,"σ":366},"fails":[{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.977},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.113},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.905},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient (S)","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-1.957},{"m":"GPT-5.6 Terra max","ser":"GPT-5.6 Terra","eff":"max","o":39,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.023},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck Coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.031},{"m":"Kimi K3 low","ser":"Kimi K3","eff":"low","o":55,"q":"D1_01","sub":"same","p":"σ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.981},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ (S cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.988},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.963},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":4.935},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ (S cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.006},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_02","sub":"same","p":"ρ","sc":"linear","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.943},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.005},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.032},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (S/cm)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.014},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.027},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.001},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"Electrical conductivity","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.027},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":7.03},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":1.991},{"m":"Kimi K3 high","ser":"Kimi K3","eff":"high","o":54,"q":"D1_07","sub":"same","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.002},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.994},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-7.564},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"D1_08","sub":"same","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.008},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.004},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ (S m⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.019},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"set1/D1_01","sub":"ind1","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.988},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"unit","claim":"?","lab":"mfp","unit":"cm","st":"schema_ok","fail":"no point matched","why":"","r":4.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.996},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.086},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"PF","lab":"Power factor","unit":"W m^-1 K^-2","st":"schema_ok","fail":"no point matched","why":"","r":0.995},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.995},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_02","sub":"ind1","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"no point matched","why":"answer has no data points","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_07","sub":"ind1","p":"σ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"answer has no data points","r":null},{"m":"GPT-5.6 Luna xhigh","ser":"GPT-5.6 Luna","eff":"xhigh","o":45,"q":"set1/D1_07","sub":"ind1","p":"σ","sc":"log","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.993},{"m":"GPT-6 Sol max","ser":"GPT-6 Sol","eff":"max","o":11,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.995},{"m":"GPT-6 Sol xhigh","ser":"GPT-6 Sol","eff":"xhigh","o":12,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"Electrical resistivity","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.0},{"m":"GPT-6 Sol medium","ser":"GPT-6 Sol","eff":"medium","o":14,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"unit","claim":"?","lab":"10^-8 C_p","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":5.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"PF","lab":"Power factor","unit":"W m^-1 K^-2","st":"schema_ok","fail":"no point matched","why":"","r":2.007},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (Ω·m)⁻¹","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":5.999},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"κ_tot","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.029},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"Total thermal conductivity","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.036},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"Electrical resistivity","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":6.034},{"m":"Claude Opus 5.5 low","ser":"Claude Opus 5.5","eff":"low","o":23,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set1/D1_08","sub":"ind1","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"no point matched","why":"answer has no data points","r":null},{"m":"GPT-6 Sol xhigh","ser":"GPT-6 Sol","eff":"xhigh","o":12,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"S","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"S","unit":"S m^-1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.001},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.007},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"S","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.0},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-8.004},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"pow","claim":"σ","lab":"σ (S m⁻¹)","unit":"S m⁻¹","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.004},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient (S)","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-2.004},{"m":"GPT-5.6 Terra max","ser":"GPT-5.6 Terra","eff":"max","o":39,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":-4.436},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":-4.394},{"m":"GPT-5.6 Luna medium","ser":"GPT-5.6 Luna","eff":"medium","o":47,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"other","claim":"zT","lab":"Zₜ","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.443},{"m":"Kimi K3 max","ser":"Kimi K3","eff":"max","o":53,"q":"set2/D1_01","sub":"ind2","p":"σ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Sol high","ser":"GPT-6 Sol","eff":"high","o":13,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"unit","claim":"?","lab":"Q","unit":"mm² cm","st":"schema_ok","fail":"no point matched","why":"","r":4.999},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"pow","claim":"ρ","lab":"ρ (μΩ cm)","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.989},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-0.987},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-0.995},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.984},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":4.996},{"m":"Claude Sonnet 5.5 low","ser":"Claude Sonnet 5.5","eff":"low","o":26,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-0.986},{"m":"Claude Haiku 5.5 max","ser":"Claude Haiku 5.5","eff":"max","o":27,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"truncated","fail":"no point matched","why":"cut off at output cap","r":null},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"Qwen 3.8 Max nonthinking","ser":"Qwen 3.8 Max","eff":"nonthinking","o":57,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"other","claim":"zT","lab":"zT","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":3.462},{"m":"DeepSeek V4.1 Flash high","ser":"DeepSeek V4.1 Flash","eff":"high","o":59,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"DeepSeek V4.1 Flash nonthinking","ser":"DeepSeek V4.1 Flash","eff":"nonthinking","o":61,"q":"set2/D1_02","sub":"ind2","p":"ρ","sc":"linear","cat":"none","claim":"","lab":"","unit":"","st":"schema_ok","fail":"all matched, none correct","why":"response not stored locally","r":null},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"other","claim":"S","lab":"Seebeck coefficient","unit":"V K^-1","st":"schema_ok","fail":"no point matched","why":"","r":-5.998},{"m":"GPT-5.6 Luna xhigh","ser":"GPT-5.6 Luna","eff":"xhigh","o":45,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"Z_T","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.472},{"m":"GPT-5.6 Luna high","ser":"GPT-5.6 Luna","eff":"high","o":46,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"Z_T","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.453},{"m":"GPT-5.6 Luna medium","ser":"GPT-5.6 Luna","eff":"medium","o":47,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"other","claim":"zT","lab":"Zₜ","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.443},{"m":"GPT-5.6 Luna low","ser":"GPT-5.6 Luna","eff":"low","o":48,"q":"set2/D1_07","sub":"ind2","p":"σ","sc":"log","cat":"unit","claim":"?","lab":"T_Z","unit":"1","st":"schema_ok","fail":"all matched, none correct","why":"","r":-4.472},{"m":"GPT-6 Sol medium","ser":"GPT-6 Sol","eff":"medium","o":14,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-1.996},{"m":"GPT-6 Sol low","ser":"GPT-6 Sol","eff":"low","o":15,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"ρ","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":-2.0},{"m":"GPT-6 Luna max","ser":"GPT-6 Luna","eff":"max","o":16,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"κ","lab":"κ","unit":"W m^-1 K^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.012},{"m":"GPT-6 Luna xhigh","ser":"GPT-6 Luna","eff":"xhigh","o":17,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":8.002},{"m":"GPT-6 Luna high","ser":"GPT-6 Luna","eff":"high","o":18,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"σ (Ω⁻¹ cm⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":8.623},{"m":"GPT-6 Luna medium","ser":"GPT-6 Luna","eff":"medium","o":19,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"pow","claim":"ρ","lab":"(σ)⁻¹","unit":"ohm m","st":"schema_ok","fail":"all matched, none correct","why":"","r":5.964},{"m":"GPT-6 Luna low","ser":"GPT-6 Luna","eff":"low","o":20,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"σ","lab":"Electrical conductivity (S m⁻¹)","unit":"S m^-1","st":"schema_ok","fail":"no point matched","why":"","r":6.016},{"m":"Claude Haiku 5.5 low","ser":"Claude Haiku 5.5","eff":"low","o":29,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"none","claim":"","lab":"","unit":"","st":"invalid_json","fail":"no point matched","why":"invalid JSON","r":null},{"m":"GPT-5.6 Luna max","ser":"GPT-5.6 Luna","eff":"max","o":44,"q":"set2/D1_08","sub":"ind2","p":"ρ","sc":"log","cat":"other","claim":"zT","lab":"ZT","unit":"1","st":"schema_ok","fail":"no point matched","why":"","r":3.503}],"pairs":[{"sub":"same","p":"σ","span":112.9,"lin":56.4,"log":87.2},{"sub":"same","p":"ρ","span":112.9,"lin":58.5,"log":86.2},{"sub":"ind1","p":"σ","span":75.0,"lin":85.7,"log":100.0},{"sub":"ind1","p":"ρ","span":74.8,"lin":83.3,"log":98.8},{"sub":"ind2","p":"σ","span":7.9,"lin":100.0,"log":95.8},{"sub":"ind2","p":"ρ","span":7.9,"lin":91.5,"log":97.2}],"byval":[{"bin":"<2","n":22,"lin":24.5,"log":73.2},{"bin":"2–5","n":40,"lin":37.3,"log":68.9},{"bin":"5–10","n":34,"lin":45.7,"log":65.1},{"bin":"10–25","n":53,"lin":64.3,"log":65.3},{"bin":"25–50","n":18,"lin":70.5,"log":64.8},{"bin":"50–100","n":21,"lin":78.7,"log":71.7}],"ex":[{"m":"GPT-6 Luna high","q":"D1_01","axis":"σ (S cm⁻¹), linear axis","gold":{"lab":"Electrical conductivity","unit":"S m^-1","c":[["Sample 1",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[16480.0,17530.0,17180.0,16230.0,14590.0,14070.0,14230.0,15900.0,19250.0,18930.0,17250.0]],["Sample 2",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[4993.0,4227.0,4241.0,3916.0,3379.0,3258.0,3187.0,2983.0,3070.0,2575.0,2550.0,2460.0,2439.0,2891.0,3108.0,3625.0,4103.0,4524.0,4970.0,5699.0]],["Sample 3",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[889.7,818.1,916.4,805.1,959.2,851.0,918.7,1072.0,1047.0,1078.0,1054.0,1245.0,1394.0,1612.0,1904.0,2177.0,2788.0,2996.0,3560.0,4327.0,5628.0]],["Sample 4",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[562.3,532.2,496.4,455.5,496.4,410.8,413.0,459.3,434.3,496.4,550.6,679.0,923.9,1074.0,1468.0,1760.0,2088.0,2755.0,3617.0,4388.0,4608.0]],["Sample 5",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[317.6,299.0,330.9,265.6,244.4,170.6,202.6,203.0,231.2,303.9,364.8,494.0,741.4,872.0,1273.0,1440.0,1992.0,2434.0,3052.0,3490.0,3773.0]]]},"ret":{"lab":"Seebeck coefficient","unit":"V K^-1","c":[["Sample 1",[313.0,354.0,403.0,452.0,500.0,549.0,598.0,646.0,695.0,743.0,791.0],[0.000165,0.000175,0.000172,0.000161,0.000146,0.000141,0.000142,0.000159,0.000193,0.000189,0.000172]],["Sample 2",[310.0,335.0,358.0,383.0,407.0,431.0,455.0,484.0,503.0,527.0,553.0,576.0,600.0,624.0,648.0,672.0,696.0,719.0,743.0,767.0],[5e-05,4.3e-05,4.2e-05,3.9e-05,3.4e-05,3.3e-05,3.2e-05,3e-05,3.1e-05,2.6e-05,2.6e-05,2.5e-05,2.9e-05,3.1e-05,3.6e-05,4.1e-05,4.5e-05,5e-05,5.5e-05,5.7e-05]],["Sample 3",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[1.1e-05,1.1e-05,1.1e-05,1e-05,1.2e-05,1.1e-05,1.1e-05,1.3e-05,1.2e-05,1.3e-05,1.3e-05,1.4e-05,1.6e-05,1.8e-05,2.2e-05,2.7e-05,3.2e-05,3.8e-05,4.3e-05,5.2e-05,5.7e-05]],["Sample 4",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[8e-06,7e-06,8e-06,7e-06,7e-06,6e-06,7e-06,7e-06,8e-06,8e-06,9e-06,1e-05,1.2e-05,1.3e-05,1.7e-05,2.2e-05,2.7e-05,4.1e-05,4.7e-05,4.7e-05,4.9e-05]],["Sample 5",[313.0,339.0,362.0,386.0,409.0,433.0,457.0,485.0,505.0,529.0,553.0,577.0,601.0,625.0,649.0,672.0,696.0,720.0,744.0,765.0,791.0],[5e-06,4e-06,5e-06,4e-06,4e-06,4e-06,4e-06,4e-06,5e-06,6e-06,7e-06,8e-06,1e-05,1.2e-05,1.6e-05,2e-05,2.5e-05,3.1e-05,3.6e-05,3.8e-05,3.8e-05]]]}},{"m":"GPT-6 Luna max","q":"D1_07","axis":"ρ (mΩ cm), log axis","gold":{"lab":"Electrical resistivity","unit":"ohm m","c":[["Sample 1",[313.1,354.1,403.2,451.8,500.0,548.8,597.7,646.3,694.5,742.8,790.6],[6.067e-05,5.705e-05,5.82e-05,6.163e-05,6.855e-05,7.109e-05,7.028e-05,6.288e-05,5.194e-05,5.283e-05,5.796e-05]],["Sample 2",[310.3,335.5,358.7,382.8,406.9,430.8,454.7,483.6,503.2,527.1,552.2,576.1,600.0,623.7,647.7,671.5,694.9,718.6,742.2,766.0],[0.0002003,0.0002366,0.0002358,0.0002554,0.000296,0.000307,0.0003138,0.0003352,0.0003257,0.0003884,0.0003922,0.0004065,0.00041,0.0003459,0.0003217,0.0002759,0.0002437,0.000221,0.0002012,0.0001755]],["Sample 3",[312.6,338.6,361.6,385.6,408.5,432.7,456.6,485.2,504.0,528.0,552.4,576.3,600.0,624.1,648.1,671.9,695.5,719.3,742.8,766.5,790.2],[0.001124,0.001222,0.001091,0.001242,0.001043,0.001175,0.001088,0.0009329,0.0009554,0.0009279,0.0009488,0.0008032,0.0007176,0.0006202,0.0005253,0.0004593,0.0003587,0.0003338,0.0002809,0.0002311,0.0001777]],["Sample 4",[312.2,338.6,361.6,385.3,408.8,433.5,457.7,484.9,504.1,528.3,552.3,576.2,600.0,624.0,648.1,672.1,695.9,719.5,743.2,766.9,790.5],[0.001778,0.001879,0.002014,0.002195,0.002014,0.002435,0.002422,0.002177,0.002302,0.002015,0.001816,0.001473,0.001082,0.0009312,0.000681,0.0005683,0.000479,0.000363,0.0002765,0.0002279,0.000217]],["Sample 5",[313.3,335.1,357.8,382.0,406.5,430.8,453.9,483.2,502.0,525.8,550.6,574.8,598.5,622.7,646.5,670.7,694.2,718.1,742.0,765.5,789.2],[0.003149,0.003344,0.003022,0.003765,0.004092,0.005862,0.004937,0.004925,0.004325,0.003291,0.002741,0.002024,0.001349,0.001147,0.0007854,0.0006947,0.000502,0.0004108,0.0003277,0.0002865,0.000265]]]},"ret":{"lab":"σ","unit":"S m^-1","c":[["Sample 1",[313.0,354.0,403.0,452.0,500.0,548.0,598.0,646.0,695.0,743.0,791.0],[610.0,573.0,582.0,616.0,687.0,710.0,701.0,624.0,520.0,528.0,582.0]],["Sample 2",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[2000.0,2360.0,2350.0,2530.0,2900.0,3070.0,3150.0,3370.0,3310.0,3870.0,3930.0,4100.0,4150.0,3480.0,3290.0,2730.0,2460.0,2170.0,2010.0,1750.0]],["Sample 3",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[11600.0,12500.0,11300.0,12700.0,10800.0,12100.0,10800.0,9260.0,9480.0,9340.0,9690.0,8280.0,7290.0,6920.0,6150.0,5180.0,4550.0,3660.0,2580.0,1900.0]],["Sample 4",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[17300.0,18600.0,20300.0,22200.0,20500.0,24600.0,24100.0,21600.0,23400.0,21600.0,19100.0,17600.0,15000.0,12100.0,10600.0,9140.0,7480.0,5570.0,4620.0,2210.0]],["Sample 5",[312.0,336.0,361.0,384.0,407.0,432.0,456.0,484.0,504.0,528.0,552.0,576.0,600.0,624.0,648.0,672.0,696.0,721.0,745.0,767.0],[31300.0,33500.0,30300.0,37600.0,40900.0,58600.0,49900.0,50100.0,43000.0,33000.0,27400.0,20000.0,13500.0,11400.0,7780.0,6920.0,5030.0,4160.0,3330.0,2660.0]]]}},{"m":"GPT-6 Sol max","q":"set1/D1_08","axis":"ρ (10⁻⁶ Ω m), log axis","gold":{"lab":"Electrical resistivity","unit":"ohm m","c":[["Sample 1",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.28e-06,1.38e-06,1.66e-06,1.99e-06,2.43e-06,3e-06,3.73e-06,4.82e-06,5.62e-06,6.22e-06,5.84e-06,5.68e-06,5.77e-06,5.87e-06]],["Sample 2",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[2.58e-06,3.02e-06,3.55e-06,4.21e-06,5.15e-06,6.63e-06,8.94e-06,9.31e-06,8.76e-06,7.29e-06,7.77e-06,8.15e-06,8.13e-06,8.15e-06]],["Sample 3",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[5.68e-06,6.1e-06,7.09e-06,8.43e-06,1.03e-05,1.44e-05,1.77e-05,1.53e-05,1.23e-05,9.23e-06,8.67e-06,9.21e-06,9.45e-06,9.34e-06]],["Sample 4",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[8.46e-06,8.94e-06,1.05e-05,1.24e-05,1.53e-05,2.15e-05,2.54e-05,1.97e-05,1.5e-05,1.13e-05,1.07e-05,1.13e-05,1.14e-05,1.12e-05]],["Sample 5",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.649e-05,1.771e-05,2.074e-05,2.468e-05,3.079e-05,4.611e-05,4.526e-05,2.862e-05,1.876e-05,1.535e-05,1.453e-05,1.583e-05,1.57e-05,1.519e-05]],["Sample 6",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[3.832e-05,4.026e-05,4.514e-05,5.189e-05,6.697e-05,9.578e-05,7.043e-05,3.832e-05,2.571e-05,2.044e-05,1.867e-05,2.007e-05,1.995e-05,1.926e-05]]]},"ret":{"lab":"ρ","unit":"ohm m","c":[["Sample 1",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.28e-08,1.39e-08,1.65e-08,2e-08,2.44e-08,3.01e-08,3.75e-08,4.83e-08,5.65e-08,6.26e-08,5.86e-08,5.7e-08,5.8e-08,5.89e-08]],["Sample 2",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[2.58e-08,3.01e-08,3.53e-08,4.22e-08,5.14e-08,6.62e-08,8.94e-08,9.32e-08,8.73e-08,7.27e-08,7.76e-08,8.14e-08,8.14e-08,8.14e-08]],["Sample 3",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[5.76e-08,6.15e-08,7.11e-08,8.47e-08,1.01e-07,1.46e-07,1.78e-07,1.77e-07,1.55e-07,1.26e-07,9.34e-08,9.32e-08,9.46e-08,9.36e-08]],["Sample 4",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[8.4e-08,8.9e-08,1.07e-07,1.25e-07,1.53e-07,2.18e-07,2.54e-07,1.88e-07,1.55e-07,1.09e-07,1.03e-07,1.12e-07,1.12e-07,1.09e-07]],["Sample 5",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[1.65e-07,1.78e-07,2.08e-07,2.48e-07,3.1e-07,4.61e-07,4.55e-07,2.87e-07,1.87e-07,1.57e-07,1.48e-07,1.61e-07,1.59e-07,1.52e-07]],["Sample 6",[300.0,323.0,373.0,423.0,473.0,523.0,573.0,623.0,648.0,673.0,698.0,723.0,748.0,773.0],[3.83e-07,4.05e-07,4.56e-07,5.2e-07,6.75e-07,9.63e-07,7.1e-07,3.86e-07,2.57e-07,2.1e-07,1.91e-07,2.03e-07,2e-07,1.96e-07]]]}}]}/*SR-DATA*/;
   const CAT={other:["Reported as another property","var(--c-other)"],pow:["Right property, off by 10ᵏ","var(--c-pow)"],
              unit:["No or unclear unit","var(--c-unit)"],none:["No usable answer","var(--c-none)"]};
-  const QN={S:"Seebeck coefficient <var>S</var>",κ:"thermal conductivity <var>κ</var>",PF:"power factor PF",zT:"figure of merit <var>zT</var>",σ:"conductivity <var>σ</var>",ρ:"resistivity <var>ρ</var>"};
-  const sym=t=>(t||"").replace(/(^|[^\w>])([σρκ])(?![\w<])/g,"$1<var>$2</var>");  // italic σ ρ κ in free text
-  const symSvg=t=>t.replace(/([σρκ])/g,'<tspan font-style="italic">$1</tspan>');
+  const QN={S:"Seebeck coefficient <var>S</var>",κ:"thermal conductivity <var>κ</var>",PF:"power factor <var>PF</var>",zT:"figure of merit <var>zT</var>",σ:"conductivity <var>σ</var>",ρ:"resistivity <var>ρ</var>"};
+  const sym=t=>(t||"").replace(/(^|[^\w>])(PF|[σρκ])(?![\w<])/g,"$1<var>$2</var>");  // italic σ ρ κ in free text
+  const symSvg=t=>t.replace(/(PF|[σρκ])/g,'<tspan font-style="italic">$1</tspan>');
   const SUBN={same:"Shared",ind1:"Set 1",ind2:"Set 2"};
   const pu=u=>(u||"").replace(/\^-1/g,"⁻¹").replace(/\^-2/g,"⁻²").replace(/ohm/g,"Ω");
   const pw=k=>`10<sup>${k<0?"−":""}${Math.abs(k)}</sup>`;
@@ -1246,14 +1343,14 @@ footer a{color:var(--teal);text-decoration:none}
     const F=SR.fails, n=k=>F.filter(f=>f.cat===k).length, att=SR.tot["σ"]+SR.tot["ρ"];
     const np=p=>F.filter(f=>f.p===p).length;
     document.getElementById('srIntro').innerHTML=`Across 12 single-panel <var>σ</var> and <var>ρ</var> figures × 61 configurations (${att} answers), ${F.length} answers scored nothing: either no point matched the true curves, or every point matched but none was within 10%. <var>ρ</var> fails more often (${np("ρ")}) than <var>σ</var> (${np("σ")}).`;
-    document.getElementById('srStats').innerHTML=[["other","reported <var>σ</var> or <var>ρ</var> as another property (Seebeck, <var>κ</var>, PF, <var>zT</var>, or <var>σ</var> ↔ <var>ρ</var>)"],["pow","kept the right property and curve, but every value is off by an exact power of ten"],["unit","gave no unit or one that cannot be read"],["none","returned no usable answer (cut off, invalid JSON, no points)"]]
+    document.getElementById('srStats').innerHTML=[["other","reported <var>σ</var> or <var>ρ</var> as another property (Seebeck, <var>κ</var>, <var>PF</var>, <var>zT</var>, or <var>σ</var> ↔ <var>ρ</var>)"],["pow","kept the right property and curve, but every value is off by an exact power of ten"],["unit","gave no unit or one that cannot be read"],["none","returned no usable answer (cut off, invalid JSON, no points)"]]
       .map(([k,t])=>`<div class="sr-stat"><strong>${n(k)}</strong><span><i style="background:${CAT[k][1]}"></i>${t}</span></div>`).join('');
   }
 
   // 1 · worked examples
   let exI=0;
   const EX_TXT=[
-    f=>`The axis reads <var>σ</var> in S cm⁻¹ (pristine sample ≈ 165). The model copied those numbers but called the plot a <b>Seebeck coefficient</b> and converted 165 “μV K⁻¹” to 1.65 × 10⁻⁴ V K⁻¹. The shapes are right; the quantity is wrong.`,
+    f=>`The axis reads <var>σ</var> in S cm⁻¹ (Sample 1 ≈ 165). The model copied those numbers but called the plot a <b>Seebeck coefficient</b> and converted 165 “μV K⁻¹” to 1.65 × 10⁻⁴ V K⁻¹. The shapes are right; the quantity is wrong.`,
     f=>`A resistivity plot in mΩ cm came back as <b>conductivity <var>σ</var> in S m⁻¹</b>. The curve shapes follow the figure, but as <var>ρ</var> the numbers are about ${pw(Math.round(f.r))} times too large, and the property is mislabelled.`,
     f=>`Right property, right unit, all ${SR.ex[2].gold.c.reduce((a,c)=>a+c[1].length,0)} points found, yet Y10 = 0 even at <b>max effort</b>: the axis multiplier 10⁻⁶ Ω m became 10⁻⁸ Ω m, so every value is ${pw(-Math.round(f.r))}× too small.`];
   function drawExample(){
@@ -1374,6 +1471,239 @@ footer a{color:var(--teal);text-decoration:none}
     let srt; addEventListener('resize',()=>{clearTimeout(srt);srt=setTimeout(drawSR,150)});
   }
 
+  // ---------- same curves, five conditions (manuscript Fig. 2c; macro means over 61 configurations) ----------
+  const BANDS5=[["Single panel (12)",[62.05,7.05,3.36,13.70,13.84]],null,
+    ["No fault · neutral (22)",[44.13,8.11,3.87,12.40,31.49]],["No fault · detailed (22)",[43.17,8.16,4.20,14.45,30.02]],
+    ["Fault · neutral (17)",[38.35,7.24,3.52,16.86,34.03]],["Fault · detailed (17)",[39.76,7.56,3.95,18.28,30.45]]];
+  document.getElementById('bandLegend').innerHTML=BANDS.slice(0,5).map(b=>`<span>${swatch(b[1])}${b[0]}</span>`).join('');
+  document.getElementById('bands').innerHTML=BANDS5.map(r=>!r?'<div class="band-gap"></div>':
+    `<div class="band-row"><span>${r[0]}</span><div class="mean-bar" role="img" aria-label="${r[0]}: ${r[1].map((v,i)=>BANDS[i][0]+' '+v.toFixed(0)+'%').join(', ')}">${r[1].map((v,i)=>`<div class="${i===4?'lt':''}" style="width:${v}%;background:${BANDS[i][1]}" title="${BANDS[i][0]}: ${v.toFixed(1)}%">${i===0||i===4?v.toFixed(0):''}</div>`).join('')}</div><em>Y10 ${(r[1][0]+r[1][1]).toFixed(0)}</em></div>`).join('');
+
+  // ---------- unit fault: one figure, four answers ----------
+  // Built by tools/build_ring_data.py from evidence/D1_D2_fault_cases.tsv.gz and the selected raw answers.
+  const FX=/*FX-DATA*/{"q":"D2_D_02","panel":"b","fault":"unit_multiplier_mismatch","fix":"Keep the plotted numbers and use S/cm; otherwise divide them by 10 if 10^3 S/m is retained.","counts":{"n":61,"located":27,"wrong":9,"missed":25,"fixed90":7},"cases":[{"m":"GPT-6 Astra max","det":1,"loc":1,"rec":100.0,"panel":"b","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have evenly spaced ticks representing equal additive increments and are linear. The printed units imply PF values approximately one tenth of S^2σ for every sample. For example, the first Sample 1 marker gives S ≈ 205 μV K^-1, conductivity ordinate ≈ 165, and PF ≈ 6.91 μW cm^-1 K^-2. The printed conductivity multiplier gives S^2σ ≈ 0.006934 W m^-1 K^-2, whereas the independently extracted PF is 0.000691 W …"},"localized_issue":{"panel_id":"b","issue_type":"factor_of_ten_multiplier_mismatch","evidence":"The same approximately tenfold discrepancy occurs across all five samples. Correcting the conductivity multiplier to 10^2 restores agreement with the independently extracted Seebeck and power-factor markers. This localization assumes the labels in panels a and c are correct.","expected_correction":"With the units in panels a and c retained, replace σ (10^3 S m^-1) with σ (10^2 S m^-1).","numeric_transformation":"σ_canonical = 100 × extracted_panel_b_ordinate, equivalent to dividing the conductivity obtained from the printed multiplier by 10."},"verification":[{"relation_id":"power_factor_from_seebeck_and_conductivity","equation":"PF = S²σ","overall_max_relative_deviation":0.049235,"relative_tolerance":0.05,"verdict":"consistent"}]}},{"m":"GPT-6.1 Sol high","det":1,"loc":0,"rec":0.0,"panel":"c","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have uniformly spaced linear ticks. Panel a displays S in μV K^-1, panel b displays σ in 10^3 S m^-1, and panel c prints PF in μW cm^-1 K^-2. Taken literally, panel c gives power factors approximately ten times smaller than S²σ. For example, the first Sample 1 marker gives S ≈ 205 μV K^-1 and σ ≈ 165000 S m^-1, hence S²σ ≈ 0.006934 W m^-1 K^-2. Its panel-c ordinate is approximately 6.9, agreeing with mW …"},"localized_issue":{"panel_id":"c","issue_type":"power-factor unit label has a factor-of-ten mismatch","evidence":"The independently extracted Seebeck, conductivity, and power-factor markers satisfy PF = S²σ within 5% after this correction. Literal use of the printed panel-c unit produces an approximately 90% deficit.","expected_correction":"Replace μW cm^-1 K^-2 with mW m^-1 K^-2; equivalently, label the existing numerical scale as 10 μW cm^-1 K^-2.","numeric_transformation":"Canonical PF = displayed ordinate × 1e-3 W m^-1 K^-2, which is ten times the result of literal conversion using the printed unit."},"verification":[{"relation_id":"thermoelectric_power_factor","equation":"PF = S²σ","overall_max_relative_deviation":0.040558,"relative_tolerance":0.05,"verdict":"consistent"}]}},{"m":"GPT-6.1 Sol medium","det":1,"loc":1,"rec":0.0,"panel":"b","json":{"unit_verdict":"unit-inconsistent","presentation":{"evidence":"All axes have equally spaced linear ticks. The displayed units are individually convertible to canonical units, but their combined magnitudes violate PF = S²σ by approximately a factor of ten. For example, the first Sample 1 markers give S ≈ 205 μV K^-1, σ ≈ 165 × 10^3 S m^-1, and PF ≈ 6.9 μW cm^-1 K^-2. The first two imply PF ≈ 69.3 μW cm^-1 K^-2. The image alone does not uniquely establish which axis contains the …"},"localized_issue":{"panel_id":"b","issue_type":"factor-of-ten cross-panel inconsistency with ambiguous root localization","evidence":"The Sample 1 and Sample 2 series both show approximately the same tenfold discrepancy over their temperature ranges, making an axis-level multiplier error more likely than an isolated marker error. No independent quantity in the image resolves which multiplier is wrong.","expected_correction":"If the panel-c unit is correct, panel b should read 10^2 S m^-1 instead of 10^3 S m^-1. Alternatively, retaining panel b requires panel c to use mW m^-1 K^-2 rather than μW cm^-1 K^-2.","numeric_transformation":"The first alternative multiplies the label-based canonical conductivity by 0.1; the second multiplies the label-based canonical power factor by 10. Neither alternative is uniquely supported, so the extracted records retain the visible labels' conversions."},"verification":[{"relation_id":"thermoelectric_power_factor","equation":"PF = S²σ","overall_max_relative_deviation":10.397,"relative_tolerance":0.05,"verdict":"inconsistent"}]}},{"m":"GPT-6 Sol xhigh","det":0,"loc":0,"rec":0.0,"panel":null,"json":{"unit_verdict":"unit-consistent","presentation":{"evidence":"All axes have uniformly spaced ticks. The displayed units convert to the canonical units without a supported axis-label error. The low-conductivity series lie very close to panel b's zero baseline, limiting precise extraction."},"localized_issue":null,"verification":[{"relation_id":"power_factor","equation":"PF = S²σ","overall_max_relative_deviation":0.308,"relative_tolerance":0.05,"verdict":"inconsistent"}]}}]}/*FX-DATA*/;
+  const FX_TAB={"GPT-6 Astra max":"Fixed it","GPT-6.1 Sol high":"Blamed the <var>PF</var> panel","GPT-6.1 Sol medium":"Found it, kept it","GPT-6 Sol xhigh":"Missed it"};
+  const pct=v=>`${(100*v).toFixed(0)}%`;
+  const FX_SAY={
+    "GPT-6 Astra max":c=>`Checks <var>PF</var> = <var>S</var>²<var>σ</var> with the printed units, finds every sample about 10× off, keeps panels (a) and (c) as printed and moves the <var>σ</var> multiplier from 10³ to 10². Its corrected values pass the check (largest deviation ${pct(c.json.verification[0].overall_max_relative_deviation)}), and ${c.rec.toFixed(0)}% of the faulty points are recovered.`,
+    "GPT-6.1 Sol high":c=>`Finds the same 10× gap but puts the correction on the <var>PF</var> panel. Its record also passes <var>PF</var> = <var>S</var>²<var>σ</var> (deviation ${pct(c.json.verification[0].overall_max_relative_deviation)}): one equation is satisfied whichever panel is changed, so the check cannot catch the wrong choice. ${c.rec.toFixed(0)}% of the faulty <var>σ</var> points are recovered.`,
+    "GPT-6.1 Sol medium":c=>`Finds the gap and names panel (b), but decides the image cannot tell <var>σ</var> from <var>PF</var> and keeps the printed units. A careful answer, yet the stored <var>σ</var> values stay 10× too high: ${c.rec.toFixed(0)}% recovered.`,
+    "GPT-6 Sol xhigh":c=>`Its own <var>PF</var> check fails by ${pct(c.json.verification[0].overall_max_relative_deviation)}, yet it reports the units as consistent and blames hard-to-read markers. The fault enters the record without a flag.`};
+  const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  function jlines(key,val,ind,g,last,out){
+    const pad="  ".repeat(ind), kk=key!==null?`<span class="k">"${esc(key)}"</span><span class="p">: </span>`:"", comma=last?"":'<span class="p">,</span>';
+    const gg=(key==="numeric_transformation"||key==="expected_correction")?"phys":g;
+    if(val===null) out.push([gg,pad+kk+'<span class="n">null</span>'+comma]);
+    else if(Array.isArray(val)){ out.push([gg,pad+kk+'<span class="p">[</span>']); val.forEach((v,i)=>jlines(null,v,ind+1,gg,i===val.length-1,out)); out.push([gg,pad+'<span class="p">]</span>'+comma]); }
+    else if(typeof val==="object"){ const ks=Object.keys(val); out.push([gg,pad+kk+'<span class="p">{</span>']); ks.forEach((k2,i)=>jlines(k2,val[k2],ind+1,gg,i===ks.length-1,out)); out.push([gg,pad+'<span class="p">}</span>'+comma]); }
+    else if(typeof val==="number") out.push([gg,pad+kk+`<span class="n">${val}</span>`+comma]);
+    else out.push([gg,pad+kk+`<span class="s">"${esc(val)}"</span>`+comma]);
+  }
+  const FX_GROUP={unit_verdict:"prop",presentation:"prop",localized_issue:"ver",verification:"phys"};
+  let fxI=0;
+  function drawFx(){
+    const c=FX.cases[fxI], out=[["id",'<span class="p">{</span>']], ks=Object.keys(c.json);
+    ks.forEach((k,i)=>jlines(k,c.json[k],1,FX_GROUP[k]||"id",i===ks.length-1,out));
+    out.push(["id",'<span class="p">}</span>']);
+    document.getElementById('fxCode').innerHTML=out.map(([g,l])=>`<span class="blk" data-k="${g}">${l}</span>`).join('');
+    document.getElementById('fxName').textContent=`${c.m} · ${FX.q} · task_answer`;
+    const wrongPanel=c.det&&!c.loc&&c.panel;
+    const step=(col,lab,ok,txt)=>`<li style="--c:${col}"><b><span class="${ok?'ok':'no'}">${ok?'✓':'✗'}</span> ${lab}</b>${txt}</li>`;
+    document.getElementById('fxSteps').innerHTML=
+      step("#eda100","Find",c.det,c.det?"flags the units as inconsistent":"reports the units as consistent")+
+      step("#e87ba4","Locate",c.loc,c.loc?`names panel (${c.panel})`:wrongPanel?`blames panel (${c.panel}), not (b)`:"no panel named")+
+      step("#a78bfa","Recover",c.rec>=90,`${c.rec.toFixed(0)}% of faulty points recovered`);
+    document.getElementById('fxSay').innerHTML=FX_SAY[c.m]?FX_SAY[c.m](c):"";
+  }
+  if(FX.cases){
+    const C0=FX.counts;
+    document.getElementById('fxIntro').innerHTML=`Panel (b) prints <var>σ</var> in 10³ S m⁻¹, but the plotted numbers are in S cm⁻¹, so <var>σ</var> read as printed is 10× too high. Only the cross-panel check <var>PF</var> = <var>S</var>²<var>σ</var> exposes the fault, and that one equation cannot say whether <var>σ</var> or <var>PF</var> is wrong. With a neutral prompt the model is not told that a fault exists. Pick an answer to see what the model wrote.`;
+    const seg=[["Named panel (b)",C0.located,"var(--teal)"],["Blamed another panel",C0.wrong,"var(--copper)"],["Missed or no answer",C0.missed,"var(--b-cut)"]];
+    document.getElementById('fxCounts').innerHTML=`All ${C0.n} configurations on this figure: <b>${C0.located}</b> named the right panel, <b>${C0.fixed90}</b> of them also recovered at least 90% of the faulty points.`+
+      `<div class="mean-bar" role="img" aria-label="${seg.map(s=>s[0]+' '+s[1]).join(', ')}">${seg.map(s=>`<div style="flex:${s[1]};background:${s[2]}" title="${s[0]}: ${s[1]}">${s[1]}</div>`).join('')}</div>`+
+      `<div class="legend" style="margin-top:8px">${seg.map(s=>`<span><i style="background:${s[2]};border-radius:2px"></i>${s[0]}</span>`).join('')}</div>`;
+    const fseg=document.getElementById('fxSeg');
+    fseg.innerHTML=FX.cases.map((c,i)=>`<button type="button" data-fx="${i}" aria-pressed="${i===0}">${FX_TAB[c.m]||c.m}</button>`).join('');
+    fseg.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{fxI=+b.dataset.fx;fseg.querySelectorAll('button').forEach(o=>o.setAttribute('aria-pressed',o===b));drawFx()}));
+    drawFx();
+  }
+
+  // ---------- planted-fault figure, redrawn from its true values (replaces the question image) ----------
+  const SAMPLE_COL=["#d1495b","#2e6f95","#e09f3e","#3a9d5d","#7a68b0"];
+  function niceStep(max,n){const raw=max/n, p=10**Math.floor(Math.log10(raw)); return [1,2,2.5,5,10].map(k=>k*p).find(s=>s>=raw)}
+  function drawFaultFig(){
+    const host=document.getElementById('fxFig'); if(!host||!EX.faultFig) return;
+    const P=[["a","S (μV K⁻¹)",false],["b","σ (10³ S m⁻¹)",true],["c","PF (μW cm⁻¹ K⁻²)",false]];
+    const W=svgW(host,760), pw=W/3, H=Math.round(Math.max(190,Math.min(250,pw*0.95))), m={l:52,r:8,t:16,b:30};
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Three panels against temperature: Seebeck coefficient, electrical conductivity with the faulty axis label, and power factor">`;
+    P.forEach(([id,lab,bad],k)=>{
+      const C0=EX.faultFig[id], ox=k*pw, iw=pw-m.l-m.r, ih=H-m.t-m.b;
+      const ymax=Math.max(...C0.flatMap(c=>c[2])), st=niceStep(ymax*1.05,4), top=Math.ceil(ymax*1.05/st)*st;
+      const X=v=>ox+m.l+(v-300)/500*iw, Y=v=>m.t+ih-v/top*ih;
+      s+=`<rect x="${ox+m.l}" y="${m.t}" width="${iw}" height="${ih}" style="fill:none;stroke:var(--line)"/>`;
+      for(let v=0;v<=top+1e-9;v+=st) s+=`<text x="${ox+m.l-4}" y="${Y(v)+3.5}" text-anchor="end" style="font-size:9.5px">${+v.toFixed(3)}</text>`;
+      for(const t of [300,500,700]) s+=`<text x="${X(t)}" y="${H-m.b+13}" text-anchor="middle" style="font-size:9.5px">${t}</text>`;
+      s+=`<text x="${ox+m.l+iw/2}" y="${H-3}" text-anchor="middle" style="font-size:10px">T (K)</text>`.replace('>T (K)','><tspan font-style="italic">T</tspan> (K)');
+      s+=`<text x="${ox+m.l+4}" y="${m.t+12}" style="font-size:10.5px;fill:var(--ink);font-weight:650">(${id})</text>`;
+      const lx=ox+10, ly=m.t+ih/2;
+      if(bad) s+=`<rect x="${lx-8}" y="${ly-48}" width="14" height="96" rx="3" style="fill:none;stroke:var(--bad)" stroke-width="1.6"/>`;
+      s+=`<text transform="translate(${lx+2} ${ly}) rotate(-90)" text-anchor="middle" style="font-size:10px;${bad?'fill:var(--bad);font-weight:650':'fill:var(--ink)'}">${symSvg(lab).replace(/^S /,'<tspan font-style="italic">S</tspan> ')}</text>`;
+      C0.forEach((c,i)=>{
+        const col=SAMPLE_COL[i%SAMPLE_COL.length];
+        s+=`<path d="${c[1].map((x,j)=>`${j?'L':'M'}${X(x).toFixed(1)} ${Y(c[2][j]).toFixed(1)}`).join('')}" fill="none" stroke="${col}" stroke-width="1.3"/>`;
+        s+=c[1].map((x,j)=>`<circle cx="${X(x).toFixed(1)}" cy="${Y(c[2][j]).toFixed(1)}" r="2.1" fill="${col}"><title>${c[0]} · ${x} K · ${c[2][j]}</title></circle>`).join('');
+      });
+    });
+    host.innerHTML=s+'</svg><div class="legend" style="margin:6px 8px 0">'+EX.faultFig.a.map((c,i)=>`<span><i style="background:${SAMPLE_COL[i]}"></i>${esc(c[0])}</span>`).join('')+'</div>';
+  }
+
+  // ---------- neutral vs detailed prompt ----------
+  const pcTip=document.getElementById('pcTip'), pcCard=document.getElementById('prompt-compare');
+  const HL_N=/(may or may not have a wrong unit[^.]*|Do not assume in advance[^.]*|no specific verification formula is supplied by this prompt|Derive and state each applicable equation yourself)/gi;
+  const HL_D=/(contains exactly one localized root fault[^.]*|return unit_verdict = unit-inconsistent|Localize exactly one root issue|Use PF = S\^2\*sigma[^.]*|Use PF = S\^2\/rho[^.]*|Use zT = PF\*T\/kappa_tot[^.]*)/g;
+  function promptCode(id,secs,re){
+    const out=[]; secs.forEach((sec,k)=>{ if(k) out.push(['src','']); sec.forEach(l=>{ const e=esc(l), hit=re.test(l); re.lastIndex=0;
+      out.push([hit?'prop':(!/[.:]/.test(l)&&l.length<44?'id':'src'), e.replace(re,'<mark class="hl">$1</mark>')]); re.lastIndex=0; }); });
+    document.getElementById(id).innerHTML=out.map(([g,l])=>`<span class="blk" data-k="${g}">${l||'&nbsp;'}</span>`).join('');
+  }
+  const BL_LAB={"S":"<var>S</var>","σ / ρ":"<var>σ</var>/<var>ρ</var>","PF":"<var>PF</var>","κ$_{tot}$":"<var>κ</var><sub>tot</sub>","κ$_{lat}$":"<var>κ</var><sub>lat</sub>","zT":"<var>zT</var>","None":"none","σ":"<var>σ</var>","ρ":"<var>ρ</var>","T axis":"<var>T</var> axis"};
+  const BL_N={"S":3,"κ$_{tot}$":2,"σ":4,"ρ":2,"PF":4,"T axis":2}, BL_OK={"S":0,"κ$_{tot}$":3,"σ":1,"ρ":1,"PF":2,"T axis":5};
+  let pcMode='n';
+  function drawBlame(){
+    const cols=EX.blameCols, N=EX.blame.n, D=EX.blame.d, chg=pcMode==='c';
+    document.getElementById('blameTitle').textContent=chg?'Which panel was blamed: detailed minus neutral (points)':`Which panel was blamed, ${pcMode==='n'?'neutral':'detailed'} prompt (% of answers)`;
+    const cell=(v,ok,none)=>{
+      if(chg){const a=Math.min(100,Math.abs(v)*2.5); return `<td class="${ok?'ok':''}" style="background:color-mix(in srgb,${v>=0?'var(--b10)':'var(--b-bad)'} ${a}%,transparent)">${Math.abs(v)<0.5?'·':(v>0?'+':'−')+Math.abs(v).toFixed(0)}</td>`}
+      const a=Math.min(100,v*1.1); return `<td class="${ok?'ok':''}" style="background:color-mix(in srgb,${none?'var(--b-cut)':'var(--b10)'} ${a}%,transparent)">${v<0.5?(v>0?'&lt;1':''):v.toFixed(0)}</td>`;
+    };
+    document.getElementById('blame').innerHTML=`<thead><tr><th></th>${cols.map(c=>`<th>${BL_LAB[c]||c}</th>`).join('')}</tr></thead><tbody>`+
+      N.map((r,i)=>{const lab=r[0], vals=chg?r[1].map((v,j)=>D[i][1][j]-v):(pcMode==='n'?r[1]:D[i][1]);
+        return `<tr><th class="r">${BL_LAB[lab]||lab} (${BL_N[lab]||'?'})</th>${vals.map((v,j)=>cell(v,BL_OK[lab]===j,j===cols.length-1)).join('')}</tr>`}).join('')+'</tbody>';
+  }
+  function drawLoc(){
+    const host=document.getElementById('locPlot'), W=svgW(host,520), H=Math.round(W*0.82), m={l:46,r:12,t:12,b:40}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+    const X=v=>m.l+v*iw, Y=v=>m.t+ih-v*ih, R=Object.entries(EX.fig4d||{});
+    const med=a=>{const s=a.filter(v=>v!==null).sort((x,y)=>x-y); return s.length?s[Math.floor(s.length/2)]:0};
+    const k=pcMode==='d'?3:0;
+    document.getElementById('locTitle').textContent=pcMode==='c'?'Per configuration: neutral → detailed':`Per configuration, ${pcMode==='n'?'neutral':'detailed'}: median ${Math.round(100*med(R.map(([,v])=>v[k])))}% of figures localized, ${Math.round(100*med(R.map(([,v])=>v[k+1])))}% of points recovered`;
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Localized versus recovered per configuration">`;
+    for(const v of [0,.25,.5,.75,1]) s+=`<line class="grid" x1="${X(0)}" x2="${X(1)}" y1="${Y(v)}" y2="${Y(v)}"/><line class="grid" x1="${X(v)}" x2="${X(v)}" y1="${Y(0)}" y2="${Y(1)}"/><text x="${m.l-8}" y="${Y(v)+4}" text-anchor="end">${v*100}</text><text x="${X(v)}" y="${H-m.b+16}" text-anchor="middle">${v*100}</text>`;
+    s+=`<line class="diag" x1="${X(0)}" y1="${Y(0)}" x2="${X(1)}" y2="${Y(1)}"/><text x="${X(.97)}" y="${Y(.99)+16}" text-anchor="end" style="font-size:10.5px">every localized fault repaired</text>`;
+    s+=`<text class="axis-title" x="${m.l+iw/2}" y="${H-4}" text-anchor="middle">Faulty panel named (% of 17 figures)</text><text class="axis-title" transform="translate(12 ${m.t+ih/2}) rotate(-90)" text-anchor="middle">Faulty points recovered (%)</text>`;
+    R.forEach(([mname,v],i)=>{
+      const col=`var(${famOf(mname)[1]})`;
+      if(pcMode==='c'){ if(v[2]||v[5]||v[0]===null||v[3]===null) return;
+        s+=`<g class="pt" data-i="${i}"><line x1="${X(v[0])}" y1="${Y(v[1])}" x2="${X(v[3])}" y2="${Y(v[4])}" stroke="${col}" stroke-width="1.4" opacity=".7"/><circle cx="${X(v[3])}" cy="${Y(v[4])}" r="10" fill="transparent"/><circle cx="${X(v[3])}" cy="${Y(v[4])}" r="3.6" fill="${col}"/><circle cx="${X(v[0])}" cy="${Y(v[1])}" r="2.6" fill="var(--surface)" stroke="${col}"/></g>`; return; }
+      const no=v[k+2], x=no?0:v[k], y=no?0:v[k+1]; if(x===null) return;
+      s+=no?`<g class="pt" data-i="${i}"><circle cx="${X(x)}" cy="${Y(y)}" r="10" fill="transparent"/><path d="M${X(x)-4} ${Y(y)-4}l8 8m0 -8l-8 8" stroke="${col}" stroke-width="2"/></g>`
+           :`<g class="pt" data-i="${i}"><circle cx="${X(x)}" cy="${Y(y)}" r="10" fill="transparent"/><circle cx="${X(x)}" cy="${Y(y)}" r="4.4" fill="${col}" stroke="var(--surface)" stroke-width="1.4"/></g>`;
+    });
+    host.innerHTML=s+'</svg>'+(pcMode==='c'?'<p class="fnote">Hollow: neutral prompt. Filled: detailed prompt. Configurations with no output under either prompt are left out.</p>':'');
+    host.querySelectorAll('.pt').forEach(g=>{
+      const [mname,v]=R[+g.dataset.i], f=a=>a===null?'–':`${Math.round(100*a)}%`;
+      const show=()=>{pcTip.innerHTML=`<b>${mname}</b>Neutral: ${v[2]?'no output':`${f(v[0])} named, ${f(v[1])} recovered`}<br>Detailed: ${v[5]?'no output':`${f(v[3])} named, ${f(v[4])} recovered`}`; place(pcTip,pcCard,g)};
+      g.addEventListener('mouseenter',show); g.addEventListener('click',show); g.addEventListener('mouseleave',()=>pcTip.style.opacity=0);
+    });
+  }
+  function drawPairs(){
+    const host=document.getElementById('pairPlot'), W=svgW(host,1000), narrow=W<560, rows=[["Y10","no fault",0],["Y10","planted fault",3],["Coverage","no fault",1],["Coverage","planted fault",4],["Valid output","no fault",2],["Valid output","planted fault",5]];
+    const rh=44, m={l:narrow?118:170,r:16,t:8,b:34}, H=m.t+rows.length*rh+m.b, iw=W-m.l-m.r, lim=50, X=v=>m.l+(Math.max(-lim,Math.min(lim,v))+lim)/(2*lim)*iw;
+    const R=Object.entries(EX.fig3||{}), S=EX.fig3sum||[];
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Detailed minus neutral prompt, per configuration">`;
+    for(const v of [-40,-20,0,20,40]) s+=`<line class="${v?'grid':'diag'}" x1="${X(v)}" x2="${X(v)}" y1="${m.t}" y2="${H-m.b}"/><text x="${X(v)}" y="${H-m.b+16}" text-anchor="middle">${v>0?'+':''}${v}</text>`;
+    s+=`<text class="axis-title" x="${m.l+iw/2}" y="${H-2}" text-anchor="middle">Detailed − neutral (percentage points)</text>`;
+    rows.forEach(([met,set,k],ri)=>{
+      const y=m.t+ri*rh+rh/2, st=S[ri];
+      s+=`<text x="${m.l-10}" y="${y-3}" text-anchor="end" style="fill:var(--ink)">${met} · ${set}</text>`;
+      if(st) s+=`<text x="${m.l-10}" y="${y+11}" text-anchor="end" style="font-size:10px">median ${st[2]>0?'+':''}${st[2]} · p = ${st[3]} · ${st[4]}↑ ${st[5]}↓</text>`;
+      R.forEach(([mn,v],i)=>{ const d=v[k]; if(d===null||d===undefined) return; const j=((i*37)%11-5)*1.6;
+        s+=`<circle class="pp" data-i="${i}" data-k="${k}" cx="${X(d).toFixed(1)}" cy="${(y+j).toFixed(1)}" r="3.4" fill="var(${famOf(mn)[1]})" opacity=".75" style="cursor:pointer"/>`; });
+      if(st) s+=`<path d="M${X(st[2])} ${y-7}l7 7l-7 7l-7 -7z" style="fill:var(--ink);stroke:var(--surface)" stroke-width="1.2"/>`;
+    });
+    host.innerHTML=s+'</svg><p class="fnote">↑/↓: configurations that change by more than 5 points. p: Wilcoxon signed-rank test. Values beyond ±50 sit on the edge.</p>';
+    host.querySelectorAll('.pp').forEach(c=>{
+      const show=()=>{const [mn,v]=R[+c.dataset.i], d=v[+c.dataset.k]; pcTip.innerHTML=`<b>${mn}</b>${d>0?'+':''}${d.toFixed(1)} points with the detailed prompt`; place(pcTip,pcCard,c)};
+      c.addEventListener('mouseenter',show); c.addEventListener('click',show); c.addEventListener('mouseleave',()=>pcTip.style.opacity=0);
+    });
+  }
+  function drawPrompt(){ drawBlame(); drawLoc(); drawPairs(); }
+  if(EX.prompts){
+    promptCode('pcN',EX.prompts.n,HL_N); promptCode('pcD',EX.prompts.d,HL_D);
+    document.querySelectorAll('[data-pc]').forEach(b=>b.addEventListener('click',()=>{pcMode=b.dataset.pc;document.querySelectorAll('[data-pc]').forEach(o=>o.setAttribute('aria-pressed',o===b));drawBlame();drawLoc()}));
+    drawPrompt(); drawFaultFig();
+  }
+
+  // ---------- robustness: temperature vs property disagreement with the model's own consensus ----------
+  const robTip=document.getElementById('robTip'), robCard=document.getElementById('chart-robust');
+  const EFF_SHORT={nonthinking:"none",low:"l",medium:"m",high:"h",thinking:"think",xhigh:"xh",max:"max"}, EFF_RANK={nonthinking:0,low:1,medium:2,high:3,thinking:3,xhigh:4,max:5};
+  const nf=(v,d)=>v===null||v===undefined?'–':v.toFixed(d);
+  let robSel=new Set(["GPT-6.1 Sol","Claude Opus 5.5"]);
+  function drawRobust(){
+    const host=document.getElementById('robPlot'), W=svgW(host,1000), H=Math.round(Math.min(460,Math.max(300,W*0.5))), m={l:50,r:16,t:12,b:42}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+    const lx=[-2,Math.log10(60)], ly=[Math.log10(0.2),2], cl=(v,a)=>Math.max(10**a[0],Math.min(10**a[1],v||10**a[0]));
+    const X=v=>m.l+(Math.log10(cl(v,lx))-lx[0])/(lx[1]-lx[0])*iw, Y=v=>m.t+ih-(Math.log10(cl(v,ly))-ly[0])/(ly[1]-ly[0])*ih;
+    const R=EX.robust||[];
+    let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Temperature and property readings that disagree with each configuration's own consensus">`;
+    for(const v of [0.01,0.1,1,10,50]) s+=`<line class="grid" x1="${X(v)}" x2="${X(v)}" y1="${m.t}" y2="${m.t+ih}"/><text x="${X(v)}" y="${H-m.b+16}" text-anchor="middle">${v}</text>`;
+    for(const v of [0.2,1,5,20,100]) s+=`<line class="grid" x1="${m.l}" x2="${m.l+iw}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end">${v}</text>`;
+    s+=`<text class="axis-title" x="${m.l+iw/2}" y="${H-4}" text-anchor="middle">Temperature readings off own consensus by &gt;5 K (%)</text><text class="axis-title" transform="translate(12 ${m.t+ih/2}) rotate(-90)" text-anchor="middle">Property readings off by &gt;10% (%)</text>`;
+    R.forEach((r,i)=>{ if(robSel.has(r[1])||r[4]===null||r[7]===null) return; s+=`<circle class="rb" data-i="${i}" cx="${X(r[4])}" cy="${Y(r[7])}" r="3.4" style="fill:var(--faint);opacity:.45;cursor:pointer"/>`; });
+    [...robSel].forEach((ser,si)=>{
+      const pts=R.map((r,i)=>[r,i]).filter(([r])=>r[1]===ser&&r[4]!==null&&r[7]!==null).sort((a,b)=>EFF_RANK[a[0][2]]-EFF_RANK[b[0][2]]), col=`var(${famOf(ser)[1]})`, dash=si%2?'5 3':'';
+      s+=`<path d="${pts.map(([r],j)=>`${j?'L':'M'}${X(r[4]).toFixed(1)} ${Y(r[7]).toFixed(1)}`).join('')}" fill="none" stroke="${col}" stroke-width="1.6" stroke-dasharray="${dash}"/>`;
+      pts.forEach(([r,i])=>{
+        s+=`<line x1="${X(r[5])}" x2="${X(r[6])}" y1="${Y(r[7])}" y2="${Y(r[7])}" stroke="${col}" opacity=".45"/><line x1="${X(r[4])}" x2="${X(r[4])}" y1="${Y(r[8])}" y2="${Y(r[9])}" stroke="${col}" opacity=".45"/>`;
+        s+=`<circle class="rb" data-i="${i}" cx="${X(r[4])}" cy="${Y(r[7])}" r="5" style="fill:${r[3]?col:'var(--surface)'};stroke:${col};cursor:pointer" stroke-width="1.6"/><text x="${X(r[4])+7}" y="${Y(r[7])-6}" style="font-size:10.5px;fill:${col}">${EFF_SHORT[r[2]]||r[2]}</text>`;
+      });
+    });
+    host.innerHTML=s+'</svg>';
+    host.querySelectorAll('.rb').forEach(c=>{
+      const show=()=>{const r=R[+c.dataset.i]; robTip.innerHTML=`<b>${r[0]}</b>${r[3]?'':'<i>not rated (too few repeats)</i><br>'}Temperature off &gt;5 K: ${nf(r[4],2)}%<br>Property off &gt;10%: ${nf(r[7],1)}%<br>Fully reproduced: ${nf(r[10],0)}%`; place(robTip,robCard,c)};
+      c.addEventListener('mouseenter',show); c.addEventListener('click',show); c.addEventListener('mouseleave',()=>robTip.style.opacity=0);
+    });
+  }
+  if(EX.robust){
+    const series=[...new Set(EX.robust.map(r=>r[1]))], chips=document.getElementById('robChips');
+    const paint=()=>chips.querySelectorAll('button[data-ser]').forEach(b=>b.setAttribute('aria-pressed',robSel.has(b.dataset.ser)));
+    chips.innerHTML=series.map(s=>`<button type="button" data-ser="${s}"><i style="background:var(${famOf(s)[1]})"></i>${s}</button>`).join('')+'<button type="button" data-clear>Clear</button>';
+    chips.querySelectorAll('button[data-ser]').forEach(b=>b.addEventListener('click',()=>{const s=b.dataset.ser; robSel.has(s)?robSel.delete(s):robSel.add(s); paint(); drawRobust()}));
+    chips.querySelector('[data-clear]').addEventListener('click',()=>{robSel.clear();paint();drawRobust()});
+    paint(); drawRobust();
+    const un=EX.robust.filter(r=>!r[3]&&r[4]!==null).map(r=>r[0]), none=EX.robust.filter(r=>r[4]===null).map(r=>r[0]);
+    document.getElementById('robNote').textContent=`Hollow markers: not rated, fewer than half the gold points had three clean repeat readings (${un.join(', ')}). Not shown, no usable readings: ${none.join(', ')}. Effort labels: l, m, h, xh = low, medium, high, xhigh.`;
+  }
+  let prt; addEventListener('resize',()=>{clearTimeout(prt);prt=setTimeout(()=>{ if(EX.prompts){drawLoc();drawPairs();drawFaultFig()} if(EX.robust) drawRobust(); },150)});
+
+  // ---------- fold / unfold long blocks ----------
+  const FOLD_KEY='tepb-fold';
+  let foldedIds=new Set(); try{foldedIds=new Set(JSON.parse(localStorage.getItem(FOLD_KEY)||'[]'))}catch(e){}
+  function setFold(el,on,save=true){
+    el.classList.toggle('folded',on);
+    const b=el.querySelector(':scope > .fold-btn'); if(b){b.setAttribute('aria-expanded',String(!on)); b.textContent=on?'+':'−'; b.title=on?'Expand':'Collapse';}
+    on?foldedIds.add(el.id):foldedIds.delete(el.id);
+    if(save) try{localStorage.setItem(FOLD_KEY,JSON.stringify([...foldedIds]))}catch(e){}
+    if(!on) dispatchEvent(new Event('resize'));
+  }
+  const foldables=[...document.querySelectorAll('#findings .chart-card[id], #findings figure.fig[id]')];
+  foldables.forEach(el=>{
+    const head=el.querySelector(':scope > .ring-head');
+    if(head) head.classList.add('fold-keep');
+    else{ const h3=el.querySelector(':scope > h3'); if(h3){h3.classList.add('fold-keep'); const nx=h3.nextElementSibling; if(nx&&nx.classList.contains('sub')) nx.classList.add('fold-keep');} }
+    const title=(el.querySelector('h3')||{}).textContent||'section';
+    const b=document.createElement('button'); b.type='button'; b.className='fold-btn'; b.setAttribute('aria-label',`Collapse or expand: ${title}`);
+    el.prepend(b); b.addEventListener('click',()=>setFold(el,!el.classList.contains('folded')));
+    setFold(el,foldedIds.has(el.id),false);
+  });
+  document.querySelectorAll('.chapter').forEach(ch=>{
+    const tt=ch.querySelector('.theme-title'), box=document.createElement('span'); box.className='ch-tools';
+    box.innerHTML='<button type="button" data-f="1">Collapse all</button><button type="button" data-f="0">Expand all</button>';
+    tt.appendChild(box);
+    box.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>ch.querySelectorAll('.chart-card[id], figure.fig[id]').forEach(el=>setFold(el,b.dataset.f==="1"))));
+  });
+  const openTarget=id=>{const t=id&&document.getElementById(id); const f=t&&(t.classList.contains('folded')?t:t.closest('.folded')); if(f) setFold(f,false);};
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]'); if(a) openTarget(a.getAttribute('href').slice(1));});
+  if(location.hash) openTarget(location.hash.slice(1));
+
   // ---------- JSON highlight ----------
   const hb=document.getElementById('hlBtn'), cw=hb.closest('.code-win');
   hb.addEventListener('click',()=>{
@@ -1384,7 +1714,7 @@ footer a{color:var(--teal);text-decoration:none}
 
   // ---------- lightbox ----------
   const lb=document.getElementById('lightbox'), lbi=lb.querySelector('img');
-  document.querySelectorAll('figure.fig img').forEach(im=>im.addEventListener('click',()=>{lbi.src=im.src;lbi.alt=im.alt;lb.classList.add('on')}));
+  document.querySelectorAll('figure.fig img, .fx-fig img').forEach(im=>im.addEventListener('click',()=>{lbi.src=im.src;lbi.alt=im.alt;lb.classList.add('on')}));
   lb.addEventListener('click',()=>lb.classList.remove('on'));
   addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
 })();

@@ -462,7 +462,7 @@ footer a{color:var(--teal);text-decoration:none}
   <div class="shell">
     <a class="brand" href="../#home"><span class="brand-mark">HC</span><span><span class="full">Heyang Chen<span class="sep">/</span></span><strong>TE-PlotBench</strong></span></a>
     <nav class="nav" aria-label="Page sections">
-      <a href="#main">Why</a><a href="#reading">Single panels</a><a href="#panels">Multi-panel</a><a href="#units">Units</a><a href="#papers">Real papers</a><a href="#benchmark">Benchmark</a><a href="#practice">In practice</a>
+      <a href="#main">Why</a><a href="#benchmark">How it works</a><a href="#reading">Single panels</a><a href="#panels">Multi-panel</a><a href="#units">Units</a><a href="#papers">Real papers</a><a href="#practice">In practice</a>
       <a class="ext" href="explorer/">Explorer ↗</a>
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">◐</button>
     </nav>
@@ -595,11 +595,70 @@ footer a{color:var(--teal);text-decoration:none}
     <div class="stat" role="listitem"><strong class="num">17</strong><span>planted unit faults, each tested with two prompts</span></div>
   </div>
 
+  <!-- ============ BENCHMARK ============ -->
+  <span id="methods" aria-hidden="true"></span>
+  <section class="block" id="benchmark" aria-labelledby="bench-title">
+    <div class="sec-head">
+      <p class="eyebrow">01 · How it works</p>
+      <div>
+        <h2 id="bench-title">Known answers, controlled challenges.</h2>
+        <p>We render figures from laboratory measurements whose numbers we keep, so every extracted point can be scored exactly. Then we change one thing at a time: the layout, the units, a planted fault or the prompt. A final track uses published figures with publisher-deposited source data.</p>
+      </div>
+    </div>
+
+    <div class="tracks">
+      <div class="track">
+        <p class="step">TRACK 1</p>
+        <h3>Single panel</h3>
+        <p class="q">Can the model read one plot?</p>
+        <ul><li>One property against temperature, 5–6 samples</li><li>Standard units, rescaled units and log axes</li><li>Each curve must keep its chemical formula</li></ul>
+        <p class="n"><b>36 figures</b> · 204 curves · 2,988 points</p>
+      </div>
+      <div class="track">
+        <p class="step">TRACK 2</p>
+        <h3>Multi-panel</h3>
+        <p class="q">Can it keep related panels consistent?</p>
+        <ul><li>3 or 6 linked panels sharing one legend</li><li>22 figures with valid units, 17 with one planted unit fault</li><li>Each tested with a neutral prompt and a detailed prompt</li></ul>
+        <p class="n"><b>39 figures × 2 prompts</b> · 13,536 points</p>
+      </div>
+      <div class="track">
+        <p class="step">TRACK 3</p>
+        <h3>Published figures</h3>
+        <p class="q">Does it work on real papers?</p>
+        <ul><li>15 figures from <i>Nature Materials</i> and <i>Nature Communications</i>, 2021–2026</li><li>Insets, mixed °C/K axes, literature curves, Hall data</li><li>Sample-level formula checks at shared temperatures</li></ul>
+        <p class="n"><b>15 figures</b> · 85 series · 3,279 points</p>
+      </div>
+    </div>
+
+    <div class="design-row">
+      <div class="panel">
+        <h3>Why thermoelectrics?</h3>
+        <p>The same samples appear in several panels, and their properties are linked by equations. A correct record must satisfy them, so an extraction error can be caught by checking the panels against each other.</p>
+        <div class="eq"><span><var>PF</var> = <var>S</var>²<var>σ</var></span><span><var>zT</var> = <var>PF</var>·<var>T</var> / <var>κ</var><sub>tot</sub></span></div>
+        <div class="unit-demo" aria-label="Example: a Seebeck unit slip">
+          <div class="box"><span>Axis printed in mV/K, read as μV/K</span><b class="num"><var>S</var> is 1,000× too small</b></div>
+          <span class="arrow" aria-hidden="true">→</span>
+          <div class="box bad"><span>Squared in <var>PF</var> and <var>zT</var></span><b class="num">10⁶× too small</b></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>What we measure</h3>
+        <p>Scores use a fixed denominator of all gold points, so a model cannot score well by returning only the easy ones.</p>
+        <div class="metric-list">
+          <div><code>C</code><span>Coverage: share of gold points the model returned and we could match</span></div>
+          <div><code>Y10</code><span>Share of gold points within 10% of the true value (Y5 and Y15 are also reported)</span></div>
+          <div><code>J10</code><span>Y10 with the temperature also within 5 K</span></div>
+          <div><code>Faults</code><span>Detected → correct panel localized → faulty points recovered</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FINDINGS ============ -->
   <span id="evidence" aria-hidden="true"></span><span id="data" aria-hidden="true"></span>
   <section class="block" id="findings" aria-labelledby="findings-title">
     <div class="sec-head">
-      <p class="eyebrow">01 · Key findings</p>
+      <p class="eyebrow">02 · Key findings</p>
       <div>
         <h2 id="findings-title">Nine results, in four parts.</h2>
         <p>Can models read the points? Can they reason about units across panels? What does it take to deploy them on real papers? Every number comes from the 18 November 2026 data. <b>Y10</b> = share of all gold points recovered within 10% of the true value; missing points count as failures. Each part opens with its findings and continues with the data behind them: hover or tap any chart for details; colour shows the model family.</p>
@@ -909,65 +968,6 @@ footer a{color:var(--teal);text-decoration:none}
     </defs></svg>
   </section>
 
-  <!-- ============ BENCHMARK ============ -->
-  <span id="methods" aria-hidden="true"></span>
-  <section class="block" id="benchmark" aria-labelledby="bench-title">
-    <div class="sec-head">
-      <p class="eyebrow">02 · How it works</p>
-      <div>
-        <h2 id="bench-title">Known answers, controlled challenges.</h2>
-        <p>We render figures from laboratory measurements whose numbers we keep, so every extracted point can be scored exactly. Then we change one thing at a time: the layout, the units, a planted fault or the prompt. A final track uses published figures with publisher-deposited source data.</p>
-      </div>
-    </div>
-
-    <div class="tracks">
-      <div class="track">
-        <p class="step">TRACK 1</p>
-        <h3>Single panel</h3>
-        <p class="q">Can the model read one plot?</p>
-        <ul><li>One property against temperature, 5–6 samples</li><li>Standard units, rescaled units and log axes</li><li>Each curve must keep its chemical formula</li></ul>
-        <p class="n"><b>36 figures</b> · 204 curves · 2,988 points</p>
-      </div>
-      <div class="track">
-        <p class="step">TRACK 2</p>
-        <h3>Multi-panel</h3>
-        <p class="q">Can it keep related panels consistent?</p>
-        <ul><li>3 or 6 linked panels sharing one legend</li><li>22 figures with valid units, 17 with one planted unit fault</li><li>Each tested with a neutral prompt and a detailed prompt</li></ul>
-        <p class="n"><b>39 figures × 2 prompts</b> · 13,536 points</p>
-      </div>
-      <div class="track">
-        <p class="step">TRACK 3</p>
-        <h3>Published figures</h3>
-        <p class="q">Does it work on real papers?</p>
-        <ul><li>15 figures from <i>Nature Materials</i> and <i>Nature Communications</i>, 2021–2026</li><li>Insets, mixed °C/K axes, literature curves, Hall data</li><li>Sample-level formula checks at shared temperatures</li></ul>
-        <p class="n"><b>15 figures</b> · 85 series · 3,279 points</p>
-      </div>
-    </div>
-
-    <div class="design-row">
-      <div class="panel">
-        <h3>Why thermoelectrics?</h3>
-        <p>The same samples appear in several panels, and their properties are linked by equations. A correct record must satisfy them, so an extraction error can be caught by checking the panels against each other.</p>
-        <div class="eq"><span><var>PF</var> = <var>S</var>²<var>σ</var></span><span><var>zT</var> = <var>PF</var>·<var>T</var> / <var>κ</var><sub>tot</sub></span></div>
-        <div class="unit-demo" aria-label="Example: a Seebeck unit slip">
-          <div class="box"><span>Axis printed in mV/K, read as μV/K</span><b class="num"><var>S</var> is 1,000× too small</b></div>
-          <span class="arrow" aria-hidden="true">→</span>
-          <div class="box bad"><span>Squared in <var>PF</var> and <var>zT</var></span><b class="num">10⁶× too small</b></div>
-        </div>
-      </div>
-      <div class="panel">
-        <h3>What we measure</h3>
-        <p>Scores use a fixed denominator of all gold points, so a model cannot score well by returning only the easy ones.</p>
-        <div class="metric-list">
-          <div><code>C</code><span>Coverage: share of gold points the model returned and we could match</span></div>
-          <div><code>Y10</code><span>Share of gold points within 10% of the true value (Y5 and Y15 are also reported)</span></div>
-          <div><code>J10</code><span>Y10 with the temperature also within 5 K</span></div>
-          <div><code>Faults</code><span>Detected → correct panel localized → faulty points recovered</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ PRACTICE ============ -->
   <section class="block" id="practice" aria-labelledby="practice-title">
     <div class="sec-head">
@@ -990,7 +990,7 @@ footer a{color:var(--teal);text-decoration:none}
 
 <footer>
   <div class="shell">
-    <span>TE-PlotBench · Heyang Chen, Yifan Sun, Jinfeng Dong, Zhi Li, Qingyu Yan &amp; Mercouri G. Kanatzidis · NTU Singapore &amp; Northwestern University</span>
+    <span>TE-PlotBench</span>
     <span><a href="explorer/">Curve explorer ↗</a> · <a href="../#home">Homepage</a> · Data 18 Nov 2026</span>
   </div>
 </footer>

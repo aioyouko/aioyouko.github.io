@@ -2,7 +2,7 @@
 .te-research {
   --te-rule: #d6dfda;
   --te-soft: #e8eeea;
-  --te-serif: "Source Serif 4", Georgia, serif;
+  --te-serif: var(--font-serif);
 }
 
 .te-research .page-shell {
@@ -56,7 +56,7 @@
 .te-cover-photo img { width: 100%; height: auto; }
 .te-cover-bottom { display: flex; gap: 1rem; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid #bdcfc3; }
 .te-cover-bottom strong { font-family: var(--te-serif); font-size: 2.8rem; font-weight: 600; line-height: 1; letter-spacing: -0.05em; }
-.te-cover-bottom strong span { font: 500 1.1rem Inter, sans-serif; letter-spacing: 0; }
+.te-cover-bottom strong span { font: 500 1.1rem var(--font-sans); letter-spacing: 0; }
 .te-cover-bottom p { max-width: 155px; font-size: 0.76rem; line-height: 1.5; }
 .te-cover figcaption { margin-top: 1rem; color: #52685b; font-size: 0.65rem; line-height: 1.55; }
 .te-cover figcaption a { text-decoration: underline; text-underline-offset: 2px; }
@@ -140,7 +140,7 @@
 .te-device .te-metrics div + div { border-color: #4a6d60; }
 .te-device .te-metrics dt { color: #f8f3ea; font-size: 2.8rem; }
 .te-device .te-metrics dd, .te-device .te-figure figcaption { color: #c3d6ca; }
-.te-device .te-metrics dt span { font: 500 0.9rem Inter, sans-serif; letter-spacing: 0; }
+.te-device .te-metrics dt span { font: 500 0.9rem var(--font-sans); letter-spacing: 0; }
 .te-device .te-figure figcaption a, .te-device-link { color: #eef7ef; }
 .te-device .te-figure-button { padding: 1rem; }
 .te-device .te-precision-note { color: #c3d6ca; }
@@ -161,11 +161,11 @@
 .te-figure-dialog { width: min(1120px, 94vw); max-height: 94dvh; padding: 1.2rem; border: 1px solid #cbd6cf; border-radius: 6px; background: #fff; color: var(--ink); box-shadow: var(--shadow); }
 .te-figure-dialog::backdrop { background: #0b211cbb; backdrop-filter: blur(4px); }
 .te-dialog-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.9rem; }
-.te-dialog-header h3 { margin: 0; font: 600 0.9rem/1.5 Inter, sans-serif; }
-.te-dialog-close { flex-shrink: 0; border: 1px solid #cbd6cf; background: #f6f7f5; border-radius: 50%; width: 40px; height: 40px; font: 400 1.5rem/1 sans-serif; cursor: pointer; }
+.te-dialog-header h3 { margin: 0; font: 600 0.9rem/1.5 var(--font-sans); }
+.te-dialog-close { flex-shrink: 0; border: 1px solid #cbd6cf; background: #f6f7f5; border-radius: 50%; width: 40px; height: 40px; font: 400 1.5rem/1 var(--font-sans); cursor: pointer; }
 .te-figure-dialog img { width: 100%; max-height: 73dvh; object-fit: contain; }
-.te-figure-dialog p { margin: 1rem 0 0; font: 400 0.75rem/1.65 Inter, sans-serif; color: var(--muted); }
-.te-dialog-original { display: inline-block; margin-top: 0.7rem; font: 600 0.75rem/1.5 Inter, sans-serif; color: var(--teal-deep); text-decoration: underline; text-underline-offset: 3px; }
+.te-figure-dialog p { margin: 1rem 0 0; font: 400 0.75rem/1.65 var(--font-sans); color: var(--muted); }
+.te-dialog-original { display: inline-block; margin-top: 0.7rem; font: 600 0.75rem/1.5 var(--font-sans); color: var(--teal-deep); text-decoration: underline; text-underline-offset: 3px; }
 body.te-figure-open { overflow: hidden; }
 
 @media (max-width: 1000px) {

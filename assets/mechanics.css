@@ -9,18 +9,18 @@
 .mechanics-section-heading { margin-bottom: 1.5rem; }
 .mechanics-section-heading .section-kicker, .mechanics-intrinsic .section-kicker { font-size: 0.72rem; letter-spacing: 0.08em; margin-bottom: 0.7rem; }
 .mechanics-section-heading .section-kicker span, .mechanics-intrinsic .section-kicker span { margin-right: 0.7rem; color: var(--copper); }
-.mechanics-section-heading h3, .mechanics-intrinsic h3 { font-family: "Source Serif 4", Georgia, serif; font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.15; font-weight: 600; }
+.mechanics-section-heading h3, .mechanics-intrinsic h3 { font-family: var(--font-serif); font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.15; font-weight: 600; }
 .mechanics-section-heading > p:last-child { max-width: 710px; margin-top: 0.7rem; color: var(--muted); line-height: 1.7; font-size: 0.94rem; }
 .flex-demo { --flex-accent: #0b766b; --flex-critical: 16.667%; display: grid; grid-template-columns: minmax(0, 1fr) 318px; overflow: hidden; border: 1px solid #d4dedb; border-radius: 10px; background: #fff; box-shadow: 0 12px 36px #243b5510; }
 .flex-demo[data-state="fracture"], .flex-demo[data-state="limit"] { --flex-accent: #a34630; }
 .flex-stage { display: flex; flex-direction: column; min-width: 0; padding: 1.5rem 1.6rem 1rem; background: radial-gradient(ellipse at 55% 48%, #fff 0, #f0f5f4 70%, #eaf0ef 100%); }
 .flex-stage-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
 .flex-specimen { display: flex; align-items: center; gap: 0.65rem; color: #40565b; font-size: 0.73rem; font-weight: 600; }
-.flex-si { display: grid; place-items: center; width: 33px; height: 36px; border: 1px solid #b2c1c7; border-radius: 3px; color: #2a455a; font-size: 1.1rem; font-family: Georgia, serif; }
+.flex-si { display: grid; place-items: center; width: 33px; height: 36px; border: 1px solid #b2c1c7; border-radius: 3px; color: #2a455a; font-size: 1.1rem; font-family: var(--font-serif); }
 .flex-state { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--flex-accent); font-size: 0.65rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; }
 .flex-state::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .flex-wafer { display: block; width: 100%; height: auto; min-height: 300px; flex: 1; overflow: visible; }
-.flex-wafer text { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #496369; }
+.flex-wafer text { font-family: var(--font-sans); font-size: 14px; fill: #496369; }
 .flex-wafer .flex-svg-label { font-size: 12px; fill: #62777c; }
 .flex-stage-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .flex-stage-bottom p { max-width: 300px; font-size: 0.82rem; color: #40575c; line-height: 1.65; }
@@ -35,7 +35,7 @@
 .flex-reset { padding: 0.35rem 0; border: 0; background: transparent; color: #58685f; font-size: 0.7rem !important; text-decoration: underline; text-underline-offset: 3px; }
 .flex-thickness-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
 .flex-thickness-heading label { color: #37484d; font-size: 0.8rem; font-weight: 600; }
-.flex-thickness-heading i, .flex-radius i { font-family: Georgia, serif; }
+.flex-thickness-heading i, .flex-radius i { font-family: var(--font-serif); }
 .flex-thickness-heading output { color: var(--ink); font-size: 2rem; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: -0.06em; }
 .flex-thickness-heading output span { font-size: 0.9rem; letter-spacing: 0; color: var(--muted); }
 .flex-range-wrap { position: relative; margin-top: 0.6rem; padding: 0 10px; }
@@ -73,8 +73,8 @@
 .flex-metrics > div { padding: 1.2rem 1.5rem; }
 .flex-metrics > div + div { border-left: 1px solid #dfe6df; }
 .flex-metrics span { display: block; color: #68766f; font-size: 0.68rem; }
-.flex-metrics strong { display: block; margin: 0.5rem 0 0.35rem; color: #294d43; font-family: Georgia, serif; font-size: 1.5rem; font-weight: 400; font-variant-numeric: tabular-nums; }
-.flex-metrics small { font-family: Inter, sans-serif; font-size: 0.85rem; color: #61786d; }
+.flex-metrics strong { display: block; margin: 0.5rem 0 0.35rem; color: #294d43; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+.flex-metrics small { font-family: var(--font-sans); font-size: 0.85rem; color: #61786d; }
 .flex-metrics p { color: #758278; font-size: 0.66rem; line-height: 1.5; }
 .flex-reading { display: grid; grid-template-columns: 1fr 0.85fr; gap: 3rem; align-items: start; padding-top: 1.6rem; }
 .flex-takeaway .meta { font-size: 0.67rem; letter-spacing: 0.05em; }

@@ -15,13 +15,25 @@
   --shadow: 0 22px 60px rgba(23, 32, 38, 0.12);
   --radius: 8px;
   --content: 1120px;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Site-wide type: text, headings and code. Pages outside index.html (TE-PlotBench, Curve Explorer) use the same three. */
+  --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-sans);
   background: var(--page);
   color: var(--ink);
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Form controls default to the system UI font; keep them on the site font. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 html {
@@ -177,7 +189,7 @@ h3 {
 .view-hero h2,
 .profile-copy h2,
 .contact-panel h2 {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: var(--font-serif);
   line-height: 1;
 }
 
@@ -478,7 +490,7 @@ h3 {
 }
 
 .plot-card code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-mono);
   white-space: inherit;
 }
 

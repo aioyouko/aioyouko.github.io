@@ -96,3 +96,18 @@ body.te-dark .page-contents a span { color: var(--muted); }
   .page-contents, .page-contents[data-cols] { grid-template-columns: 1fr 1fr; gap: 0.9rem 0.6rem; }
   .page-contents a { padding: 0; border: 0; }
 }
+
+/* Page heroes: one style on every page, taken from TE-PlotBench's hero
+ * (extractbench/index.html .db-hero): small spaced teal label, bold tight heading,
+ * a Georgia lead sentence with a teal italic phrase, then grey intro text.
+ * :root + doubled class outranks the per-page hero rules. */
+:root .page-view .hero-kicker.hero-kicker { margin: 0; color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: 1.6px; line-height: 1.6; text-transform: uppercase; }
+:root .page-view .hero-title.hero-title { margin: 14px 0 0; color: var(--ink); font-family: var(--font-serif); font-size: clamp(36px, 4.6vw, 58px); font-weight: 650; line-height: 1.06; letter-spacing: -2px; }
+:root .page-view .hero-lede.hero-lede { margin: 18px 0 0; max-width: 640px; color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: clamp(20px, 2.1vw, 26px); font-weight: 400; line-height: 1.32; letter-spacing: -0.4px; }
+:root .page-view .hero-lede.hero-lede em { color: var(--teal); font-style: italic; font-weight: 400; }
+:root .page-view .hero-intro.hero-intro { margin: 16px 0 0; max-width: 620px; color: var(--muted); font-size: 15.5px; line-height: 1.65; }
+:root .page-view .hero-intro.hero-intro strong { color: var(--ink); }
+/* Contact sits on a dark panel in both themes. */
+:root .contact-panel .hero-title.hero-title, :root .contact-panel .hero-lede.hero-lede { color: #fffdf8; }
+:root .contact-panel .hero-kicker.hero-kicker, :root .contact-panel .hero-lede.hero-lede em { color: #8fd6c8; }
+:root .contact-panel .hero-intro.hero-intro { color: rgba(255, 253, 248, 0.72); }

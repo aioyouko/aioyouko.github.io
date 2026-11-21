@@ -113,17 +113,32 @@ h3 {
   box-shadow: 0 10px 26px rgba(11, 118, 107, 0.12);
 }
 
-/* The header mark is a round photo (assets/profile/cat-avatar.jpg). */
+/* The header mark is the cat cut out of its photo (assets/profile/cat-avatar-popout.png, 3:4).
+ * The image is 36 x 48 px, bottom-aligned to the circle: the mask keeps everything above the
+ * circle's centre (so the ears rise out of the ring) and only the circle below it. */
 .brand-mark {
-  overflow: hidden;
+  position: relative;
+  overflow: visible;
   padding: 0;
+  background: #efe5cc;
 }
 
 .brand-mark img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 36px;
+  max-width: none;
+  height: 48px;
+  transform: translateX(-50%);
+  -webkit-mask: radial-gradient(circle 18px at 50% 30px, #000 17.5px, transparent 18px) no-repeat,
+    linear-gradient(#000 0 0) top / 100% 30px no-repeat;
+  mask: radial-gradient(circle 18px at 50% 30px, #000 17.5px, transparent 18px) no-repeat,
+    linear-gradient(#000 0 0) top / 100% 30px no-repeat;
+}
+
+body.te-dark .site-header .brand-mark {
+  background: #39342a;
 }
 
 .site-nav {

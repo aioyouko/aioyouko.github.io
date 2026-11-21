@@ -300,6 +300,16 @@ details.table-view thead th{position:sticky;top:0;background:var(--surface)}
 .ch-n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--teal-soft);color:var(--deep);font-size:15px;font-weight:700;letter-spacing:0}
 .chapter .cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .chart-grid.wide,.fig-list.wide{margin-top:16px}
+/* cost charts (chapter 4) */
+.par-front{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-top:10px;font-size:12.5px;color:var(--muted)}
+.par-front .chip{border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.par-front .chip b{color:var(--ink);margin-right:5px}
+.legend .ramp i{margin-right:2px}
+.cost-pick{display:none}
+.cost-pick.on{display:flex}
+#parPlot svg .ser{pointer-events:none;transition:opacity .15s}
+#parPlot.dim .pp:not(.on){opacity:.25}
+#costPlot svg .row-band{fill:var(--grid);opacity:.45}
 .bands{display:grid;gap:12px;margin-top:16px}
 .band-row{display:grid;grid-template-columns:160px 1fr 56px;gap:10px;align-items:center;font-size:13px}
 .band-row .mean-bar{height:20px;margin:0}
@@ -964,7 +974,7 @@ footer a{color:var(--teal);text-decoration:none}
           <div class="big num">$0.03<small>per figure</small></div>
           <h4>Reasoning effort shows steep diminishing returns.</h4>
           <p>GPT-6.1 Sol low reaches 99.6% single-panel Y10 for about $0.03 per figure. GPT-6 Astra max costs about 25× more ($0.74) for +0.3 points. Claude Haiku 5.5 high reaches 95% for $0.004.</p>
-          <p class="more"><a href="#practice">What this means ↓</a></p>
+          <p class="more"><a href="#chart-cost">Cost on all three test sets ↓</a></p>
         </article>
       </div>
 
@@ -983,6 +993,29 @@ footer a{color:var(--teal);text-decoration:none}
           <a class="open" href="figures/fig5-published-figures.png" target="_blank" rel="noopener">Open full size ↗</a>
         </figcaption>
       </figure>
+
+      <div class="chart-card" id="chart-pareto">
+        <h3>Published figures: accuracy against cost</h3>
+        <p class="sub" id="parSub">Each dot is one configuration on the 15 published figures. The line is the Pareto frontier: the best accuracy any configuration reaches at or below that cost per figure. Hover a dot to trace its model series across reasoning efforts.</p>
+        <div class="controls"><div class="seg" role="group" aria-label="Accuracy metric"><button type="button" data-pm="2" aria-pressed="true">Y10</button><button type="button" data-pm="1" aria-pressed="false">Y5</button></div><div class="seg" role="group" aria-label="Accuracy range"><button type="button" data-pz="0" aria-pressed="true">0–100%</button><button type="button" data-pz="80" aria-pressed="false">Zoom 80–100%</button></div></div>
+        <div class="legend cost-legend"></div>
+        <div id="parPlot"></div>
+        <div class="par-front" id="parFront"></div>
+        <p class="fnote" id="parNote"></p>
+        <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="parTable"></table></div></details>
+        <div class="tooltip" id="parTip" role="status"></div>
+      </div>
+
+      <div class="chart-card" id="chart-cost">
+        <h3>What one figure costs, by test set</h3>
+        <p class="sub">USD per figure for every configuration, on a log scale shared by the three test sets. One row per model series; the dots in a row are its reasoning efforts, the line spans its cheapest to its most expensive setting. Dashed line: median over configurations.</p>
+        <div class="controls cost-pick"><div class="seg" role="group" aria-label="Test set"><button type="button" data-cs="s" aria-pressed="true">Single panel</button><button type="button" data-cs="m" aria-pressed="false">Multi-panel</button><button type="button" data-cs="p" aria-pressed="false">Published</button></div></div>
+        <div class="legend cost-legend"></div>
+        <div id="costPlot"></div>
+        <p class="fnote">Public-API-equivalent estimates at November 2026 list prices, from input and output tokens (reasoning counted once; truncated and format-invalid responses keep their usage). Multi-panel: mean over the 78 multi-panel tests (both prompts, with and without the planted fault).</p>
+        <details class="table-view"><summary>Show as table</summary><div class="scroll"><table id="costTable"></table></div></details>
+        <div class="tooltip" id="costTip" role="status"></div>
+      </div>
       </div>
     </div>
   </section>
@@ -1711,6 +1744,132 @@ footer a{color:var(--teal);text-decoration:none}
     document.getElementById('robNote').textContent=`Hollow markers: not rated, fewer than half the gold points had three clean repeat readings (${un.join(', ')}). Not shown, no usable readings: ${none.join(', ')}. Effort labels: l, m, h, xh = low, medium, high, xhigh.`;
   }
   let prt; addEventListener('resize',()=>{clearTimeout(prt);prt=setTimeout(()=>{ if(EX.prompts){drawLoc();drawPairs();drawFaultFig()} if(EX.robust) drawRobust(); },150)});
+
+  // ---------- cost: published-figure Pareto + cost per figure on the three test sets ----------
+  // COST is filled by tools/build_cost_data.py. Per configuration: s = single panel [USD, Y5, Y10],
+  // m = multi-panel USD (mean over 78 tests), p = published [USD, Y5, Y10, on Y5 frontier, on Y10 frontier].
+  const COST=/*COST-DATA*/{"series":[{"name":"GPT-6.1 Sol","fam":"GPT","cfg":[{"e":"low","slot":1,"s":[0.02995,98.59,99.63],"m":0.0625,"p":[0.06685,92.61,95.31,1,1]},{"e":"medium","slot":2,"s":[0.03967,98.75,99.69],"m":0.09713,"p":[0.09989,94.56,96.41,1,1]},{"e":"high","slot":3,"s":[0.05113,99.14,99.73],"m":0.16389,"p":[0.15873,95.62,98.33,1,1]},{"e":"xhigh","slot":4,"s":[0.11341,99.49,99.88],"m":0.26247,"p":[0.19355,98.26,98.88,1,1]},{"e":"max","slot":5,"s":[0.14335,99.19,99.81],"m":0.32646}]},{"name":"GPT-6 Astra","fam":"GPT","cfg":[{"e":"low","slot":1,"s":[0.14784,99.02,99.77],"m":0.36747,"p":[0.38046,96.79,98.92,0,1]},{"e":"medium","slot":2,"s":[0.15446,99.65,100.0],"m":0.42098,"p":[0.5431,96.74,98.13,0,0]},{"e":"high","slot":3,"s":[0.21851,99.2,99.76],"m":0.82011,"p":[0.90452,97.31,98.61,0,0]},{"e":"xhigh","slot":4,"s":[0.47994,99.67,99.94],"m":1.22805,"p":[1.06672,97.53,98.83,0,0]},{"e":"max","slot":5,"s":[0.73845,99.73,99.94],"m":1.54838,"p":[1.50103,97.58,98.4,0,0]}]},{"name":"GPT-6 Sol","fam":"GPT","cfg":[{"e":"low","slot":1,"s":[0.03123,55.6,58.54],"m":0.06798,"p":[0.07443,89.38,93.3,0,0]},{"e":"medium","slot":2,"s":[0.04441,87.38,89.95],"m":0.09415,"p":[0.09442,90.87,94.58,0,0]},{"e":"high","slot":3,"s":[0.04861,85.34,88.13],"m":0.12566,"p":[0.12891,89.36,94.23,0,0]},{"e":"xhigh","slot":4,"s":[0.06285,87.91,90.79],"m":0.15385,"p":[0.19422,91.41,95.71,0,0]},{"e":"max","slot":5,"s":[0.10603,91.25,94.03],"m":0.26423,"p":[0.33201,94.0,97.07,0,0]}]},{"name":"GPT-6 Luna","fam":"GPT","cfg":[{"e":"low","slot":1,"s":[0.00141,12.37,16.12],"m":0.0013},{"e":"medium","slot":2,"s":[0.00171,26.71,31.34],"m":0.00329},{"e":"high","slot":3,"s":[0.00216,37.96,43.2],"m":0.00661},{"e":"xhigh","slot":4,"s":[0.00428,53.15,57.35],"m":0.00669},{"e":"max","slot":5,"s":[0.00629,55.85,61.46],"m":0.0115}]},{"name":"Claude Opus 5.5","fam":"Claude","cfg":[{"e":"low","slot":1,"s":[0.0507,83.12,85.29],"m":0.11545,"p":[0.10743,59.78,60.94,0,0]},{"e":"high","slot":3,"s":[0.08832,95.44,97.72],"m":0.3243,"p":[0.29887,90.78,96.53,0,0]},{"e":"max","slot":5,"s":[0.49395,96.02,97.97],"m":1.33106,"p":[1.12983,37.71,38.43,0,0]}]},{"name":"Claude Sonnet 5.5","fam":"Claude","cfg":[{"e":"low","slot":1,"s":[0.02357,57.85,59.21],"m":0.01566,"p":[0.0324,24.62,24.64,0,0]},{"e":"high","slot":3,"s":[0.03388,79.7,82.2],"m":0.12907,"p":[0.14144,95.61,97.68,1,1]},{"e":"max","slot":5,"s":[0.35973,95.14,96.99],"m":0.66554,"p":[0.59604,17.38,17.38,0,0]}]},{"name":"Claude Haiku 5.5","fam":"Claude","cfg":[{"e":"low","slot":1,"s":[0.0025,76.49,80.76],"m":0.00674,"p":[0.0069,85.83,90.94,1,1]},{"e":"high","slot":3,"s":[0.00409,90.26,94.98],"m":0.01679,"p":[0.01467,88.0,93.37,1,1]},{"e":"max","slot":5,"s":[0.02632,71.55,73.78],"m":0.03328,"p":[0.03352,0.0,0.0,0,0]}]},{"name":"Claude Fable 5.1","fam":"Claude","cfg":[{"e":"low","slot":1,"s":[0.14547,78.72,87.09],"m":0.48121,"p":[0.52829,85.17,91.78,0,0]},{"e":"high","slot":3,"s":[0.2241,83.96,92.22],"m":0.75282,"p":[0.77175,86.47,93.11,0,0]},{"e":"max","slot":5,"p":[2.35687,73.36,79.48,0,0]}]},{"name":"Gemini 3.1 Pro","fam":"Gemini","cfg":[{"e":"nonthinking","slot":0,"s":[0.03581,74.3,82.87],"m":0.11923,"p":[0.12692,66.61,77.19,0,0]},{"e":"thinking","slot":3,"s":[0.15519,74.35,84.54],"m":0.26173,"p":[0.10446,67.17,77.97,0,0]}]},{"name":"GPT-5.6 Sol","fam":"GPT","cfg":[{"e":"low","slot":1,"s":[0.04799,80.11,88.54],"m":0.13492,"p":[0.1326,79.28,82.52,0,0]},{"e":"medium","slot":2,"s":[0.08363,84.83,91.64],"m":0.18339,"p":[0.18223,86.0,90.37,0,0]},{"e":"high","slot":3,"s":[0.16785,84.86,92.03],"m":0.30619,"p":[0.29707,89.66,93.7,0,0]},{"e":"xhigh","slot":4,"s":[0.31771,86.0,92.55],"m":0.48178,"p":[0.48508,88.45,92.94,0,0]},{"e":"max","slot":5,"s":[0.5215,88.28,91.99],"m":0.70055,"p":[0.68604,90.19,94.51,0,0]}]},{"name":"GPT-5.6 Terra","fam":"GPT","cfg":[{"e":"low","slot":1,"s":[0.02206,67.1,74.93],"m":0.06826,"p":[0.06983,71.53,77.09,0,0]},{"e":"medium","slot":2,"s":[0.03891,67.75,76.19],"m":0.08912,"p":[0.07428,62.86,69.55,0,0]},{"e":"high","slot":3,"s":[0.10765,78.17,87.12],"m":0.18104,"p":[0.11487,82.09,88.71,0,0]},{"e":"xhigh","slot":4,"s":[0.20449,77.46,84.74],"m":0.30982,"p":[0.26945,87.88,95.18,0,0]},{"e":"max","slot":5,"s":[0.41379,80.83,87.24],"m":0.52191,"p":[0.54868,87.04,94.73,0,0]}]},{"name":"GPT-5.6 Luna","fam":"GPT","cfg":[{"e":"low","slot":1,"s":[0.00255,47.77,54.73],"m":0.00562,"p":[0.0058,45.5,50.08,1,1]},{"e":"medium","slot":2,"s":[0.00446,53.16,60.51],"m":0.00928,"p":[0.00973,60.57,66.22,0,0]},{"e":"high","slot":3,"s":[0.01499,64.61,72.57],"m":0.02593,"p":[0.02064,83.15,89.69,0,0]},{"e":"xhigh","slot":4,"s":[0.02777,67.42,75.09],"m":0.04281,"p":[0.03423,80.8,89.32,0,0]},{"e":"max","slot":5,"s":[0.04783,40.84,46.67],"m":0.06487,"p":[0.05773,81.3,90.62,0,0]}]},{"name":"GPT-5.5","fam":"GPT","cfg":[{"e":"low","slot":1,"s":[0.05615,82.06,89.89],"m":0.18507,"p":[0.19545,81.53,86.13,0,0]},{"e":"medium","slot":2,"s":[0.1508,83.11,90.33],"m":0.26929,"p":[0.32477,84.94,88.07,0,0]},{"e":"high","slot":3,"s":[0.33461,81.02,89.34],"m":0.44665,"p":[0.51449,84.93,88.63,0,0]},{"e":"xhigh","slot":4,"s":[0.47129,80.52,88.22],"m":0.78739}]},{"name":"Kimi K3","fam":"Kimi","cfg":[{"e":"low","slot":1,"s":[0.06661,31.97,39.91],"m":0.11701},{"e":"high","slot":3,"s":[0.12185,41.15,51.13],"m":0.17484},{"e":"max","slot":5,"s":[0.38068,31.75,42.34],"m":0.58516}]},{"name":"Qwen 3.8 Max","fam":"Qwen","cfg":[{"e":"nonthinking","slot":0,"s":[0.01914,46.21,53.94],"m":0.04661,"p":[0.05118,50.19,58.44,0,0]},{"e":"thinking","slot":3,"s":[0.05812,78.22,88.02],"m":0.12307,"p":[0.07737,76.66,85.01,0,0]}]},{"name":"DeepSeek V4.1 Flash","fam":"DeepSeek","cfg":[{"e":"nonthinking","slot":0,"s":[0.00188,37.59,47.04],"m":0.00545,"p":[0.00671,37.51,50.19,0,1]},{"e":"low","slot":1,"s":[0.01154,57.73,70.24],"m":0.0285,"p":[0.02713,49.7,64.49,0,0]},{"e":"high","slot":3,"s":[0.02837,53.39,63.04],"m":0.04463,"p":[0.04025,47.52,63.2,0,0]},{"e":"max","slot":5,"s":[0.04638,50.69,61.05],"m":0.06982,"p":[0.06191,51.51,63.75,0,0]}]}],"pubLeftOut":["gpt6_1_sol_max"],"pubN":52}/*COST-DATA*/;
+  if(COST){
+    const EFF_OP={nonthinking:0,low:.3,medium:.48,high:.66,thinking:.66,xhigh:.83,max:1};
+    const usd=v=>'$'+(v<0.01?v.toFixed(4):v<0.1?v.toFixed(3):v.toFixed(2));
+    const effLab=e=>e==='nonthinking'?'no thinking':e;
+    const cfgName=(s,c)=>`${s.name} ${effLab(c.e)}`;
+    const dotFill=(col,e)=>EFF_OP[e]?`fill="${col}" fill-opacity="${EFF_OP[e]}"`:`fill="var(--surface)"`;
+    const median=a=>{const b=[...a].sort((x,y)=>x-y), k=b.length>>1; return b.length%2?b[k]:(b[k-1]+b[k])/2};
+    const hideTip=t=>{t.style.opacity=0; t.style.left='0px'; t.style.top='0px'};  // park it so a hidden tip never widens the page
+    const ALL=COST.series.flatMap((s,si)=>s.cfg.map((c,ci)=>({s,c,si,ci})));
+    document.querySelectorAll('.cost-legend').forEach(l=>l.innerHTML=FAM.filter(f=>COST.series.some(s=>s.fam===f[0])).map(f=>`<span><i style="background:var(${f[1]})"></i>${f[0]}</span>`).join('')+
+      `<span class="ramp">${['low','medium','high','xhigh','max'].map(e=>`<i style="background:var(--ink);opacity:${EFF_OP[e]}"></i>`).join('')} low → max effort</span><span><i style="border:1.5px solid var(--muted);box-sizing:border-box"></i>no thinking</span>`);
+
+    // ----- Pareto (published figures) -----
+    const parHost=document.getElementById('parPlot'), parTip=document.getElementById('parTip'), parCard=document.getElementById('chart-pareto');
+    let parM=2, parZ=0;
+    const PUB=ALL.filter(d=>d.c.p);
+    function drawPareto(){
+      hideTip(parTip); parHost.classList.remove('dim');
+      const W=svgW(parHost,1000), H=Math.round(Math.min(470,Math.max(320,W*0.52))), m={l:46,r:16,t:14,b:42}, iw=W-m.l-m.r, ih=H-m.t-m.b;
+      const lx=[Math.log10(0.004),Math.log10(3)], X=v=>m.l+(Math.log10(v)-lx[0])/(lx[1]-lx[0])*iw, Y=v=>m.t+ih-(v-parZ)/(100-parZ)*ih;
+      const mk=parM===2?'Y10':'Y5', fk=parM===2?4:3, vis=v=>v>=parZ;
+      let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${mk} against cost per figure on the 15 published figures, with the Pareto frontier"><defs><clipPath id="parClip"><rect x="${m.l-9}" y="${m.t-9}" width="${iw+18}" height="${ih+18}"/></clipPath></defs>`;
+      for(const v of [0.005,0.01,0.03,0.1,0.3,1,3]) s+=`<line class="grid" x1="${X(v)}" x2="${X(v)}" y1="${m.t}" y2="${m.t+ih}"/><text x="${X(v)}" y="${H-m.b+16}" text-anchor="middle">$${v}</text>`;
+      for(const v of parZ?[80,85,90,95,100]:[0,25,50,75,100]) s+=`<line class="grid" x1="${m.l}" x2="${m.l+iw}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l-6}" y="${Y(v)+4}" text-anchor="end">${v}</text>`;
+      s+=`<text class="axis-title" x="${m.l+iw/2}" y="${H-4}" text-anchor="middle">Cost per figure (USD, log scale)</text><text class="axis-title" transform="translate(12 ${m.t+ih/2}) rotate(-90)" text-anchor="middle">${mk} (%)</text><g clip-path="url(#parClip)">`;
+      // frontier as a step line: best accuracy available at or below each cost
+      const fr=PUB.filter(d=>d.c.p[fk]).sort((a,b)=>a.c.p[0]-b.c.p[0]);
+      let path='';
+      fr.forEach((d,i)=>{const x=X(d.c.p[0]), y=Y(d.c.p[parM]); path+=i?`H${x.toFixed(1)}V${y.toFixed(1)}`:`M${x.toFixed(1)} ${y.toFixed(1)}`;});
+      if(fr.length) path+=`H${m.l+iw}`;
+      s+=`<path d="${path}" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-opacity=".7"/>`;
+      // series paths (shown on hover), low → max effort
+      COST.series.forEach((ser,si)=>{
+        const pts=ser.cfg.filter(c=>c.p);
+        if(pts.length>1) s+=`<path class="ser" data-s="${si}" d="${pts.map((c,j)=>`${j?'L':'M'}${X(c.p[0]).toFixed(1)} ${Y(c.p[parM]).toFixed(1)}`).join('')}" fill="none" stroke="var(${famOf(ser.name)[1]})" stroke-width="1.8" style="opacity:0"/>`;
+      });
+      PUB.forEach((d,i)=>{
+        if(!vis(d.c.p[parM])) return;
+        const col=`var(${famOf(d.s.name)[1]})`, cx=X(d.c.p[0]), cy=Y(d.c.p[parM]), on=d.c.p[fk];
+        s+=`<g class="pp" data-i="${i}" data-s="${d.si}" style="cursor:pointer"><circle cx="${cx}" cy="${cy}" r="10" fill="transparent"/>`+
+           (on?`<circle cx="${cx}" cy="${cy}" r="8" fill="none" stroke="var(--ink)" stroke-width="1.2"/>`:'')+
+           `<circle cx="${cx}" cy="${cy}" r="${on?5:4.3}" ${dotFill(col,d.c.e)} stroke="${col}" stroke-width="1.5"/></g>`;
+      });
+      // frontier numbers, matching the chips below
+      let lastX=-99;
+      fr.forEach((d,i)=>{if(!vis(d.c.p[parM])) return; const x=X(d.c.p[0]), y=Y(d.c.p[parM]), below=x-lastX<16||y-m.t<14; lastX=x;
+        s+=`<text x="${x}" y="${below?y+20:y-11}" text-anchor="middle" style="font-size:10.5px;font-weight:650;fill:var(--ink)">${i+1}</text>`;});
+      const hidden=PUB.filter(d=>!vis(d.c.p[parM])).length;
+      if(hidden) s+=`<text x="${m.l+iw-4}" y="${m.t+ih-6}" text-anchor="end" style="font-size:11px">${hidden} configurations below ${parZ}% not shown</text>`;
+      parHost.innerHTML=s+'</g></svg>';
+      document.getElementById('parFront').innerHTML=`<span>Frontier, cheapest first:</span>`+fr.map((d,i)=>`<span class="chip"><b>${i+1}</b>${cfgName(d.s,d.c)} · ${usd(d.c.p[0])} · ${d.c.p[parM].toFixed(1)}%</span>`).join('');
+      parHost.querySelectorAll('.pp').forEach(g=>{
+        const d=PUB[+g.dataset.i];
+        const show=()=>{
+          parHost.classList.add('dim');
+          parHost.querySelectorAll('.pp').forEach(o=>o.classList.toggle('on',o.dataset.s===g.dataset.s));
+          parHost.querySelectorAll('.ser').forEach(p=>p.style.opacity=p.dataset.s===g.dataset.s?.85:0);
+          parTip.innerHTML=`<b>${cfgName(d.s,d.c)}</b>${usd(d.c.p[0])} per figure<br>Y10 ${d.c.p[2].toFixed(1)}% · Y5 ${d.c.p[1].toFixed(1)}%${d.c.p[fk]?`<br>On the ${mk} frontier`:''}`;
+          place(parTip,parCard,g);
+        };
+        const hide=()=>{hideTip(parTip); parHost.classList.remove('dim'); parHost.querySelectorAll('.ser').forEach(p=>p.style.opacity=0)};
+        g.addEventListener('mouseenter',show); g.addEventListener('click',show); g.addEventListener('mouseleave',hide);
+      });
+      document.getElementById('parTable').innerHTML='<thead><tr><th>Configuration</th><th>USD per figure</th><th>Y10 (%)</th><th>Y5 (%)</th><th>Frontier</th></tr></thead><tbody>'+
+        [...PUB].sort((a,b)=>a.c.p[0]-b.c.p[0]).map(d=>`<tr><td>${cfgName(d.s,d.c)}</td><td>${usd(d.c.p[0])}</td><td>${d.c.p[2].toFixed(1)}</td><td>${d.c.p[1].toFixed(1)}</td><td>${[d.c.p[4]?'Y10':'',d.c.p[3]?'Y5':''].filter(Boolean).join(', ')||'–'}</td></tr>`).join('')+'</tbody>';
+    }
+    const notRun=COST.series.filter(s=>!s.cfg.some(c=>c.p)).map(s=>s.name);
+    document.getElementById('parNote').textContent=`${COST.pubN} configurations with all 15 responses priced. Ringed: on the frontier. The low dots on the right are Claude 5.5 runs at max effort that hit the 64k output cap (Figure 5b). Not shown: GPT-6.1 Sol max (usage records for only 11 of 15 responses)${notRun.length?`; ${notRun.join(' and ')} (no published-figure results)`:''}.`;
+    document.querySelectorAll('[data-pm]').forEach(b=>b.addEventListener('click',()=>{parM=+b.dataset.pm; document.querySelectorAll('[data-pm]').forEach(o=>o.setAttribute('aria-pressed',o===b)); drawPareto()}));
+    document.querySelectorAll('[data-pz]').forEach(b=>b.addEventListener('click',()=>{parZ=+b.dataset.pz; document.querySelectorAll('[data-pz]').forEach(o=>o.setAttribute('aria-pressed',o===b)); drawPareto()}));
+
+    // ----- cost per figure, three test sets -----
+    const costHost=document.getElementById('costPlot'), costTip=document.getElementById('costTip'), costCard=document.getElementById('chart-cost'), costPick=costCard.querySelector('.cost-pick');
+    const SETS=[["s","Single panel","36 figures",c=>c.s&&c.s[0]],["m","Multi-panel","78 tests",c=>c.m],["p","Published","15 figures",c=>c.p&&c.p[0]]];
+    const MED=Object.fromEntries(SETS.map(([k,,,f])=>[k,median(ALL.map(d=>f(d.c)).filter(v=>v!=null))]));
+    let costSet='s';
+    function drawCost(){
+      hideTip(costTip);
+      const W=svgW(costHost,1100), wide=W>=720, L=wide?150:126, gap=wide?18:0, rh=24, top=40, bot=34;
+      costPick.classList.toggle('on',!wide);
+      const sets=wide?SETS:SETS.filter(t=>t[0]===costSet), pw=(W-L-gap*(sets.length-1)-8)/sets.length;
+      const n=COST.series.length, H=top+n*rh+bot, lx=[Math.log10(0.001),Math.log10(3)];
+      let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cost per figure for each configuration on ${sets.map(t=>t[1].toLowerCase()).join(', ')} figures">`;
+      COST.series.forEach((ser,i)=>{ const y=top+i*rh;
+        if(i%2===0) s+=`<rect class="row-band" x="0" y="${y}" width="${W}" height="${rh}" rx="3"/>`;
+        s+=`<text x="${L-10}" y="${y+rh/2+4}" text-anchor="end" style="fill:var(--ink)">${ser.name}</text>`; });
+      sets.forEach(([k,label,sub,f],pi)=>{
+        const ox=L+pi*(pw+gap), X=v=>ox+(Math.log10(Math.max(v,0.001))-lx[0])/(lx[1]-lx[0])*pw;
+        s+=`<text x="${ox}" y="14" style="fill:var(--ink);font-weight:650;font-size:12.5px">${label}<tspan dx="6" style="fill:var(--muted);font-weight:400;font-size:11.5px">${sub}</tspan></text>`;
+        for(const v of [0.001,0.01,0.1,1]){
+          s+=`<line class="grid" x1="${X(v)}" x2="${X(v)}" y1="${top-4}" y2="${top+n*rh}"/>`+(v===0.001&&pw<330?'':`<text x="${X(v)}" y="${top+n*rh+15}" text-anchor="${v===0.001?'start':'middle'}">$${v}</text>`);
+        }
+        const mx=X(MED[k]);
+        s+=`<line x1="${mx}" x2="${mx}" y1="${top-4}" y2="${top+n*rh}" stroke="var(--ink)" stroke-opacity=".55" stroke-dasharray="4 3"/><text x="${mx+4}" y="${top-8}" style="font-size:10.5px;fill:var(--ink)">median ${usd(MED[k])}</text>`;
+        COST.series.forEach((ser,si)=>{
+          const y=top+si*rh+rh/2, col=`var(${famOf(ser.name)[1]})`, pts=ser.cfg.map((c,ci)=>[c,ci,f(c)]).filter(p=>p[2]!=null);
+          if(!pts.length){s+=`<text x="${ox+4}" y="${y+4}" style="font-size:10.5px;fill:var(--faint)">no results</text>`; return;}
+          const xs=pts.map(p=>X(p[2]));
+          s+=`<line x1="${Math.min(...xs)}" x2="${Math.max(...xs)}" y1="${y}" y2="${y}" stroke="${col}" stroke-width="2" stroke-opacity=".35"/>`;
+          pts.sort((a,b)=>a[0].slot-b[0].slot).forEach(([c,ci,v])=>{const cx=X(v);
+            s+=`<g class="cp" data-s="${si}" data-c="${ci}" style="cursor:pointer"><circle cx="${cx}" cy="${y}" r="9" fill="transparent"/><circle cx="${cx}" cy="${y}" r="4.6" ${dotFill(col,c.e)} stroke="${col}" stroke-width="1.5"/></g>`;});
+        });
+      });
+      costHost.innerHTML=s+'</svg>';
+      costHost.querySelectorAll('.cp').forEach(g=>{
+        const ser=COST.series[+g.dataset.s], c=ser.cfg[+g.dataset.c];
+        const show=()=>{
+          const line=(lab,v,acc)=>`<br>${lab}: ${v==null?'no results':usd(v)}${acc!=null?` · Y10 ${acc.toFixed(1)}%`:''}`;
+          costTip.innerHTML=`<b>${cfgName(ser,c)}</b>Cost per figure`+line('Single panel',c.s&&c.s[0],c.s&&c.s[2])+line('Multi-panel',c.m)+line('Published',c.p&&c.p[0],c.p&&c.p[2]);
+          place(costTip,costCard,g);
+        };
+        g.addEventListener('mouseenter',show); g.addEventListener('click',show); g.addEventListener('mouseleave',()=>hideTip(costTip));
+      });
+    }
+    document.getElementById('costTable').innerHTML='<thead><tr><th>Configuration</th><th>Single panel</th><th>Multi-panel</th><th>Published</th></tr></thead><tbody>'+
+      ALL.map(({s,c})=>`<tr><td>${cfgName(s,c)}</td><td>${c.s?usd(c.s[0]):'–'}</td><td>${c.m!=null?usd(c.m):'–'}</td><td>${c.p?usd(c.p[0]):'–'}</td></tr>`).join('')+
+      `<tr><td><b>Median</b></td>${SETS.map(([k])=>`<td><b>${usd(MED[k])}</b></td>`).join('')}</tr></tbody>`;
+    document.querySelectorAll('[data-cs]').forEach(b=>b.addEventListener('click',()=>{costSet=b.dataset.cs; document.querySelectorAll('[data-cs]').forEach(o=>o.setAttribute('aria-pressed',o===b)); drawCost()}));
+    drawPareto(); drawCost();
+    let crt; addEventListener('resize',()=>{clearTimeout(crt);crt=setTimeout(()=>{drawPareto();drawCost()},150)});
+  }
 
   // ---------- fold / unfold long blocks ----------
   const FOLD_KEY='tepb-fold';

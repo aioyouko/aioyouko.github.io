@@ -90,6 +90,9 @@
   const chipBox = page.querySelector("[data-ws-chips]");
   const pauseBtn = page.querySelector("[data-ws-pause]");
 
+  // Pixel lab cat under the terminal (assets/lab-cat.js).
+  const labCat = window.LabCat ? window.LabCat.mount(page.querySelector(".ws-term")) : { set() {} };
+
   let runToken = 0;
   let current = -1;
   let autoplay = !reduceMotion;
@@ -184,6 +187,7 @@
 
     typed.textContent = "";
     consoleEl.classList.add("is-typing");
+    labCat.set("coding", demo.chip);
     if (reduceMotion) {
       typed.textContent = demo.cmd;
     } else {
@@ -201,6 +205,7 @@
     addLine(`<span class="ws-ps" aria-hidden="true">$</span>${colorCommand(demo.cmd)}`, "ws-term-cmd");
     typed.textContent = "";
     stage.classList.add("is-busy");
+    labCat.set("synth", demo.chip);
 
     for (const [kind, text] of demo.log) {
       if (!reduceMotion) await sleep(kind === "done" ? 460 : 320);
@@ -210,6 +215,7 @@
     }
     await swapFigures(demo, token);
     if (token !== runToken) return;
+    labCat.set("done", demo.chip);
     running = false;
     if (autoplay && visible) autoTimer = setTimeout(() => run((current + 1) % demos.length), 7000);
   }

@@ -1,8 +1,3 @@
-/* "Site Serif" is the local Georgia at its regular weight for every requested weight, so
- * headings set at 600/700 stay in the softer regular cut instead of Georgia Bold. */
-@font-face { font-family: "Site Serif"; src: local("Georgia"); font-style: normal; font-weight: 100 900; }
-@font-face { font-family: "Site Serif"; src: local("Georgia Italic"), local("Georgia-Italic"); font-style: italic; font-weight: 100 900; }
-
 :root {
   color-scheme: light;
   --page: #f6f7f5;
@@ -20,10 +15,10 @@
   --shadow: 0 22px 60px rgba(23, 32, 38, 0.12);
   --radius: 8px;
   --content: 1120px;
-  /* Site-wide type: the system UI font for text, Georgia for headings, the system monospace for code.
+  /* Site-wide type: the system UI font for text, bold Georgia for headings, the system monospace for code.
    * Same set as TE-PlotBench and the Curve Explorer. No web fonts are downloaded. */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Site Serif", Georgia, "Times New Roman", serif;
+  --font-serif: Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   font-family: var(--font-sans);
   background: var(--page);

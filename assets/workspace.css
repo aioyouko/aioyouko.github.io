@@ -394,3 +394,35 @@ body.te-dark .ws-eng-figure { border-color: transparent; }
   .ws-page *, .ws-page *::before, .ws-page *::after { animation: none !important; transition: none !important; }
   .ws-reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Lab cat (assets/lab-cat.js) ---------- */
+.lab-cat { display: flex; align-items: center; gap: 0.9rem; padding: 0.45rem 0.9rem 0.5rem; border-top: 1px solid var(--ws-term-line); background: #131d1a; }
+.lab-cat svg { flex: none; width: 150px; height: 90px; image-rendering: pixelated; }
+.lab-cat-status { margin: 0; color: var(--ws-term-ink); font: 500 0.74rem/1.5 var(--ws-mono); }
+.lab-cat-glyph { display: inline-block; width: 1.2em; color: var(--ws-flag); }
+.lab-cat.is-done .lab-cat-glyph { color: var(--ws-ok); }
+.lab-cat.is-idle .lab-cat-status { color: var(--ws-term-dim); }
+.lab-cat .lc-liquid { fill: #4fb8a8; transition: fill 2.2s ease; }
+.lab-cat.is-synth .lc-liquid, .lab-cat.is-done .lc-liquid { fill: #e08a4f; }
+.lab-cat :is(.lc-lab, .lc-flame, .lc-bubbles, .lc-steam, .lc-sparkles, .lc-eyes-happy) { display: none; }
+.lab-cat.is-synth :is(.lc-lab, .lc-flame, .lc-bubbles, .lc-steam) { display: inline; }
+.lab-cat.is-synth .lc-laptop { display: none; }
+.lab-cat.is-done :is(.lc-sparkles, .lc-eyes-happy) { display: inline; }
+.lab-cat.is-done .lc-eyes, .lab-cat.is-blink .lc-eyes { display: none; }
+.lab-cat.is-coding .lc-paw-l { animation: lc-tap 0.26s steps(1) infinite; }
+.lab-cat.is-coding .lc-paw-r { animation: lc-tap 0.26s steps(1) infinite 0.13s; }
+.lab-cat .lc-flame { animation: lc-flicker 0.32s steps(1) infinite; }
+.lab-cat .lc-bubbles rect { animation: lc-rise 1.1s steps(4) infinite; }
+.lab-cat .lc-steam rect { animation: lc-steam 1.6s steps(4) infinite; }
+.lab-cat .lc-drop { animation: lc-drop 0.9s steps(4) infinite; }
+.lab-cat .lc-sparkles g { animation: lc-spark 0.8s steps(1) infinite; }
+.lab-cat.is-done .lc-cat { animation: lc-hop 0.5s steps(1) 2; }
+@keyframes lc-tap { 50% { transform: translateY(-1px); } }
+@keyframes lc-flicker { 50% { transform: translateY(-1px); opacity: 0.8; } }
+@keyframes lc-rise { 0% { transform: none; opacity: 0; } 25% { opacity: 1; } 100% { transform: translateY(-4px); opacity: 0; } }
+@keyframes lc-steam { 0% { transform: none; opacity: 0.9; } 100% { transform: translate(1px, -4px); opacity: 0; } }
+@keyframes lc-drop { 0% { transform: none; opacity: 1; } 75% { transform: translateY(3px); opacity: 1; } 100% { transform: translateY(3px); opacity: 0; } }
+@keyframes lc-spark { 50% { opacity: 0; } }
+@keyframes lc-hop { 50% { transform: translateY(-1px); } }
+@media (max-width: 980px) { .ws-term { height: 340px; } }
+@media (max-width: 620px) { .lab-cat svg { width: 120px; height: 72px; } .lab-cat-status { font-size: 0.68rem; } }

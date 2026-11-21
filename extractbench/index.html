@@ -10,13 +10,13 @@
 <meta property="og:description" content="Frontier models read single panels almost perfectly. Combining panels, fixing unit errors and verifying physics is where reliability breaks.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://aioyouko.github.io/extractbench/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
+/* Same fonts as the rest of the site: system UI text, regular-weight Georgia headings, system monospace. */
+@font-face{font-family:"Site Serif";src:local("Georgia");font-style:normal;font-weight:100 900}
+@font-face{font-family:"Site Serif";src:local("Georgia Italic"),local("Georgia-Italic");font-style:italic;font-weight:100 900}
 :root{
-  /* Same three fonts as the rest of the site (assets/styles.css). */
-  --font-sans:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--font-serif:"Source Serif 4",Georgia,"Times New Roman",serif;--font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  /* Font tokens shared with assets/styles.css. */
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--font-serif:"Site Serif",Georgia,"Times New Roman",serif;--font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
   --page:#f6f7f5;--surface:#fffdf8;--surface-2:#eef1ee;--ink:#172026;--muted:#5b6670;--faint:#8a949b;
   --line:#dce2de;--teal:#0b766b;--deep:#064d49;--teal-soft:#e2efec;--copper:#b65f24;--copper-soft:#f6e7dc;
   --bad:#b8333f;--grid:#e6eae7;

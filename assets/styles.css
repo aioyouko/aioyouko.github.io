@@ -15,10 +15,11 @@
   --shadow: 0 22px 60px rgba(23, 32, 38, 0.12);
   --radius: 8px;
   --content: 1120px;
-  /* Site-wide type: the system UI font for text, bold Georgia for headings, the system monospace for code.
-   * Same set as TE-PlotBench and the Curve Explorer. No web fonts are downloaded. */
+  /* Site-wide type, matching the original TE-PlotBench: the system UI font (San Francisco on
+   * Apple devices, Segoe UI on Windows) for text and bold headings, the system monospace for code.
+   * --font-serif is the heading font; it is now the same system sans. No web fonts are downloaded. */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: Georgia, "Times New Roman", serif;
+  --font-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   font-family: var(--font-sans);
   background: var(--page);

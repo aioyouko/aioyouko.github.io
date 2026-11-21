@@ -1,7 +1,5 @@
-/* Same fonts as the rest of the site (assets/styles.css): system UI text, regular Georgia headings, system monospace. */
-@font-face{font-family:"Site Serif";src:local("Georgia");font-style:normal;font-weight:100 900}
-@font-face{font-family:"Site Serif";src:local("Georgia Italic"),local("Georgia-Italic");font-style:italic;font-weight:100 900}
-:root { --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; --font-serif:"Site Serif",Georgia,"Times New Roman",serif; --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; }
+/* Same fonts as the rest of the site (assets/styles.css): system UI text, bold Georgia headings, system monospace. */
+:root { --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; --font-serif:Georgia,"Times New Roman",serif; --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; }
 code, kbd, samp { font-family: var(--font-mono); font-size: .9em; }
 :root {
       color-scheme: light;

@@ -255,8 +255,8 @@
 .ws-ln { display: block; position: relative; padding: 0 1.2rem 0 3rem; white-space: pre; }
 .ws-ln::before { counter-increment: ws-ln; content: counter(ws-ln); position: absolute; left: 0; width: 2rem; color: #4c5e57; text-align: right; }
 .ws-ln.is-hl { background: linear-gradient(90deg, rgba(143, 214, 200, 0.16), rgba(143, 214, 200, 0.04)); box-shadow: inset 2px 0 0 var(--ws-sub); }
-.ws-code.is-active .ws-ln { animation: ws-line-in 380ms cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i) * 22ms); }
-.ws-code.is-active .ws-ln.is-hl { animation: ws-line-in 380ms cubic-bezier(.2, .8, .2, 1) both, ws-hl-in 900ms ease both; animation-delay: calc(var(--i) * 22ms), calc(var(--i) * 22ms + 260ms); }
+.ws-code.is-active .ws-ln { animation: ws-line-in 520ms cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i) * 45ms); }
+.ws-code.is-active .ws-ln.is-hl { animation: ws-line-in 520ms cubic-bezier(.2, .8, .2, 1) both, ws-hl-in 1100ms ease both; animation-delay: calc(var(--i) * 45ms), calc(var(--i) * 45ms + 420ms); }
 .tk-c { color: #6f8a80; font-style: italic; }
 .tk-s { color: #b9e08f; }
 .tk-k { color: #f39c8a; }

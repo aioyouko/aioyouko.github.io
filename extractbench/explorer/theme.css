@@ -1,3 +1,6 @@
+/* Same three fonts as the rest of the site (assets/styles.css). */
+:root { --font-sans:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; --font-serif:"Source Serif 4",Georgia,"Times New Roman",serif; --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+code, kbd, samp { font-family: var(--font-mono); font-size: .9em; }
 :root {
       color-scheme: light;
       --page: #f6f7f5;
@@ -13,10 +16,10 @@
       --bad: #a94c4c;
       --good: #0b766b;
       --radius: 8px;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--font-sans);
     }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--page); color: var(--ink); font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--font-sans); }
     button, input, select { font: inherit; }
     .layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); min-height: 100vh; }
     .sidebar { background: #fff; border-right: 1px solid var(--line); padding: 24px 18px; position: sticky; top: 0; height: 100vh; overflow: auto; }
@@ -139,7 +142,7 @@
     @media (max-width: 430px) {
       .cards, .picker-groups { grid-template-columns: 1fr; }
     }
-  #datasetLoading{position:fixed;inset:0;z-index:100;background:rgba(246,247,245,.96);display:flex;align-items:center;justify-content:center;gap:18px;font:600 16px Inter,system-ui,sans-serif;color:#0b766b}#datasetLoading[hidden]{display:none}
+  #datasetLoading{position:fixed;inset:0;z-index:100;background:rgba(246,247,245,.96);display:flex;align-items:center;justify-content:center;gap:18px;font:600 16px var(--font-sans);color:#0b766b}#datasetLoading[hidden]{display:none}
 
 
 /* Shared identity: homepage neutrals, teal accents, Inter and Source Serif. */
@@ -179,7 +182,7 @@ body.nav-open { overflow: hidden; }
 .skip:focus { top: 12px; }
 .layout { grid-template-columns: 260px minmax(0,1fr); min-height: calc(100vh - 68px); }
 .sidebar { top: 68px; height: calc(100vh - 68px); padding: 26px 18px; background: var(--surface); scrollbar-color: #bdcec4 var(--surface); }
-.sidebar h1 { font-family: "Source Serif 4", Georgia, serif; font-size: 27px; font-weight: 600; line-height: 1.12; letter-spacing: -.6px; color: var(--ink); margin: 8px 0 13px; }
+.sidebar h1 { font-family: var(--font-serif); font-size: 27px; font-weight: 600; line-height: 1.12; letter-spacing: -.6px; color: var(--ink); margin: 8px 0 13px; }
 .eyebrow { margin: 0; color: var(--teal); font-size: 9px; font-weight: 750; text-transform: uppercase; letter-spacing: 1.2px; }
 .sidebar .intro { font-size: 11px; line-height: 1.7; margin-bottom: 23px; }
 .family { font-size: 10px; color: var(--teal-deep); letter-spacing: .07em; margin-top: 23px; }
@@ -191,7 +194,7 @@ body.nav-open { overflow: hidden; }
 .main { padding: 29px 32px 48px; }
 .topbar { gap: 20px; margin-bottom: 22px; align-items: flex-start; }
 .topbar>div:first-child { min-width: 0; flex: 1; }
-.topbar h2 { font-family: "Source Serif 4", Georgia, serif; font-size: clamp(24px,2.1vw,32px); font-weight: 600; letter-spacing: -.6px; line-height: 1.22; color: var(--ink); }
+.topbar h2 { font-family: var(--font-serif); font-size: clamp(24px,2.1vw,32px); font-weight: 600; letter-spacing: -.6px; line-height: 1.22; color: var(--ink); }
 .topbar p { font-size: 12px; line-height: 1.6; margin-top: 9px; }
 .links { flex: 0 1 300px; display: flex; flex-wrap: wrap; justify-content: flex-end; align-content: flex-start; gap: 7px; max-width: 345px; }
 .links a { display: inline-flex; align-items: center; padding: 6px 9px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); margin: 0; color: var(--teal-deep); text-decoration: none; font-size: 10px; line-height: 1.5; }
@@ -252,10 +255,10 @@ tbody tr.selected td:first-child { box-shadow: inset 3px 0 var(--teal); }
 #sourceNote { font-size: 11px; line-height: 1.7; }
 .explorer-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding-top: 21px; margin-top: 26px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
 .explorer-footer a { text-decoration: none; }
-#datasetLoading { font-family: Inter, system-ui, sans-serif; flex-direction: column; gap: 20px; color: var(--teal-deep); }
+#datasetLoading { font-family: var(--font-sans); flex-direction: column; gap: 20px; color: var(--teal-deep); }
 #datasetLoading button { padding: 9px 20px; color: white; background: var(--teal-deep); border: 0; border-radius: var(--radius); cursor: pointer; }
 .methods-page { max-width: 960px; margin: 44px auto; padding: 40px 44px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-.methods-page h1 { font-family: "Source Serif 4",Georgia,serif; font-size: clamp(30px,4vw,44px); font-weight: 600; letter-spacing: -1px; line-height: 1.15; color: var(--ink); margin: 15px 0 24px; }
+.methods-page h1 { font-family: var(--font-serif); font-size: clamp(30px,4vw,44px); font-weight: 600; letter-spacing: -1px; line-height: 1.15; color: var(--ink); margin: 15px 0 24px; }
 .methods-page h2 { font-size: 21px; font-weight: 600; color: var(--teal-deep); margin-top: 32px; line-height: 1.35; }
 .methods-page p { color: var(--muted); font-size: 14px; line-height: 1.85; margin-block: 14px; }
 .methods-page table { font-size: 13px; white-space: normal; margin-block: 20px; }

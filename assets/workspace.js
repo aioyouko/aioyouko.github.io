@@ -170,7 +170,7 @@
         { opacity: 0, transform: "translate(-34%, 14%) scale(0.55) rotate(-4deg)", filter: "blur(6px)" },
         { opacity: 1, transform: "translate(2%, -2%) scale(1.02) rotate(0.6deg)", filter: "blur(0)", offset: 0.72 },
         { opacity: 1, transform: "none", filter: "blur(0)" },
-      ], { duration: 820, delay: 120 + i * 170, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" });
+      ], { duration: 1000, delay: 160 + i * 240, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" });
     });
   }
 
@@ -191,10 +191,10 @@
         if (token !== runToken) return;
         typed.textContent = demo.cmd.slice(0, i + 1);
         const ch = demo.cmd[i];
-        await sleep(ch === " " ? 34 : 9 + Math.random() * 16);
+        await sleep(ch === " " ? 64 : 20 + Math.random() * 26);
         term.scrollTop = term.scrollHeight;
       }
-      await sleep(260);
+      await sleep(520);
     }
     if (token !== runToken) return;
     consoleEl.classList.remove("is-typing");
@@ -203,7 +203,7 @@
     stage.classList.add("is-busy");
 
     for (const [kind, text] of demo.log) {
-      if (!reduceMotion) await sleep(kind === "done" ? 260 : 170);
+      if (!reduceMotion) await sleep(kind === "done" ? 460 : 320);
       if (token !== runToken) return;
       const mark = kind === "ok" ? '<span class="ws-t-ok">✓</span> ' : kind === "done" ? '<span class="ws-t-done">→</span> ' : "  ";
       addLine(mark + escapeHtml(text), "ws-term-out");
@@ -211,7 +211,7 @@
     await swapFigures(demo, token);
     if (token !== runToken) return;
     running = false;
-    if (autoplay && visible) autoTimer = setTimeout(() => run((current + 1) % demos.length), 5200);
+    if (autoplay && visible) autoTimer = setTimeout(() => run((current + 1) % demos.length), 7000);
   }
 
   // Play only while the console is on screen (and the Workspace view is open).

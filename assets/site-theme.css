@@ -81,3 +81,18 @@ body.te-dark .affiliation-card { background: var(--surface-strong); border-color
 body.te-dark .affiliation-card:is(:hover, :focus-visible) { border-color: rgba(143, 214, 200, 0.35); }
 
 body.te-dark :is(.contact-panel, .contact-links a) { color: #fffdf8; }
+
+/* In-page contents bar: the same numbered row used on TE-PlotBench and the Plastic TE pages.
+ * Links use data-te-jump (te-materials.js) so they scroll within the current view. */
+.page-contents { display: grid; grid-template-columns: repeat(var(--pc-cols, 4), minmax(0, 1fr)); gap: 0.9rem 0; margin: 0 0 2.6rem; padding: 1.1rem 0; border-block: 1px solid var(--line); }
+.page-contents[data-cols="3"] { --pc-cols: 3; }
+.page-contents a { display: flex; align-items: center; gap: 0.6rem; padding: 0.15rem 0.85rem; border-left: 1px solid var(--line); color: var(--teal-deep); font-size: 0.82rem; font-weight: 650; }
+.page-contents a span { color: #7b8d81; font-size: 0.75rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.page-contents a:hover, .page-contents a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.page-contents:not([data-cols]) a:nth-child(4n + 1), .page-contents[data-cols="3"] a:nth-child(3n + 1) { padding-left: 0; border-left: 0; }
+body.te-dark .page-contents a span { color: var(--muted); }
+:is(#ws-console, #ws-database, #ws-pipeline, #ws-gallery, #ws-engineering, #workspace-references, #about-experience, #about-education, #about-personal) { scroll-margin-top: 88px; }
+@media (max-width: 640px) {
+  .page-contents, .page-contents[data-cols] { grid-template-columns: 1fr 1fr; gap: 0.9rem 0.6rem; }
+  .page-contents a { padding: 0; border: 0; }
+}

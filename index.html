@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="assets/te-system.css?v=20261119b" />
     <link rel="stylesheet" href="assets/te-dark.css?v=20261120b" />
     <link rel="stylesheet" href="assets/home.css?v=20261120b" />
-    <link rel="stylesheet" href="assets/site-theme.css?v=20261120" />
-    <link rel="stylesheet" href="assets/workspace.css?v=20261120" />
+    <link rel="stylesheet" href="assets/site-theme.css?v=20261121" />
+    <link rel="stylesheet" href="assets/workspace.css?v=20261121" />
   </head>
   <body>
     <script>try{var t=localStorage.getItem("te-theme")||localStorage.getItem("tepb-theme");if(t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches)document.body.classList.add("te-dark")}catch(e){}</script>
@@ -199,7 +199,9 @@
             </dl>
           </header>
 
-          <div class="ws-console" data-ws-console aria-label="Interactive demo: commands and the figures they produce">
+          <nav class="page-contents" data-cols="3" aria-label="Agent Workspace sections"><a href="#agent-workspace" data-te-jump="ws-console"><span>01</span> Live console</a><a href="#agent-workspace" data-te-jump="ws-database"><span>02</span> Materials database</a><a href="#agent-workspace" data-te-jump="ws-pipeline"><span>03</span> Command surface</a><a href="#agent-workspace" data-te-jump="ws-gallery"><span>04</span> Figure gallery</a><a href="#agent-workspace" data-te-jump="ws-engineering"><span>05</span> Under the hood</a><a href="#agent-workspace" data-te-jump="workspace-references"><span>06</span> References</a></nav>
+
+          <div class="ws-console" id="ws-console" data-ws-console aria-label="Interactive demo: commands and the figures they produce">
             <div class="ws-term">
               <div class="ws-term-bar">
                 <span class="ws-dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -219,7 +221,7 @@
           </div>
 
           <!-- 2. The materials database -->
-          <section class="ws-section ws-db" aria-labelledby="ws-db-title">
+          <section class="ws-section ws-db" id="ws-database" aria-labelledby="ws-db-title">
             <div class="ws-section-head">
               <p class="section-kicker">The materials database</p>
               <h3 id="ws-db-title">One schema for my samples and the literature</h3>
@@ -424,7 +426,7 @@ df = add_derived_columns(df)</code></pre>
           </section>
 
           <!-- 3. The command surface -->
-          <section class="ws-section ws-pipe" aria-labelledby="ws-pipe-title">
+          <section class="ws-section ws-pipe" id="ws-pipeline" aria-labelledby="ws-pipe-title">
             <div class="ws-section-head">
               <p class="section-kicker">The command surface</p>
               <h3 id="ws-pipe-title">From a raw batch to a decision</h3>
@@ -441,7 +443,7 @@ df = add_derived_columns(df)</code></pre>
           </section>
 
           <!-- 4. Figure gallery -->
-          <section class="ws-section ws-gallery-wrap" aria-labelledby="ws-gallery-title">
+          <section class="ws-section ws-gallery-wrap" id="ws-gallery" aria-labelledby="ws-gallery-title">
             <div class="ws-section-head ws-gallery-head">
               <div>
                 <p class="section-kicker">Figure gallery</p>
@@ -459,7 +461,7 @@ df = add_derived_columns(df)</code></pre>
           </section>
 
           <!-- 5. Engineering -->
-          <section class="ws-section ws-eng" aria-labelledby="ws-eng-title">
+          <section class="ws-section ws-eng" id="ws-engineering" aria-labelledby="ws-eng-title">
             <div class="ws-section-head">
               <p class="section-kicker">Under the hood</p>
               <h3 id="ws-eng-title">Built to keep working as it grows</h3>
@@ -488,7 +490,7 @@ df = add_derived_columns(df)</code></pre>
             </div>
           </section>
 
-          <section class="reference-panel" aria-labelledby="workspace-references-title">
+          <section class="reference-panel" id="workspace-references" aria-labelledby="workspace-references-title">
             <h3 id="workspace-references-title">References</h3>
             <ol class="reference-list">
               <li>
@@ -1068,8 +1070,10 @@ df = add_derived_columns(df)</code></pre>
             </div>
           </div>
 
+          <nav class="page-contents" data-cols="3" aria-label="About sections"><a href="#about" data-te-jump="about-experience"><span>01</span> Work experience</a><a href="#about" data-te-jump="about-education"><span>02</span> Education</a><a href="#about" data-te-jump="about-personal"><span>03</span> Outside the lab</a></nav>
+
           <div class="about-background">
-            <section class="career-section" aria-labelledby="experience-title">
+            <section class="career-section" id="about-experience" aria-labelledby="experience-title">
               <div class="career-heading">
                 <p class="section-kicker">Research appointments</p>
                 <h3 id="experience-title">Work experience</h3>
@@ -1104,7 +1108,7 @@ df = add_derived_columns(df)</code></pre>
               </ol>
             </section>
 
-            <section class="career-section" aria-labelledby="education-title">
+            <section class="career-section" id="about-education" aria-labelledby="education-title">
               <div class="career-heading">
                 <p class="section-kicker">Academic background</p>
                 <h3 id="education-title">Education</h3>
@@ -1139,7 +1143,7 @@ df = add_derived_columns(df)</code></pre>
             </section>
           </div>
 
-          <section class="personal-pages" aria-labelledby="personal-pages-title">
+          <section class="personal-pages" id="about-personal" aria-labelledby="personal-pages-title">
             <div class="personal-pages-heading">
               <div>
                 <p class="section-kicker">Beyond research</p>
@@ -1611,7 +1615,7 @@ df = add_derived_columns(df)</code></pre>
     <script src="assets/te-materials.js"></script>
     <script src="assets/thermoelectric-model.js?v=20261119b"></script>
     <script src="assets/thermoelectric-lab.js?v=20261119d"></script>
-    <script src="assets/workspace.js?v=20261120"></script>
+    <script src="assets/workspace.js?v=20261121"></script>
     <script src="assets/te-theme.js?v=20261120b"></script>
   </body>
 </html>

@@ -32,7 +32,7 @@
 .tc-plot-layout { display: grid; grid-template-columns: minmax(0, 1fr) 245px; }
 .tc-plot { margin: 0; padding: 1.5rem 1.5rem 1.1rem; min-width: 0; }
 .tc-chart { display: block; width: 100%; height: auto; overflow: visible; margin-top: .6rem; }
-.tc-chart text { font: 11px Inter, system-ui, sans-serif; fill: #66766c; }
+.tc-chart text { font: 11px var(--font-sans); fill: #66766c; }
 .tc-chart .tc-axis-title { font-size: 11px; font-weight: 500; fill: #344d41; }
 .tc-legend { display: flex; flex-wrap: wrap; gap: .6rem 1.1rem; min-height: 20px; font-size: .66rem; color: #53695b; align-items: center; }
 .tc-legend > span { display: inline-block; }
@@ -113,7 +113,7 @@
 .tc-chip-label { margin-bottom: 0.4rem; color: var(--teal-deep); font-size: 0.74rem; font-weight: 600; }
 .tc-chip-label b { margin-right: 0.45rem; font: 600 1rem var(--pt-serif); color: var(--teal); }
 .tc-chip-svg { display: block; width: 100%; height: auto; }
-.tc-chip-svg text { font: 11px Arial, Helvetica, sans-serif; fill: #3f5549; }
+.tc-chip-svg text { font: 11px var(--font-sans); fill: #3f5549; }
 .tc-chip-svg .tc-chip-strong { font-weight: 650; }
 .tc-chip-svg .tc-chip-small { font-size: 9.5px; fill: #66766d; }
 .tc-chip-leader path { stroke: #9fb1a5; stroke-width: 1; }

@@ -7,7 +7,8 @@
   --cn-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --cn-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
-body.te-dark :is(.cation, .cation-tx, .cn-tab) {
+/* .cn-dark is set by cation.js from body.te-dark (homepage) or html[data-theme] (TE-PlotBench). */
+:is(.cation, .cation-tx, .cn-tab).cn-dark {
   --cn-line: #0b0e12; --cn-fur: #6c6f76; --cn-muzzle: #858890; --cn-iris: #cbc14a; --cn-coat: #f1f3f6;
   --cn-amber: #f0b23c; --cn-paper: #17211e; --cn-ink: #e3eae6; --cn-muted: #a7b4ad;
   --cn-bond: #5e6a7c; --cn-atom-edge: rgba(230, 234, 240, 0.45); --cn-shadow: rgba(0, 0, 0, 0.4);

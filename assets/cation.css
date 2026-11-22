@@ -1,0 +1,180 @@
+/* ---------- Cat'ion: lab-cat companion (assets/cation.js builds the markup) ---------- */
+.cation, .cation-tx, .cn-tab {
+  --cn-line: #1b2230; --cn-fur: #64676e; --cn-muzzle: #7d8087; --cn-pink: #a88688; --cn-nose: #4f4f57;
+  --cn-iris: #c6bc45; --cn-whisker: #f2f2f0; --cn-collar: #efe7d4; --cn-coat: #ffffff; --cn-shoe: #3fb8a4;
+  --cn-amber: #e09a14; --cn-teal: #3fb8a4; --cn-paper: #ffffff; --cn-ink: #1b2230; --cn-muted: #5a6577;
+  --cn-bond: #97a3b4; --cn-atom-edge: rgba(27, 34, 48, 0.5); --cn-shadow: rgba(27, 34, 48, 0.16);
+  --cn-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --cn-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+body.te-dark :is(.cation, .cation-tx, .cn-tab) {
+  --cn-line: #0b0e12; --cn-fur: #6c6f76; --cn-muzzle: #858890; --cn-iris: #cbc14a; --cn-coat: #f1f3f6;
+  --cn-amber: #f0b23c; --cn-paper: #17211e; --cn-ink: #e3eae6; --cn-muted: #a7b4ad;
+  --cn-bond: #5e6a7c; --cn-atom-edge: rgba(230, 234, 240, 0.45); --cn-shadow: rgba(0, 0, 0, 0.4);
+}
+
+.cation {
+  position: fixed; z-index: 40; width: 92px;
+  right: max(18px, env(safe-area-inset-right, 0px));
+  bottom: max(12px, env(safe-area-inset-bottom, 0px));
+  font: 600 14px/1.3 var(--cn-font);
+}
+.cation[hidden], .cn-tab[hidden], .cation [hidden] { display: none !important; }
+.cn-cat-btn {
+  position: relative; display: block; width: 100%; padding: 0; border: 0; background: none;
+  border-radius: 20px; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.cn-cat-btn::before {
+  content: ""; position: absolute; left: 20%; right: 20%; bottom: -3px; height: 9px;
+  border-radius: 50%; background: var(--cn-shadow);
+}
+.cn-hide {
+  position: absolute; top: 0; right: -6px; z-index: 5; display: grid; place-items: center;
+  width: 22px; height: 22px; padding: 0; border: 1.5px solid var(--cn-ink); border-radius: 50%;
+  background: var(--cn-paper); color: var(--cn-ink); font: 700 14px/1 var(--cn-font);
+  cursor: pointer; opacity: 0; transition: opacity 0.15s;
+}
+.cation:hover .cn-hide, .cn-hide:focus-visible { opacity: 1; }
+@media (hover: none) { .cn-hide { opacity: 0.8; } }
+.cn-tab {
+  position: fixed; z-index: 40; padding: 6px 12px; border: 1.5px solid var(--cn-ink); border-radius: 999px;
+  right: max(18px, env(safe-area-inset-right, 0px));
+  bottom: max(14px, env(safe-area-inset-bottom, 0px));
+  background: var(--cn-paper); color: var(--cn-ink); font: 700 13px/1 var(--cn-font); cursor: pointer;
+  box-shadow: 0 6px 18px var(--cn-shadow);
+}
+:is(.cn-cat-btn, .cn-hide, .cn-tab):focus-visible { outline: 3px solid var(--cn-amber); outline-offset: 3px; }
+
+.cn-bubble {
+  position: absolute; z-index: 6; pointer-events: none; white-space: nowrap;
+  padding: 3px 10px; border: 2px solid var(--cn-ink); border-radius: 12px;
+  background: var(--cn-paper); color: var(--cn-ink); font: 700 14px/1.3 var(--cn-font);
+  opacity: 0; transform: translate(-82%, -100%) scale(0.6); transform-origin: 82% 100%;
+  transition: opacity 0.15s, transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.cn-bubble.is-code { font: 500 12px/1.4 var(--cn-mono); }
+.cn-bubble.show { opacity: 1; transform: translate(-82%, -100%) scale(1); }
+.cn-pt { position: absolute; z-index: 5; pointer-events: none; font: 800 18px/1 var(--cn-font); }
+.cn-pt.charge { color: var(--cn-amber); }
+.cn-pt.heart { color: var(--cn-pink); font-size: 22px; }
+.cn-pt.dust { width: 6px; height: 6px; border-radius: 50%; background: var(--cn-muted); }
+.cn-pt.spark { width: 7px; height: 7px; border-radius: 2px; background: var(--cn-amber); }
+
+.cn-thought {
+  position: absolute; right: 64%; bottom: 86%; z-index: 4; width: 136px; padding: 6px 6px 8px;
+  display: grid; justify-items: center; gap: 2px;
+  background: var(--cn-paper); border: 2px solid var(--cn-ink); border-radius: 30px 36px 30px 38px;
+  box-shadow: 0 10px 24px var(--cn-shadow);
+}
+.cn-thought::before, .cn-thought::after {
+  content: ""; position: absolute; border: 2px solid var(--cn-ink); border-radius: 50%; background: var(--cn-paper);
+}
+.cn-thought::before { width: 12px; height: 12px; right: -14px; bottom: -12px; }
+.cn-thought::after { width: 7px; height: 7px; right: -24px; bottom: -24px; }
+.cn-thought canvas { display: block; width: 100%; aspect-ratio: 1; }
+.cn-cap { font: 10.5px/1.3 var(--cn-mono); color: var(--cn-muted); text-align: center; }
+
+.cn-wafer { position: absolute; left: 0; top: 0; z-index: 4; width: 34px; height: 34px; pointer-events: none; will-change: transform; }
+.cn-tilt { width: 100%; height: 100%; transform: rotate(-14deg) scaleY(0.42); }
+.cn-disc {
+  width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--cn-line);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(255, 255, 255, 0.24) 5px 6px),
+    repeating-linear-gradient(90deg, transparent 0 5px, rgba(255, 255, 255, 0.24) 5px 6px),
+    conic-gradient(from 20deg, #6c7bff, #39c7c0, #e8d36a, #d97fd0, #7c8cff, #4dd6c8, #6c7bff);
+  -webkit-mask: radial-gradient(circle 3.5px at 50% 100%, transparent 96%, #000 100%);
+          mask: radial-gradient(circle 3.5px at 50% 100%, transparent 96%, #000 100%);
+}
+.cn-disc.spin { animation: cn-spin 0.32s linear infinite; }
+
+.cation-tx { position: fixed; inset: 0; z-index: 60; overflow: hidden; pointer-events: none; }
+.cn-peek { position: absolute; left: 50%; bottom: max(4px, env(safe-area-inset-bottom, 0px)); width: 124px; transform: translate(-50%, 110%); }
+.cn-hopper { position: absolute; left: 0; bottom: max(8px, env(safe-area-inset-bottom, 0px)); width: 112px; transform: translateX(-140px); }
+
+/* ---- the cat ---- */
+.cn-cat { display: block; width: 100%; height: auto; overflow: visible; transform-origin: 50% 100%; }
+.cn-cat * { transform-box: view-box; }
+.cn-cat .fur { fill: var(--cn-fur); stroke: var(--cn-line); stroke-width: 3.5; stroke-linejoin: round; }
+.cn-cat .tail-o { fill: none; stroke: var(--cn-line); stroke-width: 14; stroke-linecap: round; }
+.cn-cat .tail-f { fill: none; stroke: var(--cn-fur); stroke-width: 7.5; stroke-linecap: round; }
+.cn-cat .belly { fill: #8c9097; opacity: 0.18; }
+.cn-cat .inner { fill: var(--cn-pink); }
+.cn-cat .blush { fill: var(--cn-pink); opacity: 0.45; }
+.cn-cat .iris { fill: var(--cn-iris); stroke: var(--cn-line); stroke-width: 1.8; }
+.cn-cat .pup { fill: var(--cn-line); }
+.cn-cat .shine { fill: #fff; }
+.cn-cat .muzzle { fill: var(--cn-muzzle); }
+.cn-cat .nose { fill: var(--cn-nose); stroke: var(--cn-line); stroke-width: 2; stroke-linejoin: round; }
+.cn-cat :is(.mouth, .shut) { fill: none; stroke: var(--cn-line); stroke-width: 2.4; stroke-linecap: round; }
+.cn-cat .whisk { fill: none; stroke: var(--cn-whisker); stroke-width: 1.5; stroke-linecap: round; opacity: 0.95; }
+.cn-cat .mouth-open { fill: #7a2b3a; stroke: var(--cn-line); stroke-width: 2; opacity: 0; }
+.cn-cat .shut { opacity: 0; }
+.cn-cat .collar { fill: none; stroke: var(--cn-collar); stroke-width: 6; stroke-linecap: round; }
+.cn-cat .tagc { fill: var(--cn-collar); stroke: var(--cn-line); stroke-width: 1.5; }
+.cn-cat .coat-fill { fill: var(--cn-coat); stroke: var(--cn-line); stroke-width: 3.5; stroke-linejoin: round; }
+.cn-cat .pocket { stroke-width: 2.4; }
+.cn-cat .coat-line { fill: none; stroke: var(--cn-line); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.cn-cat .coat-btn { fill: var(--cn-line); }
+.cn-cat :is(.pen-a, .pen-b) { fill: none; stroke-width: 3.2; stroke-linecap: round; }
+.cn-cat .pen-a { stroke: var(--cn-amber); }
+.cn-cat .pen-b { stroke: var(--cn-teal); }
+.cn-cat .shoe { fill: var(--cn-shoe); stroke: var(--cn-line); stroke-width: 3; stroke-linejoin: round; }
+.cn-cat .sole { fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; }
+.cn-cat .lace { fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; }
+.cn-cat .kbd { display: none; }
+.cn-cat .kbd-base { fill: #3a4352; stroke: var(--cn-line); stroke-width: 3; stroke-linejoin: round; }
+.cn-cat .key { fill: #c9d1dc; transition: fill 0.12s; }
+.cn-cat .key.lit { fill: var(--cn-amber); transition: none; }
+.cn-cat .sign rect { fill: var(--cn-amber); stroke: var(--cn-line); stroke-width: 3; }
+.cn-cat .sign text { font: 700 16px var(--cn-font); fill: #1b2230; }
+
+.cn-cat .tail { transform-origin: 120px 172px; animation: cn-tail 2.6s ease-in-out infinite alternate; }
+.cn-cat .cat-body { transform-origin: 100px 200px; animation: cn-breathe 3.4s ease-in-out infinite; }
+.cn-cat .head { transform-origin: 100px 92px; transition: transform 0.45s cubic-bezier(0.3, 1.3, 0.5, 1); }
+.cn-cat .ear-l { transform-origin: 72px 62px; }
+.cn-cat .ear-r { transform-origin: 128px 62px; }
+.cn-cat .eye { transition: transform 0.07s; }
+.cn-cat .eye-l { transform-origin: 76px 84px; }
+.cn-cat .eye-r { transform-origin: 124px 84px; }
+.cn-cat .pupil { transform: translate(calc(var(--gx, 0px) * 0.7), calc(var(--gy, 0px) * 0.7)); transition: transform 0.18s ease-out; }
+.cn-cat .paw { transition: transform 0.38s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.cn-cat .paw-l { transform-origin: 77px 126px; }
+.cn-cat .paw-r { transform-origin: 123px 126px; }
+.cn-cat.blink .eye { transform: scaleY(0.1); }
+.cn-cat.eyes-shut .eye { opacity: 0; }
+.cn-cat.eyes-shut .shut { opacity: 1; }
+.cn-cat.talk .mouth { opacity: 0; }
+.cn-cat.talk .mouth-open { opacity: 1; }
+
+/* poses: arms rotate from the shoulder (77,126) / (123,126) */
+.cn-cat.pose-think { --gx: 3px; --gy: -3.6px; }
+.cn-cat.pose-think .head { transform: rotate(-6deg); }
+.cn-cat.pose-think .paw-r { transform: translate(6px, 16px) rotate(165deg); }
+.cn-cat.pose-hold .paw-r { transform: rotate(-130deg); }
+.cn-cat.pose-windup .paw-r { transform: rotate(-170deg); }
+.cn-cat.pose-release .paw-r { transform: rotate(-70deg); }
+.cn-cat.pose-type { --gx: 0px; --gy: 3px; }
+.cn-cat.pose-type .kbd { display: inline; }
+.cn-cat.pose-type .paw { transition: transform 0.06s ease-out; }
+.cn-cat.pose-type .paw-l { transform: rotate(-30deg); }
+.cn-cat.pose-type .paw-r { transform: rotate(30deg); }
+.cn-cat.pose-type .paw-l.tap { transform: rotate(-20deg); }
+.cn-cat.pose-type .paw-r.tap { transform: rotate(20deg); }
+.cn-cat.pose-sign .paw-l { transform: rotate(20deg); }
+.cn-cat.pose-sign .paw-r { transform: rotate(-20deg); }
+
+@keyframes cn-tail { from { transform: rotate(-8deg); } to { transform: rotate(10deg); } }
+@keyframes cn-breathe { 50% { transform: scale(1.015, 1.03); } }
+@keyframes cn-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 620px) {
+  .cation { width: 70px; }
+  .cn-thought { width: 112px; }
+  .cn-peek { width: 104px; }
+  .cn-hopper { width: 92px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cn-cat :is(.tail, .cat-body), .cn-disc.spin { animation: none; }
+  .cn-cat :is(.paw, .head), .cn-bubble { transition: none; }
+}
+@media print { .cation, .cation-tx, .cn-tab { display: none !important; } }

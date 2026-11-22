@@ -123,6 +123,21 @@
   tx.setAttribute("aria-hidden", "true");
   document.body.append(root, tab, tx);
 
+  /* Theme: the homepage sets body.te-dark; TE-PlotBench sets <html data-theme>, or leaves it
+     unset to follow the system when no choice is saved under "te-theme". */
+  const darkMq = matchMedia("(prefers-color-scheme: dark)");
+  function syncTheme() {
+    const set = document.documentElement.dataset.theme;
+    const dark = set ? set === "dark"
+      : document.body.classList.contains("te-dark") ||
+        (!store.get("te-theme") && !store.get("tepb-theme") && darkMq.matches);
+    [root, tab, tx].forEach((el) => el.classList.toggle("cn-dark", dark));
+  }
+  syncTheme();
+  new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  new MutationObserver(syncTheme).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  if (darkMq.addEventListener) darkMq.addEventListener("change", syncTheme);
+
   const btn = root.querySelector(".cn-cat-btn");
   const cat = btn.querySelector(".cn-cat");
   const bubble = root.querySelector(".cn-bubble");

@@ -1,5 +1,5 @@
 /* ---------- Cat'ion: lab-cat companion (assets/cation.js builds the markup) ---------- */
-.cation, .cation-tx, .cn-tab {
+.cation, .cation-tx, .cn-tab, .cn-perch {
   --cn-line: #1b2230; --cn-fur: #64676e; --cn-muzzle: #7d8087; --cn-pink: #a88688; --cn-nose: #4f4f57;
   --cn-iris: #c6bc45; --cn-whisker: #f2f2f0; --cn-collar: #efe7d4; --cn-coat: #ffffff; --cn-shoe: #3fb8a4;
   --cn-amber: #e09a14; --cn-teal: #3fb8a4; --cn-paper: #ffffff; --cn-ink: #1b2230; --cn-muted: #5a6577;
@@ -8,7 +8,7 @@
   --cn-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 /* .cn-dark is set by cation.js from body.te-dark (homepage) or html[data-theme] (TE-PlotBench). */
-:is(.cation, .cation-tx, .cn-tab).cn-dark {
+:is(.cation, .cation-tx, .cn-tab, .cn-perch).cn-dark {
   --cn-line: #0b0e12; --cn-fur: #6c6f76; --cn-muzzle: #858890; --cn-iris: #cbc14a; --cn-coat: #f1f3f6;
   --cn-amber: #f0b23c; --cn-paper: #17211e; --cn-ink: #e3eae6; --cn-muted: #a7b4ad;
   --cn-bond: #5e6a7c; --cn-atom-edge: rgba(230, 234, 240, 0.45); --cn-shadow: rgba(0, 0, 0, 0.4);
@@ -20,7 +20,21 @@
   bottom: max(12px, env(safe-area-inset-bottom, 0px));
   font: 600 14px/1.3 var(--cn-font);
 }
-.cation[hidden], .cn-tab[hidden], .cation [hidden] { display: none !important; }
+.cation[hidden], .cn-tab[hidden], .cation [hidden], .cn-perch[hidden], .cn-perch [hidden] { display: none !important; }
+
+/* The perched cat: placed in page coordinates by cation.js, beside a section heading. */
+.cn-perch {
+  position: absolute; z-index: 12; left: 0; top: 0; width: 64px;
+  font: 600 14px/1.3 var(--cn-font); transform-origin: 50% 100%;
+}
+.cn-perch .cn-cat-btn::before { opacity: 0.7; }
+.cn-perch .cn-thought { width: 116px; right: 82%; bottom: 74%; }
+.cn-perch .cn-cap { font-size: 9.5px; white-space: nowrap; }
+.cn-perch.cn-rightward .cn-thought { right: auto; left: 82%; border-radius: 36px 30px 38px 30px; }
+.cn-perch.cn-rightward .cn-thought::before { right: auto; left: -14px; }
+.cn-perch.cn-rightward .cn-thought::after { right: auto; left: -24px; }
+.cn-perch.cn-rightward .cn-bubble { transform: translate(-18%, -100%) scale(0.6); transform-origin: 18% 100%; }
+.cn-perch.cn-rightward .cn-bubble.show { transform: translate(-18%, -100%) scale(1); }
 .cn-cat-btn {
   position: relative; display: block; width: 100%; padding: 0; border: 0; background: none;
   border-radius: 20px; cursor: pointer; -webkit-tap-highlight-color: transparent;
@@ -173,9 +187,12 @@
   .cn-thought { width: 112px; }
   .cn-peek { width: 104px; }
   .cn-hopper { width: 92px; }
+  .cn-perch { width: 50px; }
+  .cn-perch .cn-thought { width: 104px; }
+  .cn-perch .cn-cap { font-size: 8.5px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cn-cat :is(.tail, .cat-body), .cn-disc.spin { animation: none; }
   .cn-cat :is(.paw, .head), .cn-bubble { transition: none; }
 }
-@media print { .cation, .cation-tx, .cn-tab { display: none !important; } }
+@media print { .cation, .cation-tx, .cn-tab, .cn-perch { display: none !important; } }

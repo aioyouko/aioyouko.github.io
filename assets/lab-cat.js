@@ -175,10 +175,12 @@
     let state = "idle";
     let tick = 0;
 
-    function set(next, detail) {
+    // `label` replaces the default status word (agent mode says "Agents working", not "Synthesizing").
+    function set(next, detail, label) {
       state = next;
       root.className = `lab-cat is-${next}`;
-      text.textContent = detail ? `${STATUS[next]} · ${detail}` : STATUS[next];
+      const word = label || STATUS[next];
+      text.textContent = detail ? `${word} · ${detail}` : word;
     }
     set("idle");
 

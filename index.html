@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="assets/te-dark.css?v=20261120b" />
     <link rel="stylesheet" href="assets/home.css?v=20261120b" />
     <link rel="stylesheet" href="assets/site-theme.css?v=20261121h" />
-    <link rel="stylesheet" href="assets/workspace.css?v=20261121c" />
+    <link rel="stylesheet" href="assets/workspace.css?v=20261123a" />
     <link rel="stylesheet" href="assets/cation.css?v=20261122c" />
   </head>
   <body>
@@ -182,28 +182,37 @@
           <header class="ws-hero">
             <div class="ws-hero-copy">
               <p class="section-kicker hero-kicker">TEDEX · thermoelectric data workspace</p>
-              <h2 id="workspace-title" class="hero-title">Type a command.<br />Get a figure you can trust.</h2>
-              <p class="hero-lede">A command-line workspace for thermoelectric research. <em>Every figure on this page was rendered by the current code.</em></p>
+              <h2 id="workspace-title" class="hero-title">Type a command, or ask.<br />Get a figure you can trust.</h2>
+              <p class="hero-lede">A command-line workspace for thermoelectric research, with an agent mode on top. <em>Every figure on this page was rendered by the current code.</em></p>
               <p class="hero-intro">
                 Instrument exports go in, a curated materials database sits in the middle, and publication-style
-                figures, SPB fits and evidence-grounded assessments come out, all from public demo data.
+                figures, SPB fits and evidence-grounded assessments come out, all from public demo data. In agent
+                mode, a lead agent splits a plain-language request across three role agents that run the same commands.
               </p>
             </div>
             <dl class="ws-stats" aria-label="Workspace at a glance">
               <div><dt>Launcher</dt><dd><code>python main.py</code></dd></div>
-              <div><dt>Commands</dt><dd>8 direct · 3 SPB · 4 sync</dd></div>
+              <div><dt>Commands</dt><dd>8 direct · 3 SPB · 6 sync</dd></div>
+              <div><dt>Agent roles</dt><dd>analyst · plotter · assessor</dd></div>
               <div><dt>Tests</dt><dd>76 across 14 suites</dd></div>
-              <div><dt>Color sets</dt><dd>11, <code>npg</code> default</dd></div>
             </dl>
           </header>
 
-          <nav class="page-contents" data-cols="3" aria-label="Agent Workspace sections"><a href="#agent-workspace" data-te-jump="ws-console"><span>01</span> Live console</a><a href="#agent-workspace" data-te-jump="ws-database"><span>02</span> Materials database</a><a href="#agent-workspace" data-te-jump="ws-pipeline"><span>03</span> Command surface</a><a href="#agent-workspace" data-te-jump="ws-gallery"><span>04</span> Figure gallery</a><a href="#agent-workspace" data-te-jump="ws-engineering"><span>05</span> Under the hood</a><a href="#agent-workspace" data-te-jump="workspace-references"><span>06</span> References</a></nav>
+          <nav class="page-contents" aria-label="Agent Workspace sections"><a href="#agent-workspace" data-te-jump="ws-console"><span>01</span> Live console</a><a href="#agent-workspace" data-te-jump="ws-database"><span>02</span> Materials database</a><a href="#agent-workspace" data-te-jump="ws-pipeline"><span>03</span> Command surface</a><a href="#agent-workspace" data-te-jump="ws-agents"><span>04</span> Agent mode</a><a href="#agent-workspace" data-te-jump="ws-gallery"><span>05</span> Figure gallery</a><a href="#agent-workspace" data-te-jump="ws-engineering"><span>06</span> Under the hood</a><a href="#agent-workspace" data-te-jump="workspace-references"><span>07</span> References</a></nav>
 
-          <div class="ws-console" id="ws-console" data-ws-console aria-label="Interactive demo: commands and the figures they produce">
+          <div class="ws-console" id="ws-console" data-ws-console data-mode="cli" aria-label="Interactive demo: commands or agent requests, and the files they produce">
+            <div class="ws-modebar">
+              <div class="ws-mode" role="group" aria-label="Console mode" data-ws-mode>
+                <button type="button" class="is-active" data-mode="cli" aria-pressed="true"><span class="ws-mode-glyph" aria-hidden="true">$</span>Commands</button>
+                <button type="button" data-mode="agent" aria-pressed="false"><span class="ws-mode-glyph" aria-hidden="true">✦</span>Agent mode</button>
+              </div>
+              <p class="ws-mode-desc" data-ws-mode-desc></p>
+            </div>
+            <div class="ws-board" data-ws-board hidden aria-label="Agent roles and what each is doing"></div>
             <div class="ws-term">
               <div class="ws-term-bar">
                 <span class="ws-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="ws-term-title">te-analysis-workspace</span>
+                <span class="ws-term-title" data-ws-term-title>te-analysis-workspace</span>
                 <button class="ws-term-toggle" type="button" data-ws-pause aria-pressed="false">Pause</button>
               </div>
               <div class="ws-term-body" data-ws-term aria-live="polite">
@@ -217,6 +226,11 @@
             </div>
             <div class="ws-chips" role="group" aria-label="Choose a command to run" data-ws-chips></div>
           </div>
+          <p class="ws-console-note" data-ws-agent-note hidden>
+            Agent transcripts are condensed from the role definitions and real command output. Plotting and SPB runs use
+            the public demo data, so those figures are real outputs; DEMO-01 and DEMO-02 are placeholder batches with
+            illustrative values.
+          </p>
 
           <!-- 2. The materials database -->
           <section class="ws-section ws-db" id="ws-database" aria-labelledby="ws-db-title">
@@ -428,16 +442,130 @@ df = add_derived_columns(df)</code></pre>
             <div class="ws-section-head">
               <p class="section-kicker">The command surface</p>
               <h3 id="ws-pipe-title">From a raw batch to a decision</h3>
-              <p>One launcher routes to every tool, so routine work is discoverable from <code>python main.py --help</code> instead of scattered scripts.</p>
+              <p>One launcher routes to every tool, so routine work is discoverable from <code>python main.py --help</code> instead of scattered scripts. Each step has one owner in agent mode.</p>
             </div>
             <ol class="ws-pipe-track" data-ws-pipe>
-              <li><span class="ws-pipe-dot"></span><h4>Sync</h4><p>Raw files and the ledger become typed records.</p><code>sync metadata</code></li>
-              <li><span class="ws-pipe-dot"></span><h4>Analyze</h4><p>ZEM and LFA aligned into S, σ, κ, PF, <i>zT</i>, Lorenz, κ<sub>L</sub>, µ<sub>w</sub>, B.</p><code>analyze &lt;batch&gt;</code></li>
-              <li><span class="ws-pipe-dot"></span><h4>Plot</h4><p>TE curves, stacked XRD with two PDF cards, recipe-driven flexible plots.</p><code>plot-te · plot-xrd · flexible</code></li>
-              <li><span class="ws-pipe-dot"></span><h4>Fit</h4><p>SPB effective mass, PF/<i>zT</i> versus n<sub>H</sub>, conductivity-axis fits, lattice parameters.</p><code>spb · xrd-lattice</code></li>
-              <li><span class="ws-pipe-dot"></span><h4>Assess</h4><p>Deterministic ranking and trend detection against lab and literature features.</p><code>assess · bayes</code></li>
-              <li><span class="ws-pipe-dot"></span><h4>Interpret</h4><p>An agent reads the scored payload, with prompts kept separate from calculations.</p><code>agent</code></li>
+              <li><span class="ws-pipe-dot"></span><h4>Sync</h4><p>Raw files, the ledger and the lab workbook become typed records.</p><code>sync metadata · workbook · fill</code><span class="ws-pipe-role" data-role="analyst">te-analyst</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Analyze</h4><p>ZEM and LFA aligned into S, σ, κ, PF, <i>zT</i>, Lorenz, κ<sub>L</sub>, µ<sub>w</sub>, B.</p><code>analyze &lt;batch&gt;</code><span class="ws-pipe-role" data-role="analyst">te-analyst</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Plot</h4><p>TE curves, stacked XRD with two PDF cards, recipe-driven flexible plots.</p><code>plot-te · plot-xrd · flexible</code><span class="ws-pipe-role" data-role="plotter">te-plotter</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Fit</h4><p>SPB effective mass, PF/<i>zT</i> versus n<sub>H</sub>, conductivity-axis fits, lattice parameters.</p><code>spb · xrd-lattice</code><span class="ws-pipe-role" data-role="analyst">te-analyst</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Assess</h4><p>Deterministic ranking and trend detection against lab and literature features.</p><code>assess · bayes</code><span class="ws-pipe-role" data-role="assessor">te-assessor</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Interpret</h4><p>A language model reads the scored payload, only when asked, with prompts kept separate from calculations.</p><code>agent</code><span class="ws-pipe-role" data-role="assessor">te-assessor</span></li>
             </ol>
+          </section>
+
+          <!-- 4. Agent mode -->
+          <section class="ws-section ws-agents" id="ws-agents" aria-labelledby="ws-agents-title">
+            <div class="ws-section-head">
+              <p class="section-kicker">Agent mode</p>
+              <h3 id="ws-agents-title">Three role agents share one launcher</h3>
+              <p>
+                Ask for a result in plain language. A lead agent splits the request by role and hands each part to the
+                agent that owns those commands. Every role calls the same <code>python main.py</code> tools as the console
+                above, adds <code>--json</code>, and reads back the files a command wrote instead of its console text.
+              </p>
+            </div>
+
+            <div class="ws-ag-map" aria-label="How a request flows through the agents">
+              <div class="ws-ag-ask">
+                <span class="ws-db-tag">You</span>
+                <q>Process DEMO-01, compare it with DEMO-02, and suggest the next composition.</q>
+              </div>
+              <svg class="ws-ag-wire is-stem" viewBox="0 0 600 34" preserveAspectRatio="none" aria-hidden="true"><path d="M300 0V34" /></svg>
+              <div class="ws-ag-lead">
+                <span class="ws-db-tag is-core">Lead agent</span>
+                <strong>A Claude Code session</strong>
+                <small>Delegates by each role's description, runs independent parts in parallel, and brings questions back to you.</small>
+              </div>
+              <svg class="ws-ag-wire is-fan" viewBox="0 0 600 44" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M300 0V22M100 22H500" />
+                <path class="is-analyst" d="M100 22V44" /><path class="is-plotter" d="M300 22V44" /><path class="is-assessor" d="M500 22V44" />
+              </svg>
+              <article class="ws-ag-role" data-role="analyst">
+                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-analyst</h4></header>
+                <p>Turns raw ZEM/LFA files into processed data, runs SPB fits, and keeps lab metadata in order.</p>
+                <dl>
+                  <div><dt>Runs</dt><dd><code>analyze</code><code>spb</code><code>sync</code></dd></div>
+                  <div><dt>Writes</dt><dd><code>data/lab/</code><code>data/processed/</code></dd></div>
+                </dl>
+                <p class="ws-ag-rule">The only role that writes lab metadata.</p>
+              </article>
+              <article class="ws-ag-role" data-role="plotter">
+                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-plotter</h4></header>
+                <p>Makes TE, XRD and recipe-driven figures from batches that are already processed.</p>
+                <dl>
+                  <div><dt>Runs</dt><dd><code>plot-te</code><code>plot-xrd</code><code>flexible</code></dd></div>
+                  <div><dt>Writes</dt><dd><code>figures</code><code>new recipes, when asked</code></dd></div>
+                </dl>
+                <p class="ws-ag-rule">Names the batch that needs <code>analyze</code> instead of running it.</p>
+              </article>
+              <article class="ws-ag-role" data-role="assessor">
+                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-assessor</h4></header>
+                <p>Scores batches, ranks next compositions, and runs the language-model analysis when asked.</p>
+                <dl>
+                  <div><dt>Runs</dt><dd><code>assess</code><code>bayes</code><code>agent</code></dd></div>
+                  <div><dt>Writes</dt><dd><code>results/</code></dd></div>
+                </dl>
+                <p class="ws-ag-rule">Keeps tool numbers apart from interpretation, with evidence labels.</p>
+              </article>
+              <svg class="ws-ag-wire is-merge" viewBox="0 0 600 44" preserveAspectRatio="none" aria-hidden="true">
+                <path class="is-analyst" d="M100 0V22" /><path class="is-plotter" d="M300 0V22" /><path class="is-assessor" d="M500 0V22" />
+                <path d="M100 22H500M300 22V44" />
+              </svg>
+              <div class="ws-ag-launch">
+                <code><span>python main.py</span> --json &lt;command&gt;</code>
+                <small>One JSON object per run: the command, its exit code and every file it wrote. Tool messages go to stderr.</small>
+              </div>
+            </div>
+
+            <div class="ws-ag-layout">
+              <ol class="ws-ag-rules">
+                <li>
+                  <h4>One writer for lab data</h4>
+                  <p>Only te-analyst changes <code>data/lab/</code> and processed data. The plotter and assessor say which batch needs <code>analyze</code> and hand it back.</p>
+                </li>
+                <li>
+                  <h4>Files, not console text</h4>
+                  <p><code>--json</code> lists every file a command wrote, so agents read results from paths instead of parsing logs.</p>
+                </li>
+                <li>
+                  <h4>Parallel runs take turns</h4>
+                  <p>Commands that change <code>data/lab/</code> hold a cross-process lock and swap files in whole. Analyses of different batches still overlap.</p>
+                </li>
+                <li>
+                  <h4>No default batch</h4>
+                  <p><code>analyze</code>, <code>plot-te</code>, <code>assess</code> and <code>agent</code> stop with an error when no batch is named, instead of guessing one.</p>
+                </li>
+                <li>
+                  <h4>Never invent a value</h4>
+                  <p>A missing density or c<sub>p</sub> comes from the lab workbook or from me. A value count that doesn't match the samples is refused, and nothing is overwritten without my confirmation.</p>
+                </li>
+                <li>
+                  <h4>External calls only on request</h4>
+                  <p><code>agent</code> sends extracted features to an external, paid LLM API, so the assessor runs it only when a request asks for that analysis.</p>
+                </li>
+              </ol>
+
+              <div class="ws-ag-panel">
+                <div class="ws-code-window">
+                  <pre class="ws-code ws-code-static" data-lang="json" data-hl="5-6,8-12"><code>{
+  "command": "plot-te",
+  "args": ["data/demo/thermoelectric_property/1.csv", "...",
+           "--zt", "--legend", "--no-show"],
+  "exit_code": 0,
+  "ok": true,
+  "outputs": [
+    {
+      "path": "outputs/figures/inter-batch/thermoelectric_property/zt.svg",
+      "kind": "figure",
+      "exists": true
+    }
+  ]
+}</code></pre>
+                </div>
+                <p class="ws-code-note">Stdout of <code>python main.py --json plot-te …</code>. Each tool reports a file by calling <code>record_output(path)</code> right after writing it.</p>
+              </div>
+            </div>
           </section>
 
           <!-- 4. Figure gallery -->
@@ -1611,8 +1739,8 @@ df = add_derived_columns(df)</code></pre>
     <script src="assets/te-materials.js"></script>
     <script src="assets/thermoelectric-model.js?v=20261119b"></script>
     <script src="assets/thermoelectric-lab.js?v=20261119d"></script>
-    <script src="assets/lab-cat.js?v=20261121"></script>
-    <script src="assets/workspace.js?v=20261121c"></script>
+    <script src="assets/lab-cat.js?v=20261123a"></script>
+    <script src="assets/workspace.js?v=20261123a"></script>
     <script src="assets/te-theme.js?v=20261120b"></script>
     <script src="assets/cation.js?v=20261122c"></script>
   </body>

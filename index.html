@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="assets/te-dark.css?v=20261120b" />
     <link rel="stylesheet" href="assets/home.css?v=20261120b" />
     <link rel="stylesheet" href="assets/site-theme.css?v=20261121h" />
-    <link rel="stylesheet" href="assets/workspace.css?v=20261123a" />
+    <link rel="stylesheet" href="assets/workspace.css?v=20261126b" />
     <link rel="stylesheet" href="assets/cation.css?v=20261122c" />
   </head>
   <body>
@@ -117,9 +117,9 @@
               </a>
               <a class="pt-work-card" href="#agent-workspace" data-view-link="agent-workspace">
                 <img src="assets/home/agent-workspace.svg" width="640" height="360" alt="Schematic: ZEM, LFA and XRD files flow into a command-line agent workspace that produces a fitted zT plot, a Markdown report and a JSON record." loading="lazy" />
-                <span class="pt-label">Software · TEDEX</span>
+                <span class="pt-label">Software · TEDEX 1.5</span>
                 <h3>Agent Workspace for Materials Research</h3>
-                <p>A local-to-public workspace for thermoelectric data: instrument exports, lab metadata, TE/XRD plotting, SPB fitting, literature context, and traceable reports.</p>
+                <p>A command line and five agent skills for thermoelectric data: instrument exports, lab metadata, publication plots, XRD refinement, and phonon and band-transport models with uncertainty reports.</p>
                 <span class="pt-link">Open the workspace <span aria-hidden="true">↗</span></span>
               </a>
             </div>
@@ -181,24 +181,24 @@
           <!-- 1. Hero: one-line pitch, then the live console -->
           <header class="ws-hero">
             <div class="ws-hero-copy">
-              <p class="section-kicker hero-kicker">TEDEX · thermoelectric data workspace</p>
+              <p class="section-kicker hero-kicker">TEDEX 1.5 · thermoelectric data, modeling &amp; plotting harness</p>
               <h2 id="workspace-title" class="hero-title">Type a command, or ask.<br />Get a figure you can trust.</h2>
-              <p class="hero-lede">A command-line workspace for thermoelectric research, with an agent mode on top. <em>Every figure on this page was rendered by the current code.</em></p>
+              <p class="hero-lede">One command line and five agent skills for thermoelectric research. <em>Every figure on this page was rendered by TEDEX 1.5 from public demo data.</em></p>
               <p class="hero-intro">
-                Instrument exports go in, a curated materials database sits in the middle, and publication-style
-                figures, SPB fits and evidence-grounded assessments come out, all from public demo data. In agent
-                mode, a lead agent splits a plain-language request across three role agents that run the same commands.
+                Instrument exports and literature tables go in. Publication figures, XRD refinements and phonon and
+                band-transport fits come out, each with the CSV and JSON behind it. An AI coding agent drives the same
+                commands through five skills, and when a physical constant is missing it stops and asks instead of guessing.
               </p>
             </div>
             <dl class="ws-stats" aria-label="Workspace at a glance">
-              <div><dt>Launcher</dt><dd><code>python main.py</code></dd></div>
-              <div><dt>Commands</dt><dd>8 direct · 3 SPB · 6 sync</dd></div>
-              <div><dt>Agent roles</dt><dd>analyst · plotter · assessor</dd></div>
-              <div><dt>Tests</dt><dd>76 across 14 suites</dd></div>
+              <div><dt>Launcher</dt><dd><code>te</code> · <code>python main.py</code></dd></div>
+              <div><dt>Commands</dt><dd>14 tools · spb, model, sync groups</dd></div>
+              <div><dt>Agent skills</dt><dd>5, loaded on demand</dd></div>
+              <div><dt>Tests</dt><dd>102 across 20 suites</dd></div>
             </dl>
           </header>
 
-          <nav class="page-contents" aria-label="Agent Workspace sections"><a href="#agent-workspace" data-te-jump="ws-console"><span>01</span> Live console</a><a href="#agent-workspace" data-te-jump="ws-database"><span>02</span> Materials database</a><a href="#agent-workspace" data-te-jump="ws-pipeline"><span>03</span> Command surface</a><a href="#agent-workspace" data-te-jump="ws-agents"><span>04</span> Agent mode</a><a href="#agent-workspace" data-te-jump="ws-gallery"><span>05</span> Figure gallery</a><a href="#agent-workspace" data-te-jump="ws-engineering"><span>06</span> Under the hood</a><a href="#agent-workspace" data-te-jump="workspace-references"><span>07</span> References</a></nav>
+          <nav class="page-contents" aria-label="Agent Workspace sections"><a href="#agent-workspace" data-te-jump="ws-console"><span>01</span> Live console</a><a href="#agent-workspace" data-te-jump="ws-modes"><span>02</span> Two ways to run</a><a href="#agent-workspace" data-te-jump="ws-skills"><span>03</span> Five skills</a><a href="#agent-workspace" data-te-jump="ws-showcase"><span>04</span> Showcase</a><a href="#agent-workspace" data-te-jump="ws-database"><span>05</span> Materials database</a><a href="#agent-workspace" data-te-jump="ws-gallery"><span>06</span> Figure gallery</a><a href="#agent-workspace" data-te-jump="ws-engineering"><span>07</span> Under the hood</a><a href="#agent-workspace" data-te-jump="workspace-references"><span>08</span> References</a></nav>
 
           <div class="ws-console" id="ws-console" data-ws-console data-mode="cli" aria-label="Interactive demo: commands or agent requests, and the files they produce">
             <div class="ws-modebar">
@@ -208,11 +208,11 @@
               </div>
               <p class="ws-mode-desc" data-ws-mode-desc></p>
             </div>
-            <div class="ws-board" data-ws-board hidden aria-label="Agent roles and what each is doing"></div>
+            <div class="ws-board" data-ws-board hidden aria-label="The agent and the skills it loads"></div>
             <div class="ws-term">
               <div class="ws-term-bar">
                 <span class="ws-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="ws-term-title" data-ws-term-title>te-analysis-workspace</span>
+                <span class="ws-term-title" data-ws-term-title>tedex</span>
                 <button class="ws-term-toggle" type="button" data-ws-pause aria-pressed="false">Pause</button>
               </div>
               <div class="ws-term-body" data-ws-term aria-live="polite">
@@ -227,12 +227,230 @@
             <div class="ws-chips" role="group" aria-label="Choose a command to run" data-ws-chips></div>
           </div>
           <p class="ws-console-note" data-ws-agent-note hidden>
-            Agent transcripts are condensed from the role definitions and real command output. Plotting and SPB runs use
-            the public demo data, so those figures are real outputs; DEMO-01 and DEMO-02 are placeholder batches with
-            illustrative values.
+            Agent transcripts are condensed. Command lines and tool output come from real TEDEX 1.5 runs on the public
+            demo data, including the exit-code-2 checklists, trimmed to fit (long lists shortened, absolute paths removed).
+            The agent's own sentences are paraphrased.
           </p>
 
-          <!-- 2. The materials database -->
+          <!-- 2. Operating modes -->
+          <section class="ws-section ws-modes" id="ws-modes" aria-labelledby="ws-modes-title">
+            <div class="ws-section-head">
+              <p class="section-kicker">Two ways to run</p>
+              <h3 id="ws-modes-title">The engine installs once. Your data folder stays clean.</h3>
+              <p>
+                TEDEX 1.5 separates the software layer (the <code>te</code> command, the <code>te_analysis</code> package
+                and five agent skills) from the folders where measurements live. Open the repository itself, or point the
+                installed engine at any research folder.
+              </p>
+            </div>
+
+            <div class="ws-mode-grid">
+              <article class="ws-mode-card is-rec">
+                <header><span class="ws-db-tag is-core">Mode B · recommended</span><h4>Plugin + clean data folder</h4></header>
+                <p>Install the engine and link the plugin once. Each project folder then holds only its configuration, data and outputs: no Python files and no copies of the skills.</p>
+                <pre class="ws-tree" aria-label="A Mode B project folder"><b>CuInTe2_Project/</b>
+├── configs/workspace.json   <em>written by te init</em>
+├── data/
+│   ├── raw/&lt;system&gt;/&lt;batch_id&gt;/
+│   ├── processed/
+│   └── metadata/            <em>lab_metadata.md · samples.json</em>
+└── outputs/
+    └── figures/  models/  reports/</pre>
+                <ol class="ws-mode-steps"><li><code>pip install -e .</code></li><li>link <code>plugin/tedex</code></li><li><code>te init</code></li></ol>
+              </article>
+              <article class="ws-mode-card">
+                <header><span class="ws-db-tag">Mode A</span><h4>All-in-one repository</h4></header>
+                <p>Open the TEDEX repository in Claude Code, Codex, Cursor or Antigravity. The agent reads <code>AGENTS.md</code> and finds the same five skills under <code>.agents/skills/</code>.</p>
+                <pre class="ws-tree" aria-label="The TEDEX repository"><b>tedex/</b>
+├── AGENTS.md · CLAUDE.md    <em>harness rules</em>
+├── .agents/skills/          <em>5 skills</em>
+├── plugin/tedex/            <em>the Mode B bundle</em>
+├── te_analysis/             <em>the installable package</em>
+├── configs/  data/demo/  showcase/
+└── tests/                   <em>102 tests</em></pre>
+                <ol class="ws-mode-steps"><li>clone</li><li><code>pip install -e .</code></li><li>open the folder in an agent</li></ol>
+              </article>
+            </div>
+
+            <div class="ws-init-layout">
+              <ol class="ws-ag-rules ws-init-steps">
+                <li>
+                  <h4>Check before touching anything</h4>
+                  <p><code>te init --check</code> exits <code>0</code> in a configured folder. In a new one it exits <code>2</code> and prints what to confirm: folder locations, subfolder grouping, a batch prefix, instruments and units.</p>
+                </li>
+                <li>
+                  <h4>Confirm, then write once</h4>
+                  <p><code>te init --yes</code> writes <code>configs/workspace.json</code>, creates the folders and starts empty <code>batches.json</code>, <code>samples.json</code> and <code>lab_metadata.md</code> ledgers.</p>
+                </li>
+                <li>
+                  <h4>Every command reads it</h4>
+                  <p>Paths, grouping (<code>by_batch</code>, <code>by_system_batch</code>, <code>by_project</code>) and units resolve through <code>te_analysis/paths.py</code>. Pass <code>-w &lt;dir&gt;</code> to run any command against another folder.</p>
+                </li>
+              </ol>
+              <div class="ws-ag-panel">
+                <div class="ws-code-window">
+                  <pre class="ws-code ws-code-static" data-lang="sh" data-hl="2,7-8"><code>$ te init --check
+TEDEX Workspace Status: UNINITIALIZED (using fallback defaults)
+  Grouping mode  : by_batch (prefix=none)
+  - raw          : data\raw
+  - metadata     : data\metadata
+  - figures      : outputs\figures
+Workspace is not initialized yet (missing configs/workspace.json).
+Confirm the following items with the user before running `te init --yes ...`:
+  1. Directory locations (press Enter / accept defaults or point to custom paths)
+  2. Subfolder grouping strategy (--grouping)
+  3. Sample/batch prefix (--batch-prefix, e.g. 'TE', 'SNSE', or empty '' for free naming)
+  4. Instrument &amp; unit conventions
+$ echo $?
+2</code></pre>
+                </div>
+                <div class="ws-code-window">
+                  <pre class="ws-code ws-code-static" data-lang="json" data-hl="4-5,8-9"><code>{
+  "schema_version": "tedex-workspace/v1",
+  "project": {
+    "name": "CuInTe2 Doping Study",
+    "grouping_mode": "by_system_batch",
+    "raw_dir_pattern": "{system}/{batch_id}"
+  },
+  "paths": {
+    "raw": "data/raw",
+    "metadata": "data/metadata",
+    "figures": "outputs/figures",
+    "models": "outputs/models"
+  }
+}</code></pre>
+                </div>
+                <p class="ws-code-note">Real output from a scratch folder, trimmed and with absolute paths shortened. Below it, the start of the <code>configs/workspace.json</code> that <code>te init --yes --grouping by_system_batch</code> wrote.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Skills -->
+          <section class="ws-section ws-skills" id="ws-skills" aria-labelledby="ws-skills-title">
+            <div class="ws-section-head">
+              <p class="section-kicker">Agent skills</p>
+              <h3 id="ws-skills-title">Five skills, one command line</h3>
+              <p>
+                TEDEX keeps its domain knowledge in five skills that don't overlap, and an agent loads one only when a
+                request needs it. Every skill routes work through the same <code>te</code> commands, so a figure an agent
+                makes is the figure you would get by typing the command yourself.
+              </p>
+            </div>
+
+            <div class="ws-skill-grid">
+              <article class="ws-skill" data-role="workspace">
+                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-workspace</h4></header>
+                <p>First-run onboarding, folder mapping, batch and system grouping, instrument and unit conventions.</p>
+                <dl><div><dt>Runs</dt><dd><code>init</code></dd></div></dl>
+                <p class="ws-ag-rule">Confirms folder names and sample prefixes instead of inventing them.</p>
+              </article>
+              <article class="ws-skill" data-role="pipeline">
+                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-data-pipeline</h4></header>
+                <p>Raw ZEM and LFA processing, the metadata ledger, batch assessment and Bayesian screening.</p>
+                <dl><div><dt>Runs</dt><dd><code>analyze</code><code>sync</code><code>assess</code><code>bayes</code></dd></div></dl>
+                <p class="ws-ag-rule">Reads density and c<sub>p</sub> from the ledger before comparing samples.</p>
+              </article>
+              <article class="ws-skill" data-role="plotting">
+                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-plotting</h4></header>
+                <p>TE property curves, 20+ <code>sciplot</code> chart kinds, JSON recipes, palettes and figure renaming.</p>
+                <dl><div><dt>Runs</dt><dd><code>plot-te</code><code>sciplot</code></dd></div></dl>
+                <p class="ws-ag-rule">Keeps legends inside the axes unless you ask otherwise.</p>
+              </article>
+              <article class="ws-skill" data-role="xrd">
+                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-xrd</h4></header>
+                <p>Stacked, zoomed, in-situ, Rietveld, peak-fit and Williamson–Hall layouts, PDF cards and lattice refinement.</p>
+                <dl><div><dt>Runs</dt><dd><code>plot-xrd</code><code>xrd-lattice</code></dd></div></dl>
+                <p class="ws-ag-rule">Uses your reference cards, one below and one above the patterns.</p>
+              </article>
+              <article class="ws-skill" data-role="physics">
+                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-physics-models</h4></header>
+                <p>Debye–Callaway, Debye–Einstein, the Debye calculator, SPB, SKB and two-band transport.</p>
+                <dl><div><dt>Runs</dt><dd><code>callaway</code><code>debye-calc</code><code>debye-einstein</code><code>spb</code><code>skb</code><code>two-band</code></dd></div></dl>
+                <p class="ws-ag-rule">Stops at exit 2 when Θ<sub>D</sub>, v<sub>s</sub> or a DOS mass is missing.</p>
+              </article>
+            </div>
+
+            <ol class="ws-pipe-track" data-ws-pipe>
+              <li><span class="ws-pipe-dot"></span><h4>Initialize</h4><p>Confirm folders, grouping and units once per project.</p><code>init</code><span class="ws-pipe-role" data-role="workspace">te-workspace</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Sync</h4><p>Raw files and the Markdown ledger become typed JSON records.</p><code>sync metadata · markdown</code><span class="ws-pipe-role" data-role="pipeline">te-data-pipeline</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Analyze</h4><p>ZEM and LFA aligned into S, σ, κ, PF, <i>zT</i>, Lorenz, κ<sub>L</sub>, µ<sub>W</sub> and B, then ranked.</p><code>analyze · assess · bayes</code><span class="ws-pipe-role" data-role="pipeline">te-data-pipeline</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Plot</h4><p>TE curves and 20+ general chart kinds from flags or reusable recipes.</p><code>plot-te · sciplot</code><span class="ws-pipe-role" data-role="plotting">te-plotting</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Characterize</h4><p>Phase checks, in-situ maps, Rietveld profiles, peak fits and lattice parameters.</p><code>plot-xrd · xrd-lattice</code><span class="ws-pipe-role" data-role="xrd">te-xrd</span></li>
+              <li><span class="ws-pipe-dot"></span><h4>Model</h4><p>Phonon scattering, heat capacity and band transport, with uncertainty and correlation reports.</p><code>callaway · spb · skb · two-band</code><span class="ws-pipe-role" data-role="physics">te-physics-models</span></li>
+            </ol>
+
+            <div class="ws-ag-layout">
+              <ol class="ws-ag-rules">
+                <li>
+                  <h4>Commands first, never one-off scripts</h4>
+                  <p>Agents run <code>te &lt;command&gt; --no-show</code> instead of writing fresh matplotlib or scipy code, so typography, colours, CSV exports and reports stay the same from run to run.</p>
+                </li>
+                <li>
+                  <h4>Exit code 2 means ask</h4>
+                  <p><code>callaway</code>, <code>debye-calc</code> and <code>two-band --mode semimetal</code> stop with a checklist when a constant is missing. The agent asks which set you have and never fills in a Θ<sub>D</sub>, v<sub>s</sub> or effective mass itself.</p>
+                </li>
+                <li>
+                  <h4>Flag what the data can't separate</h4>
+                  <p>Fits write standard errors, 95% confidence intervals and a correlation matrix. At |r| ≥ 0.90 the agent suggests fixing one parameter from SEM, optical, low-<i>T</i> C<sub>p</sub> or DFT data.</p>
+                </li>
+                <li>
+                  <h4>Density before performance</h4>
+                  <p>Before comparing samples of one composition, the agent reads density, c<sub>p</sub> and processing from the ledger. It quotes a relative density only when a theoretical density is known.</p>
+                </li>
+                <li>
+                  <h4>Blank means unknown</h4>
+                  <p>Empty composition or processing fields are checked against the raw files and against you, and are never treated as confirmed conditions.</p>
+                </li>
+              </ol>
+
+              <div class="ws-ag-panel">
+                <div class="ws-code-window">
+                  <pre class="ws-code ws-code-static" data-lang="sh" data-hl="2-6"><code>$ te callaway data/demo/physics_fitting/paper_demo_kl_4_300K.csv --mechanisms U B PD RES --no-show
+Missing Debye lattice parameters (`--theta-d` and `--vs`).
+Please provide ONE of the following three parameter sets (or ask the user):
+  [Option 1 - Direct]      `--theta-d &lt;K&gt; --vs &lt;m/s&gt;`
+  [Option 2 - Ultrasonic]  `--vl &lt;m/s&gt; --vt &lt;m/s&gt;` plus `--atomic-volume-a3 &lt;A^3&gt;`
+  [Option 3 - Low-T Cp]    `--cp-csv &lt;path&gt;` (or `--cp-beta &lt;mJ/molK^4&gt;`) plus `--atoms-per-fu &lt;N&gt;`
+$ echo $?
+2</code></pre>
+                </div>
+                <div class="ws-code-window">
+                  <pre class="ws-code ws-code-static" data-lang="json" data-hl="2-3,8-10"><code>"fit_metrics": {
+  "r2": 0.9918,
+  "rmse_W_mK": 0.0153,
+  "diagnostics": {
+    "condition_number": 97.4,
+    "parameter_uncertainties": {
+      "rattler_theta_e_k": { "value": 29.52, "std_error": 1.65 } },
+    "collinear_pairs": [
+      { "param_a": "grain_size_nm", "param_b": "rattler_theta_e_k", "r": -0.929 }
+    ]
+  }
+}</code></pre>
+                </div>
+                <p class="ws-code-note">Top: the same fit run without Θ<sub>D</sub> and v<sub>s</sub> in a non-interactive shell (options trimmed). Bottom: an excerpt of <code>*_callaway_summary.json</code> after re-running with <code>--theta-d 146 --vs 1445</code>.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. Showcase -->
+          <section class="ws-section ws-showcase" id="ws-showcase" aria-labelledby="ws-showcase-title">
+            <div class="ws-section-head">
+              <p class="section-kicker">Showcase</p>
+              <h3 id="ws-showcase-title">Eight reproducible cases</h3>
+              <p>
+                Each case starts from a plain-language request and ends in commands, figures and numbers. Inputs are
+                public or desensitized demo data shipped in TEDEX's <code>showcase/</code> folder, so every command below
+                runs as written from the repository root.
+              </p>
+            </div>
+            <div class="ws-case" data-ws-case>
+              <div class="ws-case-tabs" role="tablist" aria-label="Showcase cases" data-ws-case-tabs></div>
+              <div class="ws-case-panel" data-ws-case-panel role="tabpanel" tabindex="0"></div>
+            </div>
+          </section>
+
+          <!-- 5. The materials database -->
           <section class="ws-section ws-db" id="ws-database" aria-labelledby="ws-db-title">
             <div class="ws-section-head">
               <p class="section-kicker">The materials database</p>
@@ -248,12 +466,12 @@
               <div class="ws-db-src">
                 <span class="ws-db-tag">Lab</span>
                 <strong>ZEM · LFA · XRD exports</strong>
-                <small><code>data/raw/&lt;batch&gt;/</code></small>
+                <small><code>data/raw/[&lt;system&gt;/]&lt;batch&gt;/</code></small>
               </div>
               <div class="ws-db-src">
                 <span class="ws-db-tag is-lit">Literature</span>
                 <strong>Paper tables · digitized figures</strong>
-                <small><code>data/reference/*.xlsx</code></small>
+                <small><code>data/references/literature/*.xlsx</code></small>
               </div>
               <div class="ws-db-flow" aria-hidden="true"><span></span><span></span></div>
               <div class="ws-db-core">
@@ -265,7 +483,7 @@
               <div class="ws-db-out">
                 <span><b>15</b> standard columns per sample CSV</span>
                 <span><b>Features</b> JSON for ranking and agents</span>
-                <span><b>Figures</b> · SPB fits · reports</span>
+                <span><b>Figures</b> · fits · reports</span>
               </div>
             </div>
 
@@ -274,31 +492,31 @@
                 <li class="ws-db-step is-active" data-step="0">
                   <span class="ws-db-num">01</span>
                   <h4>Discover what the instruments wrote</h4>
-                  <p>Raw files are the source of truth. A scan of <code>data/raw/</code> matches <code>&lt;sample&gt;_ZEM.txt</code> and <code>&lt;sample&gt;_LFA.csv|xlsx</code> and creates any missing batch or sample record.</p>
-                  <code class="ws-db-cmd">python main.py sync metadata</code>
+                  <p>Raw files are the source of truth. A scan of the configured raw folder matches <code>&lt;sample&gt;_ZEM.txt</code> and <code>&lt;sample&gt;_LFA.csv|xlsx</code>, one level deep or two when the project is grouped by system, and creates any missing batch or sample record.</p>
+                  <code class="ws-db-cmd">te sync metadata</code>
                 </li>
                 <li class="ws-db-step" data-step="1">
                   <span class="ws-db-num">02</span>
                   <h4>Merge without overwriting</h4>
-                  <p>Rescans only update structural fields: file paths and whether a processed table exists. Chemistry I curated by hand is carried over untouched.</p>
+                  <p>Rescans only update structural fields: file paths and whether a processed table exists. Chemistry I curated by hand, and any processed path I set myself, is carried over untouched.</p>
                 </li>
                 <li class="ws-db-step" data-step="2">
                   <span class="ws-db-num">03</span>
                   <h4>Edit it like a lab notebook</h4>
                   <p>The database exports to one Markdown ledger, grouped by batch. Compositions, densities, heat capacity and annealing notes are edited in plain tables; file paths stay read-only.</p>
-                  <code class="ws-db-cmd">python main.py sync markdown export</code>
+                  <code class="ws-db-cmd">te sync markdown export</code>
                 </li>
                 <li class="ws-db-step" data-step="3">
                   <span class="ws-db-num">04</span>
                   <h4>Round-trip back to typed JSON</h4>
                   <p>Importing parses each field by type: blank numbers become <code>null</code>, comma lists become arrays. Deleting a section never deletes a record unless I pass <code>--prune</code>.</p>
-                  <code class="ws-db-cmd">python main.py sync markdown</code>
+                  <code class="ws-db-cmd">te sync markdown import</code>
                 </li>
                 <li class="ws-db-step" data-step="4">
                   <span class="ws-db-num">05</span>
                   <h4>Normalize literature tables</h4>
                   <p>Papers report mΩ·cm, S/cm, µV/K or µW cm<sup>−1</sup> K<sup>−2</sup>. Headers are matched and scaled to SI, and anything not tabulated (σ, PF, <i>zT</i>, Lorenz, κ<sub>L</sub>, weighted mobility) is derived.</p>
-                  <code class="ws-db-cmd">python main.py sync reference-xlsx</code>
+                  <code class="ws-db-cmd">te sync reference-xlsx</code>
                 </li>
                 <li class="ws-db-step" data-step="5">
                   <span class="ws-db-num">06</span>
@@ -309,52 +527,54 @@
                   <span class="ws-db-num">07</span>
                   <h4>Features for ranking and agents</h4>
                   <p>Each sample is reduced to peak values and the temperatures they occur at. Assessment scripts score these deterministically; the language-model layer only interprets the result.</p>
-                  <code class="ws-db-cmd">python main.py assess &lt;batch&gt;</code>
+                  <code class="ws-db-cmd">te assess &lt;batch&gt;</code>
                 </li>
               </ol>
 
               <div class="ws-db-panel">
                 <div class="ws-code-tabs" role="tablist" aria-label="Database source files" data-ws-tabs></div>
                 <div class="ws-code-window">
-                  <pre class="ws-code is-active" data-code="0" data-lang="py" data-file="scripts/sync_lab_metadata.py" data-hl="1-4,13-14"><code>RAW_FILE_PATTERN = re.compile(
+                  <pre class="ws-code is-active" data-code="0" data-lang="py" data-file="te_analysis/sync/metadata.py" data-hl="1-4,12-16"><code>RAW_FILE_PATTERN = re.compile(
     r"^(?P&lt;sample_id&gt;.+)_(?P&lt;kind&gt;ZEM|LFA)\.(?P&lt;ext&gt;txt|csv|xlsx)$",
     re.IGNORECASE,
 )
 
 def discover_raw_samples(raw_dir):
     discovered = {}
-    for batch_dir in sorted(p for p in raw_dir.iterdir() if p.is_dir()):
-        for raw_file in sorted(batch_dir.iterdir()):
-            match = RAW_FILE_PATTERN.match(raw_file.name)
-            if not match:
-                continue
-            sample = discovered.setdefault(match["sample_id"], {
-                "sample_id": match["sample_id"], "batch_id": batch_dir.name})
-            sample[match["kind"].lower()] = relative_path(raw_file)
+    ws = get_workspace()
+    for entry_dir in sorted(p for p in Path(raw_dir).iterdir() if p.is_dir()):
+        before = len(discovered)
+        _scan_batch_folder(entry_dir, entry_dir.name, discovered)
+        if len(discovered) == before and ws.grouping_mode == "by_system_batch":
+            # Two-level &lt;raw&gt;/&lt;system&gt;/&lt;batch_id&gt;/ layout
+            for batch_dir in sorted(p for p in entry_dir.iterdir() if p.is_dir()):
+                _scan_batch_folder(batch_dir, batch_dir.name, discovered,
+                                   material_family=entry_dir.name)
     return discovered</code></pre>
-                  <pre class="ws-code" data-code="1" data-lang="py" data-file="scripts/sync_lab_metadata.py" data-hl="14-16"><code>def merge_sample_records(existing_samples, discovered_samples):
+                  <pre class="ws-code" data-code="1" data-lang="py" data-file="te_analysis/sync/metadata.py" data-hl="5-7,15-17"><code>def merge_sample_records(existing_samples, discovered_samples):
     samples_by_id = existing_by_key(existing_samples, "sample_id")
     for sample_id, discovered in discovered_samples.items():
-        batch_id = discovered["batch_id"]
         existing = samples_by_id.get(sample_id, {})
-        processed = existing.get("processed_file") or build_processed_path(batch_id, sample_id)
+        # Preserve a manually curated processed path; only default when unset.
+        processed_file = existing.get("processed_file") or build_processed_path(
+            discovered["batch_id"], sample_id, system=discovered.get("material_family", ""))
         merged = {
-            "sample_id": sample_id, "batch_id": batch_id,
+            "sample_id": sample_id,
+            "batch_id": discovered["batch_id"],
             "zem": discovered.get("zem", existing.get("zem", "")),
             "lfa": discovered.get("lfa", existing.get("lfa", "")),
-            "processed_file": processed,
-            "processed_exists": Path(processed).exists(),
+            "processed_file": processed_file,
         }
         # Curated chemistry survives every rescan.
-        for key, default in CHEMISTRY_DEFAULTS.items():
-            merged[key] = existing.get(key, default)
+        for key, value in CHEMISTRY_DEFAULTS.items():
+            merged[key] = existing.get(key, value)
         samples_by_id[sample_id] = merged</code></pre>
-                  <pre class="ws-code" data-code="2" data-lang="md" data-file="data/lab/lab_metadata.md" data-hl="10-18"><code>## DEMO-01
+                  <pre class="ws-code" data-code="2" data-lang="md" data-file="data/metadata/lab_metadata.md" data-hl="10-18"><code>## DEMO-01
 
 &lt;!-- lab-sync:sample DEMO-01-B --&gt;
 ### Sample DEMO-01-B
 - Raw: ZEM `data/raw/DEMO-01/DEMO-01-B_ZEM.txt` · LFA `data/raw/DEMO-01/DEMO-01-B_LFA.xlsx`
-- Processed: `data/processed/DEMO-01-processed/DEMO-01-B.csv` (exists)
+- Processed: `data/processed/DEMO-01/DEMO-01-B.csv` (exists)
 
 | Field | Value |
 | --- | --- |
@@ -367,12 +587,12 @@ def discover_raw_samples(raw_dir):
 | modifier_amount | 0.04 |
 | modifier_site | Se site |
 | annealing_condition | 773 K, 48 h |</code></pre>
-                  <pre class="ws-code" data-code="3" data-lang="json" data-file="data/lab/samples.json" data-hl="7-8,12-13"><code>{
+                  <pre class="ws-code" data-code="3" data-lang="json" data-file="data/metadata/samples.json" data-hl="7-8,12-13"><code>{
   "sample_id": "DEMO-01-B",
   "batch_id": "DEMO-01",
   "zem": "data/raw/DEMO-01/DEMO-01-B_ZEM.txt",
   "lfa": "data/raw/DEMO-01/DEMO-01-B_LFA.xlsx",
-  "processed_file": "data/processed/DEMO-01-processed/DEMO-01-B.csv",
+  "processed_file": "data/processed/DEMO-01/DEMO-01-B.csv",
   "density": 6.71,
   "cp_value": 0.39,
   "matrix_composition": "Cu2Se",
@@ -384,12 +604,12 @@ def discover_raw_samples(raw_dir):
   "synthesis_route": "",
   "annealing_condition": "773 K, 48 h"
 }</code></pre>
-                  <pre class="ws-code" data-code="4" data-lang="py" data-file="scripts/extract_reference_xlsx.py" data-hl="3-6,12"><code># Normalized header  ->  (standard column, factor to SI)
+                  <pre class="ws-code" data-code="4" data-lang="py" data-file="te_analysis/sync/reference_xlsx.py" data-hl="3-6,12"><code># Normalized header  -&gt;  (standard column, factor to SI)
 HEADER_MAP = {
-    "resistivitymohmcm": ("Resistivity", 1e-5),    # mOhm cm   -> Ohm m
-    "conductivityscm":   ("Conductivity", 100.0),  # S/cm      -> S/m
-    "seebeckuvk":        ("Seebeck", 1e-6),        # uV/K      -> V/K
-    "pfuwcmk2":          ("Power_Factor", 1e-4),   # uW/(cm K2) -> W/(m K2)
+    "resistivitymohmcm": ("Resistivity", 1e-5),    # mOhm cm   -&gt; Ohm m
+    "conductivityscm":   ("Conductivity", 100.0),  # S/cm      -&gt; S/m
+    "seebeckuvk":        ("Seebeck", 1e-6),        # uV/K      -&gt; V/K
+    "pfuwcmk2":          ("Power_Factor", 1e-4),   # uW/(cm K2) -&gt; W/(m K2)
     # ... 16 more header spellings
 }
 
@@ -437,138 +657,7 @@ df = add_derived_columns(df)</code></pre>
             </p>
           </section>
 
-          <!-- 3. The command surface -->
-          <section class="ws-section ws-pipe" id="ws-pipeline" aria-labelledby="ws-pipe-title">
-            <div class="ws-section-head">
-              <p class="section-kicker">The command surface</p>
-              <h3 id="ws-pipe-title">From a raw batch to a decision</h3>
-              <p>One launcher routes to every tool, so routine work is discoverable from <code>python main.py --help</code> instead of scattered scripts. Each step has one owner in agent mode.</p>
-            </div>
-            <ol class="ws-pipe-track" data-ws-pipe>
-              <li><span class="ws-pipe-dot"></span><h4>Sync</h4><p>Raw files, the ledger and the lab workbook become typed records.</p><code>sync metadata · workbook · fill</code><span class="ws-pipe-role" data-role="analyst">te-analyst</span></li>
-              <li><span class="ws-pipe-dot"></span><h4>Analyze</h4><p>ZEM and LFA aligned into S, σ, κ, PF, <i>zT</i>, Lorenz, κ<sub>L</sub>, µ<sub>w</sub>, B.</p><code>analyze &lt;batch&gt;</code><span class="ws-pipe-role" data-role="analyst">te-analyst</span></li>
-              <li><span class="ws-pipe-dot"></span><h4>Plot</h4><p>TE curves, stacked XRD with two PDF cards, recipe-driven flexible plots.</p><code>plot-te · plot-xrd · flexible</code><span class="ws-pipe-role" data-role="plotter">te-plotter</span></li>
-              <li><span class="ws-pipe-dot"></span><h4>Fit</h4><p>SPB effective mass, PF/<i>zT</i> versus n<sub>H</sub>, conductivity-axis fits, lattice parameters.</p><code>spb · xrd-lattice</code><span class="ws-pipe-role" data-role="analyst">te-analyst</span></li>
-              <li><span class="ws-pipe-dot"></span><h4>Assess</h4><p>Deterministic ranking and trend detection against lab and literature features.</p><code>assess · bayes</code><span class="ws-pipe-role" data-role="assessor">te-assessor</span></li>
-              <li><span class="ws-pipe-dot"></span><h4>Interpret</h4><p>A language model reads the scored payload, only when asked, with prompts kept separate from calculations.</p><code>agent</code><span class="ws-pipe-role" data-role="assessor">te-assessor</span></li>
-            </ol>
-          </section>
-
-          <!-- 4. Agent mode -->
-          <section class="ws-section ws-agents" id="ws-agents" aria-labelledby="ws-agents-title">
-            <div class="ws-section-head">
-              <p class="section-kicker">Agent mode</p>
-              <h3 id="ws-agents-title">Three role agents share one launcher</h3>
-              <p>
-                Ask for a result in plain language. A lead agent splits the request by role and hands each part to the
-                agent that owns those commands. Every role calls the same <code>python main.py</code> tools as the console
-                above, adds <code>--json</code>, and reads back the files a command wrote instead of its console text.
-              </p>
-            </div>
-
-            <div class="ws-ag-map" aria-label="How a request flows through the agents">
-              <div class="ws-ag-ask">
-                <span class="ws-db-tag">You</span>
-                <q>Process DEMO-01, compare it with DEMO-02, and suggest the next composition.</q>
-              </div>
-              <svg class="ws-ag-wire is-stem" viewBox="0 0 600 34" preserveAspectRatio="none" aria-hidden="true"><path d="M300 0V34" /></svg>
-              <div class="ws-ag-lead">
-                <span class="ws-db-tag is-core">Lead agent</span>
-                <strong>A Claude Code session</strong>
-                <small>Delegates by each role's description, runs independent parts in parallel, and brings questions back to you.</small>
-              </div>
-              <svg class="ws-ag-wire is-fan" viewBox="0 0 600 44" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M300 0V22M100 22H500" />
-                <path class="is-analyst" d="M100 22V44" /><path class="is-plotter" d="M300 22V44" /><path class="is-assessor" d="M500 22V44" />
-              </svg>
-              <article class="ws-ag-role" data-role="analyst">
-                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-analyst</h4></header>
-                <p>Turns raw ZEM/LFA files into processed data, runs SPB fits, and keeps lab metadata in order.</p>
-                <dl>
-                  <div><dt>Runs</dt><dd><code>analyze</code><code>spb</code><code>sync</code></dd></div>
-                  <div><dt>Writes</dt><dd><code>data/lab/</code><code>data/processed/</code></dd></div>
-                </dl>
-                <p class="ws-ag-rule">The only role that writes lab metadata.</p>
-              </article>
-              <article class="ws-ag-role" data-role="plotter">
-                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-plotter</h4></header>
-                <p>Makes TE, XRD and recipe-driven figures from batches that are already processed.</p>
-                <dl>
-                  <div><dt>Runs</dt><dd><code>plot-te</code><code>plot-xrd</code><code>flexible</code></dd></div>
-                  <div><dt>Writes</dt><dd><code>figures</code><code>new recipes, when asked</code></dd></div>
-                </dl>
-                <p class="ws-ag-rule">Names the batch that needs <code>analyze</code> instead of running it.</p>
-              </article>
-              <article class="ws-ag-role" data-role="assessor">
-                <header><span class="ws-role-dot" aria-hidden="true"></span><h4>te-assessor</h4></header>
-                <p>Scores batches, ranks next compositions, and runs the language-model analysis when asked.</p>
-                <dl>
-                  <div><dt>Runs</dt><dd><code>assess</code><code>bayes</code><code>agent</code></dd></div>
-                  <div><dt>Writes</dt><dd><code>results/</code></dd></div>
-                </dl>
-                <p class="ws-ag-rule">Keeps tool numbers apart from interpretation, with evidence labels.</p>
-              </article>
-              <svg class="ws-ag-wire is-merge" viewBox="0 0 600 44" preserveAspectRatio="none" aria-hidden="true">
-                <path class="is-analyst" d="M100 0V22" /><path class="is-plotter" d="M300 0V22" /><path class="is-assessor" d="M500 0V22" />
-                <path d="M100 22H500M300 22V44" />
-              </svg>
-              <div class="ws-ag-launch">
-                <code><span>python main.py</span> --json &lt;command&gt;</code>
-                <small>One JSON object per run: the command, its exit code and every file it wrote. Tool messages go to stderr.</small>
-              </div>
-            </div>
-
-            <div class="ws-ag-layout">
-              <ol class="ws-ag-rules">
-                <li>
-                  <h4>One writer for lab data</h4>
-                  <p>Only te-analyst changes <code>data/lab/</code> and processed data. The plotter and assessor say which batch needs <code>analyze</code> and hand it back.</p>
-                </li>
-                <li>
-                  <h4>Files, not console text</h4>
-                  <p><code>--json</code> lists every file a command wrote, so agents read results from paths instead of parsing logs.</p>
-                </li>
-                <li>
-                  <h4>Parallel runs take turns</h4>
-                  <p>Commands that change <code>data/lab/</code> hold a cross-process lock and swap files in whole. Analyses of different batches still overlap.</p>
-                </li>
-                <li>
-                  <h4>No default batch</h4>
-                  <p><code>analyze</code>, <code>plot-te</code>, <code>assess</code> and <code>agent</code> stop with an error when no batch is named, instead of guessing one.</p>
-                </li>
-                <li>
-                  <h4>Never invent a value</h4>
-                  <p>A missing density or c<sub>p</sub> comes from the lab workbook or from me. A value count that doesn't match the samples is refused, and nothing is overwritten without my confirmation.</p>
-                </li>
-                <li>
-                  <h4>External calls only on request</h4>
-                  <p><code>agent</code> sends extracted features to an external, paid LLM API, so the assessor runs it only when a request asks for that analysis.</p>
-                </li>
-              </ol>
-
-              <div class="ws-ag-panel">
-                <div class="ws-code-window">
-                  <pre class="ws-code ws-code-static" data-lang="json" data-hl="5-6,8-12"><code>{
-  "command": "plot-te",
-  "args": ["data/demo/thermoelectric_property/1.csv", "...",
-           "--zt", "--legend", "--no-show"],
-  "exit_code": 0,
-  "ok": true,
-  "outputs": [
-    {
-      "path": "outputs/figures/inter-batch/thermoelectric_property/zt.svg",
-      "kind": "figure",
-      "exists": true
-    }
-  ]
-}</code></pre>
-                </div>
-                <p class="ws-code-note">Stdout of <code>python main.py --json plot-te …</code>. Each tool reports a file by calling <code>record_output(path)</code> right after writing it.</p>
-              </div>
-            </div>
-          </section>
-
-          <!-- 4. Figure gallery -->
+          <!-- 6. Figure gallery -->
           <section class="ws-section ws-gallery-wrap" id="ws-gallery" aria-labelledby="ws-gallery-title">
             <div class="ws-section-head ws-gallery-head">
               <div>
@@ -579,14 +668,16 @@ df = add_derived_columns(df)</code></pre>
                 <button type="button" class="is-active" data-filter="all" aria-pressed="true">All</button>
                 <button type="button" data-filter="te" aria-pressed="false">TE</button>
                 <button type="button" data-filter="xrd" aria-pressed="false">XRD</button>
-                <button type="button" data-filter="flex" aria-pressed="false">Flexible</button>
+                <button type="button" data-filter="sci" aria-pressed="false">sciplot</button>
                 <button type="button" data-filter="spb" aria-pressed="false">SPB</button>
+                <button type="button" data-filter="phys" aria-pressed="false">Physics</button>
+                <button type="button" data-filter="dev" aria-pressed="false">Devices</button>
               </div>
             </div>
             <div class="ws-gallery" data-ws-gallery></div>
           </section>
 
-          <!-- 5. Engineering -->
+          <!-- 7. Engineering -->
           <section class="ws-section ws-eng" id="ws-engineering" aria-labelledby="ws-eng-title">
             <div class="ws-section-head">
               <p class="section-kicker">Under the hood</p>
@@ -594,20 +685,24 @@ df = add_derived_columns(df)</code></pre>
             </div>
             <div class="ws-eng-grid">
               <article class="ws-eng-card">
-                <h4>A real package</h4>
-                <p>Code moved from <code>src/</code> + <code>myplotstyle/</code> into one installable <code>te_analysis</code> package. Three 1,100–2,100-line plotting scripts were split into focused modules; <code>main.py</code> is now a thin shim.</p>
+                <h4>A self-contained package</h4>
+                <p>The pipeline and metadata sync now live inside <code>te_analysis</code>, so a plain <code>pip install .</code> registers <code>te</code>, <code>tedex</code>, <code>te-init</code>, <code>te-plot-te</code>, <code>te-plot-xrd</code>, <code>te-sciplot</code> and the <code>te-spb-*</code> tools. <code>main.py</code> and <code>scripts/</code> remain as thin shims.</p>
               </article>
               <article class="ws-eng-card">
-                <h4>Golden-figure tests</h4>
-                <p>76 tests pin behavior before refactors: selector parsing, Markdown round-trips, LFA Excel input, XRD selection, and golden outputs for every flexible recipe, <code>plot-te</code>, <code>plot-xrd</code> and SPB.</p>
+                <h4>Fits that report their own doubts</h4>
+                <p>Every physics model writes a <code>*_summary.json</code> with the Jacobian condition number, standard errors, 95% intervals and a correlation matrix, and prints a warning for any pair with |r| ≥ 0.90.</p>
               </article>
               <article class="ws-eng-card">
-                <h4>Consistent color</h4>
-                <p><code>--color-set</code> works across TE, XRD, flexible and SPB plots. Sequential palettes span dark to light for batches of one composition, and sample colors stay fixed across panels.</p>
+                <h4>Legends that stay inside</h4>
+                <p>A shared layout engine picks the least crowded spot inside the axes, adjusts columns and font size, and adds headroom when nothing fits, across <code>plot-te</code>, <code>sciplot</code>, <code>plot-xrd</code>, SPB and the physics models.</p>
+              </article>
+              <article class="ws-eng-card">
+                <h4>102 tests</h4>
+                <p>Golden-figure tests for <code>plot-te</code>, <code>plot-xrd</code>, every <code>sciplot</code> recipe and SPB, plus physics models, Markdown round trips, LFA Excel input, colour sets, inside-legend layout and Mode B workspace paths.</p>
               </article>
               <figure class="ws-eng-figure">
-                <img src="assets/workspace/live/color-sets-categorical.png" alt="Preview of the four categorical color sets applied to simulated curves" loading="lazy" />
-                <figcaption>Categorical color sets on simulated curves, from <code>docs/COLOR_SETS.md</code>.</figcaption>
+                <img src="assets/workspace/v15/color-sets-categorical.webp" alt="Preview of the categorical color sets applied to simulated curves" loading="lazy" />
+                <figcaption>Categorical colour sets on simulated curves, from <code>docs/COLOR_SETS.md</code>. <code>science</code> is the default.</figcaption>
               </figure>
             </div>
             <div class="ws-links">
@@ -1184,8 +1279,8 @@ df = add_derived_columns(df)</code></pre>
               <p class="hero-intro">
                 My work spans high-entropy thermoelectric materials, ductile inorganic semiconductors, and flexible
                 devices. I also develop <a class="profile-inline-link" href="#agent-workspace" data-view-link="agent-workspace">TEDEX</a>,
-                a workspace for experimental data management, transport modeling, scientific plotting, and
-                AI-assisted materials screening.
+                a command-line harness and set of AI agent skills for experimental data management, transport modeling,
+                scientific plotting, and materials screening.
               </p>
               <div class="profile-links" aria-label="CV and academic profiles">
                 <a href="assets/cv/Heyang_Chen_CV.pdf" target="_blank" rel="noopener">CV (PDF) <span aria-hidden="true">&nearr;</span></a>
@@ -1740,7 +1835,7 @@ df = add_derived_columns(df)</code></pre>
     <script src="assets/thermoelectric-model.js?v=20261119b"></script>
     <script src="assets/thermoelectric-lab.js?v=20261119d"></script>
     <script src="assets/lab-cat.js?v=20261123a"></script>
-    <script src="assets/workspace.js?v=20261123a"></script>
+    <script src="assets/workspace.js?v=20261126b"></script>
     <script src="assets/te-theme.js?v=20261120b"></script>
     <script src="assets/cation.js?v=20261122c"></script>
   </body>

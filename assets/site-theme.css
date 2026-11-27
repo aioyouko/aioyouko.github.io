@@ -91,7 +91,7 @@ body.te-dark :is(.contact-panel, .contact-links a) { color: #fffdf8; }
 .page-contents a:hover, .page-contents a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
 .page-contents:not([data-cols]) a:nth-child(4n + 1), .page-contents[data-cols="3"] a:nth-child(3n + 1) { padding-left: 0; border-left: 0; }
 body.te-dark .page-contents a span { color: var(--muted); }
-:is(#ws-console, #ws-database, #ws-pipeline, #ws-gallery, #ws-engineering, #workspace-references, #about-experience, #about-education, #about-personal) { scroll-margin-top: 88px; }
+:is(#ws-console, #ws-modes, #ws-skills, #ws-showcase, #ws-database, #ws-gallery, #ws-engineering, #workspace-references, #about-experience, #about-education, #about-personal) { scroll-margin-top: 88px; }
 @media (max-width: 640px) {
   .page-contents, .page-contents[data-cols] { grid-template-columns: 1fr 1fr; gap: 0.9rem 0.6rem; }
   .page-contents a { padding: 0; border: 0; }

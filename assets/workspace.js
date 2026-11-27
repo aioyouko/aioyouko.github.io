@@ -189,8 +189,8 @@
       cmd: `te callaway ${PHYS}/paper_demo_kl_4_300K.csv --theta-d 146 --vs 1445 --mechanisms U B PD RES --spectral-xaxis meV --spectral-norm x --rattler-damping 0 --formats svg png --no-show`,
       log: [["ok", "Callaway fit complete -> R^2 = 0.9918, RMSE = 0.0153 W m^-1 K^-1"], ["", "Median phonon MFP at 300 K: 0.7 nm"], ["warn", "warning: Strong parameter collinearity between grain_size_nm and rattler_theta_e_k (r = -0.929); consider fixing one from independent Hall/optical/DFT data."]],
       figs: [
-        fig("cal-fit.svg", "4–300 K κ<sub>L</sub>, mechanism by mechanism", "callaway", "Lattice thermal conductivity from 4 to 300 K with cumulative Umklapp, boundary, point-defect and resonant fits", true),
-        fig("cal-spectral.svg", "Spectral κ<sub>s</sub>(ħω) and cumulative MFP", "callaway", "Spectral lattice thermal conductivity in meV and cumulative mean free path at 300 K", true),
+        fig("cal-fit.svg", "4–300 K κ<sub>L</sub>, mechanism by mechanism", "callaway", "Lattice thermal conductivity from 4 to 300 K with cumulative Umklapp, boundary, point-defect and resonant fits"),
+        fig("cal-spectral.svg", "Spectral κ<sub>s</sub>(ħω) and cumulative MFP", "callaway", "Spectral lattice thermal conductivity in meV and cumulative mean free path at 300 K"),
       ],
       more: [fig("cal-contrib.svg", "Scattering rates and mechanism shares S<sub>m</sub>(T)", "callaway", "Relaxation rates of each mechanism and their temperature-dependent shares", true)],
     },
@@ -384,7 +384,7 @@
       metrics: [["Callaway fit", "R² = 0.9918, RMSE = 0.0153 W m⁻¹ K⁻¹"], ["Resonant mode Θ<sub>E</sub>", "29.5 ± 1.7 K (2.54 meV)"], ["Median MFP Λ<sub>50%</sub>, 300 K", "0.68 nm"], ["Point-defect disorder Γ", "0.1007"]],
       note: "Without Θ<sub>D</sub> and v<sub>s</sub> the fit stops at exit 2 with three ways to supply them. With them, the summary warns that grain size and Θ<sub>E</sub> are collinear (r = −0.929).",
       cmds: [byId("callaway").cmd, byId("cp").cmd],
-      figs: [fig("cal-fit.svg", "Cumulative fit U → +B → +PD → +RES", "", "", true), fig("cal-spectral.svg", "300 K spectral κ<sub>s</sub>(ħω) and cumulative MFP", "", "", true), fig("de-cp.svg", "C<sub>p</sub>/T<sup>3</sup>: Sommerfeld + Debye + two Einstein modes", "", "", true)],
+      figs: [fig("cal-fit.svg", "Cumulative fit U → +B → +PD → +RES", "", ""), fig("cal-spectral.svg", "300 K spectral κ<sub>s</sub>(ħω) and cumulative MFP", "", ""), fig("de-cp.svg", "C<sub>p</sub>/T<sup>3</sup>: Sommerfeld + Debye + two Einstein modes", "", "", true)],
     },
     {
       n: "05", short: "XRD · in-situ suite", cat: "Crystal structure & phase evolution", roles: ["xrd"],
